@@ -19,6 +19,10 @@
 
 > \> mongod --dbpath #{path}
 
+* configファイルを使用した起動
+
+> \> mongod -f #{config_file}
+
 * mongo shellの起動
 
 > \> mongo
