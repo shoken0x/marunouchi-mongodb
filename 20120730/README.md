@@ -12,7 +12,8 @@ Marunouchi MongoDB 20120730
 * [@fetarodc](http://twitter.com/fetarodc) [RubyからMongoDBを触ってみる]
 * みんな [質問とか、第２回でどんなことをやるかとか]
 * 集合写真撮影
-
+* 懇親会へ
+** 場所はこちらを予定→(http://r.gnavi.co.jp/gadd900/)[和彩酒蔵 だるま 八重洲地下街 ]
 
 # 参加者 07/29 14:00 更新
 goyachanpuru : 宜しくお願いします。  
