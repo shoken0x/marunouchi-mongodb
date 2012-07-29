@@ -2,6 +2,8 @@ Marunouchi MongoDB 20120730
 =================
 みんなでMongoDBについて勉強しましょう。
 
+[丸の内MongoDB勉強会 #1](http://atnd.org/events/30595)
+
 ![marunouchi.mongodb logo](http://www.fedc.biz/~fujisaki/img/mongodb_logo.png)
 
 
