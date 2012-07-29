@@ -32,34 +32,34 @@
 
 * データベースを削除する // mysql> drop database #{db_name}
 
-> //useコマンドでデータベースを選択しておく  
+> //useコマンドでデータベースを選択しておく    
 > \> db.dropDatabase()
 
 ## COLLECTION
 * コレクションを参照する
 
-> \> show dbs
-> \> use #{db_name}
-> \> show collections
-> \> //何も無かったら適当にinsertする
-> \> db.marunouchi.insert({now:new Date()})
-> \> //marunouchiが見えますか
+> \> show dbs  
+> \> use #{db_name}  
+> \> show collections  
+> \> //何も無かったら適当にinsertする  
+> \> db.marunouchi.insert({now:new Date()})  
+> \> //marunouchiが見えますか  
 > \> show collections
 
 * コレクションを削除する // mysql> drop table #{table_name}
 
-> \> show dbs
-> \> use #{db_name}
-> \> show collections
-> \> db.marunouchi.drop()  foo コレクション全部を削除します
-> \> show collections //確認、marunouchiは削除された
+> \> show dbs  
+> \> use #{db_name}  
+> \> show collections  
+> \> db.marunouchi.drop()  foo コレクション全部を削除します  
+> \> show collections //確認、marunouchiは削除された  
 
 * コレクション内のデータを削除する // mysql> truncate table #{table_name}
 
-> \> db.marunouchi.insert({now:new Date()})
-> \> show collections
-> \> db.marunouchi.remove()   コレクションの中のすべてのオブジェクトを削除します
-> \> show collections //確認、marunouchiはまだある
+> \> db.marunouchi.insert({now:new Date()})  
+> \> show collections  
+> \> db.marunouchi.remove()   コレクションの中のすべてのオブジェクトを削除します  
+> \> show collections //確認、marunouchiはまだある  
 
 
 ## DOCUMENT
