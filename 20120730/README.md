@@ -16,9 +16,9 @@ Marunouchi MongoDB 20120730
  * 場所はこちらを予定→[和彩酒蔵 だるま 八重洲地下街](http://r.gnavi.co.jp/gadd900/)
 
 # 参考サイト
-[MongoDBの基礎](http://dotinstall.com/lessons/basic_mongodb)
-[公式ドキュメント(日本語) チュートリアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079135)
-[公式ドキュメント(日本語) マニュアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079208)
+[MongoDBの基礎](http://dotinstall.com/lessons/basic_mongodb)  
+[公式ドキュメント(日本語) チュートリアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079135)  
+[公式ドキュメント(日本語) マニュアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079208)  
 
 
 # 参加者 07/29 14:00 更新
