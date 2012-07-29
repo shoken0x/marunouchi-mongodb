@@ -1,3 +1,5 @@
+# SQLライクなMongoDBの操作
+
 ## pathの確認
 ### Windows
 * マイコンピュータ右クリック -> プロパティ -> システムの詳細設定 -> 詳細設定タブ -> 環境変数 -> Path に#{MongoDBのインストールパス/bin}を追加
@@ -26,7 +28,7 @@
 
 > \> show dbs
 
-* データベースを選択する // mysql> use #{db_name}
+* データベースを選択/作成する // mysql> use #{db_name}; create database #{db_name}
 
 > \> use #{db_name}
 
@@ -36,15 +38,13 @@
 > \> db.dropDatabase()
 
 ## COLLECTION
-* コレクションを参照する
+* コレクションを参照/作成する // mysql> show tables; create table #{table_name}(...)
 
 > \> show dbs  
 > \> use #{db_name}  
-> \> show collections  
-> \> //何も無かったら適当にinsertする  
-> \> db.marunouchi.insert({now:new Date()})  
-> \> //marunouchiが見えますか  
-> \> show collections
+> \> show collections  //コレクションが何も表示されなかったら適当にinsertする  
+> \> db.marunouchi.insert({now:new Date()})  //現在時刻をinsert  
+> \> show collections //marunouchiが見えますか
 
 * コレクションを削除する // mysql> drop table #{table_name}
 
@@ -63,7 +63,11 @@
 
 
 ## DOCUMENT
-* INSERT
+* INSERT // mysql> insert into #{table_name} values(...)
+
+> \> use #{db_name}  
+> \> db.marunouchi.insert({now:new Date()})  
+> \> //こんな書き方もできます
 
 * SELECT
 
