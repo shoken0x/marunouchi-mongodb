@@ -17,6 +17,9 @@ Marunouchi MongoDB 20120730
 
 # 参考サイト
 [MongoDBの基礎](http://dotinstall.com/lessons/basic_mongodb)
+[公式ドキュメント(日本語) チュートリアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079135)
+[公式ドキュメント(日本語) マニュアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079208)
+
 
 # 参加者 07/29 14:00 更新
 goyachanpuru : 宜しくお願いします。  
