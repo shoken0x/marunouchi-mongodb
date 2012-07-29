@@ -10,7 +10,7 @@ Marunouchi MongoDB 20120730
 * [雲屋株式会社](http://kumoya.com/) 様ご提供のステッカーを配る
 * [@syokenz](http://twitter.com/syokenz) [SQLライクなMongoDBの操作]
 * [@fetarodc](http://twitter.com/fetarodc) [RubyからMongoDBを触ってみる]
-* みんな [質問とか、第２回でどんなことをやるかとか]
+* みんなで [質問とか、第２回でどんなことをやるかとか]
 * 集合写真撮影
 * 懇親会へ
  * 場所はこちらを予定→[和彩酒蔵 だるま 八重洲地下街](http://r.gnavi.co.jp/gadd900/)
