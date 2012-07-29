@@ -15,6 +15,9 @@ Marunouchi MongoDB 20120730
 * 懇親会へ
  * 場所はこちらを予定→[和彩酒蔵 だるま 八重洲地下街](http://r.gnavi.co.jp/gadd900/)
 
+# 参考サイト
+[MongoDBの基礎](http://dotinstall.com/lessons/basic_mongodb)
+
 # 参加者 07/29 14:00 更新
 goyachanpuru : 宜しくお願いします。  
 fetaro : よろしくお願いします。  
