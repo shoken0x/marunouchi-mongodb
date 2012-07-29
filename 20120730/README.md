@@ -18,7 +18,7 @@ Marunouchi MongoDB 20120730
 # 参考サイト
 [公式ドキュメント(日本語) マニュアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079208)  
 [公式ドキュメント(日本語) チュートリアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079135)  
-[新・公式ドキュメント(日本語) マニュアル](http://jp.docs.mongodb.org/manual/)
+[新・公式ドキュメント(日本語) マニュアル](http://jp.docs.mongodb.org/manual/)  
 [MongoDBの基礎(動画)](http://dotinstall.com/lessons/basic_mongodb)  
 
 
