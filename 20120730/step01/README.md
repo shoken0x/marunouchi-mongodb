@@ -4,37 +4,63 @@
 
 ### Mac, Linux
 * 以下のコマンドを実行
+
 > \> export PATH = #{MongoDBのインストールパス/bin}:$PATH
 
 * 追加されたpathが入っていることを確認
+
 > \> echo $PATH
 
 ## mongodbの起動
 
 * mongodの起動
+
 > \> mongod --dbpath #{path}
 
 * mongo shellの起動
+
 > \> mongo
 
 ## DBS
 * データベースを参照する // mysql> show databases
+
 > \> show dbs
 
 * データベースを選択する // mysql> use #{db_name}
+
 > \> use #{db_name}
 
 * データベースを削除する // mysql> drop database #{db_name}
+
 > //useコマンドでデータベースを選択しておく  
 > \> db.dropDatabase()
 
-## DBS
-* show dbs
-* drop dbs
-
 ## COLLECTION
-* show collections
-* drop collections
+* コレクションを参照する
+
+> \> show dbs
+> \> use #{db_name}
+> \> show collections
+> \> //何も無かったら適当にinsertする
+> \> db.marunouchi.insert({now:new Date()})
+> \> //marunouchiが見えますか
+> \> show collections
+
+* コレクションを削除する // mysql> drop table #{table_name}
+
+> \> show dbs
+> \> use #{db_name}
+> \> show collections
+> \> db.marunouchi.drop()  foo コレクション全部を削除します
+> \> show collections //確認、marunouchiは削除された
+
+* コレクション内のデータを削除する // mysql> truncate table #{table_name}
+
+> \> db.marunouchi.insert({now:new Date()})
+> \> show collections
+> \> db.marunouchi.remove()   コレクションの中のすべてのオブジェクトを削除します
+> \> show collections //確認、marunouchiはまだある
+
 
 ## DOCUMENT
 * INSERT
