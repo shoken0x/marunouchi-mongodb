@@ -6,7 +6,7 @@
 * 以下のコマンドを実行
 > \> export PATH = #{MongoDBのインストールパス/bin}:$PATH
 
-*追加されたpathが入っていることを確認
+* 追加されたpathが入っていることを確認
 > \> echo $PATH
 
 ## mongodbの起動
