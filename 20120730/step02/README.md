@@ -7,12 +7,13 @@ Ruby Installerでインストールするのが簡単です。
 
 1. http://rubyinstaller.org/downloads/　にアクセス。
 1. Ruby 1.9.3-p194のをクリック
-1. インストらーに従ってインストール
+1. インストラーに従ってインストール
 
 ##環境変数の設定
 
 1. PATHに「C:\Ruby193\bin」を追加
 1.  コマンドプロンプトで
+
 > $ ruby -v  
 > ruby 1.9.3p194 (2012-04-20) [i386-mingw32] ←バージョンが出ることを確認  
 > 
@@ -23,6 +24,7 @@ Ruby Installerでインストールするのが簡単です。
 ##MongoDB Ruby driverのインストール
 
 1. Mongo DBインストール
+
 > $ gem install mongo  
 > Fetching: bson-1.6.4.gem (100%)  
 > Fetching: mongo-1.6.4.gem (100%)  
@@ -35,6 +37,7 @@ Ruby Installerでインストールするのが簡単です。
 > Installing RDoc documentation for mongo-1.6.4...  
 
 2. 確認
+
 > $irb  
 > irb(main):001:0> require 'mongo'  
 > => true　←trueになることを確認  
@@ -55,5 +58,6 @@ the same version.
 
 気になる人は、ruby起動時に -W0というオプションを付けることで、
 メッセージを抑止できます。
+
 > $ ruby -W0 test.rb
 
