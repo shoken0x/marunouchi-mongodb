@@ -92,6 +92,7 @@ collにDoccumentの挿入
 > coll.insert( { "name" => "fujisaki", "age" => 30  } )    
 > coll.insert( { "name" => "watanabe", "age" => 29  } )      
 > coll.insert( { "name" => "hayashida", "age" => 24 } )     
+
 collの中のDocumentを配列化  (to_a は to arrayの関数)
 
 > coll.find.to_a
