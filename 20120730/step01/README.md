@@ -106,15 +106,19 @@
 
 > \> db.marunouchi.find({stock:10},{_id:1})  
 
+### UPDATE
+* mysql> update marunouchi set version = 7 where name = 'debian'
 
+> \> db.marunouchi.update({name:'pen'},{$set:{stock:10}}) //$setがないと他のフィールドが消えてしまうので注意
 
-* UPDATE
+* _idが存在すればupdate、存在しなければinsert
 
-* DELETE
+> \> db.marunouchi.save({_id:ObjectId("xxxx"),stock:10})
 
-* WEHER
+### DELETE
+* mysql> delete from marunouchi where name = 'centos'
 
-* REGEX
+> \> db.marunouchi.remove({name:'centos'})
 
 ## INDEX
 * INDEX参照
