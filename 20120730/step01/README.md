@@ -71,9 +71,24 @@
 
 > \> use #{db_name}  
 > \> db.marunouchi.insert({now:new Date()})  
-> \> //こんな書き方もできます
+> \> db[marunouchi].insert({now:new Date()}) //こんな書き方もできます  
 
 * SELECT
+ * mysql> select * from marunouchi
+
+> \> db.marunouchi.find()
+
+ * mysql> select _id from marunouchi
+
+> \> db.marunouchi.find({},{_id:1})  
+> \> db.marunouchi.find({},{now:1}) //_id フィールドは常に表示される  
+> \> db.marunouchi.find({},{_id:0,now:1}) //0で非表示に  
+
+ * mysql> select _id from where stock = 10
+
+> \> db.marunouchi.find({stock:10},{_id:1})  
+
+
 
 * UPDATE
 
