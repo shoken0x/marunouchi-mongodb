@@ -65,6 +65,7 @@
 > \> db.marunouchi.remove()   コレクションの中のすべてのオブジェクトを削除します  
 > \> show collections //確認、marunouchiはまだある  
 
+* descコマンドはありません // mysql> desc #{table_name}
 
 ## DOCUMENT
 ### INSERT
@@ -77,6 +78,10 @@
 
 
 ### SELECT
+* mysql> select (*) from marunouchi
+
+> \> db.marunouchi.count()
+
 * mysql> select * from marunouchi
 
 > \> db.marunouchi.find()
@@ -92,7 +97,7 @@
 > \> db.marunouchi.find().toArray()  
 > \> db.marunouchi.find().toArray().forEach(printjsononeline)  
 
-* とりあえず1件表示 mysql> select * from marunouchi limit 1
+* とりあえず1件表示 // mysql> select * from marunouchi limit 1
 
 > \> db.marunouchi.findOne()
 
