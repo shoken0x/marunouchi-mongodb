@@ -63,20 +63,27 @@ the same version.
 
 # irbから触ってみる
 
-> $ irb
-> require 'mongo'
-> con = Mongo::Connection.new //MongoDBに接続
-> db = con.db("mydb") //DBを指定
-> coll = db["mycoll"] //Collectionを指定
-> coll.count //collのDocumentの数(=データの数)
-> coll.insert( { "name" => "fujisaki", "age" => 30  } ) //collにDoccumentの挿入
-> coll.insert( { "name" => "watanabe", "age" => 29  } )
-> coll.insert( { "name" => "hayashida", "age" => 24 } )
-> coll.find.to_a //collの中のDocumentを配列化
-> coll.find.each { |doc| p doc }  //collの中のDocumentをループで回す
-> coll.find( { "_id"  => BSON::ObjectId('4f7b20b4e4d30b35c9000049') } ).to_a //idを指定して検索
-> coll.find( { "name" => /nabe/ } ).to_a //nameにnabeを含むものを検索
-> coll.find.sort("age").to_a //キーが"age"の値でソート
-> coll.update( {"name" => "fujisaki"} , {"$set" => {"age" => "31"} } ) //fujisakiのageを更新
-> coll.remove("name" => "fujisaki")
-> coll.remove()
+> $ irb  
+> require 'mongo'  
+> con = Mongo::Connection.new //MongoDBに接続  
+> db = con.db("mydb") //DBを指定  
+> coll = db["mycoll"] //Collectionを指定  
+> coll.count //collのDocumentの数(=データの数)  
+> coll.insert( { "name" => "fujisaki", "age" => 30  } ) //collにDoccumentの挿入  
+> coll.insert( { "name" => "watanabe", "age" => 29  } )  
+> coll.insert( { "name" => "hayashida", "age" => 24 } )  
+> coll.find.to_a //collの中のDocumentを配列化  
+> coll.find.each { |doc| p doc }  //collの中のDocumentをループで回す  
+> coll.find( { "_id"  => BSON::ObjectId('4f7b20b4e4d30b35c9000049') } ).to_a //idを指定して検索  
+> coll.find( { "name" => /nabe/ } ).to_a //nameにnabeを含むものを検索  
+> coll.find.sort("age").to_a //キーが"age"の値でソート  
+> coll.update( {"name" => "fujisaki"} , {"$set" => {"age" => "31"} } ) //fujisakiのageを更新  
+> coll.remove("name" => "fujisaki")  
+> coll.remove()  
+  
+# rubyから触ってみる
+
+以下のサンプルで説明していきます。
+
+* sample1.rb  
+* sample2.rb  
