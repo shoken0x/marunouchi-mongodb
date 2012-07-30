@@ -33,8 +33,9 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 
 ### Mac, Linux
 * 以下のコマンドを実行
-
-> \> export PATH = #{MongoDBのインストールパス/bin}:$PATH
+<pre>
+> export PATH = #{MongoDBのインストールパス/bin}:$PATH
+</pre>
 
 * 追加されたpathが入っていることを確認
 
@@ -190,5 +191,6 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 ##参考サイト
 
 [SQL脳に優しいMongoDBクエリー入門](http://d.hatena.ne.jp/taka512/20110220/1298195574)  
+[MongoDB公式マニュアル チュートリアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079135)
 [MongoDB公式マニュアル 高度なクエリー](http://www.mongodb.org/pages/viewpage.action?pageId=6029357)  
 [MongoDB公式マニュアル インデックス](http://www.mongodb.org/pages/viewpage.action?pageId=5800049)  
