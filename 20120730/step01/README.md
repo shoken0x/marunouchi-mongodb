@@ -47,7 +47,7 @@
 > \> show dbs  
 > \> use #{db_name}  
 > \> show collections  //コレクションが何も表示されなかったら適当にinsertする  
-> \> db.marunouchi.insert({now:new Date()})  //現在時刻をinsert  
+> \> db.marunouchi.insert({"now":new Date()})  //現在時刻をinsert  
 > \> show collections //marunouchiが見えますか
 
 * コレクションを削除する // mysql> drop table #{table_name}
@@ -60,7 +60,7 @@
 
 * コレクション内のデータを削除する // mysql> truncate table #{table_name}
 
-> \> db.marunouchi.insert({now:new Date()})  
+> \> db.marunouchi.insert({"now":new Date()})  
 > \> show collections  
 > \> db.marunouchi.remove()   コレクションの中のすべてのオブジェクトを削除します  
 > \> show collections //確認、marunouchiはまだある  
@@ -71,9 +71,9 @@
 * mysql> insert into #{table_name} values(...)
 
 > \> use #{db_name}  
-> \> db.marunouchi.insert({now:new Date()})  
-> \> db[marunouchi].insert({now:new Date()}) //こんな書き方もできます  
-> \> for(var i=1; i<=20; i++) db.marunouchi.insert({'stock':i})
+> \> db.marunouchi.insert({"now":new Date()})  
+> \> db[marunouchi].insert({"now":new Date()}) //こんな書き方もできます  
+> \> for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i})
 
 
 ### SELECT
@@ -102,13 +102,13 @@
 
 * mysql> select _id from marunouchi
 
-> \> db.marunouchi.find({},{_id:1})  
-> \> db.marunouchi.find({},{now:1}) //_id フィールドは常に表示される  
-> \> db.marunouchi.find({},{_id:0,now:1}) //0で非表示に  
+> \> db.marunouchi.find({},{"_id":1})  
+> \> db.marunouchi.find({},{"now":1}) //_id フィールドは常に表示される  
+> \> db.marunouchi.find({},{"_id":0,"now":1}) //0で非表示に  
 
 * mysql> select _id from where stock = 10
 
-> \> db.marunouchi.find({stock:10},{_id:1})  
+> \> db.marunouchi.find({"stock":10},{"_id":1})  
 
 * mysql> select _id from where stock {>, <, >=, <=} 10
 
@@ -119,8 +119,8 @@
 
 * JSON形式で表示
 
-> \> db.marunouchi.find()forEach(printjson)  
-> \> db.marunouchi.find()forEach(printjsononeline)  
+> \> db.marunouchi.find().forEach(printjson)  
+> \> db.marunouchi.find().forEach(printjsononeline)  
 
 * toArray
 
@@ -130,16 +130,16 @@
 ### UPDATE
 * mysql> update marunouchi set version = 7 where name = 'debian'
 
-> \> db.marunouchi.update({name:'pen'},{$set:{stock:10}}) //$setがないと他のフィールドが消えてしまうので注意
+> \> db.marunouchi.update({"name":"debian"},{$set:{"stock":10}}) //$setがないと他のフィールドが消えてしまうので注意
 
 * _idが存在すればupdate、存在しなければinsert
 
-> \> db.marunouchi.save({_id:ObjectId("xxxx"),stock:10})
+> \> db.marunouchi.save({"_id":ObjectId("xxxx"),"stock":10})
 
 ### DELETE
 * mysql> delete from marunouchi where name = 'centos'
 
-> \> db.marunouchi.remove({name:'centos'})
+> \> db.marunouchi.remove({"name":"centos"})
 
 ## INDEX
 * INDEX参照
@@ -148,11 +148,11 @@
 
 * INDEX作成
 
-> \> db.marunouchi.ensureIndex({stock:1})
+> \> db.marunouchi.ensureIndex({"stock":1})
 
 * INDEX削除
 
-> \> db.marunouchi.dropIndex({stock:1})  
+> \> db.marunouchi.dropIndex({"stock":1})  
 > \> db.marunouchi.dropIndexes() //全て削除  
 
 ##参考サイト
