@@ -165,7 +165,7 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 * mysql> select _id from where stock {>, <, >=, <=} 10
 <pre>
 > db.marunouchi.find({ "stock" : { $gt:  10 } } ); // 大きい : stock > 10  
-> db.marunouchi.find({ "stock" : { $lt:  10 } } ); // 小さい : stock < 10  
+> db.marunouchi.find({ "stock" : { $lt:  10 } } ); // 小さい : stock < 10                    
 > db.marunouchi.find({ "stock" : { $gte: 10 } } ); // 以上 : stock >= 10  
 > db.marunouchi.find({ "stock" : { $lte: 10 } } ); // 以下 : stock <= 10  
 </pre>
