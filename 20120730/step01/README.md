@@ -118,8 +118,13 @@
 
 ## INDEX
 * CREATE INDEX
+
+> \> db.marunouchi.ensureIndex({stock:1})
+
 * DELETE INDEX
 
+> \> db.marunouchi.dropIndex({stock:1})
+> \> db.marunouchi.dropIndexes() //全て削除
 
 ##参考サイト
 
