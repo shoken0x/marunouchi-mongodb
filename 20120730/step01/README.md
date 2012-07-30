@@ -116,7 +116,7 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 </pre>
 
 ### SELECT
-* mysql> select (*) from marunouchi
+* mysql> select count(*) from marunouchi
 <pre>
 > db.marunouchi.count()
 </pre>
