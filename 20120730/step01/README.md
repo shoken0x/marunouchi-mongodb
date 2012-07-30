@@ -108,95 +108,112 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 ## DOCUMENT
 ### INSERT
 * mysql> insert into #{table_name} values(...)
-
-> \> use #{db_name}  
-> \> db.marunouchi.insert({"now":new Date()})  
-> \> db[marunouchi].insert({"now":new Date()}) //こんな書き方もできます  
-> \> for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i})
-
+<pre>
+> use #{db_name}  
+> db.marunouchi.insert({"now":new Date()})  
+> db[marunouchi].insert({"now":new Date()}) //こんな書き方もできます  
+> for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i})
+</pre>
 
 ### SELECT
 * mysql> select (*) from marunouchi
-
-> \> db.marunouchi.count()
+<pre>
+> db.marunouchi.count()
+</pre>
 
 * mysql> select * from marunouchi
-
-> \> db.marunouchi.find()
+<pre>
+> db.marunouchi.find()
+</pre>
 
 * has more と表示されたら
-
-> \> it //iterator
+<pre>
+> it //iterator
+</pre>
 
 * find()で20件以上表示させたい
+<pre>
+> DBQuery.shellBatchSize = 300  
+もしくは  
+> db.marunouchi.find().toArray()  
+> db.marunouchi.find().toArray().forEach(printjsononeline)  
+</pre>
 
-> \> DBQuery.shellBatchSize = 300  
-> //もしくは  
-> \> db.marunouchi.find().toArray()  
-> \> db.marunouchi.find().toArray().forEach(printjsononeline)  
 
 * とりあえず1件表示 // mysql> select * from marunouchi limit 1
-
-> \> db.marunouchi.findOne()
+<pre>
+> db.marunouchi.findOne()
+</pre>
 
 * mysql> select * from marunouchi limit 5
-
-> \> db.marunouchi.find().limit(5)
+<pre>
+> db.marunouchi.find().limit(5)
+</pre>
 
 * mysql> select _id from marunouchi
-
-> \> db.marunouchi.find({},{"_id":1})  
-> \> db.marunouchi.find({},{"now":1}) //_id フィールドは常に表示される  
-> \> db.marunouchi.find({},{"_id":0,"now":1}) //0で非表示に  
+<pre>
+> db.marunouchi.find({},{"_id":1})  
+> db.marunouchi.find({},{"now":1}) //_id フィールドは常に表示される  
+> db.marunouchi.find({},{"_id":0,"now":1}) //0で非表示に  
+</pre>
 
 * mysql> select _id from where stock = 10
-
-> \> db.marunouchi.find({"stock":10},{"_id":1})  
+<pre>
+> db.marunouchi.find({"stock":10},{"_id":1})  
+</pre>
 
 * mysql> select _id from where stock {>, <, >=, <=} 10
-
-> \> db.marunouchi.find({ "stock" : { $gt:  10 } } ); // 大きい : stock > 10  
-> \> db.marunouchi.find({ "stock" : { $lt:  10 } } ); // 小さい : stock < 10  
-> \> db.marunouchi.find({ "stock" : { $gte: 10 } } ); // 以上 : stock >= 10  
-> \> db.marunouchi.find({ "stock" : { $lte: 10 } } ); // 以下 : stock <= 10   
+<pre>
+> db.marunouchi.find({ "stock" : { $gt:  10 } } ); // 大きい : stock > 10  
+> db.marunouchi.find({ "stock" : { $lt:  10 } } ); // 小さい : stock < 10  
+> db.marunouchi.find({ "stock" : { $gte: 10 } } ); // 以上 : stock >= 10  
+> db.marunouchi.find({ "stock" : { $lte: 10 } } ); // 以下 : stock <= 10   
+</pre>
 
 * JSON形式で表示
-
-> \> db.marunouchi.find().forEach(printjson)  
-> \> db.marunouchi.find().forEach(printjsononeline)  
+<pre>
+> db.marunouchi.find().forEach(printjson)  
+> db.marunouchi.find().forEach(printjsononeline)  
+</pre>
 
 * toArray
-
-> \> db.marunouchi.find().toArray()
-
+<pre>
+> db.marunouchi.find().toArray()
+</pre>
 
 ### UPDATE
 * mysql> update marunouchi set version = 7 where name = 'debian'
-
-> \> db.marunouchi.update({"name":"debian"},{$set:{"stock":10}}) //$setがないと他のフィールドが消えてしまうので注意
+<pre>
+> db.marunouchi.update({"name":"debian"},{$set:{"stock":10}}) //$setがないと他のフィールドが消えてしまうので注意
+</pre>
 
 * _idが存在すればupdate、存在しなければinsert
-
-> \> db.marunouchi.save({"_id":ObjectId("xxxx"),"stock":10})
+<pre>
+> db.marunouchi.save({"_id":ObjectId("xxxx"),"stock":10})
+</pre>
 
 ### DELETE
 * mysql> delete from marunouchi where name = 'centos'
-
-> \> db.marunouchi.remove({"name":"centos"})
+<pre>
+> db.marunouchi.remove({"name":"centos"})
+</pre>
 
 ## INDEX
 * INDEX参照
-
-> \> db.system.indexes.find()
+<pre>
+> db.system.indexes.find()
+</pre>
 
 * INDEX作成
-
-> \> db.marunouchi.ensureIndex({"stock":1})
+<pre>
+> db.marunouchi.ensureIndex({"stock":1})
+</pre>
 
 * INDEX削除
-
-> \> db.marunouchi.dropIndex({"stock":1})  
-> \> db.marunouchi.dropIndexes() //全て削除  
+<pre>
+> db.marunouchi.dropIndex({"stock":1})  
+> db.marunouchi.dropIndexes() //全て削除  
+</pre>
 
 ##参考サイト
 
