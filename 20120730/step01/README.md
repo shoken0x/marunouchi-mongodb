@@ -117,11 +117,15 @@
 * REGEX
 
 ## INDEX
-* CREATE INDEX
+* INDEX参照
+
+> \> db.system.indexes.find()
+
+* INDEX作成
 
 > \> db.marunouchi.ensureIndex({stock:1})
 
-* DELETE INDEX
+* INDEX削除
 
 > \> db.marunouchi.dropIndex({stock:1})
 > \> db.marunouchi.dropIndexes() //全て削除
