@@ -34,7 +34,7 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 ### Mac, Linux
 * 以下のコマンドを実行
 <pre>
-> export PATH = #{MongoDBのインストールパス/bin}:$PATH
+> export PATH=#{MongoDBのインストールパス/bin}:$PATH
 </pre>
 
 * 追加されたpathが入っていることを確認
@@ -111,7 +111,7 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 <pre>
 > use #{db_name}
 > db.marunouchi.insert({"now":new Date()})
-> db[marunouchi].insert({"now":new Date()}) //こんな書き方もできます 
+> db["marunouchi"].insert({"now":new Date()}) //こんな書き方もできます 
 > for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i})
 </pre>
 
