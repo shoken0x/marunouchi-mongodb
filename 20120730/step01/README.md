@@ -1,5 +1,32 @@
 # SQLライクなMongoDBの操作
 
+## インストールはダウンロードしたファイルを展開するだけです
+### 確認
+<pre>
+[root@dev modules]# tar zxfv mongodb-linux-x86_64-2.0.5.tgz
+[root@dev modules]# cd mongodb-linux-x86_64-2.0.6
+[root@dev mongodb-linux-x86_64-2.0.6]# ll
+合計 56
+-rw------- 1 root root 34520  2月 14 01:05 GNU-AGPL-3.0
+-rw------- 1 root root  1364  2月 14 01:05 README
+-rw------- 1 root root  9879  2月 14 01:05 THIRD-PARTY-NOTICES
+drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
+[root@dev mongodb-linux-x86_64-2.0.6]# ll bin
+合計 90824
+-rwxr-xr-x 1 root root 8634376  6月  5 04:36 bsondump
+-rwxr-xr-x 1 root root 2802456  6月  5 04:36 mongo
+-rwxr-xr-x 1 root root 8683688  6月  5 04:36 mongod
+-rwxr-xr-x 1 root root 8678136  6月  5 04:36 mongodump
+-rwxr-xr-x 1 root root 8647080  6月  5 04:36 mongoexport
+-rwxr-xr-x 1 root root 8645992  6月  5 04:36 mongofiles
+-rwxr-xr-x 1 root root 8665816  6月  5 04:36 mongoimport
+-rwxr-xr-x 1 root root 8661672  6月  5 04:36 mongorestore
+-rwxr-xr-x 1 root root 5338272  6月  5 04:36 mongos
+-rwxr-xr-x 1 root root 6667000  6月  5 04:36 mongosniff
+-rwxr-xr-x 1 root root 8720552  6月  5 04:36 mongostat
+-rwxr-xr-x 1 root root 8653544  6月  5 04:37 mongotop
+</pre>
+
 ## pathの確認
 ### Windows
 * マイコンピュータ右クリック -> プロパティ -> システムの詳細設定 -> 詳細設定タブ -> 環境変数 -> Path に#{MongoDBのインストールパス/bin}を追加
