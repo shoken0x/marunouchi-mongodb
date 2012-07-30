@@ -92,6 +92,10 @@
 > \> db.marunouchi.find().toArray()  
 > \> db.marunouchi.find().toArray().forEach(printjsononeline)  
 
+* とりあえず1件表示 mysql> select * from marunouchi limit 1
+
+> \> db.marunouchi.findOne()
+
 * mysql> select * from marunouchi limit 5
 
 > \> db.marunouchi.find().limit(5)
@@ -105,6 +109,23 @@
 * mysql> select _id from where stock = 10
 
 > \> db.marunouchi.find({stock:10},{_id:1})  
+
+* mysql> select _id from where stock {>, <, >=, <=} 10
+
+> \> db.marunouchi.find({ "stock" : { $gt:  10 } } ); // 大きい : stock > 10  
+> \> db.marunouchi.find({ "stock" : { $lt:  10 } } ); // 小さい : stock < 10  
+> \> db.marunouchi.find({ "stock" : { $gte: 10 } } ); // 以上 : stock >= 10  
+> \> db.marunouchi.find({ "stock" : { $lte: 10 } } ); // 以下 : stock <= 10   
+
+* JSON形式で表示
+
+> \> db.marunouchi.find()forEach(printjson)  
+> \> db.marunouchi.find()forEach(printjsononeline)  
+
+* toArray
+
+> \> db.marunouchi.find().toArray()
+
 
 ### UPDATE
 * mysql> update marunouchi set version = 7 where name = 'debian'
@@ -131,8 +152,8 @@
 
 * INDEX削除
 
-> \> db.marunouchi.dropIndex({stock:1})
-> \> db.marunouchi.dropIndexes() //全て削除
+> \> db.marunouchi.dropIndex({stock:1})  
+> \> db.marunouchi.dropIndexes() //全て削除  
 
 ##参考サイト
 
