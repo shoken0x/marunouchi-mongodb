@@ -67,24 +67,42 @@
 
 
 ## DOCUMENT
-* INSERT // mysql> insert into #{table_name} values(...)
+### INSERT
+* mysql> insert into #{table_name} values(...)
 
 > \> use #{db_name}  
 > \> db.marunouchi.insert({now:new Date()})  
 > \> db[marunouchi].insert({now:new Date()}) //こんな書き方もできます  
+> \> for(var i=1; i<=20; i++) db.marunouchi.insert({'stock':i})
 
-* SELECT
- * mysql> select * from marunouchi
+
+### SELECT
+* mysql> select * from marunouchi
 
 > \> db.marunouchi.find()
 
- * mysql> select _id from marunouchi
+* has more と表示されたら
+
+> \> it //iterator
+
+* find()で20件以上表示させたい
+
+> \> DBQuery.shellBatchSize = 300  
+> //もしくは  
+> \> db.marunouchi.find().toArray()  
+> \> db.marunouchi.find().toArray().forEach(printjsononeline)  
+
+* mysql> select * from marunouchi limit 5
+
+> \> db.marunouchi.find().limit(5)
+
+* mysql> select _id from marunouchi
 
 > \> db.marunouchi.find({},{_id:1})  
 > \> db.marunouchi.find({},{now:1}) //_id フィールドは常に表示される  
 > \> db.marunouchi.find({},{_id:0,now:1}) //0で非表示に  
 
- * mysql> select _id from where stock = 10
+* mysql> select _id from where stock = 10
 
 > \> db.marunouchi.find({stock:10},{_id:1})  
 
