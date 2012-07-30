@@ -109,9 +109,9 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 ### INSERT
 * mysql> insert into #{table_name} values(...)
 <pre>
-> use #{db_name}  
-> db.marunouchi.insert({"now":new Date()})  
-> db[marunouchi].insert({"now":new Date()}) //こんな書き方もできます  
+> use #{db_name}
+> db.marunouchi.insert({"now":new Date()})
+> db[marunouchi].insert({"now":new Date()}) //こんな書き方もできます 
 > for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i})
 </pre>
 
@@ -164,10 +164,10 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 
 * mysql> select _id from where stock {>, <, >=, <=} 10
 <pre>
-> db.marunouchi.find({ "stock" : { $gt:  10 } } ); // 大きい : stock > 10  
-> db.marunouchi.find({ "stock" : { $lt:  10 } } ); // 小さい : stock < 10                    
-> db.marunouchi.find({ "stock" : { $gte: 10 } } ); // 以上 : stock >= 10  
-> db.marunouchi.find({ "stock" : { $lte: 10 } } ); // 以下 : stock <= 10  
+> db.marunouchi.find({ "stock" : { $gt:  10 } } )
+> db.marunouchi.find({ "stock" : { $lt:  10 } } )             
+> db.marunouchi.find({ "stock" : { $gte: 10 } } )
+> db.marunouchi.find({ "stock" : { $lte: 10 } } )
 </pre>
 
 * JSON形式で表示
