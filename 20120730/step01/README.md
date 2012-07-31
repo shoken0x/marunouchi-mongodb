@@ -170,15 +170,15 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 
 * mysql> select _id from where stock = 10
 <pre>
-> db.marunouchi.find({"stock":10},{"_id":1})  
+> db.marunouchi.find({"stock":10}, {"_id":1})  
 </pre>
 
 * mysql> select _id from where stock {>, <, >=, <=} 10
 <pre>
-> db.marunouchi.find({ "stock" : { $gt:  10 } } )
-> db.marunouchi.find({ "stock" : { $lt:  10 } } )
-> db.marunouchi.find({ "stock" : { $gte: 10 } } )
-> db.marunouchi.find({ "stock" : { $lte: 10 } } )
+> db.marunouchi.find({ "stock": { $gt:  10 } }, { "_id": 1 })
+> db.marunouchi.find({ "stock": { $lt:  10 } }, { "_id": 1 })
+> db.marunouchi.find({ "stock": { $gte: 10 } }, { "_id": 1 })
+> db.marunouchi.find({ "stock": { $lte: 10 } }, { "_id": 1 })
 </pre>
 
 * JSON形式で表示
