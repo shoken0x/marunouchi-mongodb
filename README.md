@@ -8,7 +8,7 @@ Guide of meetup MongoDB in Marunouchi.
 
 ----
 #### 開催予定
-[丸の内MongoDB勉強会 #1](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828) 2012/08/28 [ATND](http://atnd.org/events/31234)
+[丸の内MongoDB勉強会 #2](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828) 2012/08/28 [ATND](http://atnd.org/events/31234)
 
 ----
 #### お役立ちリンク集
