@@ -6,7 +6,7 @@
 
 ### 展開と確認
 <pre>
-[root@dev modules]# tar zxfv mongodb-linux-x86_64-2.0.5.tgz
+[root@dev modules]# tar zxfv mongodb-linux-x86_64-2.0.6.tgz
 [root@dev modules]# cd mongodb-linux-x86_64-2.0.6
 [root@dev mongodb-linux-x86_64-2.0.6]# ll
 合計 56
