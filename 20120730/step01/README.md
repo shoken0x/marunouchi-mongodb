@@ -61,7 +61,14 @@ dbpathオプションでdataディレクトリを指定します。指定しな�
 * mongo shellの起動
 <pre>
 > mongo
+// 成功例
+[root@dev bin]# mongo
+MongoDB shell version: 2.0.6
+connecting to: test
+>
+>
 </pre>
+
 
 ## DBS
 * データベースを参照する // mysql> show databases
