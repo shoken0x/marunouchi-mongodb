@@ -17,7 +17,7 @@ Marunouchi MongoDB 20120730
 * 懇親会へ
  * 場所はこちらを予定→[和彩酒蔵 だるま 八重洲地下街](http://r.gnavi.co.jp/gadd900/)  
 
-
+![mm20120730.png](http://www.fedc.biz/~fujisaki/img/mm20120730.png)
 
 # 参加者
 1. [@syokenz](http://twitter.com/syokenz)
