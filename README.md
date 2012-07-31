@@ -1,7 +1,7 @@
 marunouchi-mongodb
 ==================
 
-丸の内MongoDB勉強会の資料です。
+主に丸の内MongoDB勉強会の資料を管理しています。
 
 Guide of meetup MongoDB in Marunouchi.
 
