@@ -66,7 +66,6 @@ dbpathオプションでdataディレクトリを指定します。指定しな�
 MongoDB shell version: 2.0.6
 connecting to: test
 >
->
 </pre>
 
 
