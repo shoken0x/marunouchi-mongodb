@@ -1,4 +1,4 @@
-Marunouchi MongoDB 20120730
+Marunouchi.mongo 20120730
 =================
 みんなでMongoDBについて勉強しましょう。
 
