@@ -76,7 +76,7 @@ connecting to: test
 </pre>
 
 * データベースを選択/作成する // mysql> use #{db_name}; create database #{db_name}  
-MongoDBのデータベースは、選択して最初のドキュメントをinsertした時に作成されます。
+MongoDBのデータベースは、選択してコレクションへ最初のドキュメントをinsertしたタイミングで作成されます。
 <pre>
 > use #{db_name}
 </pre>
