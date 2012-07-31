@@ -35,5 +35,5 @@ Marunouchi.mongo 20120730
 
 # Blog
 * [丸の内MongoDB勉強会に参加してきた - wadahiroの日記](http://wadahiro.hatenablog.com/entry/2012/07/31/000356)
-
+* [丸の内MongoDB勉強会 #1 やりました - Shoken OpenSource Society](http://shoken.hatenablog.com/entry/2012/07/31/154153)
 
