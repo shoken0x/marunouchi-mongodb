@@ -1,6 +1,9 @@
 # SQLライクなMongoDBの操作
 
 ## インストールはダウンロードしたファイルを展開するだけです
+### ここからOSにあったバイナリをダウンロードしてください
+[Downloads - MongoDB](http://www.mongodb.org/downloads)
+
 ### 展開と確認
 <pre>
 [root@dev modules]# tar zxfv mongodb-linux-x86_64-2.0.5.tgz
