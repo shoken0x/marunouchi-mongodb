@@ -129,5 +129,5 @@ fujisakiの削除
 
 以下のサンプルで説明していきます。
 
-* sample1.rb  
-* sample2.rb  
+* [sample1.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20120730/step02/sample1.rb)   
+* [sample2.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20120730/step02/sample2.rb)  
