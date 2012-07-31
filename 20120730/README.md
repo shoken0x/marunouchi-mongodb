@@ -10,8 +10,8 @@ Marunouchi MongoDB 20120730
 # 流れ
 * 懇親会の出席を取る
 * [雲屋株式会社](http://kumoya.com/) 様ご提供のステッカーを配る
-* [@syokenz](http://twitter.com/syokenz) [SQLライクなMongoDBの操作]
-* [@fetarodc](http://twitter.com/fetarodc) [RubyからMongoDBを触ってみる]
+* step01 [@syokenz](http://twitter.com/syokenz) [SQLライクなMongoDBの操作]
+* step02 [@fetarodc](http://twitter.com/fetarodc) [RubyからMongoDBを触ってみる]
 * みんなで [質問とか、第２回でどんなことをやるかとか]
 * 集合写真撮影
 * 懇親会へ
