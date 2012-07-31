@@ -75,7 +75,8 @@ connecting to: test
 > show dbs
 </pre>
 
-* データベースを選択/作成する // mysql> use #{db_name}; create database #{db_name}
+* データベースを選択/作成する // mysql> use #{db_name}; create database #{db_name}  
+MongoDBのデータベースは、選択して最初のドキュメントをinsertした時に作成されます。
 <pre>
 > use #{db_name}
 </pre>
