@@ -123,7 +123,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 > use #{db_name}
 > db.marunouchi.insert({"now":new Date()})
 > db["marunouchi"].insert({"now":new Date()}) //こんな書き方もできます 
-> for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i})
+> for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i}) //for文も使えます
 </pre>
 
 ### SELECT
