@@ -20,16 +20,20 @@ Marunouchi MongoDB 20120730
 
 
 # 参加者
-* [@syokenz](http://twitter.com/syokenz)
-* [@fetarodc](http://twitter.com/fetarodc)
-* [@rinrin0108](http://twitter.com/rinrin0108)
-* [@wadahiro](http://twitter.com/wadahiro)
-* [@moccos](http://twitter.com/moccos)
-* [@thujikun](http://twitter.com/thujikun)
-* [@modsound](http://twitter.com/modsound)
-* [@nemo_kaz](http://twitter.com/nemo_kaz)
-* naotow
-* ferrylikeboy
-* 赤谷貴士
+1. [@syokenz](http://twitter.com/syokenz)
+1. [@fetarodc](http://twitter.com/fetarodc)
+1. [@rinrin0108](http://twitter.com/rinrin0108)
+1. [@wadahiro](http://twitter.com/wadahiro)
+1. [@moccos](http://twitter.com/moccos)
+1. [@thujikun](http://twitter.com/thujikun)
+1. [@modsound](http://twitter.com/modsound)
+1. [@nemo_kaz](http://twitter.com/nemo_kaz)
+1. naotow
+1. ferrylikeboy
+1. 赤谷貴士
+
+
+# Blog
+* [丸の内MongoDB勉強会に参加してきた - wadahiroの日記](http://wadahiro.hatenablog.com/entry/2012/07/31/000356)
 
 
