@@ -1,7 +1,7 @@
 # SQLライクなMongoDBの操作
 
 ## インストールはダウンロードしたファイルを展開するだけです
-### 確認
+### 展開と確認
 <pre>
 [root@dev modules]# tar zxfv mongodb-linux-x86_64-2.0.5.tgz
 [root@dev modules]# cd mongodb-linux-x86_64-2.0.6
@@ -45,6 +45,7 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 ## mongodbの起動
 
 * mongodの起動
+ * dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
 <pre>
 >mongod --dbpath #{path}
 </pre>
