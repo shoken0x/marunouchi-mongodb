@@ -1,4 +1,4 @@
-marunouchi-mongodb
+[Marunouchi.mongo](http://syokenz.github.com/marunouchi-mongodb/)
 ==================
 
 主に丸の内MongoDB勉強会の資料を管理しています。
