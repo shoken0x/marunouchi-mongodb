@@ -195,12 +195,12 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 ### UPDATE
 * mysql> update marunouchi set version = 7 where name = 'debian'
 <pre>
-> db.marunouchi.update({"name":"debian"},{$set:{"stock":10}}) //$setがないと他のフィールドが消えてしまうので注意
+> db.marunouchi.update({"name":"debian"},{$set:{"version":7}}) //$setがないと他のフィールドが消えてしまうので注意
 </pre>
 
 * _idが存在すればupdate、存在しなければinsert
 <pre>
-> db.marunouchi.save({"_id":ObjectId("xxxx"),"stock":10})
+> db.marunouchi.save({"_id":ObjectId("xxxx"),"version":7})
 </pre>
 
 ### DELETE
