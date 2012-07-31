@@ -44,10 +44,10 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 
 ## mongodbの起動
 
-* mongodの起動
- * dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
+* mongodの起動  
+dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
 <pre>
->mongod --dbpath #{path}
+> mongod --dbpath #{path}
 </pre>
 
 * configファイルを使用した起動
