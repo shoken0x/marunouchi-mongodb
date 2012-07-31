@@ -126,6 +126,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 > for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i}) //for文も使えます
 </pre>
 
+
 * ちょっと脱線して、ハッシュであるdbのキー一覧を表示してみる
 <pre>
 > for(var k in db) print(k)
