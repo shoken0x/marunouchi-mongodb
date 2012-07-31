@@ -93,7 +93,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 > show dbs  
 > use #{db_name}  
 > show collections  //コレクションが何も表示されなかったら適当にinsertする  
-> db.marunouchi.insert({"now":new Date()})  //現在時刻をinsert  
+> db.marunouchi.insert({"created_at":new Date()})  //現在時刻をinsert  
 > show collections //marunouchiが見えますか
 </pre>
 
@@ -108,7 +108,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 
 * コレクション内のデータを削除する // mysql> truncate table #{table_name}
 <pre>
-> db.marunouchi.insert({"now":new Date()})  
+> db.marunouchi.insert({"created_at":new Date()})  
 > show collections  
 > db.marunouchi.remove()   コレクションの中のすべてのオブジェクトを削除します  
 > show collections //確認、marunouchiはまだある  
@@ -121,10 +121,18 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 * mysql> insert into #{table_name} values(...)
 <pre>
 > use #{db_name}
-> db.marunouchi.insert({"now":new Date()})
-> db["marunouchi"].insert({"now":new Date()}) //こんな書き方もできます 
+> db.marunouchi.insert({"created_at":new Date()})
+> db["marunouchi"].insert({"created_at":new Date()}) //こんな書き方もできます 
 > for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i}) //for文も使えます
 </pre>
+
+* ちょっと脱線して、ハッシュであるdbのキーを表示してみる
+<pre>
+> for(var k in db) print(k)
+> db.version
+> db.version()
+</pre>
+
 
 ### SELECT
 * mysql> select count(*) from marunouchi
@@ -164,8 +172,8 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 * mysql> select _id from marunouchi
 <pre>
 > db.marunouchi.find({},{"_id":1})  
-> db.marunouchi.find({},{"now":1}) //_id フィールドは常に表示される  
-> db.marunouchi.find({},{"_id":0,"now":1}) //0で非表示に  
+> db.marunouchi.find({},{"created_at":1}) //_id フィールドは常に表示される  
+> db.marunouchi.find({},{"_id":0,"created_at":1}) //0で非表示に  
 </pre>
 
 * mysql> select _id from where stock = 10
