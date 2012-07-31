@@ -4,7 +4,7 @@
 ### ここからOSにあったバイナリをダウンロードしてください
 [Downloads - MongoDB](http://www.mongodb.org/downloads)
 
-### 展開と確認
+### 展開と確認(Linuxの場合)
 <pre>
 [root@dev modules]# tar zxfv mongodb-linux-x86_64-2.0.6.tgz
 [root@dev modules]# cd mongodb-linux-x86_64-2.0.6
@@ -50,12 +50,12 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 * mongodの起動  
 dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
 <pre>
-> mongod --dbpath #{path}
+> mongod --dbpath #{path}  //例 mongod --dbpath C:\mongo\db
 </pre>
 
-* configファイルを使用した起動
+* configファイルを使用した起動(configファイルで設定したい人向け)
 <pre>
-> mongod -f #{config_file}
+> mongod -f #{config_file}  //例 mongod -f C:\mongo\mongod.conf
 </pre>
 
 * mongo shellの起動
