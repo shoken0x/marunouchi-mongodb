@@ -3,7 +3,7 @@ Marunouchi.mongo 20120828
 みんなでMongoDBについて勉強しましょう。
 今回のテーマはシャーディング！
 
-[丸の内MongoDB勉強会 #2 - ATND](http://atnd.org/events/30595)
+[丸の内MongoDB勉強会 #2 - ATND](http://atnd.org/events/31234)
 
 ![marunouchi.mongodb logo](http://www.fedc.biz/~fujisaki/img/mongodb_logo.png)
 
