@@ -22,7 +22,8 @@ Guide of meetup MongoDB in Marunouchi.
 ----
 #### MongoDB最初の1歩
 [新・公式ドキュメント(日本語) マニュアル](http://jp.docs.mongodb.org/manual/)と[@doryokujinのスライド](http://www.slideshare.net/doryokujin/)
-を一通り読むと良いと思います。
+を一通り読むと良いと思います。  
+とりあえず手を動かしたい人は、[丸の内MongoDB勉強会 #1](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120730)のstep01をやってみてください。
 
 
 ----
