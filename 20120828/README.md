@@ -15,6 +15,8 @@ Marunouchi.mongo 20120828
 * みんなで [質問とか、第３回でどんなことをやるかとか]
 * 懇親会へ
 
+# 参考資料
+* [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)
 
 # 参加者
 
