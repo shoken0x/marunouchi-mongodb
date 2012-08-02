@@ -16,7 +16,8 @@ Marunouchi.mongo 20120828
 * 懇親会へ
 
 # 参考資料
-* [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)
+* [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)  
+* [MongoDB公式マニュアル Sharding](http://www.mongodb.org/display/DOCSJP/Sharding)  
 
 # 参加者
 
