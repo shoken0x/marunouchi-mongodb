@@ -20,3 +20,24 @@
 [MongoDB 1.6にはシャーディングとレプリカセットが追加された InfoQより 引用](http://www.infoq.com/jp/news/2010/10/MongoDB-1.6)
 
 
+# 用語集
+
+## shard
+> それぞれのshardは1つ以上のサーバで構成され、mongodプロセス (mongodはMongoDBのデータベースプロセスのコアです) を使いデータを保存します。プロダクション環境においては、可用性を高め、自動フェイルオーバー機能を有効にするために1つのshardに対し複数のサーバを用意しそこにReplicationを構築します。この複数のサーバ/mongodプロセスのセットは、 replica set から成ります。
+
+## replica sets
+
+
+## shardキー
+
+
+## Chunk
+
+
+
+[Shardingの紹介 MongoDB公式マニュアルより 引用](http://www.mongodb.org/pages/viewpage.action?pageId=5537937)
+
+
+
+
+
