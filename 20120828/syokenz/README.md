@@ -8,9 +8,11 @@
 
 # 登場人物
 
+## config servers
+
 ## shards
 
 ## mongos
 
-## config servers
+
 
