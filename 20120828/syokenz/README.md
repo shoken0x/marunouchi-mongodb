@@ -27,17 +27,17 @@
 # 用語集
 [Shardingの紹介 MongoDB公式マニュアルより 引用](http://www.mongodb.org/pages/viewpage.action?pageId=5537937)
 
-### shard
+### Shard
 
 > それぞれのshardは1つ以上のサーバで構成され、mongodプロセス (mongodはMongoDBのデータベースプロセスのコアです) を使いデータを保存します。プロダクション環境においては、可用性を高め、自動フェイルオーバー機能を有効にするために1つのshardに対し複数のサーバを用意しそこにReplicationを構築します。この複数のサーバ/mongodプロセスのセットは、 replica set から成ります。
 
-### replica sets
+### Replica sets
 
 > 各ノードメンバーに対してフェイルオーバーやリカバリーの機能を自動で提供します。1-7台までをサポートします。
 
 [Replica Set Configuration - MongoDB公式マニュアル](http://www.mongodb.org/display/DOCSJP/Replica+Set+Configuration)
 
-### shardキー
+### Shardキー
 
 > コレクションを分割するために必要な設定です。1つかまたは2つ以上のフィールドを設定します。
 
