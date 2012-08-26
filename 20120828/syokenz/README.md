@@ -59,6 +59,10 @@ chunkは、最大サイズ（標準で200MB）に達すると、そのchunkは2�
 例
 ChunkA [ "a", "k" )
 ChunkB [ "k", "{" ) 
+//例えばChunkAは [ "a", "k" ), ChunkBが [ "k", "{" ) のレンジを持っていたとすると、
+//ShardKeyのイニシャルが"a"から"j"までの値を持つドキュメントはChunkAに、
+//"k"から"z"までを持つドキュメントはChunkBに属します。"{" は "z" の次の順序を持つ値です。
+//http://doryokujin.hatenablog.jp/entry/20110601/1306858487
 </pre>
 
 
