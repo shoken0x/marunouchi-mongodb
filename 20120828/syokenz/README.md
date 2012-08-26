@@ -1,4 +1,4 @@
-シャーディングの設定手順
+MongoDB Sharding Overview
 =================
 ----
 # 概要図
@@ -43,10 +43,11 @@
 
 <pre>
 例
-{ state : 1 }
-{ name : 1 }
-{ _id : 1 }
-{ lastname : 1, firstname : 1 }
+//uidをShardキーに指定
+db.runCommand( { shardcollection : "{collection_name}" , key : { uid : 1 } } );
+
+//2つのフィールドも指定できる
+db.runCommand( { shardcollection : "{collection_name}" , key : { lastname : 1, firstname : 1 } } );
 </pre>
 
 ### Chunk
@@ -64,10 +65,5 @@ ChunkB [ "k", "{" )
 //"k"から"z"までを持つドキュメントはChunkBに属します。"{" は "z" の次の順序を持つ値です。
 //http://doryokujin.hatenablog.jp/entry/20110601/1306858487
 </pre>
-
-
-# 実際にやってみよう
-参考URL
-http://d.hatena.ne.jp/matsuou1/20110413/1302710901
 
 
