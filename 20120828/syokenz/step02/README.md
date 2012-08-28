@@ -16,9 +16,18 @@ localhost:10011 => shard1(shard0001)
 localhost:10012 => shard2(shard0002)  
 
 ----
+# mongosサーバをおとしてみる
 
-# 準備
-
+# まとめ
 
 ----
-# 各サーバ起動
+# shardサーバをおとしてみる
+
+# まとめ
+
+----
+# configサーバをおとしてみる
+
+# まとめ
+
+
