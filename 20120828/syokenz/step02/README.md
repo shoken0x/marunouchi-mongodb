@@ -167,7 +167,7 @@ $ mongo localhost:10000/logdb
 
 * 参考：configサーバが落ちているため、mongosが起動できないログ
 ```
-11002 socket exception [6] server [localhost:10001] mongos connectionpool error: couldn't c    onnect to server localhost:10001
+11002 socket exception [6] server [localhost:10001] mongos connectionpool error: couldn't connect to server localhost:10001
 ```
 
 # まとめ
