@@ -69,6 +69,11 @@ mongosは、単なるルーティングプロセスでデータの管理はし�
 $ tail -f /tmp/mongodb/log/mongos.log
 </pre>
 
+* 参考：shardの１つが落ちが時のmongosのログ
+```
+Tue Aug 28 19:23:09 [WriteBackListener-localhost:10010] WriteBackListener exception : socket exception
+```
+
 * 3つ目のshardサーバ(shard0002)を落としてみましょう
 <pre>
 $ ps axu |grep shard2
@@ -159,6 +164,11 @@ $ mongo localhost:10000/logdb
 > db.runCommand( { listshards : 1 } );
 > db.printShardingStatus();
 </pre>
+
+* 参考：configサーバが落ちているため、mongosが起動できないログ
+```
+11002 socket exception [6] server [localhost:10001] mongos connectionpool error: couldn't c    onnect to server localhost:10001
+```
 
 # まとめ
 
