@@ -8,9 +8,6 @@
 
 ----
 
-MongoDBは、NoSQLデータベースでよく採用されている Consistent Hashing ではなく、RDBMSではおなじみのレンジパーティションを採っている。
-
-----
 # 準備
 <pre>
 $ mkdir -p /tmp/mongodb/log
