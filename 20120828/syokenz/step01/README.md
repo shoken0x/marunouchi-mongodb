@@ -72,6 +72,7 @@ $ mongos --configdb localhost:10001 --port 10000 --logpath /tmp/mongodb/log/mong
 <pre>
 $ ps axu |grep [m]ongo |wc -l
 //5だったらOK
+//ps axu | grep [m]ongoで 'grep mongo'プロセスが出てこない理由は、'grep [m]ongo'プロセスとなり、正規表現の[m]（mが1文字）とマッチしなくなるため。
 </pre>
 
 ----
