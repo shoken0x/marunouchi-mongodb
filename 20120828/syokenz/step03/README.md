@@ -18,7 +18,6 @@ $ mkdir /tmp/mongodb/shard20
 
 //port 20000でshardサーバを起動させましょう
 $ mongod --shardsvr --port 20000 --dbpath /tmp/mongodb/shard20 --logpath /tmp/mongodb/log/shard20.log --rest &
-
 ```
 
 ----
@@ -38,6 +37,15 @@ $ mongos --configdb {自分の実IP}:10001 --port 10000 --logpath /tmp/mongodb/l
 $ mongo localhost:10000/admin
 mongos> db.runCommand( { addshard : "{隣人のIP}:20000" } );
 //例：mongos> db.runCommand( { addshard : "10.0.2.30:20000" } );
+```
 
+----
+## 確認
 
 ```
+//mongosからSharding設定が確認できたら成功です。
+$ mongo localhost:10000/admin
+mognos> db.printShardingStatus();
+```
+
+
