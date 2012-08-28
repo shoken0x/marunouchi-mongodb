@@ -19,6 +19,13 @@ Marunouchi.mongo 20120828
   * 第3回はReplicaSets？、2.2の新機能？
 * 懇親会へ
 
+# 会場で出た質問 => 第３回で勉強しましょう！
+- ReplicaSetsでPrimaryがダウンしたら、SecondaryがPrimaryに昇格するが、優先度は設定できるのか
+- ReplicaSetsは最低３つのmongodで構成されると聞いているが、２つでも構成可能
+- Sharding+ReplicaSetsの構成での挙動で、ReplicaSetsのPrimaryが落ちた場合の挙動はどうなるか
+
+
+
 # 参考資料
 * [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)  
 * [MongoDB公式マニュアル Sharding](http://www.mongodb.org/display/DOCSJP/Sharding)  
