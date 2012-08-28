@@ -11,7 +11,10 @@ Marunouchi.mongo 20120828
 # 流れ
 * 懇親会の出席を取る
 * [雲屋株式会社](http://kumoya.com/) 様ご提供のステッカーを配る
-* みんなでシャーディング
+* [MongoDB Sharding Overview](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz)
+* [シャーディングの設定](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz/step01)
+* [障害発生時の挙動](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz/step02)
+* {みんなでシャーディング}(https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz/step03)
 * みんなで質問とか、第3回でどんなことをやるかとか
   * 第3回はReplicaSets？、2.2の新機能？
 * 懇親会へ
