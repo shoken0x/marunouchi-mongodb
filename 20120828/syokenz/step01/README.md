@@ -136,6 +136,7 @@ databases:
 # mongos経由でデータ投入
 
 ```
+//githubのmarkdownで<pre>タグは```で記述するのが吉
 $ mongo localhost:10000
 mongos> use logdb
 mongos> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
