@@ -43,6 +43,7 @@ $ mongo localhost:10012
 
 # まとめ
 <pre>
+//MongoDBのShardingを試してみた。その３ 障害発生時の挙動について より引用
 想定通り、mongosサーバに接続できなくなりました。
 各shardには問題なく接続でき、クエリの実行も可能ですが、複数shardをまたがるようなクエリの実行は出来なくなります。
 下手な構成な場合は単一障害点となりうるので、基本的にはwebサーバやアプリサーバなど実際にアプリケーションが動作するサーバで
@@ -93,12 +94,15 @@ $ mongo localhost:10000/logdb
   * shard keyを指定しない検索
 
 <pre>
+//MongoDBのShardingを試してみた。その３ 障害発生時の挙動について より引用
 shard障害が発生すると、障害shardを参照するクエリは実行エラーとなるが、問題ないshardへのshard keyを使用したクエリは実行可能。
 アプリへの影響が大きいので、基本的にはReplica set を構成し、冗長化を行うべきです。
 </pre>
 
-参考
+#### 参考
 [MongoDB公式マニュアル Sharding Introduction](http://www.mongodb.org/display/DOCS/Sharding+Introduction#ShardingIntroduction-OperationTypes)
+
+
 ----
 # configサーバをおとしてみる
 
