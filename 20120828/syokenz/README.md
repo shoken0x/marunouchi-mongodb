@@ -1,6 +1,10 @@
 MongoDB Sharding Overview
 =================
 ----
+# 方式
+MongoDBは、NoSQLデータベースでよく採用されている Consistent Hashing ではなく、RDBMSではおなじみのレンジパーティションを採用しています。
+
+----
 # 概要図
 [MongoDB 1.6にはシャーディングとレプリカセットが追加された InfoQより 引用](http://www.infoq.com/jp/news/2010/10/MongoDB-1.6)
 
