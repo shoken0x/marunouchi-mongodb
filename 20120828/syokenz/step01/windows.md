@@ -16,13 +16,13 @@ logディレクトリ、データディレクトリを作成します。
 ----
 # 各サーバ起動
 shardサーバ、configサーバ、mongosサーバを起動します。
-(Windowsではバックグラウンドでプロセスを上げる場合、start /b を使います）
+(Windowsではバックグラウンドでプロセスを上げる場合、start "(名前)" を使います）
 
 #### shardサーバの起動
 <pre>
-> start /b bin\mongod --shardsvr --port 10010 --dbpath db\shard0 --logpath log\shard0.log --rest &
-> start /b bin\mongod --shardsvr --port 10011 --dbpath db\shard1 --logpath log\shard1.log --rest &
-> start /b bin\mongod --shardsvr --port 10012 --dbpath db\shard2 --logpath log\shard2.log --rest &
+> start "shard0" bin\mongod --shardsvr --port 10010 --dbpath db\shard0 --logpath log\shard0.log --rest
+> start "shard1" bin\mongod --shardsvr --port 10011 --dbpath db\shard1 --logpath log\shard1.log --rest
+> start "shard2" bin\mongod --shardsvr --port 10012 --dbpath db\shard2 --logpath log\shard2.log --rest
 </pre>
 
 #### shardサーバの確認
@@ -36,10 +36,10 @@ connecting to: localhost:10010/test
 #### configサーバ、mongosサーバの起動
 <pre>
 //configサーバ起動
-> start /b bin\mongod --configsvr --port 10001 --dbpath db\config --logpath log\config.log --rest &
+> start "config" bin\mongod --configsvr --port 10001 --dbpath db\config --logpath log\config.log --rest &
 //mongosサーバ起動
 //chunkの動作も見たいので、chunk sizeを1MBに設定し起動する。
-> start /b bin\mongos --configdb localhost:10001 --port 10000 --logpath log\mongos.log --chunkSize 1&
+> start "mongos" bin\mongos --configdb localhost:10001 --port 10000 --logpath log\mongos.log --chunkSize 1&
 </pre>
 
 #### configサーバ、mongosサーバの確認
