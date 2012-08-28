@@ -88,6 +88,7 @@ $ mongo localhost:10000/logdb
 
 * db.runCommand( { listshards : 1 } ), db.printShardingStatus()ではどう見える？
 <pre>
+$ mongo localhost:10000/logdb
 > use admin
 > db.runCommand( { listshards : 1 } );
 > db.printShardingStatus();
@@ -118,9 +119,35 @@ shard障害が発生すると、障害shardを参照するクエリは実行エ�
 
 ----
 # configサーバをおとしてみる
-* shardの追加・削除はできますか？
-* db.runCommand( { listshards : 1 } ), db.printShardingStatus()ではどう見える？
+* ログをtailしましょう
+<pre>
+$ tail -f /tmp/mongodb/log/mongos.log
+</pre>
+<pre>
+$ tail -f /tmp/mongodb/log/config.log
+</pre>
 
+* configサーバを落としてみましょう
+<pre>
+$ ps axu |grep configsvr
+$ kill -2 xxxx
+</pre>
+
+* shardの追加・削除はできますか？
+<pre>
+$ mkdir /tmp/mongodb/shard3
+$ mongod --shardsvr --port 10013 --dbpath /tmp/mongodb/shard3 --logpath /tmp/mongodb/log/shard3.log &
+$ mongo localhost:10000/admin
+> db.runCommand( { addshard : "localhost:100013" } );
+</pre>
+
+* db.runCommand( { listshards : 1 } ), db.printShardingStatus()ではどう見える？
+<pre>
+$ mongo localhost:10000/logdb
+> use admin
+> db.runCommand( { listshards : 1 } );
+> db.printShardingStatus();
+</pre>
 
 # まとめ
 
