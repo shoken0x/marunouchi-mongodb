@@ -1,73 +1,189 @@
-シャーディングの設定手順
+シャーディングの設定手順（Mac OSXで動作確認しています）
 =================
-----
-# 概要図
-[MongoDB 1.6にはシャーディングとレプリカセットが追加された InfoQより 引用](http://www.infoq.com/jp/news/2010/10/MongoDB-1.6)
-
-![overview](http://www.infoq.com/resource/news/2010/08/MongoDB-1.6/en/resources/mongodb2.png)
 
 ----
-# 登場人物
-[MongoDB 1.6にはシャーディングとレプリカセットが追加された InfoQより 引用](http://www.infoq.com/jp/news/2010/10/MongoDB-1.6)
+#### 参考URL
 
-### mongod(shards)
-
-> メインのデータベースプロセス。１つのシャードを表し、自動フェイルオーバーを提供するためのレプリカセットを構成する。mongodプロセスのうちの１つが、レプリカセットのマスタとなる。マスタがダウンした場合は、他のサーバにマスタの役割が移譲される。
-
-### mongos
-
-> ルーティングプロセス。単一のサーバであるかのように、シャードされたデータベースとクライアントを連携させる。必要があれば複数のmongosサーバをたてることができる。それらは状態を共有しない。
-
-### config servers
-
-> 各構成サーバは、システムにどんなシャードが存在しているかといったような、クラスタのメタデータを含んでいる。保護のために複数の構成サーバがあり、１つがダウンしたら、構成サーバは読み取り専用モードになる。ただし、シャードは読み書きモードで動作し続ける。
-
+[MongoDBのShardingを試してみた。その１](http://d.hatena.ne.jp/matsuou1/20110413/1302710901)
 
 ----
-# 用語集
-[Shardingの紹介 MongoDB公式マニュアルより 引用](http://www.mongodb.org/pages/viewpage.action?pageId=5537937)
 
-### Shard
+# ポート一覧
+localhost:10000 => mongos  
+localhost:10001 => config  
+localhost:10010 => shard0(shard0000)  
+localhost:10011 => shard1(shard0001)  
+localhost:10012 => shard2(shard0002)  
 
-> それぞれのshardは1つ以上のサーバで構成され、mongodプロセス (mongodはMongoDBのデータベースプロセスのコアです) を使いデータを保存します。プロダクション環境においては、可用性を高め、自動フェイルオーバー機能を有効にするために1つのshardに対し複数のサーバを用意しそこにReplicationを構築します。この複数のサーバ/mongodプロセスのセットは、 replica set から成ります。
+----
 
-### Replica sets
-
-> 各ノードメンバーに対してフェイルオーバーやリカバリーの機能を自動で提供します。1-7台までをサポートします。
-
-[Replica Set Configuration - MongoDB公式マニュアル](http://www.mongodb.org/display/DOCSJP/Replica+Set+Configuration)
-
-### Shardキー
-
-> コレクションを分割するために必要な設定です。1つかまたは2つ以上のフィールドを設定します。後から変更できないので、とても重要です。Shardキーの値を持たないドキュメントは保存できません。ただしnullは可能です。
+# 準備
+logディレクトリ、データディレクトリを作成します。
 
 <pre>
-例
-{ state : 1 }
-{ name : 1 }
-{ _id : 1 }
-{ lastname : 1, firstname : 1 }
-</pre>
-
-### Chunk
-
-> chunkは、特定のコレクションの連続した範囲のデータ(ドキュメント)です。（コレクション, 最小キー, 最大キー）の組み合わせでchunkを表現できます。shardキーが K のドキュメントは、「最小キー」<= K < 「最大キー」と言う条件のchunkにマッチします。
-chunkは、最大サイズ（標準で200MB）に達すると、そのchunkは2つの新しいchunkに 分割 されます。あるshardが余剰データを持っている場合、chunkがシステムによって他のshardに移動されます。同様に、サーバ(shard)を追加したときchunkは移動します。
-
-
-<pre>
-例
-ChunkA [ "a", "k" )
-ChunkB [ "k", "{" ) 
-//例えばChunkAは [ "a", "k" ), ChunkBが [ "k", "{" ) のレンジを持っていたとすると、
-//ShardKeyのイニシャルが"a"から"j"までの値を持つドキュメントはChunkAに、
-//"k"から"z"までを持つドキュメントはChunkBに属します。"{" は "z" の次の順序を持つ値です。
-//http://doryokujin.hatenablog.jp/entry/20110601/1306858487
+$ mkdir -p /tmp/mongodb/log
+$ mkdir -p /tmp/mongodb/config
+$ mkdir -p /tmp/mongodb/shard0
+$ mkdir -p /tmp/mongodb/shard1
+$ mkdir -p /tmp/mongodb/shard2
 </pre>
 
 
-# 実際にやってみよう
-参考URL
-http://d.hatena.ne.jp/matsuou1/20110413/1302710901
+----
+# 各サーバ起動
+shardサーバ、configサーバ、mongosサーバを起動します。
+
+#### shardサーバの起動
+<pre>
+$ mongod --shardsvr --port 10010 --dbpath /tmp/mongodb/shard0 --logpath /tmp/mongodb/log/shard0.log --rest &
+$ mongod --shardsvr --port 10011 --dbpath /tmp/mongodb/shard1 --logpath /tmp/mongodb/log/shard1.log --rest &
+$ mongod --shardsvr --port 10012 --dbpath /tmp/mongodb/shard2 --logpath /tmp/mongodb/log/shard2.log --rest &
+</pre>
+
+#### shardサーバの確認
+<pre>
+$ mongo localhost:10001
+MongoDB shell version: 2.0.3
+connecting to: localhost:10010/test
+//connectingできたらOK
+</pre>
+
+#### configサーバ、mongosサーバの起動
+<pre>
+//configサーバ起動
+$ mongod --configsvr --port 10001 --dbpath /tmp/mongodb/config --logpath /tmp/mongodb/log/config.log --rest &
+//mongosサーバ起動
+//chunkの動作も見たいので、chunk sizeを1MBに設定し起動する。
+$ mongos --configdb localhost:10001 --port 10000 --logpath /tmp/mongodb/log/mongos.log --chunkSize 1&
+</pre>
+
+#### configサーバ、mongosサーバの確認
+<pre>
+$ ps axu |grep [m]ongo |wc -l
+//5だったらOK
+</pre>
+
+----
+# Shradの追加
+#### mongosのadminに接続し、Shardを追加する。
+<pre>
+$ mongo localhost:10000/admin
+MongoDB shell version: 2.0.7
+connecting to: localhost:10000/admin
+mongos> db  //adminに接続されていることを確認
+admin
+// addshard
+mongos> db.runCommand( { addshard : "localhost:10010" } );
+{ "shardAdded" : "shard0000", "ok" : 1 }
+mongos> db.runCommand( { addshard : "localhost:10011" } );
+{ "shardAdded" : "shard0001", "ok" : 1 }
+mongos> db.runCommand( { addshard : "localhost:10012" } );
+{ "shardAdded" : "shard0002", "ok" : 1 }
+</pre>
+
+
+
+#### 追加したshardが正しく追加されているかどうか、確認する。  
+・db.runCommand( { listshards : 1 } )  
+・db.printShardingStatus()  
+
+<pre>
+mongos> db.runCommand( { listshards : 1 } );
+{
+"shards" : [
+{
+"_id" : "shard0000",
+"host" : "localhost:10010"
+},
+{
+"_id" : "shard0001",
+"host" : "localhost:10011"
+},
+{
+"_id" : "shard0002",
+"host" : "localhost:10012"
+}
+],
+"ok" : 1
+}
+</pre>
+
+<pre>
+mognos> db.printShardingStatus();
+--- Sharding Status ---
+sharding version: { "_id" : 1, "version" : 3 }
+shards:
+{ "_id" : "shard0000", "host" : "localhost:10010" }
+{ "_id" : "shard0001", "host" : "localhost:10011" }
+{ "_id" : "shard0002", "host" : "localhost:10012" }
+databases:
+{ "_id" : "admin", "partitioned" : false, "primary" : "config" }
+</pre>
+
+----
+# mongos経由でデータ投入
+
+<pre>
+$ mongo localhost:10000
+mongos> use logdb
+mongos> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+mongos> db.logs.count();
+100000
+</pre>
+
+## Sharding開始のための2ステップ
+
+1. index作成  
+注意：dbをadminではなく、対象のdb(今回はlogdb)に変更すること  
+<pre>
+mongos> use logdb
+mongos> db.logs.ensureIndex( { uid : 1 } );  
+</pre>
+
+2. sharding有効化  
+注意：dbはadmin
+<pre>
+mongos> use admin
+mongos> db.runCommand( { enablesharding : "logdb" });  
+mongos> db.runCommand( { shardcollection : "logdb.logs" , key : { uid : 1 } } );
+//shardingが開始される
+mongos> db.printShardingStatus();
+</pre>
+
+
+## 本当にshardingされているか確認
+
+まずはmongosに接続し、全体logsコレクションの件数を確認する。
+
+<pre>
+$ mongo localhost:10000/logdb
+> db.logs.count();
+100000
+</pre>
+
+次に各shardでlogsコレクションの件数を確認する。
+<pre>
+$ mongo localhost:10010/logdb
+> db.logs.count();
+39503
+$ mongo localhost:10011/logdb
+> db.logs.count();
+30248
+$ mongo localhost:10012/logdb
+> db.logs.count();
+30249
+
+</pre>
+
+
+
+
+
+
+
+
+
+
+
 
 
