@@ -72,18 +72,33 @@ $ mongo localhost:10000/logdb
 * countできますか？
 <pre>
 > use logdb
-> db.logdb.count()
+> db.logs.count()
 </pre>
 
 * shard0000に入っているような若いuidで検索できますか？
 <pre>
 > use logdb
-> db.logdb.find({"uid":1})
+> db.logs.find({"uid":1})
 </pre>
 
 
 # まとめ
+* shard環境では、targetedとglobalの２つのタイプのクエリに分けられます。
+* 実行可能なクエリの例
+  * shard keyを指定して、落ちているshard以外のshardの検索
+  * shard keyを指定して、落ちているshard以外のshardのアップデート
+  * インサート
+* 実行不可能なクエリの例
+  * shard keyを指定して、落ちているshardのデータの検索
+  * shard keyを指定しない検索
 
+<pre>
+shard障害が発生すると、障害shardを参照するクエリは実行エラーとなるが、問題ないshardへのshard keyを使用したクエリは実行可能。
+アプリへの影響が大きいので、基本的にはReplica set を構成し、冗長化を行うべきです。
+</pre>
+
+参考
+[MongoDB公式マニュアル Sharding Introduction](http://www.mongodb.org/display/DOCS/Sharding+Introduction#ShardingIntroduction-OperationTypes)
 ----
 # configサーバをおとしてみる
 
