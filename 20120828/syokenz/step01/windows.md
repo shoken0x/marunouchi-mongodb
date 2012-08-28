@@ -27,7 +27,7 @@ shardサーバ、configサーバ、mongosサーバを起動します。
 
 #### shardサーバの確認
 <pre>
-> bin\mongo localhost:10001
+> bin\mongo localhost:10010
 MongoDB shell version: 2.0.3
 connecting to: localhost:10010/test
 //connectingできたらOK
@@ -36,10 +36,10 @@ connecting to: localhost:10010/test
 #### configサーバ、mongosサーバの起動
 <pre>
 //configサーバ起動
-> start "config" bin\mongod --configsvr --port 10001 --dbpath db\config --logpath log\config.log --rest &
+> start "config" bin\mongod --configsvr --port 10001 --dbpath db\config --logpath log\config.log --rest 
 //mongosサーバ起動
 //chunkの動作も見たいので、chunk sizeを1MBに設定し起動する。
-> start "mongos" bin\mongos --configdb localhost:10001 --port 10000 --logpath log\mongos.log --chunkSize 1&
+> start "mongos" bin\mongos --configdb localhost:10001 --port 10000 --logpath log\mongos.log --chunkSize 1
 </pre>
 
 #### configサーバ、mongosサーバの確認
