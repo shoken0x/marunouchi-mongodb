@@ -9,18 +9,22 @@
 ----
 
 # 基本情報
-* ポート
- * localhost:10000 => mongos  
- * localhost:10001 => config  
- * localhost:10010 => shard0(shard0000)  
- * localhost:10011 => shard1(shard0001)  
- * localhost:10012 => shard2(shard0002)  
- * 各ノードは、+1000番でWebコンソールが見えます  
- * 例：http://localhost:11001  
+- ポート  
+<pre>
+localhost:10000 => mongos  
+localhost:10001 => config  
+localhost:10010 => shard0(shard0000)  
+localhost:10011 => shard1(shard0001)  
+localhost:10012 => shard2(shard0002)  
+各ノードは、+1000番でWebコンソールが見えます  
+例：http://localhost:11001  
+</pre>
 
-* データ入れるdbとcollection
- * db => logdb  
- * collection => logs  
+- データ入れるdbとcollection
+<pre>
+db => logdb  
+collection => logs  
+</pre>
 
 ----
 
