@@ -5,9 +5,9 @@
 logディレクトリ、データディレクトリを作成します。
 
 <pre>
+> mkdir db\shard0
 > mkdir db\shard1
 > mkdir db\shard2
-> mkdir db\shard3
 > mkdir db\config
 > mdkir log
 </pre>
