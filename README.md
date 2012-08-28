@@ -3,7 +3,7 @@
 
 主に丸の内MongoDB勉強会の資料を管理しています。
 
-Guide of meetup MongoDB in Marunouchi.
+The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
