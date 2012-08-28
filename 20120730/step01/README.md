@@ -32,12 +32,12 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 
 ## pathの確認
 ### Windows
-* マイコンピュータ右クリック -> プロパティ -> システムの詳細設定 -> 詳細設定タブ -> 環境変数 -> Path に#{MongoDBのインストールパス/bin}を追加
+* マイコンピュータ右クリック -> プロパティ -> システムの詳細設定 -> 詳細設定タブ -> 環境変数 -> Path に{MongoDBのインストールパス/bin}を追加
 
 ### Mac, Linux
 * 以下のコマンドを実行
 <pre>
-> export PATH=#{MongoDBのインストールパス/bin}:$PATH
+> export PATH={MongoDBのインストールパス/bin}:$PATH
 </pre>
 
 * 追加されたpathが入っていることを確認
@@ -50,12 +50,12 @@ drwxr-xr-x 2 root root  4096  6月  5 04:37 bin
 * mongodの起動  
 dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
 <pre>
-> mongod --dbpath #{path}  //例 mongod --dbpath C:\mongo\db
+> mongod --dbpath {path}  //例 mongod --dbpath C:\mongo\db
 </pre>
 
 * configファイルを使用した起動(configファイルで設定したい人向け)
 <pre>
-> mongod -f #{config_file}  //例 mongod -f C:\mongo\mongod.conf
+> mongod -f {config_file}  //例 mongod -f C:\mongo\mongod.conf
 </pre>
 
 * mongo shellの起動
@@ -75,38 +75,38 @@ connecting to: test
 > show dbs
 </pre>
 
-* データベースを選択/作成する // mysql> use #{db_name}; create database #{db_name}  
+* データベースを選択/作成する // mysql> use {db_name}; create database {db_name}  
 MongoDBのデータベースは、選択してコレクションへ最初のドキュメントをinsertしたタイミングで作成されます。
 <pre>
-> use #{db_name}
+> use {db_name}
 </pre>
 
-* データベースを削除する // mysql> drop database #{db_name}
+* データベースを削除する // mysql> drop database {db_name}
 <pre>
 //useコマンドでデータベースを選択しておく    
 > db.dropDatabase()
 </pre>
 
 ## COLLECTION
-* コレクションを参照/作成する // mysql> show tables; create table #{table_name}(...)
+* コレクションを参照/作成する // mysql> show tables; create table {table_name}(...)
 <pre>
 > show dbs  
-> use #{db_name}  
+> use {db_name}  
 > show collections  //コレクションが何も表示されなかったら適当にinsertする  
 > db.marunouchi.insert({"created_at":new Date()})  //現在時刻をinsert  
 > show collections //marunouchiが見えますか
 </pre>
 
-* コレクションを削除する // mysql> drop table #{table_name}
+* コレクションを削除する // mysql> drop table {table_name}
 <pre>
 > show dbs  
-> use #{db_name}  
+> use {db_name}  
 > show collections  
 > db.marunouchi.drop()  foo コレクション全部を削除します  
 > show collections //確認、marunouchiは削除された  
 </pre>
 
-* コレクション内のデータを削除する // mysql> truncate table #{table_name}
+* コレクション内のデータを削除する // mysql> truncate table {table_name}
 <pre>
 > db.marunouchi.insert({"created_at":new Date()})  
 > show collections  
@@ -114,13 +114,13 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 > show collections //確認、marunouchiはまだある  
 </pre>
 
-* descコマンドはありません // mysql> desc #{table_name}
+* descコマンドはありません // mysql> desc {table_name}
 
 ## DOCUMENT
 ### INSERT
-* mysql> insert into #{table_name} values(...)
+* mysql> insert into {table_name} values(...)
 <pre>
-> use #{db_name}
+> use {db_name}
 > db.marunouchi.insert({"created_at":new Date()})
 > db["marunouchi"].insert({"created_at":new Date()}) //こんな書き方もできます 
 > for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i}) //for文も使えます
