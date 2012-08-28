@@ -175,7 +175,8 @@ $ mongo localhost:10012/logdb
 
 </pre>
 
-
+----
+お疲れ様でした。シャーディングの確認はできましたら、次は[step02](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz/step02) 障害発生時の挙動についてです。
 
 
 
