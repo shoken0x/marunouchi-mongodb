@@ -40,7 +40,6 @@ $ mongo localhost:10011
 $ mongo localhost:10012
 </pre>
 
-
 # まとめ
 <pre>
 //MongoDBのShardingを試してみた。その３ 障害発生時の挙動について より引用
@@ -80,6 +79,11 @@ $ mongo localhost:10000/logdb
 <pre>
 > use logdb
 > db.logs.find({"uid":1})
+</pre>
+
+* insertできますか？
+<pre>
+> db.logs.insert({"uid":99999999, "value":99999999})
 </pre>
 
 
