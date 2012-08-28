@@ -83,9 +83,10 @@ mongos> db.runCommand( { addshard : "localhost:10012" } );
 
 
 
-追加したshardが正しく追加されているかどうか、確認する。
-・db.runCommand( { listshards : 1 } )
-・db.printShardingStatus()
+追加したshardが正しく追加されているかどうか、確認する。  
+・db.runCommand( { listshards : 1 } )  
+・db.printShardingStatus()  
+
 <pre>
 mongos> db.runCommand( { listshards : 1 } );
 {
