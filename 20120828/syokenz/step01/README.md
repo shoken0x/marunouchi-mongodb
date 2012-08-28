@@ -1,8 +1,13 @@
 シャーディングの設定手順
 =================
-参考URL
-http://d.hatena.ne.jp/matsuou1/20110413/1302710901
+
 ----
+#### 参考URL
+
+[MongoDBのShardingを試してみた。その１](http://d.hatena.ne.jp/matsuou1/20110413/1302710901)
+
+----
+
 MongoDBは、NoSQLデータベースでよく採用されている Consistent Hashing ではなく、RDBMSではおなじみのレンジパーティションを採っている。
 
 ----
