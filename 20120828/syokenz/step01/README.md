@@ -53,7 +53,7 @@ $ mongod --shardsvr --port 10012 --dbpath /tmp/mongodb/shard2 --logpath /tmp/mon
 
 #### shardサーバの確認
 <pre>
-$ mongo localhost:10001
+$ mongo localhost:10010
 MongoDB shell version: 2.0.3
 connecting to: localhost:10010/test
 //connectingできたらOK
