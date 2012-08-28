@@ -140,7 +140,7 @@ mongos> use logdb
 mongos> db.logs.ensureIndex( { uid : 1 } );  
 </pre>
 
-2. sharding有効化
+2. sharding有効化  
 注意：dbはadmin
 <pre>
 mongos> use admin
