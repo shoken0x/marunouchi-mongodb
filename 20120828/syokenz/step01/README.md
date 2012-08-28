@@ -126,7 +126,8 @@ databases:
 <pre>
 $ mongo localhost:10000
 mongos> use logdb
-mongos> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+mongos> for(var i=1; i=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+//＜＝があると表示がおかしくなる。。
 mongos> db.logs.count();
 100000
 </pre>
