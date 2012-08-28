@@ -8,7 +8,9 @@
 
 ----
 
-#### 準備
+# 準備
+logディレクトリ、データディレクトリを作成します。
+
 <pre>
 $ mkdir -p /tmp/mongodb/log
 $ mkdir -p /tmp/mongodb/shard1
