@@ -120,6 +120,44 @@ databases:
 { "_id" : "admin", "partitioned" : false, "primary" : "config" }
 </pre>
 
+----
+# mongos経由でデータ投入
+
+<pre>
+$ mongo localhost:10000
+mongos> use logdb
+mongos> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+mongos> db.logs.count();
+100000
+</pre>
+
+## Sharding開始のための2ステップ
+1. index作成  
+注意：dbをadminではなく、対象のdb(今回はlogdb)に変更すること  
+<pre>
+mongos> use logdb
+mongos> db.logs.ensureIndex( { uid : 1 } );  
+</pre>
+
+2. sharding有効化
+注意：dbはadmin
+<pre>
+mongos> use admin
+mongos> db.runCommand( { enablesharding : "logdb" });  
+mongos> db.runCommand( { shardcollection : "logdb.logs" , key : { uid : 1 } } );
+//確認
+mongos> db.printShardingStatus();
+</pre>
+
+
+
+
+
+
+
+
+
+
 
 
 
