@@ -72,4 +72,5 @@ ChunkB [ "k", "{" )
 //また、2.2からタグによるレンジ指定が可能になるようです。
 </pre>
 
-
+----
+それでは実際にシャーディングを設定してみましょう。[step01](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz/step01)へ進んでください。
