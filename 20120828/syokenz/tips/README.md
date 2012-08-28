@@ -1,7 +1,7 @@
 MongoDB Sharding Tips
 =================
 ----
-- localhostと実IPの混在はできない。ループバックアドレス(127.0.0.1)でもだめ。mongos起動する際のconfig serverの指定も注意
+- Sharding設定時に、localhostと実IPの混在はできない。ループバックアドレス(127.0.0.1)でもだめ。mongos起動する際のconfig serverの指定とaddShardの指定で注意
 - 一度shardに属したmongodは、他のshardと混在することはできない、config serverにメタデータを保持している。下記コマンドが必要。
 <pre>
 db.runCommand( { removeshard : "localhost:10001" } ); 
@@ -12,12 +12,15 @@ db.runCommand( { removeshard : "localhost:10001" } );
 - sharding環境を再構築する  
 dbを削除
   <pre>
-　 use logdb
-　 db.dropDatabase()
+   //mongosサーバで
+　 > use logdb
+　 > db.dropDatabase()
   </pre>
 shardを削除
-　<pre>　
-    db.runCommand( { removeshard : "localhost:10001" } );  
+　<pre>
+    //mongosサーバで
+    > use admin
+    > db.runCommand( { removeshard : "localhost:10001" } );  
   </pre>
 
 - 各shardingしているmongodに直接データを入れても、mongos経由で参照できる
