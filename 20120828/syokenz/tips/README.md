@@ -11,17 +11,17 @@ db.runCommand( { removeshard : "localhost:10001" } );
   Shardが完全に削除される前に、そのshardに保存されている全てのchunkを残りのshardに移動させなければなりません。'removeshard' コマンドは全てのchunkが移動されるまで "draining" 状態になっています。shardの削除を行うには次のコマンドを発行します：
 - sharding環境を再構築する  
 dbを削除
-  <pre>
-   //mongosサーバで
-　 > use logdb
-　 > db.dropDatabase()
-  </pre>
+```
+//mongosサーバで
+> use logdb
+> db.dropDatabase()
+```
 shardを削除
-　<pre>
-    //mongosサーバで
-    > use admin
-    > db.runCommand( { removeshard : "localhost:10001" } );  
-  </pre>
+```
+//mongosサーバで
+> use admin
+> db.runCommand( { removeshard : "localhost:10001" } );  
+```
 
 - 各shardingしているmongodに直接データを入れても、mongos経由で参照できる
 - shardサーバが落ちると、mongosのログに出る
