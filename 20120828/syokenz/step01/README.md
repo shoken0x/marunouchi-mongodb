@@ -132,6 +132,7 @@ mongos> db.logs.count();
 </pre>
 
 ## Sharding開始のための2ステップ
+
 1. index作成  
 注意：dbをadminではなく、対象のdb(今回はlogdb)に変更すること  
 <pre>
@@ -145,8 +146,33 @@ mongos> db.logs.ensureIndex( { uid : 1 } );
 mongos> use admin
 mongos> db.runCommand( { enablesharding : "logdb" });  
 mongos> db.runCommand( { shardcollection : "logdb.logs" , key : { uid : 1 } } );
-//確認
+//shardingが開始される
 mongos> db.printShardingStatus();
+</pre>
+
+
+## 本当にshardingされているか確認
+
+まずはmongosに接続し、全体logsコレクションの件数を確認する。
+
+<pre>
+$ mongo localhost:10000/logdb
+> db.logs.count();
+100000
+</pre>
+
+次に各shardでlogsコレクションの件数を確認する。
+<pre>
+$ mongo localhost:10010/logdb
+> db.logs.count();
+39503
+$ mongo localhost:10011/logdb
+> db.logs.count();
+30248
+$ mongo localhost:10012/logdb
+> db.logs.count();
+30249
+
 </pre>
 
 
