@@ -86,6 +86,13 @@ $ mongo localhost:10000/logdb
 > db.logs.insert({"uid":99999999, "value":99999999})
 </pre>
 
+* db.runCommand( { listshards : 1 } ), db.printShardingStatus()ではどう見える？
+<pre>
+> use admin
+> db.runCommand( { listshards : 1 } );
+> db.printShardingStatus();
+</pre>
+
 
 # まとめ
 * shard環境では、targetedとglobalの２つのタイプのクエリに分けられます。
@@ -96,6 +103,8 @@ $ mongo localhost:10000/logdb
 * 実行不可能なクエリの例
   * shard keyを指定して、落ちているshardのデータの検索
   * shard keyを指定しない検索
+* db.runCommand( { listshards : 1 } ), db.printShardingStatus()で障害は検知できない。
+* エラーはmongosのログに出る
 
 <pre>
 //MongoDBのShardingを試してみた。その３ 障害発生時の挙動について より引用
