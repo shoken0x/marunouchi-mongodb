@@ -9,11 +9,11 @@
 ----
 
 # ポート一覧
-localhost:10000 mongos
-localhost:10001 shard1
-localhost:10002 shard2
-localhost:10003 shard3
-localhost:10004 config
+localhost:10000 mongos  
+localhost:10001 config  
+localhost:10010 shard0(shard0000)  
+localhost:10011 shard1(shard0001)  
+localhost:10012 shard2(shard0002)  
 
 ----
 
@@ -22,10 +22,10 @@ logディレクトリ、データディレクトリを作成します。
 
 <pre>
 $ mkdir -p /tmp/mongodb/log
+$ mkdir -p /tmp/mongodb/config
+$ mkdir -p /tmp/mongodb/shard0
 $ mkdir -p /tmp/mongodb/shard1
 $ mkdir -p /tmp/mongodb/shard2
-$ mkdir -p /tmp/mongodb/shard3
-$ mkdir -p /tmp/mongodb/config
 </pre>
 
 
@@ -35,26 +35,26 @@ shardサーバ、configサーバ、mongosサーバを起動します。
 
 #### shardサーバの起動
 <pre>
-$ mongod --shardsvr --port 10001 --dbpath /tmp/mongodb/shard1 --logpath /tmp/mongodb/log/shard1.log --rest &
-$ mongod --shardsvr --port 10002 --dbpath /tmp/mongodb/shard2 --logpath /tmp/mongodb/log/shard2.log --rest &
-$ mongod --shardsvr --port 10003 --dbpath /tmp/mongodb/shard3 --logpath /tmp/mongodb/log/shard3.log --rest &
+$ mongod --shardsvr --port 10010 --dbpath /tmp/mongodb/shard0 --logpath /tmp/mongodb/log/shard0.log --rest &
+$ mongod --shardsvr --port 10011 --dbpath /tmp/mongodb/shard1 --logpath /tmp/mongodb/log/shard1.log --rest &
+$ mongod --shardsvr --port 10012 --dbpath /tmp/mongodb/shard2 --logpath /tmp/mongodb/log/shard2.log --rest &
 </pre>
 
 #### shardサーバの確認
 <pre>
 $ mongo localhost:10001
 MongoDB shell version: 2.0.3
-connecting to: localhost:10001/test
+connecting to: localhost:10010/test
 //connectingできたらOK
 </pre>
 
 #### configサーバ、mongosサーバの起動
 <pre>
 //configサーバ起動
-$ mongod --configsvr --port 10004 --dbpath /tmp/mongodb/config --logpath /tmp/mongodb/log/config.log --rest &
+$ mongod --configsvr --port 10001 --dbpath /tmp/mongodb/config --logpath /tmp/mongodb/log/config.log --rest &
 //mongosサーバ起動
 //chunkの動作も見たいので、chunk sizeを1MBに設定し起動する。
-$ mongos --configdb localhost:10004 --port 10000 --logpath /tmp/mongodb/log/mongos.log --chunkSize 1&
+$ mongos --configdb localhost:10001 --port 10000 --logpath /tmp/mongodb/log/mongos.log --chunkSize 1&
 </pre>
 
 #### configサーバ、mongosサーバの確認
@@ -65,8 +65,59 @@ $ ps axu |grep [m]ongo |wc -l
 
 ----
 # Shradの追加
+#### mongosのadminに接続し、Shardを追加する。
+<pre>
+$ mongo localhost:10000/admin
+MongoDB shell version: 2.0.7
+connecting to: localhost:10000/admin
+mongos> db  //adminに接続されていることを確認
+admin
+// addshard
+mongos> db.runCommand( { addshard : "localhost:10010" } );
+{ "shardAdded" : "shard0000", "ok" : 1 }
+mongos> db.runCommand( { addshard : "localhost:10011" } );
+{ "shardAdded" : "shard0001", "ok" : 1 }
+mongos> db.runCommand( { addshard : "localhost:10012" } );
+{ "shardAdded" : "shard0002", "ok" : 1 }
+</pre>
 
 
+
+追加したshardが正しく追加されているかどうか、確認する。
+・db.runCommand( { listshards : 1 } )
+・db.printShardingStatus()
+<pre>
+mongos> db.runCommand( { listshards : 1 } );
+{
+"shards" : [
+{
+"_id" : "shard0000",
+"host" : "localhost:10010"
+},
+{
+"_id" : "shard0001",
+"host" : "localhost:10011"
+},
+{
+"_id" : "shard0002",
+"host" : "localhost:10012"
+}
+],
+"ok" : 1
+}
+</pre>
+
+<pre>
+mognos> db.printShardingStatus();
+--- Sharding Status ---
+sharding version: { "_id" : 1, "version" : 3 }
+shards:
+{ "_id" : "shard0000", "host" : "localhost:10010" }
+{ "_id" : "shard0001", "host" : "localhost:10011" }
+{ "_id" : "shard0002", "host" : "localhost:10012" }
+databases:
+{ "_id" : "admin", "partitioned" : false, "primary" : "config" }
+</pre>
 
 
 
