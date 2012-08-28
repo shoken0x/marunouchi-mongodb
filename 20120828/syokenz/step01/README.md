@@ -134,14 +134,13 @@ databases:
 ----
 # mongos経由でデータ投入
 
-<pre>
+```
 $ mongo localhost:10000
 mongos> use logdb
-mongos> for(var i=1; i=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
-//＜＝があるとgithubの表示がおかしくなる。。
+mongos> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
 mongos> db.logs.count();
 100000
-</pre>
+```
 
 ## Sharding開始のための2ステップ
 
