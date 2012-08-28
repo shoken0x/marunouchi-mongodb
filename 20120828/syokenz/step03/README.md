@@ -44,7 +44,7 @@ mongos> db.runCommand( { addshard : "{隣人のIP}:20000" } );
 
 ```
 //mongosからSharding設定が確認できたら成功です。
-$ mongo localhost:10000/admin
+$ mongo {mongosのIP}:10000/admin
 mognos> db.printShardingStatus();
 ```
 
