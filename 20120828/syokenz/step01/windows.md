@@ -51,5 +51,8 @@ connecting to: localhost:10010/test
 #### configサーバ、mongosサーバの停止
 > taskkill /F /pid (プロセスID)
 
+#### メモ
+windowsでプロセスの停止には、[Process Explorer](http://technet.microsoft.com/ja-jp/sysinternals/bb896653.aspx)が便利とのこと。  
+勉強会中に教えてもらいました。
 
 
