@@ -22,7 +22,7 @@ localhost:10012 => shard2(shard0002)
 $ tail -f /tmp/mongodb/log/mongos.log
 </pre>
 
-* mongosサーバを落としましょう
+* mongosサーバを落としてみましょう
 <pre>
 $ ps axu |grep mongos
 $ kill -2 xxxx
@@ -53,6 +53,34 @@ mongosは、単なるルーティングプロセスでデータの管理はし�
 
 ----
 # shardサーバをおとしてみる
+* ログをtailしましょう
+<pre>
+$ tail -f /tmp/mongodb/log/mongos.log
+</pre>
+
+* 3つ目のshardサーバ(shard0002)を落としてみましょう
+<pre>
+$ ps axu |grep shard2
+$ kill -2 xxxx
+</pre>
+
+* mongosサーバに接続できますか？
+<pre>
+$ mongo localhost:10000/logdb
+</pre>
+
+* countできますか？
+<pre>
+> use logdb
+> db.logdb.count()
+</pre>
+
+* shard0000に入っているような若いuidで検索できますか？
+<pre>
+> use logdb
+> db.logdb.find({"uid":1})
+</pre>
+
 
 # まとめ
 
