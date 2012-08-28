@@ -7,3 +7,37 @@ shardingでは、localhostと実IPの混在はできません！
 ループバックアドレス(127.0.0.1)でもだめ。  
 mongos起動する際のconfig serverの指定とaddshardの指定を注意してください。
 
+----
+## shardサーバ係の人の手順
+
+```
+//自分のIPを口頭でmongos, configサーバ係へ伝えましょう
+
+//mkdir
+$ mkdir /tmp/mongodb/shard20
+
+//port 20000でshardサーバを起動させましょう
+$ mongod --shardsvr --port 20000 --dbpath /tmp/mongodb/shard20 --logpath /tmp/mongodb/log/shard20.log --rest &
+
+```
+
+----
+## mongos, configサーバ係の人の手順
+
+```
+//configサーバのデータを削除してきれいにしましょう
+$ rm -rf /tmp/mongodb/config/* 
+//configサーバを起動させましょう
+$ mongod --configsvr --port 10001 --dbpath /tmp/mongodb/config --logpath /tmp/mongodb/log/config.log --rest &
+
+//mongosサーバを起動させましょう　
+$ mongos --configdb {自分の実IP}:10001 --port 10000 --logpath /tmp/mongodb/log/mongos.log --chunkSize 1&
+//例：$ mongos --configdb 10.0.2.1:10001 --port 10000 --logpath /tmp/mongodb/log/mongos.log --chunkSize 1&
+
+//隣人のshardを追加してみましょう
+$ mongo localhost:10000/admin
+mongos> db.runCommand( { addshard : "{隣人のIP}:20000" } );
+//例：mongos> db.runCommand( { addshard : "10.0.2.30:20000" } );
+
+
+```
