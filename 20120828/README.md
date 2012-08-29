@@ -57,6 +57,11 @@ else:
 # library choices
 add_option( "usesm" , "use spider monkey for javascript" , 0 , True )
 add_option( "usev8" , "use v8 for javascript" , 0 , True )
+...
+if ( not ( usesm or usev8 or justClientLib) ):
+    usesm = True
+    options_topass["usesm"] = True
+    
 </pre>
 
 - ドキュメントに書いてあった。extended SpiderMonkey shellとのこと。[mongo - The Interactive Shell](http://www.mongodb.org/display/DOCS/mongo+-+The+Interactive+Shell)
