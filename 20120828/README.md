@@ -33,6 +33,21 @@ Marunouchi.mongo 20120828
 - MongoDBのJavaScript実行環境は何を使っている？
  - [ここ](https://groups.google.com/forum/?fromgroups=#!topic/mongodb-user/PHeh_kB6VNY)デフォルトはspidermonkeyっぽい
  - [Switch to v8](https://jira.mongodb.org/browse/SERVER-2407)2.3.xからv8になる？
+ - ソース見た。[src/mongo/SConscript](https://github.com/mongodb/mongo/blob/master/src/mongo/SConscript)
+```
+if usesm:
+    env.StaticLibrary('scripting', scripting_common_files + ['scripting/engine_spidermonkey.cpp'],
+                      LIBDEPS=['$BUILD_DIR/third_party/js-1.7/js', 'bson_template_evaluator'])
+elif usev8:
+    env.StaticLibrary('scripting', scripting_common_files + ['scripting/engine_v8.cpp',
+                                                             'scripting/v8_db.cpp',
+                                                             'scripting/v8_utils.cpp',
+                                                             'scripting/v8_wrapper.cpp'],
+                       LIBDEPS=['bson_template_evaluator'])
+else:
+    env.StaticLibrary('scripting', scripting_common_files + ['scripting/engine_none.cpp'],
+                      LIBDEPS=['bson_template_evaluator'])
+```
 
 # 参考資料
 * [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)  
