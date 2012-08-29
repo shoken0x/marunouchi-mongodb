@@ -33,6 +33,22 @@ Marunouchi.mongo 20120828
 * [MongoDB公式マニュアル Sharding](http://www.mongodb.org/display/DOCSJP/Sharding)  
 
 # 参加者
+1. [@syokenz](http://twitter.com/syokenz)
+1. [@fetarodc](http://twitter.com/fetarodc)
+1. [@rinrin0108](http://twitter.com/rinrin0108)
+1. [@modsound](http://twitter.com/modsound)
+1. [@nobumin](http://twitter.com/nobumin)
+1. [@mikamix](http://twitter.com/mikamix)
+1. [@joker1007](http://twitter.com/joker1007)
+1. [@naru0ga](http://twitter.com/naru0ga)
+1. [@yokoom](http://twitter.com/yokoom)
+1. [@fukata](http://twitter.com/fukata)
+1. [@shin_semiya](http://twitter.com/shin_semiya)
+1. naotow
+
+
+
+
 
 
 # Blog
