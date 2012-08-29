@@ -51,7 +51,7 @@ else:
                       LIBDEPS=['bson_template_evaluator'])
 </pre>
 
-- [mongo/SConstruct](https://github.com/mongodb/mongo/blob/master/SConstruct) となっているのでspidermonkeyがデフォルトっぽい。
+- [mongo/SConstruct](https://github.com/mongodb/mongo/blob/master/SConstruct) で両方ともTrueとなっているのでspidermonkeyがデフォルトっぽい。
 
 <pre>
 # library choices
