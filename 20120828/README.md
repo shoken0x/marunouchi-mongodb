@@ -27,7 +27,7 @@ Marunouchi.mongo 20120828
  - 参考：[〜うまく動かすMongoDB〜仕組みや挙動を理解する](http://doryokujin.hatenablog.jp/entry/20110519/1305737343)の中程
 - ReplicaSetsは最低３つのmongodで構成されると聞いているが、２つでも構成可能
 - Sharding+ReplicaSetsの構成での挙動で、ReplicaSetsのPrimaryが落ちた場合の挙動はどうなるか
-- Sharding環境で大量データinsert後にchunkの移動が起こるが、その際にcount()すると実際のデータよりも多くカウントされてしまう。どのように回避すればよいか。
+- Sharding環境で大量データinsert後にchunkの移動が起こるが、その際にcount()すると実際のデータよりも多くカウントされてしまう。どのように回避すればよいか。chunk migration時のcount問題。
 
 
 # 参考資料
