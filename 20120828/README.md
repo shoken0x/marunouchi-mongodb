@@ -34,7 +34,8 @@ Marunouchi.mongo 20120828
  - [ここ](https://groups.google.com/forum/?fromgroups=#!topic/mongodb-user/PHeh_kB6VNY)デフォルトはspidermonkeyっぽい
  - [Switch to v8](https://jira.mongodb.org/browse/SERVER-2407)2.3.xからv8になる？
  - ソース見た。[src/mongo/SConscript](https://github.com/mongodb/mongo/blob/master/src/mongo/SConscript)
-```python:SConscript
+
+<pre>
 if usesm:
     env.StaticLibrary('scripting', scripting_common_files + ['scripting/engine_spidermonkey.cpp'],
                       LIBDEPS=['$BUILD_DIR/third_party/js-1.7/js', 'bson_template_evaluator'])
@@ -47,7 +48,7 @@ elif usev8:
 else:
     env.StaticLibrary('scripting', scripting_common_files + ['scripting/engine_none.cpp'],
                       LIBDEPS=['bson_template_evaluator'])
-```
+</pre>
 
 # 参考資料
 * [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)  
