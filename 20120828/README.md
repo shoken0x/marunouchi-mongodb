@@ -67,6 +67,7 @@ add_option( "usev8" , "use v8 for javascript" , 0 , True )
 * [MongoDB公式マニュアル Sharding](http://www.mongodb.org/display/DOCSJP/Sharding)  
 * [JavaScript Interface](http://docs.mongodb.org/manual/reference/javascript/)
 * [Command Reference](http://docs.mongodb.org/manual/reference/commands/)
+* [MongoDB API v2.0.6](http://api.mongodb.org/js/2.0.6/)
 
 # 参加者
 1. [@syokenz](http://twitter.com/syokenz)
