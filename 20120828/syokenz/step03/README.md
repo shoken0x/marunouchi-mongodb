@@ -2,8 +2,9 @@
 =================
 ### 会場の人たちのIPアドレスを聞いて、シャーディングをしてみましょう。
 ----
+## はまりどころ
 
-shardingでは、localhostと実IPの混在はできません！  
+### shardingでは、localhostと実IPの混在はできません！  
 ループバックアドレス(127.0.0.1)でもだめ。  
 mongos起動する際のconfig serverの指定とaddshardの指定を注意してください。
 このエラーが出たら、localhostと実IPが混在していないかを確認してください。
@@ -11,6 +12,9 @@ mongos起動する際のconfig serverの指定とaddshardの指定を注意し�
 "can't use localhost as a shard since all shards need to communicate. 
 either use all shards and configdbs in localhost or all in actual IPs host: localhost:xxxxx isLocalHost:0"
 ```
+### 一度別のshardingに所属したノードが同じdbで他のshardingに所属しようとするとエラーとなる
+クリーンなmongodを立ち上げるのが吉
+
 
 ----
 ## shardサーバ係の人の手順
