@@ -20,8 +20,8 @@ Marunouchi.mongo 20120926
 
 
 # 参考資料
-* [MongoDB公式マニュアル レプリケーション](http://www.mongodb.org/pages/viewpage.action?pageId=7209399) 
-* [MongoDB公式マニュアル Replica Sets](http://jp.docs.mongodb.org/manual/reference/replica-configuration/)  
+* [旧MongoDB公式マニュアル レプリケーション](http://www.mongodb.org/pages/viewpage.action?pageId=7209399) 
+* [新MongoDB公式マニュアル レプリケーション](http://jp.docs.mongodb.org/manual/replication/)  
 
 # 参加者
 
