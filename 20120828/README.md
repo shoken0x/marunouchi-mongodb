@@ -55,9 +55,9 @@ Marunouchi.mongo 20120828
 
 
 
-
-
-
-
 # Blog
+* [丸の内MongoDB勉強会 #2 やりました - Shoken OpenSource Society](http://shoken.hatenablog.com/entry/2012/08/29/122101)
+
+
+
 
