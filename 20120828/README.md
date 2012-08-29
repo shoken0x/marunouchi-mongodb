@@ -52,7 +52,6 @@ else:
 </pre>
 
 - [mongo/SConstruct](https://github.com/mongodb/mongo/blob/master/SConstruct) で両方ともTrueとなっているのでspidermonkeyがデフォルトっぽい。
-- ドキュメントに書いてあった。extended SpiderMonkey shellとのこと。[mongo - The Interactive Shell](http://www.mongodb.org/display/DOCS/mongo+-+The+Interactive+Shell)
 
 <pre>
 # library choices
@@ -60,11 +59,13 @@ add_option( "usesm" , "use spider monkey for javascript" , 0 , True )
 add_option( "usev8" , "use v8 for javascript" , 0 , True )
 </pre>
 
+- ドキュメントに書いてあった。extended SpiderMonkey shellとのこと。[mongo - The Interactive Shell](http://www.mongodb.org/display/DOCS/mongo+-+The+Interactive+Shell)
 
 
 # 参考資料
 * [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)  
 * [MongoDB公式マニュアル Sharding](http://www.mongodb.org/display/DOCSJP/Sharding)  
+* [JavaScript Interface](http://docs.mongodb.org/manual/reference/javascript/)
 
 # 参加者
 1. [@syokenz](http://twitter.com/syokenz)
