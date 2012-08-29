@@ -30,6 +30,7 @@ Marunouchi.mongo 20120828
 - Sharding環境で大量データinsert後にchunkの移動が起こるが、その際にcount()すると実際のデータよりも多くカウントされてしまう。どのように回避すればよいか。chunk migration時のcount問題。
  - 解決策の一つは、balancerをスケジューリングしてmigrationのタイミングを調整すること
  - [Schedule the Balancing Window](http://docs.mongodb.org/manual/administration/sharding/#schedule-the-balancing-window)
+ - もう一つは、sh.isBalancerRunning()でmigration中かどうかわかるが、コマンドの使い方を調査中。
 - MongoDBのJavaScript実行環境は何を使っている？
  - [ここ](https://groups.google.com/forum/?fromgroups=#!topic/mongodb-user/PHeh_kB6VNY)デフォルトはspidermonkeyっぽい
  - [Switch to v8](https://jira.mongodb.org/browse/SERVER-2407)2.3.xからv8になる？
