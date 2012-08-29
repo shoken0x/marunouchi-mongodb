@@ -52,6 +52,7 @@ else:
 </pre>
 
 - [mongo/SConstruct](https://github.com/mongodb/mongo/blob/master/SConstruct) で両方ともTrueとなっているのでspidermonkeyがデフォルトっぽい。
+- ドキュメントに書いてあった。extended SpiderMonkey shellとのこと。[mongo - The Interactive Shell](http://www.mongodb.org/display/DOCS/mongo+-+The+Interactive+Shell)
 
 <pre>
 # library choices
