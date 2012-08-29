@@ -28,6 +28,8 @@ Marunouchi.mongo 20120828
 - ReplicaSetsは最低３つのmongodで構成されると聞いているが、２つでも構成可能
 - Sharding+ReplicaSetsの構成での挙動で、ReplicaSetsのPrimaryが落ちた場合の挙動はどうなるか
 - Sharding環境で大量データinsert後にchunkの移動が起こるが、その際にcount()すると実際のデータよりも多くカウントされてしまう。どのように回避すればよいか。chunk migration時のcount問題。
+ - 解決策の一つは、balancerをスケジューリングしてmigrationのタイミングを調整すること
+ - [Schedule the Balancing Window](http://docs.mongodb.org/manual/administration/sharding/#schedule-the-balancing-window)
 
 
 # 参考資料
