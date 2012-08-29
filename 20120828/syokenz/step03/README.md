@@ -6,7 +6,7 @@
 
 ### shardingでは、localhostと実IPの混在はできません！  
 ループバックアドレス(127.0.0.1)でもだめ。  
-mongos起動する際のconfig serverの指定とaddshardの指定を注意してください。
+mongos起動する際のconfig serverの指定と、shard追加時のaddshardの指定を注意してください。
 このエラーが出たら、localhostと実IPが混在していないかを確認してください。
 ```
 "can't use localhost as a shard since all shards need to communicate. 
