@@ -31,7 +31,8 @@ Marunouchi.mongo 20120828
  - 解決策の一つは、balancerをスケジューリングしてmigrationのタイミングを調整すること
  - [Schedule the Balancing Window](http://docs.mongodb.org/manual/administration/sharding/#schedule-the-balancing-window)
 - MongoDBのJavaScript実行環境は何を使っている？
- - [ここ](https://github.com/mongodb/mongo/tree/master/src/mongo/scripting)みるとV8をラッパーしているっぽい
+ - [ここ](https://groups.google.com/forum/?fromgroups=#!topic/mongodb-user/PHeh_kB6VNY)デフォルトはspidermonkeyっぽい
+ - [Switch to v8](https://jira.mongodb.org/browse/SERVER-2407)2.3.xからv8になる？
 
 # 参考資料
 * [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)  
