@@ -66,6 +66,7 @@ add_option( "usev8" , "use v8 for javascript" , 0 , True )
 * [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)  
 * [MongoDB公式マニュアル Sharding](http://www.mongodb.org/display/DOCSJP/Sharding)  
 * [JavaScript Interface](http://docs.mongodb.org/manual/reference/javascript/)
+* [Command Reference](http://docs.mongodb.org/manual/reference/commands/)
 
 # 参加者
 1. [@syokenz](http://twitter.com/syokenz)
