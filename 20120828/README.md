@@ -19,6 +19,8 @@ Marunouchi.mongo 20120828
   * 第3回はReplicaSets？、2.2の新機能？
 * 懇親会へ
 
+![mm20120730.png](http://www.fedc.biz/~fujisaki/img/mm20120828.jpg)
+
 # 会場で出た質問 => 第３回で勉強しましょう！
 - ReplicaSetsでPrimaryがダウンしたら、SecondaryがPrimaryに昇格するが、優先度は設定できるのか
 - ReplicaSetsは最低３つのmongodで構成されると聞いているが、２つでも構成可能
