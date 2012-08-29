@@ -91,6 +91,7 @@ add_option( "usev8" , "use v8 for javascript" , 0 , True )
 # Blog
 * [丸の内MongoDB勉強会 #2 やりました - Shoken OpenSource Society](http://shoken.hatenablog.com/entry/2012/08/29/122101)
 
-
+#Togetter
+[http://togetter.com/li/363976](http://togetter.com/li/363976)
 
 
