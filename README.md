@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-丸の内MongoDB勉強会 #3 2012/09/xx
+丸の内MongoDB勉強会 #3 2012/09/26（水）18:00 - 
 
 ----
 #### MongoDB最初の1歩
