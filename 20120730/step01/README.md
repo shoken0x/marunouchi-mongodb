@@ -102,7 +102,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 > show dbs  
 > use {db_name}  
 > show collections  
-> db.marunouchi.drop()  foo コレクション全部を削除します  
+> db.marunouchi.drop()  //コレクション全部を削除します  
 > show collections //確認、marunouchiは削除された  
 </pre>
 
@@ -110,7 +110,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 <pre>
 > db.marunouchi.insert({"created_at":new Date()})  
 > show collections  
-> db.marunouchi.remove()   コレクションの中のすべてのオブジェクトを削除します  
+> db.marunouchi.remove() //コレクションの中のすべてのオブジェクトを削除します  
 > show collections //確認、marunouchiはまだある  
 </pre>
 
