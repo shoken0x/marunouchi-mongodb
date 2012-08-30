@@ -36,7 +36,7 @@ Marunouchi.mongo 20120828
  - [Switch to v8](https://jira.mongodb.org/browse/SERVER-2407)  2.3.xからv8になる？
  - ソース見た。[mongo/src/mongo/SConscript](https://github.com/mongodb/mongo/blob/master/src/mongo/SConscript)
 
-<pre>
+```python
 if usesm:
     env.StaticLibrary('scripting', scripting_common_files + ['scripting/engine_spidermonkey.cpp'],
                       LIBDEPS=['$BUILD_DIR/third_party/js-1.7/js', 'bson_template_evaluator'])
@@ -49,11 +49,11 @@ elif usev8:
 else:
     env.StaticLibrary('scripting', scripting_common_files + ['scripting/engine_none.cpp'],
                       LIBDEPS=['bson_template_evaluator'])
-</pre>
+```
 
 - [mongo/SConstruct](https://github.com/mongodb/mongo/blob/master/SConstruct) で指定がなければusesmがtrueになるのでspidermonkeyがデフォルトっぽい。
 
-<pre>
+```python
 # library choices
 add_option( "usesm" , "use spider monkey for javascript" , 0 , True )
 add_option( "usev8" , "use v8 for javascript" , 0 , True )
@@ -62,7 +62,7 @@ if ( not ( usesm or usev8 or justClientLib) ):
     usesm = True
     options_topass["usesm"] = True
     
-</pre>
+```
 
 - ドキュメントに書いてあった。extended SpiderMonkey shellとのこと。[mongo - The Interactive Shell](http://www.mongodb.org/display/DOCS/mongo+-+The+Interactive+Shell)
 
