@@ -17,7 +17,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### Wiki
-勉強会で出た質問を中心にノウハウ、Tipsをまとめていきます。
+勉強会で出た質問を中心にノウハウ、Tipsをまとめていきます。  
 [wiki](https://github.com/syokenz/marunouchi-mongodb/wiki)
 
 ----
