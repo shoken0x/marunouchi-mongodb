@@ -23,6 +23,7 @@ Marunouchi.mongo 20120926
 # 参考資料
 * [旧MongoDB公式マニュアル レプリケーション](http://www.mongodb.org/pages/viewpage.action?pageId=7209399) 
 * [新MongoDB公式マニュアル レプリケーション](http://jp.docs.mongodb.org/manual/replication/)  
+* [MongoDBイベント資料（MongoDB 2.2ご紹介）](http://kumoya.com/?p=3493)
 
 # 参加者
 
