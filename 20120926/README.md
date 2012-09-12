@@ -11,6 +11,7 @@ Marunouchi.mongo 20120926
 # 流れ
 * 懇親会の出席を取る
 * [雲屋株式会社](http://kumoya.com/) 様ご提供のステッカーを配る
+* [Wiki](https://github.com/syokenz/marunouchi-mongodb/wiki)作りました！
 * MongoDB 2.2 新機能紹介 @syokenz
 * みんなでレプリケーション @fetarodc
 * みんなで質問とか、第4回でどんなことをやるかとか
