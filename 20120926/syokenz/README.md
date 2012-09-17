@@ -19,7 +19,7 @@ serverStatus()
 ### Page faultアーキテクチャの改善
 ```
 If 書き込みオペレーションで、  
-・アクセス先がメモリになくて、mutationが起こりそうで  
+・アクセス先がメモリ上になくて、mutationが起こりそうで  
 ・Page faultしようとしている時  
 Then  
 ・PageFaultEceptionを発生させます  
