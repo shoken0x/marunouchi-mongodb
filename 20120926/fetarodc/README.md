@@ -1,8 +1,10 @@
 MongoDB レプリケーション(Replica Sets)
 =================
 
+レプリカセットの作成
+-----------------
 
-make directory
+データディレクトリ作成
 
 ```
 $ cd (mongodb install directory)
@@ -11,7 +13,8 @@ $ mkdir data\node1
 $ mkdir data\node2
 $ mkdir data\node3
 ```
-start mongod
+
+mongod開始
 
 ```
 $ start "node1" bin\mongod.exe --replSet rs1 --port 20001 --dbpath=data/node1 --rest
@@ -19,7 +22,7 @@ $ start "node2" bin\mongod.exe --replSet rs1 --port 20002 --dbpath=data/node2 --
 $ start "node3" bin\mongod.exe --replSet rs1 --port 20003 --dbpath=data/node3 --rest
 ```
 
-check
+プロセス確認
 
 ```
 $ tasklist | findstr mongo (Windows)
@@ -29,9 +32,13 @@ mongod.exe                    8732 Console                    1     69,344 K
 mongod.exe                   11100 Console                    1     68,308 K
 ```
 
-http://localhost:21001/
+起動確認は以下のURLにアクセスしてもOKです
 
-make Replica set
+* http://localhost:21001/
+* http://localhost:21002/
+* http://localhost:21003/
+
+レプリカセットの作成
 
 ```
 $ bin\mongo localhost:20001
@@ -46,7 +53,7 @@ $ bin\mongo localhost:20001
 > rs.add("kotaro:20003") 
 ```
 
-※） ＩＰアドレスではなく"localhost" にしてしまうと、以下のようなエラーが出ます
+※） ホスト名ではなく"localhost" にしてしまうと、以下のようなエラーが出ます
 ```
 > rs.add("localhost:20002")
 {
@@ -60,18 +67,18 @@ $ bin\mongo localhost:20001
 
 
 ```
-cfg = {
+> cfg = {
  _id : "rs1", 
  members : [ 
   { _id : 0, host : "kotaro:20001" }, 
   { _id : 1, host : "kotaro:20002" }, 
   { _id : 2, host : "kotaro:20003" } ] } 
-
+> cfg   
+(内容確認)
+> rs.initiate()
 ```
 
-
-
-check
+レプリカセットのステータス確認
 
 ```
 > rs.status()
@@ -120,47 +127,59 @@ check
 }
 ```
 
-insert data to primary
+動作確認
+-----------------
+
+データの挿入
 
 ```
-for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+(ポート20001のmongodで実行)
+> use mydb
+> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
 ```
 
-check
+レプリケーションされたことの確認。ポート20002のmongodで確認する。
 
 ```
 $ exit 
-$ bin\mongo localhost:20002
-> show dbs
-```
-
-```
+$ bin\mongo localhost:20002  (ポート20002のmongodに接続)
+> use mydb
 > show collections
 Mon Sep 17 14:27:13 uncaught exception: error: { "$err" : "not master and slaveOk=false", "code" : 13435 }
 ```
 
-use setSlaveOk command
+何も考えずにshow collectionsするとエラーになります。
+なので、setSlaveOk()コマンドを使います。
+
+（db.getMongo().setSlaveOk()の説明: allow this connection to read from the nonmaster member of a replica pair）
 
 ```
 > db.getMongo().setSlaveOk()
-```
-
-* db.getMongo().setSlaveOk() allow this connection to read from the nonmaster member of a replica pair
-
-```
+> show collections
 > db.logs.count()
 100000
 ```
 
-fail over
 
-kill 20001
+fail over
+-----------------
+
+Primaryのmongod(ポート20001のmongod)のプロセスを殺す。（好きな方法で殺しください)
+
+他のmongod(例えばポート20002のプロセス)にログインして、Primaryが移動したか確認します。
 
 ```
 $ bin\mongo localhost:20002
 > rs.status();
 ```
-recover
+
+web経由でもＯＫ
+
+
+fail back
+-----------------
+
+プロセスを上げるだけ
 
 ```
 $ start "rep1" bin\mongod.exe --replSet test_rep --journal --port 20001 --logappend --logpath logs\1.log --dbpath=data/1
@@ -169,7 +188,9 @@ $ bin\mongo localhost:20002
 ```
 
 
-routing
+リクエストの振り分け（mongosとの連携）
+-----------------
+
 
 http://www.mongodb.org/display/DOCS/Replica+Sets
 
