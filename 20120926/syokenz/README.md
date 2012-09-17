@@ -79,7 +79,7 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 
 ```
 - $match    //集計処理を行う条件を指定する（SQLのHAVING区）
-- $project  //集計処理を行うフィールドの選択、除外、リネーム（SQLのAS区）、insertを行う
+- $project  //集計処理を行うフィールドの選択/除外、リネーム（SQLのAS区）、計算結果のinsertを行える
 - $unwind   //
 - $group    //$sum, $avgなどを使い集計処理を実施する
 - $sort     //sortキーを指定
