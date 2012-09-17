@@ -43,6 +43,9 @@ Then
 - SECONDARY
 - SECONDARY PREFERRED
 - NEAREST
+![StrongConsistency](http://www.fedc.biz/~fujisaki/img/StrongConsistency.png)
+![EventualConsistency](http://www.fedc.biz/~fujisaki/img/EventualConsistency.png)
+
 
 ### ドライバが一定間隔でpingを発行
 
