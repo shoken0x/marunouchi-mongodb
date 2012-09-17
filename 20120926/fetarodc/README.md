@@ -42,18 +42,22 @@ $ bin\mongo localhost:20001
         "info" : "Config now saved locally.  Should come online in about a minute.",
         "ok" : 1
 }
-```
-
-http://localhost:21001/
-
-```
-> rs.status()
-```
-
-add Replica node
-```
 > rs.add("192.168.1.241:20002")
 > rs.add("192.168.1.241:20003")
+```
+
+
+※)設定を先に作成してから一気に作る方法もあります
+
+
+```
+cfg = {
+ _id : "rs1", 
+ members : [ 
+  { _id : 0, host : "192.168.1.214:20001" }, 
+  { _id : 1, host : "192.168.1.214:20002" }, 
+  { _id : 2, host : "192.168.1.214:20003" } ] } 
+
 ```
 
 ※） ＩＰアドレスではなく"localhost" にしてしまうと、以下のようなエラーが出ます
