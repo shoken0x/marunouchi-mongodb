@@ -89,10 +89,14 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
 
 ```
-sample document:
+//sample document
+> use classdb
+year = ["freshman", "junior", "senior"];
+> for(var i=1; i<=100; i++) db.scores.insert({"name":"quiz","score":Math.floor(Math.random()*100+1),"student":year[Math.floor(Math.random()*people.length)})
+> db.scores.findOne()
 { 
   "_id" : ObjectId("5029e745a0988a275aefd0c0"),
-  "name" :	"quiz",	
+  "name" : "quiz",	
   "score"	:	99,	
   "student"	:	7,	
   "year"	:	"junior"
