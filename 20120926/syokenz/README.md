@@ -15,7 +15,7 @@ Globalロックを排除し、DBレベルのロックへ
 
 ## Sharding, geo-shardingに関するTag機能の追加
 
-## アグリゲーションフレームワーク
+## Aggregation Framework
 
 <pre>
 Aggregation Frameworkは保存されたデータに対しさまざまな処理や操作を行うもので、
@@ -29,4 +29,6 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 
 
 ## 参考リンク
-- [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加](http://sourceforge.jp/magazine/12/08/30/0423241)
+- [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加 -sourceforge- ](http://sourceforge.jp/magazine/12/08/30/0423241)
+- [MongoDB 2.2登場 - パフォーマンスや柔軟性を強化 -マイナビニュース- ](http://news.mynavi.jp/news/2012/09/03/010/index.html)
+- [MongoDB 2.2 Aggregation Framework -IIJの最新技術- ](http://www.iij.ad.jp/company/development/tech/activities/mongodb/index.html)
