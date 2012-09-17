@@ -86,7 +86,7 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 - $skip  
 - $limit  
 ```
-
+![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
 
 
 
