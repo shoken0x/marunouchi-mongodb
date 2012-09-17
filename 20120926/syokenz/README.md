@@ -25,8 +25,15 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
  [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加](http://sourceforge.jp/magazine/12/08/30/0423241)より引用
 
 ## TTL(Time To Live) Collections
+コレクションから期限切れデータを削除する
 
+## その他
 
+### Windows XPのサポート終了
+
+### すべてのドライバ及びShardingインタフェース間の読み込み設定の標準化
+
+### mongodumpやmongorestoreといった各ツールの改良
 
 ## 参考リンク
 - [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加 -sourceforge- ](http://sourceforge.jp/magazine/12/08/30/0423241)
