@@ -17,3 +17,8 @@ MongoDB 2.2.0 新機能紹介
 ## アグリゲーションフレームワーク
 
 ## TTL(Time To Live) Collections
+
+
+
+## 参考リンク
+- [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加](http://sourceforge.jp/magazine/12/08/30/0423241)
