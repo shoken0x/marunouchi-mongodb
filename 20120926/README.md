@@ -30,7 +30,7 @@ Marunouchi.mongo 20120926
 * [MongoDB(4) レプリケーション -かねこのお勉強日記- ](http://e2kaneko.blogspot.jp/2012/03/mongodb4.html)
 * [ReplicaSetとかShardingとかためしてみる(Sharding編) -するめとめがね- ](http://d.hatena.ne.jp/tm8r/20110511/1305122040)
 * [[mongodb]MongoDBでシャーディング、レプリケーション -メモ- ](http://d.hatena.ne.jp/HowHigh/20111118/p1)
-* [ローカル環境だけでReplica SetとSharding構成を構築](http://d.hatena.ne.jp/matsukaz/20110417/1303057728)
+* [ローカル環境だけでReplica SetとSharding構成を構築 -matsukazの日記- ](http://d.hatena.ne.jp/matsukaz/20110417/1303057728)
 
 # 参加者
 
