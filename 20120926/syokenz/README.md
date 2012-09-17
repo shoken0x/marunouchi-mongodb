@@ -91,7 +91,7 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 ```
 //sample document
 > use classdb
-year = ["freshman", "junior", "senior"];
+> year = ["freshman", "junior", "senior"];
 > for(var i=1; i<=100; i++) db.scores.insert({"name":"quiz","score":Math.floor(Math.random()*100+1),"student":year[Math.floor(Math.random()*people.length)})
 > db.scores.findOne()
 { 
