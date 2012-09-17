@@ -54,8 +54,18 @@ Then
 ## Tagを使用したShardingが可能に
 
 ###Tagベースでのレンジパーティション
-id=1〜100は東京データセンターのノード、id=100〜200はNYデータセンターのノード、という設定が可能に
+uid=1〜100は東京データセンターのノード、uid=100〜200はNewYorkデータセンターのノード、という設定が可能に
 
+```
+sh.addShardTag(shardname, tag)
+sh.addTagRange(namespace, minimum, maximum, tag)
+
+//例
+sh.addShardTag("shard0000", "TokyoDC")
+sh.addShardTag("shard0001", "NewYorkDC")
+sh.addTagRange("logdb.logs", { "uid" : 1   }, { "uid" : 100 }, "TokyoDC")
+sh.addTagRange("logdb.logs", { "uid" : 100 }, { "uid" : 200 }, "NewYorkDC")
+```
 
 
 ## Aggregation Framework
