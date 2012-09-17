@@ -37,6 +37,17 @@ Then
 
 ## Readに関する設定
 
+### Consistencyの強度を設定で変更可能に
+- PRIMARY
+- PRIMARY PREFERRED
+- SECONDARY
+- SECONDARY PREFERRED
+- NEAREST
+
+### ドライバが一定間隔でpingを発行
+
+
+
 ## Sharding, geo-shardingに関するTag機能の追加
 
 ## Aggregation Framework
