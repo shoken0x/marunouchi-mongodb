@@ -80,13 +80,26 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 ```
 - $match    //集計処理を行う条件を指定する（SQLのHAVING区）
 - $project  //集計処理を行うフィールドの選択/除外、リネーム（SQLのAS区）、計算結果のinsertを行える
-- $unwind   //
+- $unwind   //配列を引数にとり、展開して返す
 - $group    //$sum, $avgなどを使い集計処理を実施する
 - $sort     //sortキーを指定
 - $skip     //数字を引数にとり、数字分スキップする
 - $limit    //数字を引数にとり、数字分の集計結果を返す
 ```
+
+$projectの例
+```
+```
+
+$unwindの例
+```
+```
+
+
+
+
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
+
 
 
 sample document
