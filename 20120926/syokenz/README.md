@@ -11,7 +11,7 @@ Globalロックを排除し、DBレベルのロックへ
 
 ### Page faultアーキテクチャの改善
 update時にpage faultにロックを生成していた問題を修正  
-=> 同一コレクション内の同時実効性が向上  
+=> 同一コレクション内の同時実効性(update?)が向上  
 参考：[Goodbye global lock – MongoDB 2.0 vs 2.2](http://blog.serverdensity.com/goodbye-global-lock-mongodb-2-0-vs-2-2/)
 
 
