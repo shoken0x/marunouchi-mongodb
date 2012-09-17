@@ -17,6 +17,7 @@ serverStatus()
 ```
 
 ### Page faultアーキテクチャの改善
+ロック中にPageFaultが発生することを避ける仕組み
 ```
 If 書き込みオペレーションで、  
 ・アクセス先がメモリ上になくて、mutationが起こりそうで  
@@ -26,10 +27,8 @@ Then
 ・While unlocked, touch the page  
 ・書き込みオペレーションを再実行  
 ```
-参考：[Concurrency Internals in MongoDB v2.2](http://www.10gen.com/presentations/concurrency-internals-mongodb-2-2)  
-
-ロック中にPageFaultが発生することを避ける仕組み
-PageFaultが発生することが分かってる場合は、ロックする前にPageFaultExceptionを発生させて再実行(<-なにを?)  
+参考：[MongoDB Concurrency Internals in v2.2](http://www.slideshare.net/mongodb/mongosf-mongodb-concurrency-internals-in-v22)  
+書き込みオペレーションで、PageFaultが発生することが分かってる場合は、ロックする前にPageFaultExceptionを発生させてオペレーションを実行  
 参考：[MongoDB v2.2に含まれる予定のConcurrency改善](http://d.hatena.ne.jp/matsukaz/20120528/1338201757)  
 同一コレクション内の同時実効性(特にupdate?)が向上  
 参考：[Goodbye global lock – MongoDB 2.0 vs 2.2](http://blog.serverdensity.com/goodbye-global-lock-mongodb-2-0-vs-2-2/)
