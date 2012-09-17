@@ -9,7 +9,12 @@ MongoDB 2.2.0 新機能紹介
 ### DBレベルのロック
 Globalロックを排除し、DBレベルのロックへ  
 今後、ロックの粒度を細かくして行く予定  
-[collection level locking](https://jira.mongodb.org/browse/SERVER-1240)はチケットがある、リリースバージョンは未定
+[collection level locking](https://jira.mongodb.org/browse/SERVER-1240)はチケットがある、リリースバージョンは未定  
+ロックの状態は以下のコマンドで確認可能  
+```
+currentOp()
+serverStatus()
+```
 
 ### Page faultアーキテクチャの改善
 update時にpage faultにロックを生成していた問題を修正  
