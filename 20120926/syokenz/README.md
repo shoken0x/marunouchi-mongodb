@@ -1,5 +1,12 @@
 MongoDB 2.2.0 新機能紹介
 =================
+#コンテンツ
+- 並列処理の強化（DBのレベルロック、PageFaultアーキテクチャの改善）
+- Readに関する設定
+- Tagを使用したShardingが可能に
+- Aggregation Framework
+- TTL(Time To Live) Collections
+- その他
 
 出所:[New Features in 2.2](http://kumoya.com/wordpress/wp-content/uploads/2012/09/New-Features-2.2.0.pdf)
 
