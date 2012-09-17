@@ -24,7 +24,7 @@ If 書き込みオペレーションで、
 ・Page faultしようとしている時  
 Then  
 ・PageFaultEceptionを発生させます  
-・While unlocked, touch the page  
+・ロックを解除して、pageをメモリに読み込み
 ・書き込みオペレーションを再実行  
 ```
 ![concurrency-internals-mongodb-2-2](http://www.fedc.biz/~fujisaki/img/concurrency-internals-mongodb-2-2.png)  
