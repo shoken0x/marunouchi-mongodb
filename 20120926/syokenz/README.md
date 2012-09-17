@@ -88,6 +88,29 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 ```
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
 
+```
+sample document:
+{ 
+  "_id" : ObjectId("5029e745a0988a275aefd0c0"),
+  "name" :	"quiz",	
+  "score"	:	99,	
+  "student"	:	7,	
+  "year"	:	"junior"
+}
+
+{
+  "aggregate" : "scores",
+  "pipeline" : [
+    {"$match" : {"year" : junior"} },
+    {"$project" : {"name" : 1, "score" : 1, "_id":0} },
+    {"$group" : {
+      "_id" : "$name",
+      "average" : {"$avg" : "$score"}
+      }
+    }
+  ]
+}
+```
 
 
 ## TTL(Time To Live) Collections
