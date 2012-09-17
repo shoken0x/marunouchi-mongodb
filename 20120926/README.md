@@ -1,3 +1,4 @@
+
 Marunouchi.mongo 20120926
 =================
 みんなでMongoDBについて勉強しましょう。
@@ -26,6 +27,8 @@ Marunouchi.mongo 20120926
 * [新MongoDB公式マニュアル レプリケーション](http://jp.docs.mongodb.org/manual/replication/)  
 * [MongoDBイベント資料（MongoDB 2.2ご紹介）](http://kumoya.com/?p=3493)
 * [MongoDBのレプリカセット -i2bsの日記- ](http://d.hatena.ne.jp/i2bs/20120222/1329917111)
+* [レプリカセットの配備 -MongoDB公式マニュアル- ](http://jp.docs.mongodb.org/manual/tutorial/deploy-replica-set/)
+* [MongoDB(4) レプリケーション -かねこのお勉強日記- ](http://e2kaneko.blogspot.jp/2012/03/mongodb4.html)
 
 # 参加者
 
