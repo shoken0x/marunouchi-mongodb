@@ -83,7 +83,7 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 従来はJavaScriptで実装していたような集計処理をMongoDBにコマンドを発行することで
 実行できるようになる
 </pre>
- [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加](http://sourceforge.jp/magazine/12/08/30/0423241)より引用
+出所: [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加](http://sourceforge.jp/magazine/12/08/30/0423241)より引用
 
 ```
 - $match    //集計処理を行う条件を指定する（SQLのHAVING区）
@@ -94,6 +94,8 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 - $skip     //数字を引数にとり、数字分スキップする
 - $limit    //数字を引数にとり、数字分の集計結果を返す
 ```
+
+[Aggregation Framework Reference -MongoDB マニュアル- ](http://docs.mongodb.org/manual/reference/aggregation/)
 
 $projectの例
 ```
