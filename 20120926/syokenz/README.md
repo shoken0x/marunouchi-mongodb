@@ -77,6 +77,19 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 </pre>
  [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加](http://sourceforge.jp/magazine/12/08/30/0423241)より引用
 
+```
+- $match  
+- $project  
+- $unwind  
+- $group  
+- $sort  
+- $skip  
+- $limit  
+```
+
+
+
+
 ## TTL(Time To Live) Collections
 コレクションから期限切れデータを削除する
 
