@@ -38,26 +38,12 @@ $ bin\mongo localhost:20001
 > rs.initiate()
 {
         "info2" : "no configuration explicitly specified -- making one",
-        "me" : "kotaro:20001", ←自ホスト名になります
+        "me" : "kotaro:20001", ←自ホスト名「私の場合はkotaro」になります
         "info" : "Config now saved locally.  Should come online in about a minute.",
         "ok" : 1
 }
-> rs.add("192.168.1.241:20002")
-> rs.add("192.168.1.241:20003")
-```
-
-
-※)設定を先に作成してから一気に作る方法もあります
-
-
-```
-cfg = {
- _id : "rs1", 
- members : [ 
-  { _id : 0, host : "192.168.1.214:20001" }, 
-  { _id : 1, host : "192.168.1.214:20002" }, 
-  { _id : 2, host : "192.168.1.214:20003" } ] } 
-
+> rs.add("kotaro:20002") ←自ホスト名で作成しないとだめらしい
+> rs.add("kotaro:20003") 
 ```
 
 ※） ＩＰアドレスではなく"localhost" にしてしまうと、以下のようなエラーが出ます
@@ -69,6 +55,21 @@ cfg = {
         "ok" : 0
 }
 ```
+
+※)設定を先に作成してから一気に作る方法もあります
+
+
+```
+cfg = {
+ _id : "rs1", 
+ members : [ 
+  { _id : 0, host : "kotaro:20001" }, 
+  { _id : 1, host : "kotaro:20002" }, 
+  { _id : 2, host : "kotaro:20003" } ] } 
+
+```
+
+
 
 check
 
@@ -92,7 +93,7 @@ check
                 },
                 {
                         "_id" : 1,
-                        "name" : "192.168.1.241:20002",
+                        "name" : "kotaro:20002",
                         "health" : 1,
                         "state" : 2,
                         "stateStr" : "SECONDARY",
@@ -104,7 +105,7 @@ check
                 },
                 {
                         "_id" : 2,
-                        "name" : "192.168.1.241:20003",
+                        "name" : "kotaro:20003",
                         "health" : 1,
                         "state" : 2,
                         "stateStr" : "SECONDARY",
