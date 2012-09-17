@@ -64,8 +64,9 @@ Then
 uid=1〜100は東京データセンターのノード、uid=100〜200はNewYorkデータセンターのノード、という設定が可能に
 
 ```
-sh.addShardTag(shardname, tag)
+sh.addShardTag(shard, tag)
 sh.addTagRange(namespace, minimum, maximum, tag)
+sh.removeShardTag(shard, tag)
 
 //例
 sh.addShardTag("shard0000", "TokyoDC")
