@@ -161,7 +161,7 @@ Mon Sep 17 14:27:13 uncaught exception: error: { "$err" : "not master and slaveO
 ```
 
 
-fail over
+プライマリの障害実験
 -----------------
 
 Primaryのmongod(ポート20001のmongod)のプロセスを殺す。（好きな方法で殺しください)
@@ -176,7 +176,7 @@ $ bin\mongo localhost:20002
 web経由でもＯＫ
 
 
-fail back
+レプリカセットへの参加
 -----------------
 
 プロセスを上げるだけ
@@ -191,32 +191,34 @@ $ bin\mongo localhost:20002
 リクエストの振り分け（mongosとの連携）
 -----------------
 
+mongosとconfigサーバの起動
 
-http://www.mongodb.org/display/DOCS/Replica+Sets
+```
+$ mkdir data\config
+$ start "config" bin\mongod --configsvr --port 10001 --dbpath data\config --rest
+$ start "mongos" bin\mongos --configdb kotaro:10001 --port 10000 --chunkSize 1   ←（ホスト名を指定）
+```
 
-
-start config server and mogos server
-
-start "config" bin\mongod --configsvr --port 10001 --dbpath data\config --rest
-start "mongos" bin\mongos --configdb localhost:10001 --port 10000 --chunkSize 1
+mongosの設定
 
 ```
 $ bin\mongo localhost:10000
 > use admin
-> db.runCommand({addshard:"test_rep/kotaro:20001,kotaro:20002,kotaro:20003"});
-{ "shardAdded" : "test_rep", "ok" : 1 }
+> db.runCommand({addshard:"rs1/kotaro:20001,kotaro:20002,kotaro:20003"})
+
+>  use admin
+> db.runCommand({addshard:"rs1/kotaro:20001,kotaro:20002,kotaro:20003"})
+{ "shardAdded" : "rs1", "ok" : 1 }
 > db.printShardingStatus();
 --- Sharding Status ---
   sharding version: { "_id" : 1, "version" : 3 }
   shards:
-        {  "_id" : "test_rep",  "host" : "test_rep/kotaro:20001,kotaro:20002,kotaro:20003" }
+        {  "_id" : "rs1",  "host" : "rs1/kotaro:20001,kotaro:20002,kotaro:20003" }
   databases:
         {  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
-        {  "_id" : "mydb",  "partitioned" : false,  "primary" : "test_rep" }
 ```
 
 
-insert data to primary
 
 ```
 > user mydb
