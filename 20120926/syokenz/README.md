@@ -37,7 +37,7 @@ Then
 
 ## Readに関する設定
 
-### Consistencyの強度を設定で変更可能に
+### Read時のConsistency強度を設定で変更可能に
 - PRIMARY
 - PRIMARY PREFERRED
 - SECONDARY
