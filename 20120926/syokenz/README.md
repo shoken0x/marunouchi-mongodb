@@ -102,18 +102,23 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
   "year"	:	"junior"
 }
 
+>db.scores.aggregate(  { $match : {"year" : "junior"} },
+                                  { $project : {"name" : 1, score : 1 } },
+                                  { $group : {
+                                    _id : "$name", 
+                                    average : {$avg : "$score" } } }
+)
+
 {
-  "aggregate" : "scores",
-  "pipeline" : [
-    {"$match" : {"year" : junior"} },
-    {"$project" : {"name" : 1, "score" : 1, "_id":0} },
-    {"$group" : {
-      "_id" : "$name",
-      "average" : {"$avg" : "$score"}
-      }
-    }
-  ]
+ "result" : [
+		{
+			"_id" : "quiz",
+			"average" : 65.41666666666667
+		}
+	],
+	"ok" : 1
 }
+
 ```
 
 
