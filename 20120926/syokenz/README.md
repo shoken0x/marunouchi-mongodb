@@ -125,6 +125,13 @@ sample document
 
 ```
 
+SQLで同じ処理
+```SQL
+SELECT name, AVG(score) FROM scores
+GROUP BY name
+HAVING year = 'junior' 
+```
+
 
 ## TTL(Time To Live) Collections
 コレクションから期限切れデータを削除する
