@@ -7,7 +7,9 @@ MongoDB 2.2.0 新機能紹介
 ## 並列処理の強化
 
 ### DBレベルのロック
-Globalロックを排除し、DBレベルのロックへ
+Globalロックを排除し、DBレベルのロックへ  
+今後、ロックの粒度を細かくして行く予定  
+[collection level locking](https://jira.mongodb.org/browse/SERVER-1240)はチケットがある、リリースバージョンは未定
 
 ### Page faultアーキテクチャの改善
 update時にpage faultにロックを生成していた問題を修正  
