@@ -88,8 +88,9 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 ```
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
 
+
+sample document
 ```
-//sample document
 > use classdb
 > year = ["freshman", "junior", "senior"];
 > for(var i=1; i<=100; i++) db.scores.insert({"name":"quiz","score":Math.floor(Math.random()*100+1),"student":i,"year":year[Math.floor(Math.random()*year.length)]})
@@ -102,11 +103,14 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
   "year"	:	"junior"
 }
 
->db.scores.aggregate(  { $match : {"year" : "junior"} },
-                                  { $project : {"name" : 1, score : 1 } },
-                                  { $group : {
-                                    _id : "$name", 
-                                    average : {$avg : "$score" } } }
+```
+
+集計処理
+```
+>db.scores.aggregate(  { $match   : { "year"  : "junior" } },
+                       { $project : { "name"  : 1, score : 1 } },
+                       { $group   : { _id     : "$name", 
+                                      average : {$avg : "$score" } } }
 )
 
 {
