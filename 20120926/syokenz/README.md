@@ -51,7 +51,12 @@ Then
 
 
 
-## Sharding, geo-shardingに関するTag機能の追加
+## Tagを使用したShardingが可能に
+
+###Tagベースでのレンジパーティション
+id=1〜100は東京データセンターのノード、id=100〜200はNYデータセンターのノード、という設定が可能に
+
+
 
 ## Aggregation Framework
 
