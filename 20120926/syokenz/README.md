@@ -82,7 +82,7 @@ $unwindの例
 出所:[New Features in 2.2](http://kumoya.com/wordpress/wp-content/uploads/2012/09/New-Features-2.2.0.pdf)
 
 sample document
-```
+```js
 > use classdb
 > year = ["freshman", "junior", "senior"];
 > for(var i=1; i<=100; i++) db.scores.insert({"name":"quiz","score":Math.floor(Math.random()*100+1),"student":i,"year":year[Math.floor(Math.random()*year.length)]})
@@ -101,8 +101,8 @@ sample document
 ```js
 >db.scores.aggregate(  { $match   : { "year"  : "junior" } },
                        { $project : { "name"  : 1, "score" : 1 } },
-                       { $group   : { "_id""     : "$name", 
-                                      "average : {"$avg"" : "$score" } } }
+                       { $group   : { "_id"     : "$name", 
+                                      "average" : {"$avg" : "$score" } } }
 )
 
 {
