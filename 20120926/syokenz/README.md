@@ -2,9 +2,9 @@ MongoDB 2.2.0 新機能紹介
 =================
 #コンテンツ
 - 並列処理の強化（DBのレベルロック、PageFaultアーキテクチャの改善）
+- Aggregation Framework
 - Readに関する設定
 - Tagを使用したShardingが可能に
-- Aggregation Framework
 - TTL(Time To Live) Collections
 - その他
 
@@ -42,41 +42,9 @@ Then
 参考：[Goodbye global lock – MongoDB 2.0 vs 2.2](http://blog.serverdensity.com/goodbye-global-lock-mongodb-2-0-vs-2-2/)
 
 
-## Readに関する設定
-
-### Read時のConsistency強度を設定で変更可能に
-- PRIMARY
-- PRIMARY PREFERRED
-- SECONDARY
-- SECONDARY PREFERRED
-- NEAREST  
-![StrongConsistency](http://www.fedc.biz/~fujisaki/img/StrongConsistency.png)  
-![EventualConsistency](http://www.fedc.biz/~fujisaki/img/EventualConsistency.png)  
-
-
-### ドライバが一定間隔でpingを発行
-
-
-
-## Tagを使用したShardingが可能に
-
-###Tagベースでのレンジパーティション
-uid=1〜100は東京データセンターのノード、uid=100〜200はNewYorkデータセンターのノード、という設定が可能に
-
-```
-sh.addShardTag(shard, tag)
-sh.addTagRange(namespace, minimum, maximum, tag)
-sh.removeShardTag(shard, tag)
-
-//例
-sh.addShardTag("shard0000", "TokyoDC")
-sh.addShardTag("shard0001", "NewYorkDC")
-sh.addTagRange("logdb.logs", { "uid" : 1   }, { "uid" : 100 }, "TokyoDC")
-sh.addTagRange("logdb.logs", { "uid" : 100 }, { "uid" : 200 }, "NewYorkDC")
-```
-
-
 ## Aggregation Framework
+
+SQLでいう、GROUP BY機能に似たもの。
 
 <pre>
 Aggregation Frameworkは保存されたデータに対しさまざまな処理や操作を行うもので、
@@ -105,11 +73,7 @@ $unwindの例
 ```
 ```
 
-
-
-
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
-
 
 
 sample document
@@ -155,6 +119,38 @@ GROUP BY name
 HAVING year = 'junior' 
 ```
 
+## Readに関する設定
+
+### Read時のConsistency強度を設定で変更可能に
+- PRIMARY
+- PRIMARY PREFERRED
+- SECONDARY
+- SECONDARY PREFERRED
+- NEAREST  
+![StrongConsistency](http://www.fedc.biz/~fujisaki/img/StrongConsistency.png)  
+![EventualConsistency](http://www.fedc.biz/~fujisaki/img/EventualConsistency.png)  
+
+
+### ドライバが一定間隔でpingを発行
+
+
+
+## Tagを使用したShardingが可能に
+
+###Tagベースでのレンジパーティション
+uid=1〜100は東京データセンターのノード、uid=100〜200はNewYorkデータセンターのノード、という設定が可能に
+
+```
+sh.addShardTag(shard, tag)
+sh.addTagRange(namespace, minimum, maximum, tag)
+sh.removeShardTag(shard, tag)
+
+//例
+sh.addShardTag("shard0000", "TokyoDC")
+sh.addShardTag("shard0001", "NewYorkDC")
+sh.addTagRange("logdb.logs", { "uid" : 1   }, { "uid" : 100 }, "TokyoDC")
+sh.addTagRange("logdb.logs", { "uid" : 100 }, { "uid" : 200 }, "NewYorkDC")
+```
 
 ## TTL(Time To Live) Collections
 コレクションから期限切れデータを削除する
