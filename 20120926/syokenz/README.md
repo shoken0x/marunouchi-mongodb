@@ -145,7 +145,7 @@ HAVING year = 'junior'
 ###Tagベースでのレンジパーティション
 uid=1〜100は東京データセンターのノード、uid=100〜200はNewYorkデータセンターのノード、という設定が可能に
 
-```
+```js
 sh.addShardTag(shard, tag)
 sh.addTagRange(namespace, minimum, maximum, tag)
 sh.removeShardTag(shard, tag)
