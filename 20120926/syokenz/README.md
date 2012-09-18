@@ -14,7 +14,12 @@ MongoDB 2.2.0 新機能紹介
 ## 並列処理の強化
 
 ### DBレベルのロック
-Globalロックを排除し、DBレベルのロックへ  
+Globalロックを排除し、DBレベルのロックへ 
+
+![DB Lock](http://www.fedc.biz/~fujisaki/img/db_lock.jpg)  
+出所:[MongoDBの開発元、サンフランシスコの10gen社のエリックさんにインタビューしてきました](http://enterprisezine.jp/dbonline/detail/4177)
+
+
 今後、ロックの粒度を細かくして行く予定  
 [collection level locking](https://jira.mongodb.org/browse/SERVER-1240)はチケットがある、リリースバージョンは未定  
 ロックの状態は以下のコマンドで確認可能  
