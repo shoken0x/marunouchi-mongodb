@@ -79,7 +79,7 @@ $unwindの例
 ```
 
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
-
+出所:[New Features in 2.2](http://kumoya.com/wordpress/wp-content/uploads/2012/09/New-Features-2.2.0.pdf)
 
 sample document
 ```
@@ -134,7 +134,7 @@ HAVING year = 'junior'
 - NEAREST  
 ![StrongConsistency](http://www.fedc.biz/~fujisaki/img/StrongConsistency.png)  
 ![EventualConsistency](http://www.fedc.biz/~fujisaki/img/EventualConsistency.png)  
-
+出所:[New Features in 2.2](http://kumoya.com/wordpress/wp-content/uploads/2012/09/New-Features-2.2.0.pdf)
 
 ### ドライバが一定間隔でpingを発行
 
