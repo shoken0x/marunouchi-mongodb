@@ -156,6 +156,8 @@ db.article.aggregate(
 }
 ```
 
+## Pipeline
+
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
 出所:[New Features in 2.2](http://kumoya.com/wordpress/wp-content/uploads/2012/09/New-Features-2.2.0.pdf)
 
