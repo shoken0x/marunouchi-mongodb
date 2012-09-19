@@ -363,7 +363,7 @@ mongorestoreに[--noIndexRestore](http://docs.mongodb.org/manual/reference/mongo
 - Windowsでeditコマンドが使えるようになりました。
 
 ### Helper to load Server-Side Functions
-```db.system.js```に保存したfunctionをdb.loadServerScripts()でloadできるようになりました。
+db.system.jsに保存したfunctionをdb.loadServerScripts()でloadできるようになりました。
 
 ```js
 > db.system.js.save({ "_id" : "echo", "value" : function(x){return x;} })
