@@ -126,7 +126,7 @@ HAVING year = 'junior'
 
 ## Readに関する設定
 
-### Read時のConsistency強度を設定で変更可能に
+### Read時のConsistency強度を指定可能に
 - PRIMARY
 - PRIMARY PREFERRED
 - SECONDARY
@@ -135,6 +135,14 @@ HAVING year = 'junior'
 ![StrongConsistency](http://www.fedc.biz/~fujisaki/img/StrongConsistency.png)  
 ![EventualConsistency](http://www.fedc.biz/~fujisaki/img/EventualConsistency.png)  
 出所:[New Features in 2.2](http://kumoya.com/wordpress/wp-content/uploads/2012/09/New-Features-2.2.0.pdf)
+
+Rubyでの例
+```ruby
+@collection.find({:doc => 'foo'}, :read => :primary)    # read from primary only
+@collection.find({:doc => 'foo'}, :read => :secondary)  # read from secondaries only
+```
+出所:[Read Preference in Ruby](http://api.mongodb.org/ruby/1.7.0.rc0/file.READ_PREFERENCE.html)
+
 
 ### ドライバが一定間隔でpingを発行
 
