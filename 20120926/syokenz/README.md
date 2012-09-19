@@ -365,6 +365,15 @@ mongorestoreに[--noIndexRestore](http://docs.mongodb.org/manual/reference/mongo
 ### Helper to load Server-Side Functions
 
 ### Support for Bulk Inserts on mongo shell
+ドキュメントを配列形式で一括insertできます。
+```js
+> db.test.insert([{x:1},{x:2},{x:3}])
+> db.test.find()
+{ "_id" : ObjectId("505990c3845b73b3fae82ff8"), "x" : 1 }
+{ "_id" : ObjectId("505990c3845b73b3fae82ff9"), "x" : 2 }
+{ "_id" : ObjectId("505990c3845b73b3fae82ffa"), "x" : 3 }
+
+```
 
 ### Verbose mode が追加されました
 ```
