@@ -188,9 +188,17 @@ for(var i=1; i<=30; i++) db.runCommand( { split : "logdb.logs" , middle : { uid 
 
 db.printShardingStatus();
 ```
+[more info](https://github.com/mongodb/mongo/blob/master/jstests/slowNightly/balance_tags1.js) 
+
 
 ## TTL(Time To Live) Collections
 コレクションから期限切れデータを削除する
+
+```
+//
+db.events.ensureIndex( { "status": 1 }, { expireAfterSeconds: 3600 } )
+```
+参考:[Expire Data from Collections by Setting TTL](http://docs.mongodb.org/manual/tutorial/expire-data/)
 
 ## その他
 
