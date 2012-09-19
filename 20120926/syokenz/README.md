@@ -167,7 +167,7 @@ sh.removeShardTag(shard, tag)
 use admin
 sh.addShardTag("shard0000", "TokyoDC")
 sh.addShardTag("shard0001", "NewYorkDC")
-sh.addShardTag("shard0001", "ParisDC")
+sh.addShardTag("shard0002", "ParisDC")
 sh.addTagRange("logdb.logs", { "uid" : 1  }, { "uid" : 10 }, "TokyoDC")
 sh.addTagRange("logdb.logs", { "uid" : 10 }, { "uid" : 20 }, "NewYorkDC")
 sh.addTagRange("logdb.logs", { "uid" : 20 }, { "uid" : 30 }, "ParisDC")
