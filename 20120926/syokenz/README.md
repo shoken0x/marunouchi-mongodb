@@ -171,6 +171,7 @@ sh.addShardTag("shard0002", "ParisDC")
 sh.addTagRange("logdb.logs", { "uid" : 1  }, { "uid" : 10 }, "TokyoDC")
 sh.addTagRange("logdb.logs", { "uid" : 10 }, { "uid" : 20 }, "NewYorkDC")
 sh.addTagRange("logdb.logs", { "uid" : 20 }, { "uid" : 30 }, "ParisDC")
+//tagsの削除はconfigサーバに接続して、config.tagsを変更する
 
 use logdb
 db.logs.ensureIndex( { uid : 1 } );
