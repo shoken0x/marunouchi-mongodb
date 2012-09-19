@@ -167,6 +167,8 @@ sample document
 > use classdb
 > year = ["freshman", "junior", "senior"];
 > for(var i=1; i<=100; i++) db.scores.insert({"name":"quiz","score":Math.floor(Math.random()*100+1),"student":i,"year":year[Math.floor(Math.random()*year.length)]})
+> db.scores.count()
+100
 > db.scores.findOne()
 { 
   "_id" : ObjectId("5029e745a0988a275aefd0c0"),
