@@ -192,11 +192,22 @@ db.printShardingStatus();
 
 
 ## TTL(Time To Live) Collections
-コレクションから期限切れデータを削除する
+期限付きコレクションを作成できる
 
-```
-//
-db.events.ensureIndex( { "status": 1 }, { expireAfterSeconds: 3600 } )
+```js
+//eventsコレクションのデータを、statusフィールドを起点に30秒後に削除されるように設定
+db.events.ensureIndex( { "status": 1 }, { expireAfterSeconds: 30 } )
+
+//statusにはdate-type informationを入れる。new Date()でOK。
+db.events.insert( { "status" : new Date(), "value" : 1 } );
+db.events.insert( { "status" : new Date(), "value" : 2 } );
+db.events.insert( { "status" : "not Date", "value" : 3 } );
+db.events.insert( { "no-status" : "blank", "value" : 4 } );
+
+db.events.find();
+//30秒後に
+db.events.find();
+
 ```
 参考:[Expire Data from Collections by Setting TTL](http://docs.mongodb.org/manual/tutorial/expire-data/)
 
