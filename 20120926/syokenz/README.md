@@ -147,7 +147,7 @@ Rubyでの例
 ### nearest
 - ドライバからReplicaSetsにpingを打って、15ms以内で返ってきたサーバ群から1台選択し読み込む
 - 1台に偏ることはない
-- ドライバが一定間隔（10秒？）ごとにpingを送り、ステータスを更新している
+- ドライバが一定間隔（10秒？）ごとにpingを送り、ステータスを更新している  
 出所:[Member Selection](http://jp.docs.mongodb.org/manual/applications/replication/#replica-set-read-preference-behavior-nearest)
 
 
