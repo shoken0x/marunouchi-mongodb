@@ -188,7 +188,7 @@ for(var i=1; i<=30; i++) db.runCommand( { split : "logdb.logs" , middle : { uid 
 
 db.printShardingStatus();
 ```
-参考:[Example of using MongoDB auto-sharding](https://github.com/mongodb/mongo/blob/master/jstests/slowNightly/balance_tags1.js) 
+参考:[mongo/jstests/slowNightly/balance_tags1.js](https://github.com/mongodb/mongo/blob/master/jstests/slowNightly/balance_tags1.js) 
 
 
 ## TTL(Time To Live) Collections
