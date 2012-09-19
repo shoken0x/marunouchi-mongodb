@@ -275,7 +275,7 @@ db.printShardingStatus();
 
 
 ## TTL(Time To Live) Collections
-期限付きコレクションを作成できる
+### 期限付きコレクションを作成できる
 
 ```js
 //eventsコレクションのデータを、statusフィールドを起点に30秒後に削除されるように設定
@@ -294,7 +294,18 @@ db.events.find();
 ```
 参考:[Expire Data from Collections by Setting TTL](http://docs.mongodb.org/manual/tutorial/expire-data/)
 
+### 制限
+- date-type フィールドが必須
+- capped collectionでは使用できない
+
 ## その他
+### Verbose mode
+```
+> set verbose true
+> db.article.update({}, {$set : {"author" : "shoken"}})
+Updated 1 existing record(s) in 1ms // <-この表示が出る
+
+```
 
 ### Windows XPのサポート終了
 
