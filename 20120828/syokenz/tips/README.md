@@ -17,7 +17,7 @@ db.runCommand( { removeshard : "localhost:10001" } );
   > db.dropDatabase()
   ```
 
-  - shardを削除
+  shardを削除
   ```
   //mongosサーバで
   > use admin
