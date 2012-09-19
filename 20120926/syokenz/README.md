@@ -70,17 +70,59 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 
 [Aggregation Framework Reference -MongoDB マニュアル- ](http://docs.mongodb.org/manual/reference/aggregation/)
 
-$projectの例
+### $project
+$projectを使用するとつぎの集計処理に渡す/取り除くフィールドを指定できます。デフォルトで_idは含まれているので、取り除くためには明示的に0をセットする必要があります。
 ```
+db.article.aggregate(
+    { $project : {
+        _id : 0 ,
+        title : 1 ,
+        author : 1
+    }}
+);
+```
+計算結果をフィールドに追加して、次の処理に渡すことができます。
+```
+db.article.aggregate(
+    { $project : {
+        title : 1,
+        doctoredPageViews : { $add:["$pageViews", 10] }
+    }}
+);
+```
+フィールド名を変更して、次の処理に渡すことができます。
+```
+db.article.aggregate(
+    { $project : {
+        title : 1 ,
+        page_views : "$pageViews" ,
+        bar : "$other.foo"
+    }}
+);
+```
+サブドキュメントを作成して、次の処理に渡すことができます。
+```
+db.article.aggregate(
+    { $project : {
+        title : 1 ,
+        stats : {
+            pv : "$pageViews",
+            foo : "$other.foo",
+            dpv : { $add:["$pageViews", 10] }
+        }
+    }}
+);
 ```
 
-$unwindの例
+
+### $unwind
 ```
 ```
 
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
 出所:[New Features in 2.2](http://kumoya.com/wordpress/wp-content/uploads/2012/09/New-Features-2.2.0.pdf)
 
+### クラスの平均点を集計するサンプル
 sample document
 ```js
 > use classdb
