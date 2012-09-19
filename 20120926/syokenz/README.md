@@ -299,7 +299,74 @@ db.events.find();
 - capped collectionでは使用できない
 
 ## その他
-### Verbose mode
+### 認証方式が変更されました
+認証付きsharding環境を構成している場合は、以下を確認してください。
+- sharding環境での2.0のmogos インスタンスは、2.2で構成された認証付きsharding環境との互換性がありません。[upgrade-shard-cluster](http://docs.mongodb.org/manual/release-notes/2.2/#upgrade-shard-cluster)を参考にupgradeしてください。
+- 最新ドライバのリリースノートを確認してください。
+
+### upsert オペレーションでnullが返るようになりました。
+2.0では```{}```が返ってましたが、2.2から、```null```が返ります。
+```
+MongoDB shell version: 2.0.6
+connecting to: test
+> db.test.findAndModify({query: {'_id': 1}, update: {'$inc': {'i': 1}}, upsert: true})
+{ }
+ 
+MongoDB shell version: 2.2.0
+connecting to: test
+> db.test.findAndModify({query: {'_id': 1}, update: {'$inc': {'i': 1}}, upsert: true})
+null
+```
+
+### 2.2のMongoDBインスタンスで作成したmongodumpは2.2でしたリストアできません
+
+
+### Windowsで以下の文字列がDatabase Nameで使用できなくなりました
+```
+/\. "*<>:|?
+```
+
+### Capped Collectionsに_idフィールドとindexが追加されました
+
+### $elemMatch(projection)が追加されました
+$elemMatchで表示するフィールドを制御できるようになりました。
+詳細は[こちら](http://docs.mongodb.org/manual/reference/projection/elemMatch/)
+
+### Windows XPのサポート終了しました
+
+### Service Support for mongos.exe
+
+### Log Rotate Command Support on Windows
+
+### New Build Using SlimReadWrite Locks for Windows Concurrency
+
+### mongodump,mongorestoreでindex定義を扱えるようになりました
+mongodumpで[--collection](http://docs.mongodb.org/manual/reference/mongodump/#cmdoption-mongodump--collection)を使うとindex定義をバックアップできます。
+mongorestoreに[--noIndexRestore](http://docs.mongodb.org/manual/reference/mongorestore/#cmdoption-mongorestore--noIndexRestore)が追加されました。
+
+### mongooplog for Replaying Oplogs
+
+### mongotopとmogostatに認証機能がサポートされました
+
+### Write Concern Support for mongoimport and mongorestore
+
+### mongodump Support for Reading from Secondaries
+
+### mongoimport Support for full 16MB Documents
+
+### Timestamp() Extended JSON format
+
+### shell機能改善
+- Unicodeをフルサポートしました。
+- mongo shellがbashライクに使えるようになりました。Ctrl-R の履歴検索などが使えるようになりました。
+- 複数行コマンドの履歴が1行になりました。
+- Windowsでeditコマンドが使えるようになりました。
+
+### Helper to load Server-Side Functions
+
+### Support for Bulk Inserts on mongo shell
+
+### Verbose mode が追加されました
 ```
 > set verbose true
 > db.article.update({}, {$set : {"author" : "shoken"}})
@@ -307,11 +374,6 @@ Updated 1 existing record(s) in 1ms // <-この表示が出る
 
 ```
 
-### Windows XPのサポート終了
-
-### すべてのドライバ及びShardingインタフェース間の読み込み設定の標準化
-
-### mongodumpやmongorestoreといった各ツールの改良
 
 ## 参考リンク
 - [Release Notes for MongoDB 2.2](http://docs.mongodb.org/manual/release-notes/2.2/)
