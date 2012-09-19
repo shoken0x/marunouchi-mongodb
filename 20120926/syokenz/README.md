@@ -363,6 +363,17 @@ mongorestoreに[--noIndexRestore](http://docs.mongodb.org/manual/reference/mongo
 - Windowsでeditコマンドが使えるようになりました。
 
 ### Helper to load Server-Side Functions
+```db.system.js```に保存したfunctionをdb.loadServerScripts()でloadできるようになりました。
+
+```js
+> db.system.js.save({ "_id" : "echo", "value" : function(x){return x;} })
+> echo(3)
+Wed Sep 19 18:40:49 ReferenceError: echo is not defined (shell):1
+> db.loadServerScripts()
+> echo(3)
+3
+
+```
 
 ### Support for Bulk Inserts on mongo shell
 ドキュメントを配列形式で一括insertできます。
