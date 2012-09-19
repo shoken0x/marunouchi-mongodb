@@ -154,7 +154,8 @@ Rubyでの例
 ## Tagを使用したShardingが可能に
 
 ###Tagベースでのレンジパーティション
-uid=1〜100は東京データセンターのノード、uid=100〜200はNewYorkデータセンターのノード、という設定が可能に
+- sharding keyによる書き込み先の制御
+- uid=1〜100は東京データセンターのノード、uid=100〜200はNewYorkデータセンターのノード、という設定が可能に
 
 ```js
 sh.addShardTag(shard, tag)
@@ -162,10 +163,29 @@ sh.addTagRange(namespace, minimum, maximum, tag)
 sh.removeShardTag(shard, tag)
 
 //例
+//login mongs
+use admin
 sh.addShardTag("shard0000", "TokyoDC")
 sh.addShardTag("shard0001", "NewYorkDC")
-sh.addTagRange("logdb.logs", { "uid" : 1   }, { "uid" : 100 }, "TokyoDC")
-sh.addTagRange("logdb.logs", { "uid" : 100 }, { "uid" : 200 }, "NewYorkDC")
+sh.addShardTag("shard0001", "ParisDC")
+sh.addTagRange("logdb.logs", { "uid" : 1   }, { "uid" : 10 }, "TokyoDC")
+sh.addTagRange("logdb.logs", { "uid" : 10 }, { "uid" : 20 }, "NewYorkDC")
+sh.addTagRange("logdb.logs", { "uid" : 20 }, { "uid" : 30 }, "ParisDC")
+
+use logdb
+db.logs.ensureIndex( { uid : 1 } );
+for(var i=1; i<=30; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+
+use admin
+db.runCommand( { enablesharding : "logdb" });
+db.runCommand( { shardcollection : "logdb.logs" , key : { uid : 1 } } );
+
+db.printShardingStatus(); //まだ1chunkなので書き込み先は1つになっている
+
+//1chunk 1uidに分割
+for(var i=1; i<=200; i++) db.runCommand( { split : "logdb.logs" , middle : { uid : i } } )
+
+db.printShardingStatus();
 ```
 
 ## TTL(Time To Live) Collections
