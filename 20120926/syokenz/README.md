@@ -70,6 +70,7 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 
 [Aggregation Framework Reference -MongoDB マニュアル- ](http://docs.mongodb.org/manual/reference/aggregation/)
 
+特に$projectと$unwindについて説明します。
 ### $project
 $projectを使用するとつぎの集計処理に渡す/取り除くフィールドを指定できます。デフォルトで_idは含まれているので、取り除くためには明示的に0をセットする必要があります。
 ```
@@ -81,7 +82,7 @@ db.article.aggregate(
     }}
 );
 ```
-計算結果をフィールドに追加して、次の処理に渡すことができます。
+計算結果をフィールドに追加して、次の処理に渡します。
 ```
 db.article.aggregate(
     { $project : {
@@ -90,7 +91,7 @@ db.article.aggregate(
     }}
 );
 ```
-フィールド名を変更して、次の処理に渡すことができます。
+フィールド名を変更して、次の処理に渡します。
 ```
 db.article.aggregate(
     { $project : {
@@ -100,7 +101,7 @@ db.article.aggregate(
     }}
 );
 ```
-サブドキュメントを作成して、次の処理に渡すことができます。
+サブドキュメントを作成して、次の処理に渡します。
 ```
 db.article.aggregate(
     { $project : {
@@ -116,7 +117,43 @@ db.article.aggregate(
 
 
 ### $unwind
-```
+配列を展開して、次の処理に渡します。
+```js
+db.article.insert({"author":"fujisaki","title":"tech mongo","tags":["Database","mongo","NoSQL"]})
+
+db.article.aggregate(
+    { $project : {
+        author : 1 ,
+        title : 1 ,
+        tags : 1
+    }},
+    { $unwind : "$tags" }
+);
+
+//結果
+{
+        "result" : [
+                {
+                        "_id" : ObjectId("5059813fb70184b5bcb4bcc7"),
+                        "author" : "fujisaki",
+                        "title" : "tech mongo",
+                        "tags" : "Database"
+                },
+                {
+                        "_id" : ObjectId("5059813fb70184b5bcb4bcc7"),
+                        "author" : "fujisaki",
+                        "title" : "tech mongo",
+                        "tags" : "mongo"
+                },
+                {
+                        "_id" : ObjectId("5059813fb70184b5bcb4bcc7"),
+                        "author" : "fujisaki",
+                        "title" : "tech mongo",
+                        "tags" : "NoSQL"
+                }
+        ],
+        "ok" : 1
+}
 ```
 
 ![Aggregation Framework](http://www.fedc.biz/~fujisaki/img/af01.png)  
