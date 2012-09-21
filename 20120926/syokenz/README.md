@@ -353,10 +353,11 @@ mongooplogを使うと、レプリケーション環境でpoint-in-time backup�
 ・"データ"ではなく、"オペレーション"を同期しあうことでレプリケーションを行う
 ```
 
-
 ### mongotopとmogostatに認証機能がサポートされました
 
-### Write Concern Support for mongoimport and mongorestore
+### mongoimportとmongorestoreエラー検出オプションが追加されました
+- mongoimportでは[--stopOnError](http://docs.mongodb.org/manual/reference/mongoimport/#cmdoption-mongoimport--stopOnError)をつけることで、最初のエラーが検出されたらimportを停止します。
+- mongorestoreでは[--w](http://docs.mongodb.org/manual/reference/mongorestore/#cmdoption-mongorestore--w)をつけることで、[書き込み確認](http://docs.mongodb.org/manual/applications/replication/#write-concern)を行うことができます。
 
 ### mongodump Support for Reading from Secondaries
 
