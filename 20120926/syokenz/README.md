@@ -363,9 +363,9 @@ mongooplogを使うと、レプリケーション環境でpoint-in-time backup�
 
 ### mongoimportが16MB Documentsをサポートしました
 
-### Timestamp()に拡張JSONフォーマットが使えるようになりました
+### mongodumpなどにTimestamp()が使えるようになりました
 
-```js
+```
 mongodump --db local --collection oplog.rs --query '{"ts":{"$gt":{"$timestamp" : {"t": 1344969612000, "i": 1 }}}}'  --out oplog-dump
 ```
 
