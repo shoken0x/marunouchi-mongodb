@@ -374,6 +374,7 @@ Wed Sep 19 18:40:49 ReferenceError: echo is not defined (shell):1
 3
 
 ```
+[Add feature to expose server-side functions in shell -SERVER-1651- ](https://jira.mongodb.org/browse/SERVER-1651)
 
 ### Support for Bulk Inserts on mongo shell
 ドキュメントを配列形式で一括insertできます。
