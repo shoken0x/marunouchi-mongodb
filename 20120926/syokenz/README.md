@@ -359,11 +359,15 @@ mongooplogを使うと、レプリケーション環境でpoint-in-time backup�
 - mongoimportでは[--stopOnError](http://docs.mongodb.org/manual/reference/mongoimport/#cmdoption-mongoimport--stopOnError)をつけることで、最初のエラーが検出されたらimportを停止します。
 - mongorestoreでは[--w](http://docs.mongodb.org/manual/reference/mongorestore/#cmdoption-mongorestore--w)をつけることで、[書き込み確認](http://docs.mongodb.org/manual/applications/replication/#write-concern)を行うことができます。
 
-### mongodump Support for Reading from Secondaries
+### mongodumpがレプリケーション環境のSecondaryサーバから取得できるようになりました
 
-### mongoimport Support for full 16MB Documents
+### mongoimportが16MB Documentsをサポートしました
 
-### Timestamp() Extended JSON format
+### Timestamp()に拡張JSONフォーマットが使えるようになりました
+
+```js
+mongodump --db local --collection oplog.rs --query '{"ts":{"$gt":{"$timestamp" : {"t": 1344969612000, "i": 1 }}}}'  --out oplog-dump
+```
 
 ### shell機能改善
 - Unicodeをフルサポートしました。
