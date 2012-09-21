@@ -364,10 +364,10 @@ mongooplogを使うと、レプリケーション環境でpoint-in-time backup�
 ### mongoimportが16MB Documentsをサポートしました
 
 ### mongodumpなどにTimestamp()が使えるようになりました
-
 ```
 mongodump --db local --collection oplog.rs --query '{"ts":{"$gt":{"$timestamp" : {"t": 1344969612000, "i": 1 }}}}'  --out oplog-dump
 ```
+[Timestamp data type](http://www.mongodb.org/display/DOCS/Timestamp+data+type)
 
 ### shell機能改善
 - Unicodeをフルサポートしました。
@@ -375,7 +375,7 @@ mongodump --db local --collection oplog.rs --query '{"ts":{"$gt":{"$timestamp" :
 - 複数行コマンドの履歴が1行になりました。
 - Windowsでeditコマンドが使えるようになりました。
 
-### Helper to load Server-Side Functions
+### Server-Side Functionsをloadできるようになりました
 db.system.jsに保存したfunctionをdb.loadServerScripts()でloadできるようになりました。
 
 ```js
@@ -389,7 +389,7 @@ Wed Sep 19 18:40:49 ReferenceError: echo is not defined (shell):1
 ```
 [Add feature to expose server-side functions in shell -SERVER-1651- ](https://jira.mongodb.org/browse/SERVER-1651)
 
-### Support for Bulk Inserts on mongo shell
+### mongo shellでバルクインサートをサポートしました 
 ドキュメントを配列形式で一括insertできます。
 ```js
 > db.test.insert([{x:1},{x:2},{x:3}])
