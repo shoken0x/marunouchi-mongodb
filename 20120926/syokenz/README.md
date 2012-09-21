@@ -73,7 +73,7 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 特に$projectと$unwindについて説明します。
 ### $project
 $projectを使用するとつぎの集計処理に渡す/取り除くフィールドを指定できます。デフォルトで_idは含まれているので、取り除くためには明示的に0をセットする必要があります。
-```
+```js
 db.article.aggregate(
     { $project : {
         _id : 0 ,
@@ -83,7 +83,7 @@ db.article.aggregate(
 );
 ```
 計算結果をフィールドに追加して、次の処理に渡します。
-```
+```js
 db.article.aggregate(
     { $project : {
         title : 1,
@@ -92,7 +92,7 @@ db.article.aggregate(
 );
 ```
 フィールド名を変更して、次の処理に渡します。
-```
+```js
 db.article.aggregate(
     { $project : {
         title : 1 ,
@@ -102,7 +102,7 @@ db.article.aggregate(
 );
 ```
 サブドキュメントを作成して、次の処理に渡します。
-```
+```js
 db.article.aggregate(
     { $project : {
         title : 1 ,
