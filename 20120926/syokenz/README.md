@@ -24,8 +24,8 @@ Globalロックを排除し、DBレベルのロックへ
 [collection level locking](https://jira.mongodb.org/browse/SERVER-1240)はチケットがある、リリースバージョンは未定  
 ロックの状態は以下のコマンドで確認可能  
 ```
-currentOp()
-serverStatus()
+> db.currentOp()
+> db.serverStatus()
 ```
 
 ### Page faultアーキテクチャの改善
