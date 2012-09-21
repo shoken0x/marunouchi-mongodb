@@ -336,13 +336,23 @@ $elemMatchで表示するフィールドを制御できるようになりまし�
 - Windows XPのサポート終了しました
 - mongos.exeがWindows Serviceとしてサポートされました
 - Windowsでログローテートコマンドがサポートされました
-- 64bit版のWindows7,Windows Server 2008 R2 のバイナリは、並列処理に関するパフォーマンスが向上しています
+- 64bit版のWindows7,Windows Server 2008 R2 のバイナリは、並列処理に関するパフォーマンスが向上しました
 
 ### mongodump,mongorestoreでindex定義を扱えるようになりました
 mongodumpで[--collection](http://docs.mongodb.org/manual/reference/mongodump/#cmdoption-mongodump--collection)を使うとindex定義をバックアップできます。
 mongorestoreに[--noIndexRestore](http://docs.mongodb.org/manual/reference/mongorestore/#cmdoption-mongorestore--noIndexRestore)が追加されました。
 
-### mongooplog for Replaying Oplogs
+### mongooplog コマンドが追加されました
+mongooplogを使うと、レプリケーション環境でpoint-in-time backupができます。
+[mongooplog Manual](http://docs.mongodb.org/manual/reference/mongooplog/)  
+メモ:Oplogの役割
+出所:http://www.slideshare.net/doryokujin/mongodb-oplog
+```
+・データが更新されるオペレーションが実行されるときは、その"オペレーション自身"をoplogというコレクションに保存
+・oplogさえあれば異なるサーバでもオペレーションを実行してデータを再現できる
+・"データ"ではなく、"オペレーション"を同期しあうことでレプリケーションを行う
+```
+
 
 ### mongotopとmogostatに認証機能がサポートされました
 
