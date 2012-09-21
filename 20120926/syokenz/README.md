@@ -332,13 +332,11 @@ null
 $elemMatchで表示するフィールドを制御できるようになりました。
 詳細は[こちら](http://docs.mongodb.org/manual/reference/projection/elemMatch/)
 
-### Windows XPのサポート終了しました
-
-### Service Support for mongos.exe
-
-### Log Rotate Command Support on Windows
-
-### New Build Using SlimReadWrite Locks for Windows Concurrency
+### Windowsに関する修正
+- Windows XPのサポート終了しました
+- mongos.exeがWindows Serviceとしてサポートされました
+- Windowsでログローテートコマンドがサポートされました
+- 64bit版のWindows7,Windows Server 2008 R2 のバイナリは、並列処理に関するパフォーマンスが向上しています
 
 ### mongodump,mongorestoreでindex定義を扱えるようになりました
 mongodumpで[--collection](http://docs.mongodb.org/manual/reference/mongodump/#cmdoption-mongodump--collection)を使うとindex定義をバックアップできます。
