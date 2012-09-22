@@ -25,8 +25,7 @@ $ start "node3" bin\mongod.exe --replSet rs1 --port 20003 --dbpath=data/node3 --
 プロセス確認
 
 ```
-$ tasklist | findstr mongo (Windows)
-$ ps -ef | grep mongo (Mac)
+$ tasklist | findstr mongo 
 mongod.exe                   10712 Console                    1     66,116 K
 mongod.exe                    8732 Console                    1     69,344 K
 mongod.exe                   11100 Console                    1     68,308 K
@@ -45,15 +44,17 @@ $ bin\mongo localhost:20001
 > rs.initiate()
 {
         "info2" : "no configuration explicitly specified -- making one",
-        "me" : "kotaro:20001", ←自ホスト名「私の場合は"kotaro"」になります
+        "me" : "kotaro:20001", ←自ホスト名「私の場合は"kotaro"」になります。IPアドレスになってほしいけど、やり方は不明。
         "info" : "Config now saved locally.  Should come online in about a minute.",
         "ok" : 1
 }
-> rs.add("ホスト名:20002") ←ホスト名は各人環境に合わせて変更してください。
-> rs.add("ホスト名:20003") 
+> rs.add("%HOST%:20002")
+> rs.add("%HOST%:20003") 
 ```
 
-補足１） ホスト名の部分をループバックインターフェース(127.0.0.1やlocalhost) にしてしまうと、以下のようなエラーが出ます
+補足１） %HOST%はホスト名。
+この部分をループバックインターフェース(127.0.0.1やlocalhost) にしてしまうと、以下のようなエラーが出ます
+
 ```
 > rs.add("localhost:20002")
 {
@@ -70,15 +71,21 @@ $ bin\mongo localhost:20001
 > cfg = {
  _id : "rs1", 
  members : [ 
-  { _id : 0, host : "ホスト名:20001" }, 
-  { _id : 1, host : "ホスト名:20002" }, 
-  { _id : 2, host : "ホスト名:20003" } ] } 
+  { _id : 0, host : "%HOST%:20001" }, 
+  { _id : 1, host : "%HOST%:20002" }, 
+  { _id : 2, host : "%HOST%:20003" } ] } 
 > cfg   
 (内容確認)
-> rs.initiate()
+> rs.initiate(cfg)
+{
+        "info" : "Config now saved locally.  Should come online in about a minute.",
+        "ok" : 1
+}
 ```
 
-レプリカセットのステータス確認
+※%HOST%はホスト名でもIPアドレスでもＯＫです。ループバックインターフェース(127.0.0.1やlocalhost)はだめです。
+
+レプリカセットのステータス確認。成功すると以下のように見えます。
 
 ```
 > rs.status()
@@ -135,7 +142,7 @@ $ bin\mongo localhost:20001
 ```
 (ポート20001のmongodで実行)
 > use mydb
-> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+> for(var i=1; i<=100000; i++) db.logs.insert({"data":i}) ←１０万件ほどデータを投入してみる
 ```
 
 レプリケーションされたことの確認。ポート20002のmongodで確認する。
@@ -197,17 +204,17 @@ mongosとconfigサーバの起動
 ```
 $ mkdir data\config
 $ start "config" bin\mongod --configsvr --port 10001 --dbpath data\config --rest
-$ start "mongos" bin\mongos --configdb (ホスト名):10001 --port 10000 --chunkSize 1
+$ start "mongos" bin\mongos --configdb %HOST%:10001 --port 10000 --chunkSize 1
 ```
 
-※ホスト名の部分は自端末のIPアドレスでもよいです。ただし、ループバックインターフェース（127.0.0.1やlocalhost）はNG
+※%HOST%の部分は自端末のホスト名かIPアドレスです。ただし、ループバックインターフェース（127.0.0.1やlocalhost）はNG
 
 mongosの設定
 
 ```
 $ bin\mongo localhost:10000
 > use admin
-> db.runCommand({addshard:"rs1/(ホスト名):20001,(ホスト名):20002,(ホスト名):20003"})
+> db.runCommand({addshard:"rs1/%HOST%:20001,%HOST%:20002,%HOST%:20003"})
 { "shardAdded" : "rs1", "ok" : 1 } 
 > db.printShardingStatus()
 --- Sharding Status ---
@@ -217,6 +224,8 @@ $ bin\mongo localhost:10000
   databases:
         {  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
 ```
+
+※%HOST%の部分はrs.status()で表示されるもの。
 
 フェールオーバの確認。
 
