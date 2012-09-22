@@ -45,15 +45,15 @@ $ bin\mongo localhost:20001
 > rs.initiate()
 {
         "info2" : "no configuration explicitly specified -- making one",
-        "me" : "kotaro:20001", ←自ホスト名「私の場合はkotaro」になります
+        "me" : "kotaro:20001", ←自ホスト名「私の場合は"kotaro"」になります
         "info" : "Config now saved locally.  Should come online in about a minute.",
         "ok" : 1
 }
-> rs.add("kotaro:20002") ←自ホスト名で作成しないとだめらしい
-> rs.add("kotaro:20003") 
+> rs.add("ホスト名:20002") ←ホスト名は各人環境に合わせて変更してください。
+> rs.add("ホスト名:20003") 
 ```
 
-※） ホスト名ではなく"localhost" にしてしまうと、以下のようなエラーが出ます
+補足１） ホスト名ではなく"localhost" にしてしまうと、以下のようなエラーが出ます
 ```
 > rs.add("localhost:20002")
 {
@@ -63,7 +63,7 @@ $ bin\mongo localhost:20001
 }
 ```
 
-※)設定を先に作成してから一気に作る方法もあります
+補足２）設定を先に作成してから一気に作る方法もあります
 
 
 ```
@@ -164,7 +164,7 @@ Mon Sep 17 14:27:13 uncaught exception: error: { "$err" : "not master and slaveO
 プライマリの障害実験
 -----------------
 
-Primaryのmongod(ポート20001のmongod)のプロセスを殺す。（好きな方法で殺しください)
+Primaryのmongod(ポート20001のmongod)のプロセスを殺します。（好きな方法で殺しください)
 
 他のmongod(例えばポート20002のプロセス)にログインして、Primaryが移動したか確認します。
 
@@ -173,7 +173,8 @@ $ bin\mongo localhost:20002
 > rs.status();
 ```
 
-web経由でもＯＫ
+webのインターフェースからも確認できます→http://localhost:21002
+
 
 
 レプリカセットへの参加
@@ -182,7 +183,7 @@ web経由でもＯＫ
 プロセスを上げるだけ
 
 ```
-$ start "rep1" bin\mongod.exe --replSet test_rep --journal --port 20001 --logappend --logpath logs\1.log --dbpath=data/1
+$ start "node1" bin\mongod.exe --replSet rs1 --port 20001 --dbpath=data/node1 --rest
 $ bin\mongo localhost:20002
 > rs.status();
 ```
@@ -196,20 +197,19 @@ mongosとconfigサーバの起動
 ```
 $ mkdir data\config
 $ start "config" bin\mongod --configsvr --port 10001 --dbpath data\config --rest
-$ start "mongos" bin\mongos --configdb kotaro:10001 --port 10000 --chunkSize 1   ←（ホスト名を指定）
+$ start "mongos" bin\mongos --configdb (ホスト名):10001 --port 10000 --chunkSize 1
 ```
+
+※ホスト名の部分は自端末のIPアドレスでもよいです。ただし、ループバックインターフェース（127.0.0.1やlocalhost）はNG
 
 mongosの設定
 
 ```
 $ bin\mongo localhost:10000
 > use admin
-> db.runCommand({addshard:"rs1/kotaro:20001,kotaro:20002,kotaro:20003"})
-
->  use admin
-> db.runCommand({addshard:"rs1/kotaro:20001,kotaro:20002,kotaro:20003"})
-{ "shardAdded" : "rs1", "ok" : 1 }
-> db.printShardingStatus();
+> db.runCommand({addshard:"rs1/(ホスト名):20001,(ホスト名):20002,(ホスト名):20003"})
+{ "shardAdded" : "rs1", "ok" : 1 } 
+> db.printShardingStatus()
 --- Sharding Status ---
   sharding version: { "_id" : 1, "version" : 3 }
   shards:
@@ -218,15 +218,18 @@ $ bin\mongo localhost:10000
         {  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
 ```
 
+フェールオーバの確認。
 
+まずmongosに対してクエリーを投げられることを確認。
 
 ```
 > user mydb
-> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
 > db.logs.count()
 ```
 
-kill 20001
+Primaryのmongod(ポート20001のmongod)のプロセスを殺します。（好きな方法で殺しください)
+
+プロセスkill直後に、mongosに対してクエリーを投げるとエラーになりますが
 
 ```
 > db.logs.count()
@@ -235,12 +238,11 @@ Mon Sep 17 15:38:33 uncaught exception: count failed: {
         "code" : 9001,
         "ok" : 0
 }
+```
+
+その後しばらくすると成功します
+
+```
 > db.logs.count()
-Mon Sep 17 15:38:38 uncaught exception: count failed: {
-        "errmsg" : "exception: socket exception [CONNECT_ERROR] for test_rep/kotaro:20001,kotaro:20002,kotaro:20003",
-        "code" : 11002,
-        "ok" : 0
-}
-> db.logs.count()
-200000
+100000
 ```
