@@ -70,9 +70,9 @@ $ bin\mongo localhost:20001
 > cfg = {
  _id : "rs1", 
  members : [ 
-  { _id : 0, ホスト名: "kotaro:20001" }, 
-  { _id : 1, ホスト名: "kotaro:20002" }, 
-  { _id : 2, ホスト名: "kotaro:20003" } ] } 
+  { _id : 0, host : "ホスト名:20001" }, 
+  { _id : 1, host : "ホスト名:20002" }, 
+  { _id : 2, host : "ホスト名:20003" } ] } 
 > cfg   
 (内容確認)
 > rs.initiate()
