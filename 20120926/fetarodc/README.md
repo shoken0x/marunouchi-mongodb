@@ -142,7 +142,7 @@ $ bin\mongo localhost:20001
 ```
 (ポート20001のmongodで実行)
 > use mydb
-> for(var i=1; i<=100000; i++) db.logs.insert({"data":i}) ←１０万件ほどデータを投入してみる
+> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)}) ←１０万件ほどデータを投入してみる
 ```
 
 レプリケーションされたことの確認。ポート20002のmongodで確認する。
