@@ -64,7 +64,7 @@ Mon Sep 17 15:38:33 uncaught exception: count failed: {
 複数Shardでデータ分散+レプリカ
 -----------------
 
-![Sharding+ReplSet](https://cacoo.com/diagrams/kyoRpiZSDLv6f2lQ)
+構成図→![Sharding+ReplSet](https://cacoo.com/diagrams/kyoRpiZSDLv6f2lQ)
 
 手順
 ```
