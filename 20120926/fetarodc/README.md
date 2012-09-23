@@ -1,6 +1,13 @@
 MongoDB レプリケーション(Replica Sets)
 =================
 
+概要
+-----------------
+
+http://www.mongodb.org/display/DOCS/Replica+Sets
+
+
+
 レプリカセットの作成
 -----------------
 
