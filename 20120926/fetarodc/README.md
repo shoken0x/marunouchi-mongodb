@@ -4,23 +4,14 @@ MongoDB レプリケーション(Replica Sets)
 概要
 =================
 
-ぶっちゃけ以下の公式ＨＰを約しただけですが、、、
-http://www.mongodb.org/display/DOCS/Replica+Sets
+![公式ＨＰ](http://www.mongodb.org/display/DOCS/Replica+Sets)を訳しただけですが、、、
 
-Replica sets are a form of asynchronous master/slave replication, adding automatic failover and automatic recovery of member nodes.
 
-    A replica set consists of two or more nodes that are copies of each other. (i.e.: replicas)
-    The replica set automatically elects a primary (master). No one member is intrinsically primary; that is, this is a share-nothing design.
-    Drivers (and mongos) can automatically detect when a replica set primary changes and will begin sending writes to the new primary. (The mongos sharding process does this too.)
+MongoDBは冗長化のためにサーバ間で非同期でデータをレプリケーションする仕組みをサポートしています。一つのサーバ（プライマリ/マスタ）だけが書き込み要求を処理します（これは一貫性を保つためです）。また、プライマリノードは、「eventual consistency」が保たれるときだけ、読み込み要求をセカンダリノードへ転送します。
 
-Replica sets have several common uses:
+「レプリカセット」と「マスター/スレーブ」という二つのレプリケーション形態があります。「レプリカセット」は「マスター/スレーブ」の上位機能であり、最近はこちらが開発されており、コードもしっかりしています。
 
-    Data Redundancy
-    Automated Failover / High Availability
-    Distributing read load
-    Simplify maintenance (compared to "normal" master-slave)
-    Disaster recovery
-
+![image](http://www.mongodb.org/download/attachments/131603/replia+set.png?version=1&modificationDate=1344261985424)
 
 * レプリカセットは非同期型マスタ／スレーブ構成のレプリケーションをします。また、自動的にフェールオーバとリリカバーできます。
  * レプリカセットは２つ以上のコピーからなります。
@@ -30,4 +21,7 @@ Replica sets have several common uses:
 * レプリカセットの用途
  * データ冗長化
  * 自動フェールオーバ／高可用化
- * 
+ * 分散読み込み
+ * メンテナンスが簡単(一般的なマスタスレーブ構成のクラスタに比べて)
+ * 障害復旧
+
