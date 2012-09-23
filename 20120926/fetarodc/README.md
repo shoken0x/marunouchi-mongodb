@@ -11,7 +11,7 @@ MongoDBは冗長化のためにサーバ間で非同期でデータをレプリ�
 
 「レプリカセット」と「マスター/スレーブ」という二つのレプリケーション形態があります。「レプリカセット」は「マスター/スレーブ」の上位機能であり、最近はこちらが開発されており、コードもしっかりしています。
 
-![image](http://www.mongodb.org/download/attachments/131603/replia+set.png?version=1&modificationDate=1344261985424)
+![image](http://www.mongodb.org/download/attachments/9830402/replset.png?version=1&modificationDate=1321024229272)
 
 レプリカセットは非同期型マスタ／スレーブ構成のレプリケーションをします。また、自動的にフェールオーバとリリカバーできます。
 レプリカセットは２つ以上のコピーからなります。
