@@ -4,7 +4,7 @@ MongoDB レプリケーション(Replica Sets)
 概要
 =================
 
-![公式ＨＰ](http://www.mongodb.org/display/DOCS/Replication)を訳しただけですが、、、
+[公式ＨＰ](http://www.mongodb.org/display/DOCS/Replication)を訳しただけですが、、、
 
 
 MongoDBは冗長化のためにサーバ間で非同期でデータをレプリケーションする仕組みをサポートしています。一つのサーバ（プライマリ/マスタ）だけが書き込み要求を処理します（これは一貫性を保つためです）。また、プライマリノードは、「eventual consistency」が保たれるときだけ、読み込み要求をセカンダリノードへ転送します。
