@@ -1,6 +1,7 @@
-
 レプリカセットを試す
 =================
+
+(Windowsのコマンドプロンプトで実行する用のコマンドを書いています。bashな人はよしなに読み替えてください)
 
 データディレクトリ作成
 
@@ -19,6 +20,8 @@ $ start "node1" bin\mongod.exe --replSet rs1 --port 20001 --dbpath=data/node1 --
 $ start "node2" bin\mongod.exe --replSet rs1 --port 20002 --dbpath=data/node2 --rest
 $ start "node3" bin\mongod.exe --replSet rs1 --port 20003 --dbpath=data/node3 --rest
 ```
+※）start "str" はコマンドを別ウインドウで立ち上げて、ウインドウ名に"str"をつけるコマンドです
+
 
 プロセス確認
 
