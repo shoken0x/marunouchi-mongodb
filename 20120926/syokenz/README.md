@@ -333,7 +333,14 @@ $elemMatchで表示するフィールドを制御できるようになりまし�
 詳細は[こちら](http://docs.mongodb.org/manual/reference/projection/elemMatch/)
 
 ### Windowsに関する修正
-- Windows XPのサポート終了しました
+- Windows XPのサポート終了しました。XPで起動すると以下のエラーがでます。
+<pre>
+---------------------------
+mongod.exe - エントリ ポイントが見つかりません
+---------------------------
+プロシージャ エントリ ポイント InterlockedCompareExchange64 がダイナミック リンク ライブラリ KERNEL32.dll から見つかりませんでした。 
+---------------------------
+</pre>
 - mongos.exeがWindows Serviceとしてサポートされました
 - Windowsでログローテートコマンドがサポートされました
 - 64bit版のWindows7,Windows Server 2008 R2 のバイナリは、並列処理に関するパフォーマンスが向上しました
