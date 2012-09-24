@@ -147,3 +147,5 @@ $ bin\mongo localhost:10000
 > db.printShardingStatus();
 
 ```
+
+[step3へ](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926/fetarodc/step3)
