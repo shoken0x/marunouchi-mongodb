@@ -196,5 +196,5 @@ $ bin\mongo localhost:20002
 > rs.status();
 ```
 
-
+[step2へ](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926/fetarodc/step2)
 
