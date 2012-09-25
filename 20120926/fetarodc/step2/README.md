@@ -11,17 +11,17 @@ mongosとconfigサーバの起動
 ```
 $ mkdir data\config
 $ start "config" bin\mongod --configsvr --port 10001 --dbpath data\config --rest
-$ start "mongos" bin\mongos --configdb %HOST%:10001 --port 10000 --chunkSize 1
+$ start "mongos" bin\mongos --configdb %IP%:10001 --port 10000 --chunkSize 1
 ```
 
-※%HOST%の部分は自端末のホスト名かIPアドレスです。ただし、ループバックインターフェース（127.0.0.1やlocalhost）はNG
+※%IP%の部分はループバックインターフェース（127.0.0.1やlocalhost）はNG
 
 mongosの設定
 
 ```
 $ bin\mongo localhost:10000
 > use admin
-> db.runCommand({addshard:"rs1/%HOST%:20001,%HOST%:20002,%HOST%:20003"})
+> db.runCommand({addshard:"rs1/%IP%:20001,%IP%:20002,%IP%:20003"})
 { "shardAdded" : "rs1", "ok" : 1 } 
 > db.printShardingStatus()
 --- Sharding Status ---
