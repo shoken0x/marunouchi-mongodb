@@ -46,6 +46,7 @@ Then
 同一コレクション内の同時実効性(特にupdate?)が向上  
 参考：[Goodbye global lock – MongoDB 2.0 vs 2.2](http://blog.serverdensity.com/goodbye-global-lock-mongodb-2-0-vs-2-2/)
 
+![Page Fault](http://www.fedc.biz/~fujisaki/img/pagefault.png)  
 
 ## Aggregation Framework
 
