@@ -61,11 +61,11 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 ```
 - $match    //集計処理を行う条件を指定する（SQLのHAVING区）
 - $project  //集計処理を行うフィールドの選択/除外、リネーム（SQLのAS区）、計算結果のinsertを行える
-- $unwind   //配列を引数にとり、展開して返す
+- $unwind   //配列を指定し、展開して返す
 - $group    //$sum, $avgなどを使い集計処理を実施する
 - $sort     //sortキーを指定
-- $skip     //数字を引数にとり、数字分スキップする
-- $limit    //数字を引数にとり、数字分の集計結果を返す
+- $skip     //数字を指定し、数字分スキップする
+- $limit    //数字を指定し、数字分の集計結果を返す
 ```
 
 [Aggregation Framework Reference -MongoDB マニュアル- ](http://docs.mongodb.org/manual/reference/aggregation/)
