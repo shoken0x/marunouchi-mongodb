@@ -1,7 +1,7 @@
 MongoDB 2.2.0 新機能紹介
 =================
 #コンテンツ
-- 並列処理の強化（DBのレベルロック、PageFaultアーキテクチャの改善）
+- 並列処理の強化（DBレベルロック、PageFaultアーキテクチャの改善）
 - Aggregation Framework
 - Readに関する設定
 - Tagを使用したShardingが可能に
