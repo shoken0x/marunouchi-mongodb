@@ -39,7 +39,7 @@ $ start "node12" bin\mongod.exe --replSet rs1 --port 20012 --dbpath=data/node12 
 $ start "node22" bin\mongod.exe --replSet rs2 --port 20022 --dbpath=data/node22 --rest
 $ start "node32" bin\mongod.exe --replSet rs3 --port 20032 --dbpath=data/node32 --rest
 
-$ bin\mongo localhost:20021
+$ bin\mongo localhost:20022
 > cfg = {
  _id : "rs2", 
  members : [ 
@@ -55,7 +55,7 @@ $ start "node13" bin\mongod.exe --replSet rs1 --port 20013 --dbpath=data/node13 
 $ start "node33" bin\mongod.exe --replSet rs3 --port 20033 --dbpath=data/node33 --rest
 $ start "node23" bin\mongod.exe --replSet rs2 --port 20023 --dbpath=data/node23 --rest
 
-$ bin\mongo localhost:20031
+$ bin\mongo localhost:20033
 > cfg = {
  _id : "rs3", 
  members : [ 
