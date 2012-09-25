@@ -42,9 +42,9 @@ $ bin\mongo localhost:20001
 > cfg = {
  _id : "rs1", 
  members : [ 
-  { _id : 0, host : "localhost:20001" }, 
-  { _id : 1, host : "localhost:20002" }, 
-  { _id : 2, host : "localhost:20003" } ] } 
+  { _id : 0, host : "%IP%:20001" }, 
+  { _id : 1, host : "%IP%:20002" }, 
+  { _id : 2, host : "%IP%:20003" } ] } 
 > cfg   
 (内容確認)
 > rs.initiate(cfg)
@@ -53,6 +53,11 @@ $ bin\mongo localhost:20001
         "ok" : 1
 }
 ```
+
+※)%IP%の部分はループバックインターフェース(localhostや127.0.0.1)ではなく、NICについているIPを指定してください。
+　ループバックインターフェースでもレプリカセットは組めますが、後のshardingとの連携ができません。
+
+※) rs.addコマンドを使う方法もありますが、この方法だとホスト名でメンバが登録されてしまっていまいちなので、今回は使っていません。
 
 レプリカセットのステータス確認。
 
@@ -65,7 +70,7 @@ $ bin\mongo localhost:20001
         "members" : [
                 {
                         "_id" : 0,
-                        "name" : "localhost:20001",
+                        "name" : "%IP%:20001",
                         "health" : 1,
                         "state" : 1,
                         "stateStr" : "PRIMARY",
@@ -76,7 +81,7 @@ $ bin\mongo localhost:20001
                 },
                 {
                         "_id" : 1,
-                        "name" : "localhost:20002",
+                        "name" : "%IP%:20002",
                         "health" : 1,
                         "state" : 3,
                         "stateStr" : "RECOVERING",
@@ -88,7 +93,7 @@ $ bin\mongo localhost:20001
                 },
                 {
                         "_id" : 2,
-                        "name" : "localhost:20003",
+                        "name" : "%IP%:20003",
                         "health" : 1,
                         "state" : 2,
                         "stateStr" : "SECONDARY",
@@ -117,14 +122,19 @@ $ bin\mongo localhost:20001
 > db.logs.find()
 ```
 
-レプリケーションされたことの確認。ポート20002のmongodで確認する。
+レプリケーションされたことの確認。
 
+Secondaryに入りなおす
 ```
 $ exit 
-$ bin\mongo localhost:20002  (ポート20002のmongodに接続)
+$ bin\mongo localhost:20002
+```
+
+データの確認
+```
 > use mydb
-> show collections
-Mon Sep 17 14:27:13 uncaught exception: error: { "$err" : "not master and slaveOk=false", "code" : 13435 }
+> db.logs.count()
+Wed Sep 26 00:22:52 uncaught exception: count failed: { "errmsg" : "not master", "note" : "from execCommand", "ok" : 0 }
 ```
 
 何も考えずにshow collectionsするとエラーになります。
@@ -132,7 +142,6 @@ Mon Sep 17 14:27:13 uncaught exception: error: { "$err" : "not master and slaveO
 
 ```
 > db.getMongo().setSlaveOk()
-> show collections
 > db.logs.count()
 100000
 > db.logs.find()
