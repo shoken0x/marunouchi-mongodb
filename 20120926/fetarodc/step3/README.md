@@ -15,7 +15,7 @@
 
 ```
 
-■サーバ１
+■host1
 $ mkdir data\ data\node11 data\node21 data\node31
 
 $ start "node11" bin\mongod.exe --replSet rs1 --port 20011 --dbpath=data/node11 --rest
@@ -33,7 +33,7 @@ $ bin\mongo localhost:20011
 > rs.status()
 
 
-■サーバ２
+■host2
 $ mkdir data\ data\node12 data\node22 data\node32
 $ start "node12" bin\mongod.exe --replSet rs1 --port 20012 --dbpath=data/node12 --rest
 $ start "node22" bin\mongod.exe --replSet rs2 --port 20022 --dbpath=data/node22 --rest
@@ -49,7 +49,7 @@ $ bin\mongo localhost:20022
 > rs.initiate(cfg)
 > rs.status()
 
-■サーバ３
+■host3
 $ mkdir data\ data\node13 data\node23 data\node33
 $ start "node13" bin\mongod.exe --replSet rs1 --port 20013 --dbpath=data/node13 --rest
 $ start "node23" bin\mongod.exe --replSet rs2 --port 20023 --dbpath=data/node23 --rest
@@ -65,7 +65,7 @@ $ bin\mongo localhost:20033
 > rs.initiate(cfg)
 > rs.status()
 
-■mongosサーバ
+■host0(mongosサーバ)
 
 $ mkdir data\config
 $ start "config" bin\mongod --configsvr --port 10001 --dbpath data\config --rest
