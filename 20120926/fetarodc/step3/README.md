@@ -69,7 +69,7 @@ $ bin\mongo localhost:20033
 
 $ mkdir data\config
 $ start "config" bin\mongod --configsvr --port 10001 --dbpath data\config --rest
-$ start "mongos" bin\mongos --configdb duo:10001 --port 10000 --chunkSize 1
+$ start "mongos" bin\mongos --configdb %IP%:10001 --port 10000 --chunkSize 1
 
 $ bin\mongo localhost:10000
 > use admin
@@ -79,7 +79,7 @@ $ bin\mongo localhost:10000
 > db.printShardingStatus();
 
 > use logdb
-> for(var i=1; i<=1000000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
 > db.logs.count();
 > db.logs.ensureIndex( { uid : 1 } );  
 
@@ -89,3 +89,9 @@ $ bin\mongo localhost:10000
 > db.printShardingStatus();
 
 ```
+
+障害実験
+
+mongosへ問い合わせをしながら、どれか一台のmongodのマシンのNICを止めて落としてみましょう。
+
+そのマシンを復活させてみましょう。
