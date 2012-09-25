@@ -45,9 +45,9 @@ $ bin\mongo localhost:20001
 > cfg = {
  _id : "rs1", 
  members : [ 
-  { _id : 0, host : "%IP%:20001" }, 
-  { _id : 1, host : "%IP%:20002" }, 
-  { _id : 2, host : "%IP%:20003" } ] } 
+  { _id : 0, host : "localhost:20001" }, 
+  { _id : 1, host : "localhost:20002" }, 
+  { _id : 2, host : "localhost:20003" } ] } 
 > cfg   
 (内容確認)
 > rs.initiate(cfg)
@@ -56,8 +56,6 @@ $ bin\mongo localhost:20001
         "ok" : 1
 }
 ```
-
-※%IP%はホスト名でもでもＯＫです。
 
 レプリカセットのステータス確認。成功すると以下のように見えます。
 
@@ -70,7 +68,7 @@ $ bin\mongo localhost:20001
         "members" : [
                 {
                         "_id" : 0,
-                        "name" : "kotaro:20001",
+                        "name" : "localhost:20001",
                         "health" : 1,
                         "state" : 1,
                         "stateStr" : "PRIMARY",
@@ -81,7 +79,7 @@ $ bin\mongo localhost:20001
                 },
                 {
                         "_id" : 1,
-                        "name" : "kotaro:20002",
+                        "name" : "localhost:20002",
                         "health" : 1,
                         "state" : 2,
                         "stateStr" : "SECONDARY",
@@ -93,7 +91,7 @@ $ bin\mongo localhost:20001
                 },
                 {
                         "_id" : 2,
-                        "name" : "kotaro:20003",
+                        "name" : "localhost:20003",
                         "health" : 1,
                         "state" : 2,
                         "stateStr" : "SECONDARY",
