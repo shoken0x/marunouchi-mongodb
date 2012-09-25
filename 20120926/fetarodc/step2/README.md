@@ -37,7 +37,7 @@ $ bin\mongo localhost:10000
 まずmongosに対してクエリーを投げられることを確認。
 
 ```
-> use mydb
+> use logdb
 > db.logs.count()
 ```
 
@@ -98,7 +98,7 @@ $ bin\mongo localhost:20011
 > rs.initiate(cfg)
 > rs.status()
 
-$ bin\mongo localhost:20021
+$ bin\mongo localhost:20022
 > cfg = {
  _id : "rs2", 
  members : [ 
@@ -108,7 +108,7 @@ $ bin\mongo localhost:20021
 > rs.initiate(cfg)
 > rs.status()
 
-$ bin\mongo localhost:20031
+$ bin\mongo localhost:20033
 > cfg = {
  _id : "rs3", 
  members : [ 
