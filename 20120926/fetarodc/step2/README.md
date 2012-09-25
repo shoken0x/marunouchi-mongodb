@@ -32,18 +32,18 @@ $ bin\mongo localhost:10000
         {  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
 ```
 
-※%HOST%の部分はrs.status()で表示されるもの。
-
 フェールオーバの確認。
 
 まずmongosに対してクエリーを投げられることを確認。
 
 ```
-> user mydb
+> use mydb
 > db.logs.count()
 ```
 
-Primaryのmongod(ポート20001のmongod)のプロセスを殺します。（好きな方法で殺しください)
+Primaryのmongodのプロセスを殺します。（好きな方法で殺しください)
+
+Primaryノードのの確認方法は、Web(http://localhost:21001)からみるとよいでしょう。
 
 プロセスkill直後に、mongosに対してクエリーを投げるとエラーになりますが
 
@@ -68,6 +68,10 @@ Mon Sep 17 15:38:33 uncaught exception: count failed: {
 
 ![構成図](https://cacoo.com/diagrams/kyoRpiZSDLv6f2lQ-EBC21.png)
 
+※）この作業をする前に、いったんすべてのプロセスを殺して、dataフォルダを削除することをお勧めします。
+　ちなみに、フォルダを丸ごと消したい場合、bashでは「rm -rf data」ですが、Windowsだと「rd /s data」です。
+
+
 手順
 ```
 $ mkdir data\ data\node11 data\node12 data\node13 data\node21 data\node22 data\node23 data\node31 data\node32 data\node33
@@ -88,9 +92,9 @@ $ bin\mongo localhost:20011
 > cfg = {
  _id : "rs1", 
  members : [ 
-  { _id : 0, host : "duo:20011" }, 
-  { _id : 1, host : "duo:20012" }, 
-  { _id : 2, host : "duo:20013" } ] } 
+  { _id : 0, host : "%IP%:20011" }, 
+  { _id : 1, host : "%IP%:20012" }, 
+  { _id : 2, host : "%IP%:20013" } ] } 
 > rs.initiate(cfg)
 > rs.status()
 
@@ -98,9 +102,9 @@ $ bin\mongo localhost:20021
 > cfg = {
  _id : "rs2", 
  members : [ 
-  { _id : 0, host : "duo:20021" }, 
-  { _id : 1, host : "duo:20022" }, 
-  { _id : 2, host : "duo:20023" } ] } 
+  { _id : 0, host : "%IP%:20021" }, 
+  { _id : 1, host : "%IP%:20022" }, 
+  { _id : 2, host : "%IP%:20023" } ] } 
 > rs.initiate(cfg)
 > rs.status()
 
@@ -108,9 +112,9 @@ $ bin\mongo localhost:20031
 > cfg = {
  _id : "rs3", 
  members : [ 
-  { _id : 0, host : "duo:20031" }, 
-  { _id : 1, host : "duo:20032" }, 
-  { _id : 2, host : "duo:20033" } ] } 
+  { _id : 0, host : "%IP%:20031" }, 
+  { _id : 1, host : "%IP%:20032" }, 
+  { _id : 2, host : "%IP%:20033" } ] } 
 > rs.initiate(cfg)
 > rs.status()
 
@@ -120,21 +124,10 @@ $ start "mongos" bin\mongos --configdb duo:10001 --port 10000 --chunkSize 1
 
 $ bin\mongo localhost:10000
 > use admin
-> db.runCommand({addshard:"rs1/duo:20011,duo:20012,duo:20013"})
-> db.runCommand({addshard:"rs2/duo:20021,duo:20022,duo:20023"})
-> db.runCommand({addshard:"rs3/duo:20031,duo:20032,duo:20033"})
-
+> db.runCommand({addshard:"rs1/%IP%:20011,%IP%:20012,%IP%:20013"})
+> db.runCommand({addshard:"rs2/%IP%:20021,%IP%:20022,%IP%:20023"})
+> db.runCommand({addshard:"rs3/%IP%:20031,%IP%:20032,%IP%:20033"})
 > db.printShardingStatus();
---- Sharding Status ---
-  sharding version: { "_id" : 1, "version" : 3 }
-  shards:
-        {  "_id" : "rs1",  "host" : "rs1/duo:20011,duo:20012,duo:20013" }
-        {  "_id" : "rs2",  "host" : "rs2/duo:20021,duo:20022,duo:20023" }
-        {  "_id" : "rs3",  "host" : "rs3/duo:20031,duo:20032,duo:20033" }
-  databases:
-        {  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
-        {  "_id" : "test",  "partitioned" : false,  "primary" : "rs1" }
-
 
 > use logdb
 > for(var i=1; i<=1000000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
