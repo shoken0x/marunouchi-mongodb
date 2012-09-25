@@ -42,39 +42,12 @@ mongod.exe                   11100 Console                    1     68,308 K
 
 ```
 $ bin\mongo localhost:20001
-> rs.initiate()
-{
-        "info2" : "no configuration explicitly specified -- making one",
-        "me" : "kotaro:20001", ←自ホスト名「私の場合は"kotaro"」になります。IPアドレスになってほしいけど、やり方は不明。
-        "info" : "Config now saved locally.  Should come online in about a minute.",
-        "ok" : 1
-}
-> rs.add("%HOST%:20002")
-> rs.add("%HOST%:20003") 
-```
-
-補足１） %HOST%はホスト名。
-この部分をループバックインターフェース(127.0.0.1やlocalhost) にしてしまうと、以下のようなエラーが出ます
-
-```
-> rs.add("localhost:20002")
-{
-        "errmsg" : "exception: can't use localhost in repl set member names except when using it for all members",
-        "code" : 13393,
-        "ok" : 0
-}
-```
-
-補足２）設定を先に作成してから一気に作る方法もあります
-
-
-```
 > cfg = {
  _id : "rs1", 
  members : [ 
-  { _id : 0, host : "%HOST%:20001" }, 
-  { _id : 1, host : "%HOST%:20002" }, 
-  { _id : 2, host : "%HOST%:20003" } ] } 
+  { _id : 0, host : "%IP%:20001" }, 
+  { _id : 1, host : "%IP%:20002" }, 
+  { _id : 2, host : "%IP%:20003" } ] } 
 > cfg   
 (内容確認)
 > rs.initiate(cfg)
@@ -84,7 +57,7 @@ $ bin\mongo localhost:20001
 }
 ```
 
-※%HOST%はホスト名でもIPアドレスでもＯＫです。ループバックインターフェース(127.0.0.1やlocalhost)はだめです。
+※%IP%はホスト名でもでもＯＫです。
 
 レプリカセットのステータス確認。成功すると以下のように見えます。
 
@@ -140,10 +113,13 @@ $ bin\mongo localhost:20001
 
 データの挿入
 
+１０万件ほどデータを投入してみる
 ```
 (ポート20001のmongodで実行)
 > use mydb
-> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)}) ←１０万件ほどデータを投入してみる
+> for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)}) 
+> db.logs.count()
+100000
 ```
 
 レプリケーションされたことの確認。ポート20002のmongodで確認する。
@@ -159,14 +135,19 @@ Mon Sep 17 14:27:13 uncaught exception: error: { "$err" : "not master and slaveO
 何も考えずにshow collectionsするとエラーになります。
 なので、setSlaveOk()コマンドを使います。
 
-（db.getMongo().setSlaveOk()の説明: allow this connection to read from the nonmaster member of a replica pair）
-
 ```
 > db.getMongo().setSlaveOk()
 > show collections
 > db.logs.count()
 100000
 ```
+
+ちなみに、secondaryには書き込みはできません。
+```
+> db.logs.insert({"uid":100001, "value":123})
+not master
+```
+※）setSlaveOk()の説明: allow this connection to read from the nonmaster member of a replica pair
 
 
 プライマリの障害実験（フェイルオーバ）
