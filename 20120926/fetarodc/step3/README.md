@@ -52,8 +52,8 @@ $ bin\mongo localhost:20022
 ■サーバ３
 $ mkdir data\ data\node13 data\node23 data\node33
 $ start "node13" bin\mongod.exe --replSet rs1 --port 20013 --dbpath=data/node13 --rest
-$ start "node33" bin\mongod.exe --replSet rs3 --port 20033 --dbpath=data/node33 --rest
 $ start "node23" bin\mongod.exe --replSet rs2 --port 20023 --dbpath=data/node23 --rest
+$ start "node33" bin\mongod.exe --replSet rs3 --port 20033 --dbpath=data/node33 --rest
 
 $ bin\mongo localhost:20033
 > cfg = {
