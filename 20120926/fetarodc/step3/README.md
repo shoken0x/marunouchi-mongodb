@@ -26,9 +26,9 @@ $ bin\mongo localhost:20011
 > cfg = {
  _id : "rs1", 
  members : [ 
-  { _id : 0, host : "%IP%:20011" }, 
-  { _id : 1, host : "%IP%:20012" }, 
-  { _id : 2, host : "%IP%:20013" } ] } 
+  { _id : 0, host : "%host1-IP%:20011" }, 
+  { _id : 1, host : "%host2-IP%:20012" }, 
+  { _id : 2, host : "%host3-IP%:20013" } ] } 
 > rs.initiate(cfg)
 > rs.status()
 
@@ -43,9 +43,9 @@ $ bin\mongo localhost:20022
 > cfg = {
  _id : "rs2", 
  members : [ 
-  { _id : 0, host : "%IP%:20021" }, 
-  { _id : 1, host : "%IP%:20022" }, 
-  { _id : 2, host : "%IP%:20023" } ] } 
+  { _id : 0, host : "%host1-IP%:20021" }, 
+  { _id : 1, host : "%host2-IP%:20022" }, 
+  { _id : 2, host : "%host3-IP%:20023" } ] } 
 > rs.initiate(cfg)
 > rs.status()
 
@@ -59,9 +59,9 @@ $ bin\mongo localhost:20033
 > cfg = {
  _id : "rs3", 
  members : [ 
-  { _id : 0, host : "%IP%:20031" }, 
-  { _id : 1, host : "%IP%:20032" }, 
-  { _id : 2, host : "%IP%:20033" } ] } 
+  { _id : 0, host : "%host1-IP%:20031" }, 
+  { _id : 1, host : "%host2-IP%:20032" }, 
+  { _id : 2, host : "%host3-IP%:20033" } ] } 
 > rs.initiate(cfg)
 > rs.status()
 
