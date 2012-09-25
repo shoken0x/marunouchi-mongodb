@@ -19,3 +19,5 @@
 
 * mongosへ問い合わせをしながら、どれか一台のmongodのマシンのNICを止めて落としてみましょう。
 * そのマシンを復活させてみましょう。
+
+答えの手順は[コチラ](https://github.com/syokenz/marunouchi-mongodb/blob/master/20120926/fetarodc/step3/answer.md)
