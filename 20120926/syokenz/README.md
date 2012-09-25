@@ -183,7 +183,7 @@ sample document
 
 集計処理
 ```js
-> db.scores.aggregate(  { $match   : { "year"  : "junior" } },
+> db.scores.aggregate( { $match   : { "year"  : "junior" } },
                        { $project : { "name"  : 1, "score" : 1 } },
                        { $group   : { "_id"     : "$name", 
                                       "average" : {"$avg" : "$score" } } }
