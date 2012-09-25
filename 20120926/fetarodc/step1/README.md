@@ -7,10 +7,7 @@
 
 ```
 $ cd (mongodb install directory)
-$ mkdir data
-$ mkdir data\node1
-$ mkdir data\node2
-$ mkdir data\node3
+$ mkdir data data\node1 data\node2 data\node3
 ```
 
 mongod開始
@@ -57,13 +54,13 @@ $ bin\mongo localhost:20001
 }
 ```
 
-レプリカセットのステータス確認。成功すると以下のように見えます。
+レプリカセットのステータス確認。
 
 ```
 > rs.status()
 {
         "set" : "rs1",
-        "date" : ISODate("2012-09-17T07:18:04Z"),
+        "date" : ISODate("2012-09-25T15:06:25Z"),
         "myState" : 1,
         "members" : [
                 {
@@ -72,22 +69,22 @@ $ bin\mongo localhost:20001
                         "health" : 1,
                         "state" : 1,
                         "stateStr" : "PRIMARY",
-                        "uptime" : 321,
-                        "optime" : Timestamp(1347866232000, 1),
-                        "optimeDate" : ISODate("2012-09-17T07:17:12Z"),
+                        "uptime" : 132,
+                        "optime" : Timestamp(1348585543000, 1),
+                        "optimeDate" : ISODate("2012-09-25T15:05:43Z"),
                         "self" : true
                 },
                 {
                         "_id" : 1,
                         "name" : "localhost:20002",
                         "health" : 1,
-                        "state" : 2,
-                        "stateStr" : "SECONDARY",
-                        "uptime" : 73,
-                        "optime" : Timestamp(1347866232000, 1),
-                        "optimeDate" : ISODate("2012-09-17T07:17:12Z"),
-                        "lastHeartbeat" : ISODate("2012-09-17T07:18:03Z"),
-                        "pingMs" : 0
+                        "state" : 3,
+                        "stateStr" : "RECOVERING",
+                        "uptime" : 42,
+                        "optime" : Timestamp(0, 0),
+                        "optimeDate" : ISODate("1970-01-01T00:00:00Z"),
+                        "lastHeartbeat" : ISODate("2012-09-25T15:06:25Z"),
+                        "pingMs" : 532
                 },
                 {
                         "_id" : 2,
@@ -95,10 +92,10 @@ $ bin\mongo localhost:20001
                         "health" : 1,
                         "state" : 2,
                         "stateStr" : "SECONDARY",
-                        "uptime" : 52,
-                        "optime" : Timestamp(1347866232000, 1),
-                        "optimeDate" : ISODate("2012-09-17T07:17:12Z"),
-                        "lastHeartbeat" : ISODate("2012-09-17T07:18:02Z"),
+                        "uptime" : 42,
+                        "optime" : Timestamp(1348585543000, 1),
+                        "optimeDate" : ISODate("2012-09-25T15:05:43Z"),
+                        "lastHeartbeat" : ISODate("2012-09-25T15:06:24Z"),
                         "pingMs" : 0
                 }
         ],
@@ -109,15 +106,15 @@ $ bin\mongo localhost:20001
 動作確認
 -----------------
 
-データの挿入
+データの挿入(１０万件ほどデータを投入してみる)
 
-１０万件ほどデータを投入してみる
+(PRIMARYのmongodで実行)
 ```
-(ポート20001のmongodで実行)
 > use mydb
 > for(var i=1; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)}) 
 > db.logs.count()
 100000
+> db.logs.find()
 ```
 
 レプリケーションされたことの確認。ポート20002のmongodで確認する。
@@ -138,6 +135,7 @@ Mon Sep 17 14:27:13 uncaught exception: error: { "$err" : "not master and slaveO
 > show collections
 > db.logs.count()
 100000
+> db.logs.find()
 ```
 
 ちなみに、secondaryには書き込みはできません。
