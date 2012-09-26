@@ -345,7 +345,7 @@ connecting to: test
 null
 ```
 
-### 2.2のMongoDBインスタンスで作成したmongodumpは2.2でしたリストアできません
+### MongoDB 2.2 で作成したmongodumpは2.2でしかリストアできません
 
 
 ### Windowsで以下の文字列がDatabase Nameで使用できなくなりました
