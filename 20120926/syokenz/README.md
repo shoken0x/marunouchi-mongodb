@@ -357,6 +357,28 @@ null
 
 ### $elemMatch(projection)が追加されました
 $elemMatchで表示するフィールドを制御できるようになりました。
+```js
+> db.students.findOne()
+{
+ _id: ObjectId(),
+ zipcode: 63109,
+ dependents: [
+              { name: "john", school: 102, age: 10 },
+              { name: "jess", school: 102, age: 11 },
+              { name: "jeff", school: 108, age: 15 }
+             ]
+}
+
+> var projection = { _id: 0, dependents: { $elemMatch: { school: 102 }}};
+> db.students.find( { zipcode: 63109 }, projection);
+{
+ dependents: [
+              { name: "john", school: 102, age: 10 }
+             ]
+}
+
+```
+
 詳細は[こちら](http://docs.mongodb.org/manual/reference/projection/elemMatch/)
 
 ### Windowsに関する修正
