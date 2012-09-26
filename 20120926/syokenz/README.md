@@ -73,6 +73,7 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 
 特に$projectと$unwindについて説明します。
 ### $project
+データベース用語でいう、projection（射影）の略と考えると理解しやすいです。  
 $projectを使用するとつぎの集計処理に渡す/取り除くフィールドを指定できます。デフォルトで_idは含まれているので、取り除くためには明示的に0をセットする必要があります。
 ```js
 db.article.aggregate(
