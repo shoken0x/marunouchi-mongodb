@@ -241,7 +241,9 @@ Rubyでの例
 - sharding keyによる書き込み先の制御
 - uid=1〜100は東京データセンターのノード、uid=100〜200はNewYorkデータセンターのノード、という設定が可能に
 
+[Shardingセットアップスクリプト（Linux用）](https://github.com/syokenz/mongoscripts/blob/master/mongoshard.sh)
 ```js
+//使うコマンド
 sh.addShardTag(shard, tag)
 sh.addTagRange(namespace, minimum, maximum, tag)
 sh.removeShardTag(shard, tag)
