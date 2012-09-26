@@ -11,9 +11,10 @@ Marunouchi.mongo 20120926
 # 流れ
 * 懇親会の出席を取る
 * [雲屋株式会社](http://kumoya.com/) 様ご提供のステッカーを配る
+* [前回出た質問](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828)について考える
 * [Wiki](https://github.com/syokenz/marunouchi-mongodb/wiki)作りました！
-* [MongoDB 2.2 新機能紹介](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926/syokenz) @syokenz
-* [みんなでレプリケーション](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926/fetarodc) @fetarodc
+* [MongoDB 2.2 新機能紹介](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926/syokenz) [@syokenz](http://twitter.com/syokenz)
+* [みんなでレプリケーション](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926/fetarodc) [@fetarodc](http://twitter.com/fetarodc)
 * みんなで質問とか、第4回でどんなことをやるかとか
   * 第4回は？
 * 懇親会へ
