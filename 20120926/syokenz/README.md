@@ -270,7 +270,7 @@ db.runCommand( { shardcollection : "logdb.logs" , key : { uid : 1 } } );
 db.printShardingStatus(); //まだ1chunkなので書き込み先は1つになっている
 
 //1chunk 1uidに分割
-for(var i=1; i<=20; i++) db.runCommand( { split : "logdb.logs" , middle : { uid : i } } );
+for(var i=1; i<20; i++) db.runCommand( { split : "logdb.logs" , middle : { uid : i } } );
 
 db.printShardingStatus();
 ```
