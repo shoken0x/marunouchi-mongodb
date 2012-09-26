@@ -1,6 +1,6 @@
 Marunouchi.mongo 20120730
 =================
-# SQLと比較したクエリ&Rubyからの操作
+# SQLと比較しながらクエリを学ぶ&RubyからMongoDBを触ってみる
 
 みんなでMongoDBについて勉強しましょう。
 
@@ -12,7 +12,7 @@ Marunouchi.mongo 20120730
 # 流れ
 * 懇親会の出席を取る
 * [雲屋株式会社](http://kumoya.com/) 様ご提供のステッカーを配る
-* [step01](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120730/step01) [@syokenz](http://twitter.com/syokenz) [SQLライクなMongoDBの操作]
+* [step01](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120730/step01) [@syokenz](http://twitter.com/syokenz) [SQLと比較しながらクエリを学ぶ]
 * [step02](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120730/step02) [@fetarodc](http://twitter.com/fetarodc) [RubyからMongoDBを触ってみる]
 * みんなで [質問とか、第２回でどんなことをやるかとか]
 * 集合写真撮影
