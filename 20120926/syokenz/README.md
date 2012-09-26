@@ -93,7 +93,7 @@ db.article.aggregate(
     }}
 );
 ```
-フィールド名を変更して、次の処理に渡します。
+フィールド名を変更して、次の処理に渡します。下の例では、pageViewsというフィールドをpage_viewsに変更して次の処理に渡します。
 ```js
 db.article.aggregate(
     { $project : {
