@@ -25,6 +25,14 @@ Marunouchi.mongo 20120828
 - ReplicaSetsでPrimaryがダウンしたら、SecondaryがPrimaryに昇格するが、優先度は設定できるのか
  - priority設定できます。選出基準は、1.priorityが最大、2.primaryとの最終同期が最新、3.votes値が高いで決まるようです。
  - 参考：[〜うまく動かすMongoDB〜仕組みや挙動を理解する](http://doryokujin.hatenablog.jp/entry/20110519/1305737343)の中程
+
+```
+PRIMARY> cfg = rs.conf();
+PRIMARY> cfg.members[0].priority = 2
+PRIMARY> rs.reconfig(cfg)
+PRIMARY> rs.conf();  
+```
+
 - ReplicaSetsは最低３つのmongodで構成されると聞いているが、２つでも構成可能
 - Sharding+ReplicaSetsの構成での挙動で、ReplicaSetsのPrimaryが落ちた場合の挙動はどうなるか
 - Sharding環境で大量データinsert後にchunkの移動が起こるが、その際にcount()すると実際のデータよりも多くカウントされてしまう。どのように回避すればよいか。chunk migration時のcount問題。
