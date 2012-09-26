@@ -376,7 +376,7 @@ $elemMatchで表示するフィールドを制御できるようになりまし�
               { name: "john", school: 102, age: 10 }
              ]
 }
-
+//$elemMatchは1つドキュメントに対して、1件のエレメントしか結果を返さない
 ```
 
 詳細は[こちら](http://docs.mongodb.org/manual/reference/projection/elemMatch/)
