@@ -204,7 +204,7 @@ sample document
 
 SQLで同じ処理
 ```SQL
-SELECT name, AVG(score) FROM scores
+SELECT name as '_id', AVG(score) as 'average' FROM scores
 GROUP BY name
 HAVING year = 'junior' 
 ```
