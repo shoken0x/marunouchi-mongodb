@@ -157,17 +157,15 @@ mkdir -p /tmp/mongodb/data/node31
 mkdir -p /tmp/mongodb/data/node32
 mkdir -p /tmp/mongodb/data/node33
 
-./bin/mongod --replSet rs1 --port 20011 --dbpath=/tmp/mongodb/data/node11 --logpath=/tmp/mongodb/log/node11 --rest
-./bin/mongod --replSet rs1 --port 20012 --dbpath=/tmp/mongodb/data/node12  --logpath=/tmp/mongodb/log/node12 --rest
-./bin/mongod --replSet rs1 --port 20013 --dbpath=/tmp/mongodb/data/node13  --logpath=/tmp/mongodb/log/node13 --rest
-
-./bin/mongod --replSet rs2 --port 20021 --dbpath=/tmp/mongodb/data/node21  --logpath=/tmp/mongodb/log/node21 --rest
-./bin/mongod --replSet rs2 --port 20022 --dbpath=/tmp/mongodb/data/node22  --logpath=/tmp/mongodb/log/node22 --rest
-./bin/mongod --replSet rs2 --port 20023 --dbpath=/tmp/mongodb/data/node23  --logpath=/tmp/mongodb/log/node23 --rest 
-  
-./bin/mongod --replSet rs3 --port 20031 --dbpath=/tmp/mongodb/data/node31  --logpath=/tmp/mongodb/log/node31  --rest
-./bin/mongod --replSet rs3 --port 20032 --dbpath=/tmp/mongodb/data/node32  --logpath=/tmp/mongodb/log/node32  --rest
-./bin/mongod --replSet rs3 --port 20033 --dbpath=/tmp/mongodb/data/node33  --logpath=/tmp/mongodb/log/node33  --rest 
+./bin/mongod --replSet rs1 --port 20011 --dbpath=/tmp/mongodb/data/node11 --logpath=/tmp/mongodb/log/node11 --rest &
+./bin/mongod --replSet rs1 --port 20012 --dbpath=/tmp/mongodb/data/node12 --logpath=/tmp/mongodb/log/node12 --rest &
+./bin/mongod --replSet rs1 --port 20013 --dbpath=/tmp/mongodb/data/node13 --logpath=/tmp/mongodb/log/node13 --rest &
+./bin/mongod --replSet rs2 --port 20021 --dbpath=/tmp/mongodb/data/node21 --logpath=/tmp/mongodb/log/node21 --rest & 
+./bin/mongod --replSet rs2 --port 20022 --dbpath=/tmp/mongodb/data/node22 --logpath=/tmp/mongodb/log/node22 --rest &
+./bin/mongod --replSet rs2 --port 20023 --dbpath=/tmp/mongodb/data/node23 --logpath=/tmp/mongodb/log/node23 --rest &
+./bin/mongod --replSet rs3 --port 20031 --dbpath=/tmp/mongodb/data/node31 --logpath=/tmp/mongodb/log/node31 --rest &
+./bin/mongod --replSet rs3 --port 20032 --dbpath=/tmp/mongodb/data/node32 --logpath=/tmp/mongodb/log/node32 --rest &
+./bin/mongod --replSet rs3 --port 20033 --dbpath=/tmp/mongodb/data/node33 --logpath=/tmp/mongodb/log/node33 --rest &
 
 ./bin/mongod --configsvr --port 10001 --dbpath /tmp/mongodb/data/config --rest &
 ./bin/mongos --configdb 10.0.2.1:10001 --port 10000 --logpath=/tmp/mongodb/log/mongos --chunkSize 1 &
