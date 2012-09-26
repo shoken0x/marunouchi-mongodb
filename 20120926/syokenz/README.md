@@ -252,9 +252,9 @@ use admin
 sh.addShardTag("shard0000", "TokyoDC");
 sh.addShardTag("shard0001", "NewYorkDC");
 sh.addShardTag("shard0002", "ParisDC");
-sh.addTagRange("logdb.logs", { "uid" : 1  }, { "uid" : 5  }, "TokyoDC");   //uid 1 - 4までの4つ
-sh.addTagRange("logdb.logs", { "uid" : 5  }, { "uid" : 12 }, "NewYorkDC"); //uid 5 - 11までの7つ
-sh.addTagRange("logdb.logs", { "uid" : 12 }, { "uid" : 21 }, "ParisDC");   //uid 12 - 20までの8つ
+sh.addTagRange("logdb.logs", { "uid" : 1  }, { "uid" : 5  }, "TokyoDC");   //uid  1 - 4 までの4つ
+sh.addTagRange("logdb.logs", { "uid" : 5  }, { "uid" : 12 }, "NewYorkDC"); //uid  5 - 11までの7つ
+sh.addTagRange("logdb.logs", { "uid" : 12 }, { "uid" : 21 }, "ParisDC");   //uid 12 - 20までの9つ
 db.printShardingStatus();
 //tagsの削除はconfigサーバに接続して、config.tagsを変更する
 
