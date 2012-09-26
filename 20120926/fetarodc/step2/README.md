@@ -141,7 +141,7 @@ $ bin\mongo localhost:10000
 
 ```
 
-## Bash用
+## bash用
 ```
 mkdir -p /tmp/mongodb/data/config
 mkdir -p /tmp/mongodb/log
