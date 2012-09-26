@@ -145,9 +145,9 @@ $ bin\mongo localhost:10000
 ```
 mkdir -p /tmp/mongodb/data/config
 mkdir -p /tmp/mongodb/log
+mkdir -p /tmp/mongodb/data/node11
 mkdir -p /tmp/mongodb/data/node12
 mkdir -p /tmp/mongodb/data/node13
-mkdir -p /tmp/mongodb/data/node14
 
 mkdir -p /tmp/mongodb/data/node21
 mkdir -p /tmp/mongodb/data/node22
