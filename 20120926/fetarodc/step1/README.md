@@ -8,14 +8,22 @@
 ```
 $ cd (mongodb install directory)
 $ mkdir data data\node1 data\node2 data\node3
+(bash)
+$ mkdir log log\node1 log\node2 log\node3
 ```
 
 mongod開始
 
 ```
-$ start "node1" bin\mongod.exe --replSet rs1 --port 20001 --dbpath=data/node1 --rest
-$ start "node2" bin\mongod.exe --replSet rs1 --port 20002 --dbpath=data/node2 --rest
-$ start "node3" bin\mongod.exe --replSet rs1 --port 20003 --dbpath=data/node3 --rest
+(Windows)
+$ start "node1" bin\mongod.exe --replSet rs1 --port 20001 --dbpath=data\node1 --rest
+$ start "node2" bin\mongod.exe --replSet rs1 --port 20002 --dbpath=data\node2 --rest
+$ start "node3" bin\mongod.exe --replSet rs1 --port 20003 --dbpath=data\node3 --rest
+(bash)
+$ bin/mongod --replSet rs1 --port 20001 --dbpath=data/node1 --rest --logpath log\node1 &
+$ bin/mongod --replSet rs1 --port 20002 --dbpath=data/node2 --rest --logpath log\node2 &
+$ bin/mongod --replSet rs1 --port 20003 --dbpath=data/node3 --rest --logpath log\node3 &
+
 ```
 ※）start "str" はコマンドを別ウインドウで立ち上げて、ウインドウ名に"str"をつけるコマンドです
 
