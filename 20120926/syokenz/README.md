@@ -259,7 +259,7 @@ sh.addTagRange("logdb.logs", { "uid" : 9 }, { "uid" : 20 }, "ParisDC")
 
 use logdb
 db.logs.ensureIndex( { uid : 1 } );
-for(var i=1; i<=30; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+for(var i=1; i<=20; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
 
 use admin
 db.runCommand( { enablesharding : "logdb" });
@@ -268,7 +268,7 @@ db.runCommand( { shardcollection : "logdb.logs" , key : { uid : 1 } } );
 db.printShardingStatus(); //まだ1chunkなので書き込み先は1つになっている
 
 //1chunk 1uidに分割
-for(var i=1; i<=30; i++) db.runCommand( { split : "logdb.logs" , middle : { uid : i } } )
+for(var i=1; i<=20; i++) db.runCommand( { split : "logdb.logs" , middle : { uid : i } } )
 
 db.printShardingStatus();
 ```
