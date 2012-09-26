@@ -249,17 +249,19 @@ sh.removeShardTag(shard, tag)
 //例
 //login mongs
 use admin
-sh.addShardTag("shard0000", "TokyoDC")
-sh.addShardTag("shard0001", "NewYorkDC")
-sh.addShardTag("shard0002", "ParisDC")
-sh.addTagRange("logdb.logs", { "uid" : 1  }, { "uid" : 3 }, "TokyoDC")
-sh.addTagRange("logdb.logs", { "uid" : 3 }, { "uid" : 9 }, "NewYorkDC")
-sh.addTagRange("logdb.logs", { "uid" : 9 }, { "uid" : 20 }, "ParisDC")
+sh.addShardTag("shard0000", "TokyoDC");
+sh.addShardTag("shard0001", "NewYorkDC");
+sh.addShardTag("shard0002", "ParisDC");
+sh.addTagRange("logdb.logs", { "uid" : 1  }, { "uid" : 3 }, "TokyoDC");
+sh.addTagRange("logdb.logs", { "uid" : 3 }, { "uid" : 9 }, "NewYorkDC");
+sh.addTagRange("logdb.logs", { "uid" : 9 }, { "uid" : 20 }, "ParisDC");  
+db.printShardingStatus();
 //tagsの削除はconfigサーバに接続して、config.tagsを変更する
 
 use logdb
 db.logs.ensureIndex( { uid : 1 } );
-for(var i=1; i<=20; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+for(var i=1; i<=20; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)});
+db.logs.count();
 
 use admin
 db.runCommand( { enablesharding : "logdb" });
@@ -268,7 +270,7 @@ db.runCommand( { shardcollection : "logdb.logs" , key : { uid : 1 } } );
 db.printShardingStatus(); //まだ1chunkなので書き込み先は1つになっている
 
 //1chunk 1uidに分割
-for(var i=1; i<=20; i++) db.runCommand( { split : "logdb.logs" , middle : { uid : i } } )
+for(var i=1; i<=20; i++) db.runCommand( { split : "logdb.logs" , middle : { uid : i } } );
 
 db.printShardingStatus();
 ```
