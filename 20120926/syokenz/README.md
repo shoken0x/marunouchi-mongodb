@@ -327,7 +327,7 @@ db.events.find();
 ## その他
 ### 認証方式が変更されました
 認証付きsharding環境を構成している場合は、以下を確認してください。
-- sharding環境での2.0のmogos インスタンスは、2.2で構成された認証付きsharding環境との互換性がありません。[upgrade-shard-cluster](http://docs.mongodb.org/manual/release-notes/2.2/#upgrade-shard-cluster)を参考にupgradeしてください。
+- sharding環境での2.0のmongos インスタンスは、2.2で構成された認証付きsharding環境との互換性がありません。[upgrade-shard-cluster](http://docs.mongodb.org/manual/release-notes/2.2/#upgrade-shard-cluster)を参考にupgradeしてください。
 - 最新ドライバのリリースノートを確認してください。
 
 ### upsert オペレーションでnullが返るようになりました。
@@ -386,7 +386,7 @@ mongooplogを使うと、レプリケーション環境でpoint-in-time backup�
 ・"データ"ではなく、"オペレーション"を同期しあうことでレプリケーションを行う
 ```
 
-### mongotopとmogostatに認証機能がサポートされました
+### mongotopとmongostatに認証機能がサポートされました
 
 ### mongoimportとmongorestoreエラー検出オプションが追加されました
 - mongoimportでは[--stopOnError](http://docs.mongodb.org/manual/reference/mongoimport/#cmdoption-mongoimport--stopOnError)をつけることで、最初のエラーが検出されたらimportを停止します。
