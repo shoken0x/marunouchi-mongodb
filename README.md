@@ -31,7 +31,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催記録
-* [丸の内MongoDB勉強会 #1 SQLと比較したMongoDBのクエリ操作](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120730) 2012/07/30 [ATND](http://atnd.org/events/30595)
+* [丸の内MongoDB勉強会 #1 SQLと比較しながらクエリを学ぶ&RubyからMongoDBを触ってみる](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120730) 2012/07/30 [ATND](http://atnd.org/events/30595)
 * [丸の内MongoDB勉強会 #2 みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828) 2012/08/28 [ATND](http://atnd.org/events/31234)
 
 
