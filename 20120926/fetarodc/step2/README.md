@@ -120,7 +120,7 @@ $ bin\mongo localhost:20033
 
 $ mkdir data\config
 $ start "config" bin\mongod --configsvr --port 10001 --dbpath data\config --rest
-$ start "mongos" bin\mongos --configdb duo:10001 --port 10000 --chunkSize 1
+$ start "mongos" bin\mongos --configdb %IP%:10001 --port 10000 --chunkSize 1
 
 $ bin\mongo localhost:10000
 > use admin
