@@ -1,5 +1,7 @@
 Marunouchi.mongo 20120730
 =================
+# SQLと比較したクエリ&Rubyからの操作
+
 みんなでMongoDBについて勉強しましょう。
 
 [丸の内MongoDB勉強会 #1 - ATND](http://atnd.org/events/30595)
