@@ -274,6 +274,27 @@ for(var i=2; i<=20; i++) db.runCommand( { split : "logdb.logs" , middle : { uid 
 
 db.printShardingStatus();
 ```
+
+さらにデータを追加してみる
+```js
+mongo localhost:10001/config 
+configsvr> db.tags.find().toArray(); //現在の設定を確認
+configsvr> db.tags.update({"tag":"ParisDC"}, {$set:{"max":{"uid":1000000}}});
+configsvr> db.tags.find().toArray(); //変更されたことを確認
+
+
+mongo localhost:10000/logdb
+mongos> db.printShardingStatus();
+//データ投入
+mongos> for(var i=21; i<=100000; i++) db.logs.insert({"uid":i, "value":Math.floor(Math.random()*100000+1)})
+mongos> db.printShardingStatus(); //どのようなchink分配になっている？
+
+```
+
+
+
+
+
 参考:[mongo/jstests/slowNightly/balance_tags1.js](https://github.com/mongodb/mongo/blob/master/jstests/slowNightly/balance_tags1.js) 
 
 
