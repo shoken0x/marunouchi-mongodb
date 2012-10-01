@@ -42,6 +42,20 @@ Marunouchi.mongo 20120926
 * [ローカル環境だけでReplica SetとSharding構成を構築 -matsukazの日記- ](http://d.hatena.ne.jp/matsukaz/20110417/1303057728)
 
 # 参加者
+1. [@syokenz](http://twitter.com/syokenz)
+1. [@fetarodc](http://twitter.com/fetarodc)
+1. [@rinrin0108](http://twitter.com/rinrin0108)
+1. [@modsound](http://twitter.com/modsound)
+1. [@chimerast](http://twitter.com/chimerast)
+1. [@satoruk](http://twitter.com/satoruk)
+1. [@zeds39](http://twitter.com/zeds39)
+1. [@yokoom](http://twitter.com/yokoom)
+1. [@hmitr](http://twitter.com/hmitr)
+1. [@twabiko](http://twitter.com/twabiko)
+1. [@kobuchin1](http://twitter.com/kobuchin1)
+1. [@taka512](http://twitter.com/taka512)
+1. [@manji0112](http://twitter.com/manji0112)
+masato
 
 
 # Blog
