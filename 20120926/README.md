@@ -21,6 +21,8 @@ Marunouchi.mongo 20120926
   * 第4回は？
 * 懇親会へ
 
+![mm20120926.jpg](http://www.fedc.biz/~fujisaki/img/mm20120926.jpg)
+
 # 会場で出た質問
 - configサーバの冗長化はどうやってやるのか
 - レプリケーション中にPrimaryを別ノードに変更することは可能か
