@@ -55,7 +55,7 @@ Marunouchi.mongo 20120926
 1. [@kobuchin1](http://twitter.com/kobuchin1)
 1. [@taka512](http://twitter.com/taka512)
 1. [@manji0112](http://twitter.com/manji0112)
-masato
+1. masato
 
 
 # Blog
