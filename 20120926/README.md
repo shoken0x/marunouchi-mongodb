@@ -59,5 +59,5 @@ Marunouchi.mongo 20120926
 
 
 # Blog
-
+[丸の内MongoDB勉強会 #3 やりました](http://shoken.hatenablog.com/entry/2012/10/01/234343)
 
