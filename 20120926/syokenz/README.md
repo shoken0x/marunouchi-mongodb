@@ -1,5 +1,10 @@
 MongoDB 2.2.0 新機能紹介
 =================
+#はじめに
+このページは、MongoDB 2.2 リリースノートの内容を元に書いています。
+- http://docs.mongodb.org/manual/release-notes/2.2/  
+- http://jp.docs.mongodb.org/manual/release-notes/2.2/
+
 #コンテンツ
 - 並列処理の強化（DBレベルロック、PageFaultアーキテクチャの改善）
 - Aggregation Framework
