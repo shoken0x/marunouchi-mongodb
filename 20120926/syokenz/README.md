@@ -60,7 +60,7 @@ Aggregation Frameworkは保存されたデータに対しさまざまな処理�
 出所: [「MongoDB 2.2」リリース、データの集計・操作機構など多数の新機能を追加](http://sourceforge.jp/magazine/12/08/30/0423241)より引用
 
 ```
-- $match    //集計処理を行う条件を指定し、絞り込みを行う（SQLのHAVING）
+- $match    //集計処理を行う条件を指定し、絞り込みを行う（SQLのWHEREまたはHAVING）
 - $project  //集計処理を行うフィールドの選択/除外、リネーム（SQLのAS）、計算結果のinsertを行える
 - $unwind   //配列を指定し、展開して返す
 - $group    //$sum, $avgなどを使い集計処理を実施
@@ -205,8 +205,9 @@ sample document
 SQLで同じ処理
 ```SQL
 SELECT name as '_id', AVG(score) as 'average' FROM scores
+WHERE year = 'junior'
 GROUP BY name
-HAVING year = 'junior' 
+ 
 ```
 
 ## Readに関する設定
