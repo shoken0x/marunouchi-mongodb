@@ -19,6 +19,11 @@ Marunouchi.mongo 20120926
 * [みんなでレプリケーション](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926/fetarodc) [@fetarodc](http://twitter.com/fetarodc)
 * みんなで質問とか、第4回でどんなことをやるかとか
   * 第4回は？
+    * アプリ作りたい
+    * 情報があまりないセキュリティ面について検証したい
+    * oplogについて
+    * ジオメトリック機能
+    * 大量データを使った性能測定
 * 懇親会へ
 
 ![mm20120926.jpg](http://www.fedc.biz/~fujisaki/img/mm20120926.jpg)
