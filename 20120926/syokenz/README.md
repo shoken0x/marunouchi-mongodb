@@ -1,3 +1,4 @@
+New future of MongoDB 2.2.0
 MongoDB 2.2.0 新機能紹介
 =================
 #はじめに
