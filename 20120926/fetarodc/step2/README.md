@@ -1,4 +1,4 @@
-Shardingとの組み合わせ
+Sharding + Replica Sets
 =================
 
 Shardingとの組み合わせ
