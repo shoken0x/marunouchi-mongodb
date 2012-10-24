@@ -1,9 +1,9 @@
 Marunouchi.mongo 20121106
 =================
-#「MongoDBでアプリをつくろう」と「セキュリティと認証」
+#「MongoDBでWebアプリをつくろう」と「Configパラメータ解説」
 
-みんなでMongoDBについて勉強しましょう。
-今回のテーマは「MongoDBでアプリをつくろう」と「セキュリティと認証」です。
+みんなでMongoDBについて勉強しましょう。  
+今回のテーマは「MongoDBでWebアプリをつくろう」と「Configパラメータ解説」です。
 
 [丸の内MongoDB勉強会 #4 - ATND](http://atnd.org/events/xxxx)
 
