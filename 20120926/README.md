@@ -27,6 +27,7 @@ Marunouchi.mongo 20120926
     * ジオメトリック機能
     * 大量データを使った性能測定
     * セキュリティと認証
+    * チューニング、configファイル解読、メモリ使用量(MySQLでいうinnodb_buffer_pool)、最大コネクション
 * 懇親会へ
 
 ![mm20120926.jpg](http://www.fedc.biz/~fujisaki/img/mm20120926.jpg)
