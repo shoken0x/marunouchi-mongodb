@@ -1,9 +1,9 @@
 Marunouchi.mongo 20121106
 =================
-#「MongoDBでアプリをつくろう」と「認証機能について」
+#「MongoDBでアプリをつくろう」と「セキュリティと認証」
 
 みんなでMongoDBについて勉強しましょう。
-今回のテーマは「MongoDBでアプリをつくろう」と「認証機能について」です。
+今回のテーマは「MongoDBでアプリをつくろう」と「セキュリティと認証」です。
 
 [丸の内MongoDB勉強会 #4 - ATND](http://atnd.org/events/xxxx)
 
