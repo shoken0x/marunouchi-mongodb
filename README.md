@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-丸の内MongoDB勉強会 #4 MongoDBでアプリをつくろうと認証機能 2012/11/06
+丸の内MongoDB勉強会 #4 「MongoDBでアプリをつくろう」と「認証機能」 2012/11/06
 
 ----
 #### MongoDB最初の1歩
