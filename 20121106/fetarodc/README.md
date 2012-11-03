@@ -125,4 +125,76 @@ Default: /data/db/
 
 パッケージマネジメントシステムでインストールすると/etc/mongodb.confに書いてあるdbpathを使う
 
-### 
+
+### diaglog
+Default: 0
+
+トラブルシューティングで使うようなバイナリログを出す。
+出す場所はdbpath
+
+* Value   Setting
+* 0 	off. No logging.
+* 1 	Log write operations.
+* 2 	Log read operations.
+* 3 	Log both read and write operations.
+* 7 	Log write and some read operations.
+
+mongosniffという専用コマンドでバイナリファイルを読める
+
+mongosniff --source DIAGLOG /data/db/diaglog.4f76a58c
+
+diaglogは内部利用が主で、普通のユーザは使わない。
+
+注意: diaglog = 0と指定する、何も出力されないが、diaglogファイルはできる。
+      diaglog自体を指定しなければ、そもそもdiaglogファイルはできない。
+
+###  directoryperdb
+データベースごとにデータファイルを作る
+
+動作検証
+
+二つのDBを作る
+```
+> use test1
+> db.col1.insert( { name : "fetaro" } )
+> use test2
+> db.col2.insert( { name : "syokenz" } )
+> exit
+```
+
+設定なし
+
+```
+# ls db/
+_tmp  journal  mongod.lock  test1.0  test1.1  test1.ns  test2.0  test2.1  test2.ns
+```
+
+設定あり
+
+```
+# ls db/
+_tmp  journal  mongod.lock  test1  test2
+```
+
+###  journal
+Default: (on 64-bit systems) true
+
+Default: (on 32-bit systems) false
+
+trueだとジャーナルを確実に永続化し、一貫性を保つ。
+
+一貫性を保証しなくてもよい場合はfalseでもよい。そのほうがオーバーヘッドがない。
+
+ジャーナル書き込みによるディスクへの影響を減らしたい場合は、
+
+ジャーナルのレベルを変えて、smallfilesをtrueにしてジャーナルファイルのデータ量を減らすとよい。
+
+### journalCommitInterval
+Default: 100 (msec)
+
+ジャーナルを書き込む間隔(msec)。減らすとディスクへの負荷が減る
+2～300の間で変更可能
+
+###  ipv6
+Default: false
+
