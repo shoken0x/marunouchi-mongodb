@@ -198,3 +198,9 @@ Default: 100 (msec)
 ###  ipv6
 Default: false
 
+
+### jsonp
+Default: false
+HTTPのインターフェースを通してJSONPを許可する。これをtrueにする前にセキュリティを考えよう。
+
+JSONPはscriptタグを使用してクロスドメインなデータを取得する仕組み。詳しくはググりましょう。
