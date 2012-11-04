@@ -463,7 +463,7 @@ Sun Nov  4 12:34:15 [conn1] insert logdb.logs keyUpdates:0  63ms
 ```
 
 
-#smallfiles
+### smallfiles
 Default: false
 
 データファイルサイズを小さくする。設定すると
