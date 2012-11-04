@@ -15,14 +15,39 @@ http://docs.mongodb.org/manual/reference/configuration-options/
 -----------------
 
 ### verbose
-ログレベル
+Default: false
+
+ログに詳細に情報を表示する。
+
+さらに詳細な情報がほしければ、以下のようにvの文字を増やして設定する。
+
+コマンドライン
 ```
-verbose = true
+mongod --vervose # ( mongod -v と同じ)
+mongod -vv
+mongod -vvv
+mongod -vvvv
+mongod -vvvvv
+```
+
+設定ファイル
+```
+verbose = true # (v = trueと同じ)
 vv = true
 vvv = true
+vvvv = true
 vvvvv = true
-quiet = true
 ```
+
+### quiet
+Default: false
+
+mongodとmongosのログを少なくする。以下のものを出力する。
+
+* 次のコマンド結果 drop, dropIndex, diagLogging, validate, clean.
+* レプリケーションの状態
+* 接続受付
+* 接続解除
 
 ### port
 Default: 27017
