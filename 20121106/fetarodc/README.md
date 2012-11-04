@@ -7,6 +7,10 @@ Configパラメータ解説
 ここを解説します
 http://docs.mongodb.org/manual/reference/configuration-options/
 
+```
+ options: { config: "mongodb.conf", dbpath: "db/", noscripting: "true", notablescan: "true", nssize: 32, profile: 2 }
+```
+
 パラメータ解説
 -----------------
 
