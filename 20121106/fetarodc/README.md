@@ -323,3 +323,260 @@ http://www.mongodb.org/pages/viewpage.action?pageId=7831701
 Default: dbpath
 
 リペアするDBパスを指定
+
+
+
+### slowms
+Default: 100 [msrc]
+
+DBのプロファイラがクエリが"slow"と判断する閾値。
+
+* プロファイラがOFFの場合、全ての"slow"なクエリをログに出力（？？？）
+* プロファイラがONの場合、system.profile collectionに出力（？？？）
+
+動作確認
+
+値が10の場合
+```
+Sun Nov  4 12:33:35 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:33 18ms
+Sun Nov  4 12:33:35 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:35 14ms
+Sun Nov  4 12:33:35 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:32 17ms
+Sun Nov  4 12:33:35 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:33 18ms
+Sun Nov  4 12:33:36 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:25 18ms
+Sun Nov  4 12:33:36 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:14 17ms
+Sun Nov  4 12:33:36 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:10 18ms
+Sun Nov  4 12:33:36 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:13 43ms
+Sun Nov  4 12:33:36 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:22 42ms
+Sun Nov  4 12:33:36 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:18 30ms
+Sun Nov  4 12:33:37 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:34 14ms
+Sun Nov  4 12:33:37 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:20 18ms
+```
+値が20の場合
+```
+Sun Nov  4 12:34:14 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:31 50ms
+Sun Nov  4 12:34:14 [conn1] insert logdb.logs keyUpdates:0 locks(micros) w:38 27ms
+Sun Nov  4 12:34:15 [conn1] insert logdb.logs keyUpdates:0  63ms
+```
+
+
+#smallfiles
+Default: false
+
+データファイルサイズを小さくする。設定すると
+* データファイルの最大サイズは512Mになる
+* ジャーナルファイルは1Gから128Mになる
+
+もし、データの大きさが小さいならsmallfilesを設定したほうがパフォーマンスが上がる。
+
+動作検証
+
+設定前
+```
+#ls -lh db
+ 64M logdb.0
+128M logdb.1
+256M logdb.2
+```
+
+設定後
+```
+#ls -lh db
+ 16M logdb.0
+ 32M logdb.1
+ 64M logdb.2
+```
+
+### syncdelay
+Default: 60 [sec]
+
+この設定値は、ディスクへの書き込みをflash(保留しているデータを書き込む)の最大時間。
+
+この時間内はディスクが壊れるとデータを破損する可能性がある。
+
+多くの場合、実際のディスクへの書き込み間隔はもっと小さい。
+
+0に設定するとmongodは即時ディスク書き込みをするが、パフォーマンスは低下する。
+
+journalを設定している場合、journalCommitIntervalの時間内であれば、すべての書き込みは保証される。
+
+
+### sysinfo
+Default: false
+
+以下のような物理ページ数などの情報を出力する。出力するだけで終わる（DBはスタートしない）。
+
+```
+# bin/mongod --sysinfo
+Sun Nov  4 12:51:06 sysinfo:
+Sun Nov  4 12:51:06   page size: 4096          # ページサイズ
+Sun Nov  4 12:51:06   _SC_PHYS_PAGES: 980711   # ページ数
+Sun Nov  4 12:51:06   _SC_AVPHYS_PAGES: 726548 # 利用可能なページ数
+```
+
+###upgrade
+Default: false
+
+dbpathで指定されたデータファイルのフォーマットを最新版にアップデートする。
+
+古いフォーマットの時にだけ有効。
+
+mongosにこのオプションを渡すと、config databaseのフォーマットをアップデートする。
+
+Note: 勝手にアップデートされてしまうので、普通はこのオプションは使うべきではない。
+
+
+### traceExceptions
+Default: false
+
+diagnosticを使っているときに、例外をトレースする。一般ユーザは使わない。内部利用。
+
+# Replication Options
+
+### replSet
+
+    Default: <none>
+
+    Form: <setname>
+
+    Use this setting to configure replication with replica sets. Specify a replica set name as an argument to this set. All hosts must have the same set name.
+
+    See also
+
+    “Replication,” “Replica Set Administration,” and “Replica Set Configuration“
+
+### oplogSize
+
+    Specifies a maximum size in megabytes for the replication operation log (e.g. oplog.) mongod creates an oplog based on the maximum amount of space available. For 64-bit systems, the oplog is typically 5% of available disk space.
+
+    Once the mongod has created the oplog for the first time, changing oplogSize will not affect the size of the oplog.
+
+### fastsync
+
+    Default: false
+
+    In the context of replica set replication, set this option to true if you have seeded this replica with a snapshot of the dbpath of another member of the set. Otherwise the mongod will attempt to perform a full sync.
+
+    Warning
+
+    If the data is not perfectly synchronized and mongod starts with fastsync, then the secondary or slave will be permanently out of sync with the primary, which may cause significant consistency problems.
+
+### replIndexPrefetch
+
+    New in version 2.2.
+
+    Default: all
+
+    Values: all, none, and _id_only
+
+    You must use replIndexPrefetch in conjunction with replSet.
+
+    By default secondary members of a replica set will load all indexes related to an operation into memory before applying operations from the oplog. You can modify this behavior so that the secondaries will only load the _id index. Specify _id_only or none to prevent the mongod from loading any index into memory.
+
+# Master/Slave Replication
+
+### master
+
+    Default: false
+
+    Set to true to configure the current instance to act as master instance in a replication configuration.
+
+### slave
+
+    Default: false
+
+    Set to true to configure the current instance to act as slave instance in a replication configuration.
+
+### source
+
+    Default: <>
+
+    Form: <host>:<port>
+
+    Used with the slave setting to specify the master instance from which this slave instance will replicate
+
+### only
+
+    Default: <>
+
+    Used with the slave option, the only setting specifies only a single database to replicate.
+
+### slavedelay
+
+    Default: 0
+
+    Used with the slave setting, the slavedelay setting configures a “delay” in seconds, for this slave to wait to apply operations from the master instance.
+
+### autoresync
+
+    Default: false
+
+    Used with the slave setting, set autoresync to true to force the slave to automatically resync if the is more than 10 seconds behind the master. This setting may be problematic if the --oplogSize oplog is too small (controlled by the --oplogSize option.) If the oplog not large enough to store the difference in changes between the master’s current state and the state of the slave, this instance will forcibly resync itself unnecessarily. When you set the autoresync option, the slave will not attempt an automatic resync more than once in a ten minute period.
+
+# Sharding Cluster Options
+
+### configsvr
+
+    Default: false
+
+    Set this value to true to configure this mongod instance to operate as the config database of a shard cluster. When running with this option, clients will not be able to write data to any database other than config and admin. The default port for :program:`mongod` with this option is ``27019 and mongod writes all data files to the /configdb sub-directory of the dbpath directory.
+
+### shardsvr
+
+    Default: false
+
+    Set this value to true to configure this mongod instance as a shard in a partitioned cluster. The default port for these instances is 27018. The only affect of shardsvr is to change the port number.
+
+### noMoveParanoia
+
+    Default: false
+
+    When set to true, noMoveParanoia disables a “paranoid mode” for data writes for chunk migration operation. See the chunk migration and moveChunk command documentation for more information.
+
+    By default mongod will save copies of migrated chunks on the “from” server during migrations as “paranoid mode.” Setting this option disables this paranoia.
+
+### configdb
+
+    Default: None.
+
+    Format: <config1>,<config2><:port>,<config3>
+
+    Set this option to specify a configuration database (i.e. config database) for the sharded cluster. You must specify either 1 configuration server or 3 configuration servers, in a comma separated list.
+
+    This setting only affects mongos processes.
+
+### test
+
+    Default: false
+
+    Only runs unit tests and does not start a mongos instance.
+
+    This setting only affects mongos processes and is for internal testing use only.
+
+### chunkSize
+
+    Default: 64
+
+    The value of this option determines the size of each chunk of data distributed around the sharded cluster. The default value is 64 megabytes. Larger chunks may lead to an uneven distribution of data, while smaller chunks may lead to frequent and unnecessary migrations. However, in some circumstances it may be necessary to set a different chunk size.
+
+    This setting only affects mongos processes. Furthermore, chunkSize only sets the chunk size when initializing the cluster for the first time. If you modify the run-time option later, the new value will have no effect. See the “Modify Chunk Size” procedure if you need to change the chunk size on an existing sharded cluster.
+
+### localThreshold
+    New in version 2.2.
+
+    localThreshold affects the logic that program:mongos uses when selecting replica set members to pass reads operations to from clients. Specify a value to localThreshold in milliseconds. The default value is 15, which corresponds to the default value in all of the client drivers.
+
+    This setting only affects mongos processes.
+
+    When mongos receives a request that permits reads to secondary members, the mongos will:
+
+            find the member of the set with the lowest ping time.
+
+            construct a list of replica set members that is within a ping time of 15 milliseconds of the nearest suitable member of the set.
+
+            If you specify a value for localThreshold, mongos will construct the list of replica members that are within the latency allowed by this value.
+
+            The mongos will select a member to read from at random from this list.
+
+    The ping time used for a set member compared by the --localThreshold setting is a moving average of recent ping times, calculated, at most, every 10 seconds. As a result, some queries may reach members above the threshold until the mongos recalculates the average.
+
+    See the Member Selection section of the read preference documentation for more information.
