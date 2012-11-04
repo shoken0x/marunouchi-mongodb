@@ -68,7 +68,9 @@ vvvvv = true
 ### quiet
 Default: false
 
-mongodとmongosのログを少なくする。以下のものを出力する。
+mongodとmongosのログを少なくする。
+
+以下のものを出力する。
 
 * 次のコマンド結果 drop, dropIndex, diagLogging, validate, clean.
 * レプリケーションの状態
@@ -78,17 +80,23 @@ mongodとmongosのログを少なくする。以下のものを出力する。
 ### port
 Default: 27017
 
+待ち受けるポート番号。
+
 ### bind_ip
-Default: All interfaces.
-","区切りで複数指定可能
+Default: 全てのネットワークインターフェース
+
+待ち受けるインターフェース。
+
+","区切りで複数指定可能。127.0.0.1を指定すればローカルからしかアクセスできなくなる。
 
 ### maxConns 
-Default: depends on system limit
+Default: OSの限界値
 
-OSのulimitやファイルディスクリプタの制限がなければいくらでも作ることができる
-少なくとも5以上
+最大接続数。
 
-動作確認
+OSのulimitやファイルディスクリプタの制限がなければいくらでも作ることができる。少なくとも5以上。
+
+動作検証（5に設定した場合）
 ```
 Sat Nov  3 11:57:17 [initandlisten] connection accepted from 192.168.1.42:32934 #1 (1 connection now open)
 Sat Nov  3 11:57:31 [initandlisten] connection accepted from 192.168.1.42:32935 #2 (2 connections now open)
@@ -96,81 +104,115 @@ Sat Nov  3 11:57:32 [initandlisten] connection accepted from 192.168.1.42:32936 
 Sat Nov  3 11:57:33 [initandlisten] connection accepted from 192.168.1.42:32937 #4 (4 connections now open)
 Sat Nov  3 11:57:33 [initandlisten] connection accepted from 192.168.1.42:32938 #5 (5 connections now open)
 Sat Nov  3 11:57:35 [initandlisten] connection accepted from 192.168.1.42:32939 #6 (6 connections now open)
-Sat Nov  3 11:57:35 [initandlisten] connection refused because too many open connections: 5
+Sat Nov  3 11:57:35 [initandlisten] connection refused because too many open connections: 5   #←6つめの接続は拒否されている 
 ```
 
 ### objcheck
 Default: false
 
 ユーザのリクエストをvalidateして、不正なBSONオブジェクトの挿入を防ぐ。
-オーバーヘッドがあるためデフォルトはfalse
 
-validateはシェルからも実行可能で、db.users.validate(); などと打つ。
+オーバーヘッドがあるためデフォルトはfalse。ちなみに、validateはmongo shellからも実行可能で、db.users.validate()と打つとできる。
 
 ### logpath
+Default: None. (標準出力に出る)
 
-Default: None. (i.e. /dev/stdout)
-ログパス。
-logappendを指定しないと上書きしてしまう。
-ただしこの動きは近いうちに代わり、古いログはローテーションするようになるかも
+ログの出力先。
+
+logappendを指定しないと上書きしてしまう。ただしこの動きは近いうちに代わり、古いログはローテーションするようになるかも
 
 ###  logappend
-
 Default: false
-ログに上書きするかどうか
+
+ログに上書きする。
 
 ###  syslog
-ログをsyslogに出す。lopathと併用してはダメ。
+Default: false
+
+ログをsyslogに出す。
+
+lopathと併用してはダメ。
 
 ###  pidfilepath
-Default: None.
-デフォルトだとPIDファイル作らない
+Default: None
+
+PIDファイルのパス。指定しないとPIDファイルを作らない。
 
 ### keyFile
-Default: None.
-レプリカセットやシャーディングのメンバで認証するための情報
-openSSLのコマンドで作るとよい
+Default: None
 
-[root@haruko mongodb-linux-x86_64-2.2.1]# openssl rand -base64 17
-RYVwrEwolKmnTgjiNGHyxRk=
+レプリカセットやシャーディングにて、メンバを認証する鍵ファイルを指定する。
+
+鍵はopenSSLのコマンドで作るとよい。
+
+```
+# openssl rand -base64 100
+G8Y2WXumW+voUQoIZWLCakKUDel8n/Z9DNMhLvRg17TuLXqgzjtQ6TkWuxQAPVoK
+gjD4CS26K/Y4lkCUvFkp7iE2ymeZ3a3NPIZBq3jFdsL6XRzs16wlOOfaak5rPrK/
+q/yyVQ==
+```
 
 詳しくは
 http://docs.mongodb.org/manual/administration/replica-sets/#replica-set-security
 
 
 ### nounixsocket
+Default: false
 
+Unixソケットを使わない。
+
+ローカルであればTCPではなくUNIXソケットを使うことができ、パフォーマンスが向上する（？）
+
+動作検証
+
+指定しない場合
+```
+./bin/mongod --dbpath db &
+# netstat -na | grep 27017
+tcp        0      0 0.0.0.0:27017               0.0.0.0:*                   LISTEN
+unix  2      [ ACC ]     STREAM     LISTENING     167023 /tmp/mongodb-27017.sock  #←UNIXソケットができる
+```
+
+指定した場合
 ```
 # ./bin/mongod --dbpath db --nounixsocket &
 # netstat -na | grep 27017
 tcp        0      0 0.0.0.0:27017               0.0.0.0:*                   LISTEN
-
-./bin/mongod --dbpath db &
-# netstat -na | grep 27017
-tcp        0      0 0.0.0.0:27017               0.0.0.0:*                   LISTEN
-unix  2      [ ACC ]     STREAM     LISTENING     167023 /tmp/mongodb-27017.sock
 ```
 
 ### unixSocketPrefix
 Default: /tmp
 
+Unixソケットファイルの配置場所
+
 ### fork
 Default: false
-バックグラウンドで動かす
---logpath or --syslog が必要
+
+バックグラウンドで動かす。
+
+ログが標準出力に出ないので、logpathかsyslogの指定が必要
 
 ### auth
 Default: false
+
 認証を有効にする。
 
+認証を有効にした後、adminのデータベースにユーザ情報を入れれば、ユーザ認証できる。
+
+認証する例
+```
 > use admin
 > db.addUser("i2bs","secret")
 > db.system.users.find()
 bin/mongo mydb -u i2bs -p secret
+```
 
 ### cpu
 Default: false
-4秒おきにcpu使用率を記録
+
+4秒おきにcpu使用率を記録。
+
+ログに以下のような出力。
 ```
 Sat Nov  3 12:47:16 [snapshotthread] cpu: elapsed:4000  writelock: 0%
 Sat Nov  3 12:47:20 [snapshotthread] cpu: elapsed:4000  writelock: 0%
@@ -180,16 +222,17 @@ Sat Nov  3 12:47:24 [snapshotthread] cpu: elapsed:4000  writelock: 0%
 ### dbpath
 Default: /data/db/
 
-パッケージマネジメントシステムでインストールすると/etc/mongodb.confに書いてあるdbpathを使う
+DBファイルを格納するディレクトリのパス。
 
+パッケージマネジメントシステムでインストールすると/etc/mongodb.confに書いてあるdbpathを使うので注意。
 
 ### diaglog
 Default: 0
 
 トラブルシューティングで使うようなバイナリログを出す。
-出す場所はdbpath
 
-* Value   Setting
+出す場所はdbpath（ログではない）。ログレベルは以下の通り
+
 * 0 	off. No logging.
 * 1 	Log write operations.
 * 2 	Log read operations.
@@ -198,14 +241,17 @@ Default: 0
 
 mongosniffという専用コマンドでバイナリファイルを読める
 
+```
 mongosniff --source DIAGLOG /data/db/diaglog.4f76a58c
+```
 
-diaglogは内部利用が主で、普通のユーザは使わない。
+diaglogは開発者の内部利用が主で、普通のユーザは使わない。
 
-注意: diaglog = 0と指定する、何も出力されないが、diaglogファイルはできる。
-      diaglog自体を指定しなければ、そもそもdiaglogファイルはできない。
+注意: diaglog = 0と指定する、何も出力されないが、diaglogファイルはできる。（diaglog自体を指定しなければ、そもそもdiaglogファイルはできない。）
 
 ###  directoryperdb
+Default: false
+
 データベースごとにデータファイルを作る
 
 動作検証
@@ -240,27 +286,26 @@ Default: (on 32-bit systems) false
 
 trueだとジャーナルを確実に永続化し、一貫性を保つ。
 
-一貫性を保証しなくてもよい場合はfalseでもよい。そのほうがオーバーヘッドがない。
-
-ジャーナル書き込みによるディスクへの影響を減らしたい場合は、
-
-ジャーナルのレベルを変えて、smallfilesをtrueにしてジャーナルファイルのデータ量を減らすとよい。
+一貫性を保証しなくてもよい場合はfalseでもよい。そのほうがオーバーヘッドがない。ジャーナル書き込みによるディスクへの影響を減らしたい場合は、ジャーナルのレベルを変えて、smallfilesをtrueにしてジャーナルファイルのデータ量を減らすとよい。
 
 ### journalCommitInterval
 Default: 100 (msec)
 
-ジャーナルを書き込む間隔(msec)。減らすとディスクへの負荷が減る
-2～300の間で変更可能
+ジャーナルを書き込む間隔(msec)。
+
+減らすとディスクへの負荷が減る。2～300の間で変更可能。
 
 ###  ipv6
 Default: false
 
+IPv6を有効にする。
 
 ### jsonp
 Default: false
-HTTPのインターフェースを通してJSONPを許可する。これをtrueにする前にセキュリティを考えよう。
 
-JSONPはscriptタグを使用してクロスドメインなデータを取得する仕組み。詳しくはググりましょう。
+HTTPのインターフェースを通してJSONPを許可する。
+
+これをtrueにする前にセキュリティを考えよう。JSONPはscriptタグを使用してクロスドメインなデータを取得する仕組み。詳しくはググりましょう。
 
 ### noauth
 authの逆
@@ -277,7 +322,9 @@ journalの逆
 ### noprealloc
 Default: false
 
-データファイルを分割しなくなる。スタートアップが早くなることがあるが、普通の操作が遅くなることがあるかも
+データファイルを分割しない。
+
+スタートアップが早くなることがあるが、普通の操作が遅くなることがあるかも
 
 ### noscripting
 Default: false
@@ -292,29 +339,34 @@ Default: false
 ### nssize
 Default: 16 (MByte)
 
-ネームスペースファイルのデフォルトサイズを変える。既存のものには影響なし。
+ネームスペースファイルのデフォルトサイズ。
 
-16Mだと12000のネームスペースに有効。MAXは12G
+設定後に作成されるものだけに影響するので、既存のファイルには影響なし。
+
+16Mだと12000のネームスペースに有効。MAXは12G。
 
 ### profile
 Default: 0
 
-プロファイラのレベル。以下のレベルを指定可能
+プロファイラのレベル。
 
-0  Off. No profiling.
-1 	On. Only includes slow operations.
-2 	On. Includes all operations.
+以下のレベルを指定可能
 
-http://www.mongodb.org/display/DOCS/Database+Profiler
+* 0  Off. No profiling.
+* 1 	On. Only includes slow operations.
+* 2 	On. Includes all operations.
+
+詳しくは　http://www.mongodb.org/display/DOCS/Database+Profiler
 
 動作検証
+
 設定なし
 ```
 > db.system.profile.find()
 →何も出力はない
 ```
 
-設定あり（レベルを２に指定して、mongos shellから以下のコマンドを打つといろいろでる。）
+２に設定
 ```
 > db.system.profile.find()
 { "ts" : ISODate("2012-11-04T02:33:51.438Z"), "op" : "insert", "ns" : "logdb.logs", "keyUpdates" : 0, "numYield" : 0, "lockStats" : { "timeLockedMicros" : { "r" : NumberLong(0), "w" : NumberLong(7) }, "timeAcquiringMicros" : { "r" : NumberLong(0), "w" : NumberLong(1) } }, "millis" : 0, "client" : "127.0.0.1", "user" : "" }
@@ -323,6 +375,7 @@ http://www.mongodb.org/display/DOCS/Database+Profiler
 
 ### quota
 Default: false
+
 データベースファイルごとにデータ数に制限をかける。
 
 ### quotaFiles
