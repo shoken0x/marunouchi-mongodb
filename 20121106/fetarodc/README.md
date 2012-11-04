@@ -1,10 +1,9 @@
 Configパラメータ解説
 =================
 
-このページは本家のHPのココを解説します
+このページは以下の本家のHP(ver 2.2.1時点)を解説します
 
 http://docs.mongodb.org/manual/reference/configuration-options/
-
 
 概要
 -----------------
