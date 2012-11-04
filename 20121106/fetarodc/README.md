@@ -51,8 +51,10 @@ Sat Nov  3 11:57:35 [initandlisten] connection refused because too many open con
 ### objcheck
 Default: false
 
-ユーザのリクエストをチェックして、不正なBSONオブジェクトの挿入を防ぐ。
+ユーザのリクエストをvalidateして、不正なBSONオブジェクトの挿入を防ぐ。
 オーバーヘッドがあるためデフォルトはfalse
+
+validateはシェルからも実行可能で、db.users.validate(); などと打つ。
 
 ### logpath
 
