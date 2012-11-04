@@ -210,3 +210,116 @@ Default: false
 HTTPのインターフェースを通してJSONPを許可する。これをtrueにする前にセキュリティを考えよう。
 
 JSONPはscriptタグを使用してクロスドメインなデータを取得する仕組み。詳しくはググりましょう。
+
+### noauth
+authの逆
+
+### nohttpinterface
+Default: false
+
+HTTPインターフェースの無効化。
+restのオプションで上書きされる。
+
+### nojournal
+journalの逆
+
+### noprealloc
+Default: false
+
+データファイルを分割しなくなる。スタートアップが早くなることがあるが、普通の操作が遅くなることがあるかも
+
+### noscripting
+Default: false
+
+スクリプトエンジンを無効にする（？？？）
+
+### notablescan
+Default: false
+
+テーブルスキャンするオペレーションを禁止する（？？？）
+
+### nssize
+Default: 16 (MByte)
+
+ネームスペースファイルのデフォルトサイズを変える。既存のものには影響なし。
+
+16Mだと12000のネームスペースに有効。MAXは12G
+
+### profile
+Default: 0
+
+プロファイラのレベル。以下のレベルを指定可能
+
+0  Off. No profiling.
+1 	On. Only includes slow operations.
+2 	On. Includes all operations.
+
+http://www.mongodb.org/display/DOCS/Database+Profiler
+
+動作検証
+設定なし
+```
+> db.system.profile.find()
+→何も出力はない
+```
+
+設定あり（レベルを２に指定して、mongos shellから以下のコマンドを打つといろいろでる。）
+```
+> db.system.profile.find()
+{ "ts" : ISODate("2012-11-04T02:33:51.438Z"), "op" : "insert", "ns" : "logdb.logs", "keyUpdates" : 0, "numYield" : 0, "lockStats" : { "timeLockedMicros" : { "r" : NumberLong(0), "w" : NumberLong(7) }, "timeAcquiringMicros" : { "r" : NumberLong(0), "w" : NumberLong(1) } }, "millis" : 0, "client" : "127.0.0.1", "user" : "" }
+{ "ts" : ISODate("2012-11-04T02:33:51.438Z"), "op" : "insert", "ns" : "logdb.logs", "keyUpdates" : 0, "numYield" : 0, "lockStats" : { "timeLockedMicros" : { "r" : NumberLong(0), "w" : NumberLong(8) }, "timeAcquiringMicros" : { "r" : NumberLong(0), "w" : NumberLong(2) } }, "millis" : 0, "client" : "127.0.0.1", "user" : "" }
+```
+
+### quota
+Default: false
+データベースファイルごとにデータ数に制限をかける。
+
+### quotaFiles
+Default: 8
+
+データベールごとにデータベースファイル数を制限する。
+
+データベースファイルが８個だと容量はどうなるか？
+
+データベースファイルは64Mがスタートで、倍倍で容量が増えていく。らしい。
+http://www.slideshare.net/mdirolf/inside-mongodb-the-internals-of-an-opensource-database
+
+つまり、８個ファイルがあるということはほぼ16G
+
+64M + 128M + ・・・ + 8192M = 64 * (2^8 - 1) / (2 - 1) = 16363M ≒ 16G
+
+動作確認
+
+クオータを1に設定して以下のように挿入しまくると、やがてquota exceededが出ます。
+```
+> for(var i=1; i<=100000000; i++) db.logs.insert({"uid":i, "value":Math.random()*100000})
+quota exceeded
+```
+
+### rest
+Default: false
+
+restインターフェースを有効にする。
+
+http://192.168.1.27:28017/(DB名)/とかでアクセスできます。
+
+詳しくは
+
+http://www.mongodb.org/display/DOCS/Http+Interface#HttpInterface-SimpleRESTInterface
+
+###  repair
+Default: false
+
+サーバがクラッシュした時にデータ等をリペアする。fsckに似てる。
+
+実行するとリペアして終わりなので、その後mongodを別に立ち上げる必要あり。
+
+詳しくは参照
+
+http://www.mongodb.org/pages/viewpage.action?pageId=7831701
+
+
+### repairpath
+Default: dbpath
+
+リペアするDBパスを指定
