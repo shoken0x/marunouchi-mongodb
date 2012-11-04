@@ -34,7 +34,7 @@ mongos -f /srv/mongodb/mongos.conf
 ### オプションの確認
 ログに以下のようにどのオプションが設定されて起動されたかが出ます
 ```
- options: { config: "mongodb.conf", dbpath: "db/", noscripting: "true", notablescan: "true", nssize: 32, profile: 2 }
+Sun Nov  4 13:16:00 [initandlisten] options: { config: "mongodb.conf", dbpath: "db/", verbose: true }
 ```
 
 パラメータ解説
