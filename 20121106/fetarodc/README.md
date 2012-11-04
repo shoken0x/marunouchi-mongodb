@@ -1,12 +1,38 @@
 Configパラメータ解説
 =================
 
-オプションの設定の仕方
------------------
+このページは本家のHPのココを解説します
 
-ここを解説します
 http://docs.mongodb.org/manual/reference/configuration-options/
 
+
+概要
+-----------------
+mongodとmongosの設定方法は、コマンドライン引数か、もしくは設定ファイルでできます。
+
+引数と設定ファイルの両方に同じ設定があった場合、設定ファイルが優先されます。
+
+* コマンドライン引数の場合
+```
+bin/mongod --dbpath /data/db/ --verbose
+```
+
+*設定ファイルの場合
+```
+verbose = true      #真偽値の場合は true|false
+dbpath = /data/db/
+```
+
+設定ファイルの読み込み
+```
+mongod --config /etc/mongodb.conf
+mongod -f /etc/mongodb.conf
+mongos --config /srv/mongodb/mongos.conf
+mongos -f /srv/mongodb/mongos.conf
+```
+
+* オプションの確認
+ログに以下のようにどのオプションが設定されて起動されたかが出ます
 ```
  options: { config: "mongodb.conf", dbpath: "db/", noscripting: "true", notablescan: "true", nssize: 32, profile: 2 }
 ```
