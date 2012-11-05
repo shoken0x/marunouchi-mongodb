@@ -31,7 +31,18 @@ get_gmail_example02.rb を実行してみる
 
 
 ## RESTでjsonを見てみよう
+mognodを起動  
 
+http://localhost:28017 にアクセス  
+確認:webコンソールは見えるか  
+
+テストデータのインサート
+'''js
+use test
+for(var i=1; i<=10; i++) db.marunouchi.insert({"stock":i})
+'''
+
+http://localhost:28017/test/marunouchi
 
 ## viewの作成
 画像表示  
