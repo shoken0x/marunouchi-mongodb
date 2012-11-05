@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Gmail Attach Image Viewer</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript">
+<!--
+(function(){
+  $.ajax({
+    url: 'http://localhost:28017/gmail/attach_images/',
+    dataType: 'jsonp',
+    jsonp : 'jsonp', //callback用のパラメータを指定
+    success : function(data) {
+      for (var i=0; i < data.rows.length; i++){
+        $('#gallery').append('<li><img src="data:image/jpeg;base64,' + data.rows[i].image + '" /></li>');
+      }
+    },
+    error : function(){
+      alert('error');
+    }
+  });
+})();
+
+
+$(function(){
+  $('#show').click(function(){
+    var delaySpeed = 100;
+    var fadeSpeed = 1000;
+    $('ul li').each(function(i){
+      $(this).delay(i*(delaySpeed)).css({display:'block',opacity:'0'}).animate({opacity:'1'},fadeSpeed);
+    });
+
+    $.ajax({
+      url: 'http://localhost:28017/gmail/attach_images/',
+      dataType: 'jsonp',
+      jsonp : 'jsonp', //callback用のパラメータを指定
+      success : function(data) {
+        for (var i=0; i < data.rows.length; i++){
+          $('#gallery').append('<li><img src="data:image/jpeg;base64,' + data.rows[i].image + '" /></li>');
+        }
+      },
+      error : function(){
+        alert('error');
+      }
+    });
+
+  });
+});
+
+// -->
+</script>
+
+</head>
+<body>
+<header>
+  <h1>Gmail Attach Image Viewer</h1>
+</header>
+
+<button id="show">show</button>
+<br />
+<ul>
+<div id="gallery"> </div>
+</ul>
+
+</body>
+</html>
+

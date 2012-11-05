@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #333;
+  color: #FFF;
+}
+
+header h1 {
+  font-size: 28px;
+  padding: 10px;
+  text-align: center;
+}
+
+body ul {
+    margin: 0 auto;
+    width: 800px;
+    text-align: left;
+}
+ 
+body ul li {
+    margin: 5px;
+    text-align: left;
+    float: left;
+    display: none;
+    overflow: hidden;
+}
+/* =======================================
+    ClearFixElements
+======================================= */
+body ul:after {
+    content: ".";
+    height: 0;
+    clear: both;
+    display: block;
+    visibility: hidden;
+}
+
+body ul {
+    display: inline-block;
+    overflow: hidden;
+}
+
