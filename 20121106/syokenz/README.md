@@ -36,7 +36,7 @@ ruby get_gmail_example02.rb
 
 #### nginxの確認
 nginxを起動させて、http://localhost/ にアクセスしてください。  
-※macのhomebrewでインストールすると、localhost:8080がデフォルトポートになっている場合もあります
+※macのhomebrewでインストールすると、localhost:8080がデフォルトポートになっている場合があります
 
 nginx.confを見て、rootディレクトリを確認してください。  
 必要があれば、ポートを80に変更してください。  
@@ -72,10 +72,6 @@ echo 'here is mongo!' > /usr/local/Cellar/nginx/1.2.1/html/mongo/index.html
 
 http://localhost/mongo/ にアクセス
 
-
-## MongoDBにデータをinsert
-
-
 ## RESTでjsonを見てみよう
 mognodを起動  
 
@@ -91,6 +87,29 @@ db.marunouchi.find()
 ```
 
 http://localhost:28017/test/marunouchi/
+
+## MongoDBにデータをinsert
+
+ruby用mongoドライバのインストール
+```
+gem install mongo
+```
+確認
+```
+$irb
+irb(main):001:0> require 'mongo'
+=> true　#trueになることを確認
+```
+
+get_gmail_example03.rb を実行してみる  
+```
+ruby get_gmail_example03.rb
+```
+
+コンテンジェンシープラン
+```
+mongorestore --collection attach_images --db gmail dump/gmail/
+```
 
 ## viewの作成
 画像表示  
