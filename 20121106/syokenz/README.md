@@ -74,6 +74,10 @@ http://localhost/mongo/ にアクセス
 
 ## RESTでjsonを見てみよう
 mognodを起動  
+```
+# mongod.confのlogpathとdbpathを環境に合わせて変更
+mongod -f mongod.conf
+```
 
 http://localhost:28017 にアクセス  
 確認:webコンソールは見えるか  
