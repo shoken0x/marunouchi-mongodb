@@ -40,6 +40,8 @@ http://localhost:28017 にアクセス
 ```js
 use test
 for(var i=1; i<=10; i++) db.marunouchi.insert({"stock":i})
+#確認
+db.marunouchi.find()
 ```
 
 http://localhost:28017/test/marunouchi
