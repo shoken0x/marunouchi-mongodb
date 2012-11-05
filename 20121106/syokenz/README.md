@@ -29,7 +29,7 @@ get_gmail_example02.rb を実行してみる
 確認:IMAGES_DIRに画像が保存されているか  
 
 #### nginxの確認
-nginxを起動させて、http://localhost/ にアクセスしてください。
+nginxを起動させて、http://localhost/ にアクセスしてください。  
 ※macのhomebrewでインストールすると、localhost:8080がデフォルトポートになっている場合もあります
 
 nginx.confを見て、rootディレクトリを確認してください。  
@@ -49,7 +49,7 @@ ps axu | grep [n]ginx #プロセスIDを確認してkill
 brew install pgrep
 pgrep 'nginx' | xargs kill
 ```
-設定ファイル:/usr/local/etc/nginx/nginx.conf
+設定ファイル:```/usr/local/etc/nginx/nginx.conf```
 ```
 server {
   listen       80; # 8080から80へ変更
@@ -57,6 +57,15 @@ server {
 ...
 
 ```
+
+rootディレクトリ:```/usr/local/Cellar/nginx/1.2.1/html```
+```
+mkdir /usr/local/Cellar/nginx/1.2.1/html/mongo
+echo 'here is mongo!' > /usr/local/Cellar/nginx/1.2.1/html/mongo/index.html
+```
+
+http://localhost/mongo/ にアクセス
+
 
 ## MongoDBにデータをinsert
 
