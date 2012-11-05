@@ -78,6 +78,12 @@ mognodを起動
 # mongod.confのlogpathとdbpathを環境に合わせて変更
 mongod -f mongod.conf
 ```
+mongod.conf
+```
+#この2つがポイント
+rest = true
+jsonp = true
+```
 
 http://localhost:28017 にアクセス  
 確認:webコンソールは見えるか  
