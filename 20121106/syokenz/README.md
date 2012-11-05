@@ -36,7 +36,7 @@ ruby get_gmail_example02.rb
 
 #### nginxの確認
 nginxを起動させて、http://localhost/ にアクセスしてください。  
-※macのhomebrewでインストールすると、localhost:8080がデフォルトポートになっている場合もあります
+※macのhomebrewでインストールすると、localhost:8080がデフォルトポートになっている場合があります
 
 nginx.confを見て、rootディレクトリを確認してください。  
 必要があれば、ポートを80に変更してください。  
