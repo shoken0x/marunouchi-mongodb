@@ -75,6 +75,26 @@ http://localhost/mongo/ にアクセス
 
 ## MongoDBにデータをinsert
 
+ruby用mongoドライバのインストール
+```
+gem install mongo
+```
+確認
+```
+$irb
+irb(main):001:0> require 'mongo'
+=> true　#trueになることを確認
+```
+
+get_gmail_example03.rb を実行してみる  
+```
+ruby get_gmail_example03.rb
+```
+
+コンテンジェンシープラン
+```
+mongorestore --collection attach_images --db gmail dump/gmail/
+```
 
 ## RESTでjsonを見てみよう
 mognodを起動  
