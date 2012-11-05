@@ -75,7 +75,7 @@ http://localhost/mongo/ にアクセス
 ## RESTでjsonを見てみよう
 mognodを起動  
 ```
-# mongod.confのlogpathとdbpathを環境に合わせて変更
+# mongod.confのlogpath,dbpath,pidfilepathを環境に合わせて変更
 mongod -f mongod.conf
 ```
 mongod.conf
