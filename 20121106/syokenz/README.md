@@ -72,6 +72,21 @@ echo 'here is mongo!' > /usr/local/Cellar/nginx/1.2.1/html/mongo/index.html
 
 http://localhost/mongo/ にアクセス
 
+## RESTでjsonを見てみよう
+mognodを起動  
+
+http://localhost:28017 にアクセス  
+確認:webコンソールは見えるか  
+
+テストデータのインサート
+```js
+use test
+for(var i=1; i<=10; i++) db.marunouchi.insert({"stock":i})
+#確認
+db.marunouchi.find()
+```
+
+http://localhost:28017/test/marunouchi/
 
 ## MongoDBにデータをinsert
 
@@ -95,22 +110,6 @@ ruby get_gmail_example03.rb
 ```
 mongorestore --collection attach_images --db gmail dump/gmail/
 ```
-
-## RESTでjsonを見てみよう
-mognodを起動  
-
-http://localhost:28017 にアクセス  
-確認:webコンソールは見えるか  
-
-テストデータのインサート
-```js
-use test
-for(var i=1; i<=10; i++) db.marunouchi.insert({"stock":i})
-#確認
-db.marunouchi.find()
-```
-
-http://localhost:28017/test/marunouchi/
 
 ## viewの作成
 画像表示  
