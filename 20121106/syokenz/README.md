@@ -23,9 +23,15 @@ end
 ```
 #### gmailを取得できるか確認
 get_gmail_example01.rb を実行してみる  
+```
+ruby get_gmail_example01.rb
+```
 確認:標準出力にGmailの内容が出てるか  
 
-get_gmail_example02.rb を実行してみる  
+get_gmail_example02.rb を実行してみる 
+```
+ruby get_gmail_example02.rb
+```
 確認:IMAGES_DIRに画像が保存されているか  
 
 #### nginxの確認
