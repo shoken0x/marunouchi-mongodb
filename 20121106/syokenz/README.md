@@ -1,6 +1,9 @@
 MongoDBでアプリをつくろう
 =================
 
+MongoDBのRESTインターフェースを使って、簡単なWEBアプリを作成します。  
+RESTインターフェースはjsonを返すので、jQueryを使って遊んでみましょう。  
+
 ## 準備
 
 ruby-gmailのインストール
@@ -44,7 +47,7 @@ for(var i=1; i<=10; i++) db.marunouchi.insert({"stock":i})
 db.marunouchi.find()
 ```
 
-http://localhost:28017/test/marunouchi
+http://localhost:28017/test/marunouchi/
 
 ## viewの作成
 画像表示  
