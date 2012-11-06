@@ -34,7 +34,7 @@ ruby get_gmail_example02.rb
 ```
 確認:IMAGES_DIRに画像が保存されているか  
 
-#### nginxの確認
+#### nginxの確認(Mac OS X)
 nginxを起動させて、http://localhost/ にアクセスしてください。  
 ※macのhomebrewでインストールすると、localhost:8080がデフォルトポートになっている場合があります
 
@@ -71,6 +71,24 @@ echo 'here is mongo!' > /usr/local/Cellar/nginx/1.2.1/html/mongo/index.html
 ```
 
 http://localhost/mongo/ にアクセス
+
+#### nginxの確認(Windows)
+起動
+```
+start nginx
+```
+
+停止
+```
+nginx -s quit
+```
+
+設定ファイル再読み込み
+```
+nginx -s reload
+```
+
+
 
 ## RESTでjsonを見てみよう
 mognodを起動  
