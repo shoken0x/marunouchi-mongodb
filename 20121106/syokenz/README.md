@@ -23,12 +23,14 @@ end
 ```
 #### gmailを取得できるか確認
 [get_gmail_example01.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/get_gmail_example01.rb) を実行してみる  
+注意:[gmail_conf.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/gmail_conf.rb)を同じディレクトリに配置すること。
 ```
 ruby get_gmail_example01.rb
 ```
 確認:標準出力にGmailの内容が出てるか  
 
-[get_gmail_example02.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/get_gmail_example02.rb) を実行してみる 
+[get_gmail_example02.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/get_gmail_example02.rb) を実行してみる  
+注意:[gmail_conf.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/gmail_conf.rb)を同じディレクトリに配置すること。
 ```
 ruby get_gmail_example02.rb
 ```
@@ -156,6 +158,7 @@ irb(main):001:0> require 'mongo'
 ```
 
 [get_gmail_example03.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/get_gmail_example03.rb) を実行してみる  
+注意:[gmail_conf.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/gmail_conf.rb)を同じディレクトリに配置すること。
 ```
 ruby get_gmail_example03.rb
 ```
