@@ -14,9 +14,9 @@ Marunouchi.mongo 20121106
 * 懇親会の出席を取る
 * [雲屋株式会社](http://kumoya.com/) 様ご提供のステッカーを配る
 * [Wiki](https://github.com/syokenz/marunouchi-mongodb/wiki)作りました！
-* [MongoDBでアプリをつくろう](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106/syokenz) [@syokenz](http://twitter.com/syokenz)
 * [みんなでレプリケーション](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106/fetarodc) [@fetarodc](http://twitter.com/fetarodc)
-* LT
+* [LT:”スキーマレスDB”って本当にいいの？](https://github.com/rinrin0108/MongoDB) [@rinrin0108](https://twitter.com/rinrin0108)
+* [MongoDBでアプリをつくろう](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106/syokenz) [@syokenz](http://twitter.com/syokenz)
 * みんなで質問とか、第5回でどんなことをやるかとか
   * 第5回は？
 * 懇親会へ
