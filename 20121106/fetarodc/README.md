@@ -194,7 +194,7 @@ Default: false
 
 バックグラウンドで動かす。
 
-ログが標準出力に出ないので、logpathかsyslogの指定が必要
+ログが標準出力に出ないので、logpathかsyslogの指定が必要。Windowsにはない。
 
 ### auth
 Default: false
