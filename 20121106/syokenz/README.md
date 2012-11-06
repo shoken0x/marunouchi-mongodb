@@ -137,6 +137,9 @@ curl -d '{x:100, y:200}' 'http://localhost:28017/test/marunouchi/'
 
 ```
 
+ソース見たけど、updateは無さそう。  
+[https://github.com/mongodb/mongo/blob/master/src/mongo/db/restapi.cpp](https://github.com/mongodb/mongo/blob/master/src/mongo/db/restapi.cpp)
+
 
 
 ## MongoDBにデータをinsert
