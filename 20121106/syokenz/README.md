@@ -154,7 +154,7 @@ gem install mongo
 ```rb
 $ irb
 irb(main):001:0> require 'mongo'
-=> true　#trueになることを確認
+=> true #trueになることを確認
 ```
 
 [get_gmail_example03.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/get_gmail_example03.rb) を実行してみる  
