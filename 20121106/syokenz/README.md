@@ -13,7 +13,8 @@ gem install mail --no-ri --no-rdoc
 git clone https://github.com/syokenz/ruby-gmail.git
 ```
 
-Gmail設定の変更
+Gmail設定の変更  
+gmail_conf.rb
 ```ruby
 class GConf
   LIBPATH='D:\src\git\ruby-gmail\lib'  #ruby-gmail/libへのパス
