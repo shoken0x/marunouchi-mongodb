@@ -152,7 +152,7 @@ gem install mongo
 ```
 確認
 ```rb
-$irb
+$ irb
 irb(main):001:0> require 'mongo'
 => true　#trueになることを確認
 ```
@@ -163,7 +163,7 @@ irb(main):001:0> require 'mongo'
 ruby get_gmail_example03.rb
 ```
 確認
-```js
+```
 $ mongo
 > use gmail
 > db.attach_images.count()
