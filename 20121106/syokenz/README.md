@@ -114,7 +114,23 @@ for(var i=1; i<=10; i++) db.marunouchi.insert({"stock":i})
 db.marunouchi.find()
 ```
 
-http://localhost:28017/test/marunouchi/
+#### RESTインターフェース
+
+```
+#find()
+curl 'http://localhost:28017/test/marunouchi/'
+
+#find({},{})
+curl 'http://localhost:28017/test/marunouchi/'
+
+#insert
+#公式ドキュメントではno supportとあるがpostするとinsertできる
+#http://www.mongodb.org/display/DOCS/Http+Interface
+curl -d '{x:100, y:200}' 'http://localhost:28017/test/marunouchi/'
+
+```
+
+
 
 ## MongoDBにデータをinsert
 
@@ -140,11 +156,12 @@ mongorestore --collection attach_images --db gmail dump/gmail/
 ```
 
 ## viewの作成
+
+#### 実装する機能
 画像表示  
+
+#### こんな機能があるといいかも
 条件検索  
 リミット、ページング  
 
-## jQueryとか
-アニメーション  
-ドラッガブル  
 
