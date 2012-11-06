@@ -120,8 +120,15 @@ db.marunouchi.find()
 #find()
 curl 'http://localhost:28017/test/marunouchi/'
 
-#find({},{})
-curl 'http://localhost:28017/test/marunouchi/'
+#find({x:100})
+curl 'http://localhost:28017/test/marunouchi/?filter_x=200'
+
+#find().limit(10)
+curl 'http://localhost:28017/test/marunouchi/?limit=10'
+
+#count()
+curl 'http://localhost:28017/test/$cmd/?filter_count=maru&limit=1'
+# rows[0].nにcount数が入る
 
 #insert
 #公式ドキュメントではno supportとあるがpostするとinsertできる
