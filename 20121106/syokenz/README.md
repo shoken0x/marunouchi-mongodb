@@ -100,7 +100,7 @@ mognodを起動
 # mongod.confのlogpath,dbpath,pidfilepathを環境に合わせて変更
 mongod -f mongod.conf
 ```
-[mongod.conf](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/mongo.conf)
+[mongod.conf](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/mongod.conf)
 ```
 #この2つがポイント
 rest = true
