@@ -22,13 +22,13 @@ class GConf
 end
 ```
 #### gmailを取得できるか確認
-get_gmail_example01.rb を実行してみる  
+[get_gmail_example01.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/get_gmail_example01.rb) を実行してみる  
 ```
 ruby get_gmail_example01.rb
 ```
 確認:標準出力にGmailの内容が出てるか  
 
-get_gmail_example02.rb を実行してみる 
+[get_gmail_example02.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/get_gmail_example02.rb) を実行してみる 
 ```
 ruby get_gmail_example02.rb
 ```
@@ -96,7 +96,7 @@ mognodを起動
 # mongod.confのlogpath,dbpath,pidfilepathを環境に合わせて変更
 mongod -f mongod.conf
 ```
-mongod.conf
+[mongod.conf](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/mongo.conf)
 ```
 #この2つがポイント
 rest = true
@@ -155,7 +155,7 @@ irb(main):001:0> require 'mongo'
 => true　#trueになることを確認
 ```
 
-get_gmail_example03.rb を実行してみる  
+[get_gmail_example03.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/get_gmail_example03.rb) を実行してみる  
 ```
 ruby get_gmail_example03.rb
 ```
