@@ -162,6 +162,13 @@ irb(main):001:0> require 'mongo'
 ```
 ruby get_gmail_example03.rb
 ```
+確認
+```
+$ mongo
+> use gmail
+> db.attach_images.count()
+
+```
 
 コンテンジェンシープラン
 ```
