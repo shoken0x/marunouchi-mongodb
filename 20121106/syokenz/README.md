@@ -112,29 +112,29 @@ jsonp = true
 ```js
 use test
 for(var i=1; i<=10; i++) db.marunouchi.insert({"stock":i})
-#確認
+//確認
 db.marunouchi.find()
 ```
 
 #### RESTインターフェース
 
-```
-#find()
+```js
+//find()
 curl 'http://localhost:28017/test/marunouchi/'
 
-#find({x:100})
+//find({x:100})
 curl 'http://localhost:28017/test/marunouchi/?filter_x=200'
 
-#find().limit(10)
+//find().limit(10)
 curl 'http://localhost:28017/test/marunouchi/?limit=10'
 
-#count()
+//count()
 curl 'http://localhost:28017/test/$cmd/?filter_count=maru&limit=1'
-# rows[0].nにcount数が入る
+// => rows[0].nにcount数が入る
 
-#insert
-#公式ドキュメントではno supportとあるがpostするとinsertできる
-#http://www.mongodb.org/display/DOCS/Http+Interface
+//insert
+//公式ドキュメントではno supportとあるがpostするとinsertできる
+//http://www.mongodb.org/display/DOCS/Http+Interface
 curl -d '{x:100, y:200}' 'http://localhost:28017/test/marunouchi/'
 
 ```
@@ -151,7 +151,7 @@ ruby用mongoドライバのインストール
 gem install mongo
 ```
 確認
-```
+```rb
 $irb
 irb(main):001:0> require 'mongo'
 => true　#trueになることを確認
@@ -163,7 +163,7 @@ irb(main):001:0> require 'mongo'
 ruby get_gmail_example03.rb
 ```
 確認
-```
+```js
 $ mongo
 > use gmail
 > db.attach_images.count()
