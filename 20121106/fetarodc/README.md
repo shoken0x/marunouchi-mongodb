@@ -128,7 +128,7 @@ logappendを指定しないと上書きしてしまう。ただしこの動き�
 ###  logappend
 Default: false
 
-ログに上書きする。
+ログに追記する。
 
 ###  syslog
 Default: false
