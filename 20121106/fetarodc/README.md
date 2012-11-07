@@ -333,7 +333,11 @@ Default: false
 ### noscripting
 Default: false
 
-スクリプトエンジンを無効にする（？？？）
+db.eval()を無効にする
+```
+> db.eval("print('test')")
+Wed Nov  7 17:40:34 uncaught exception: { "errmsg" : "db side execution is disabled", "ok" : 0 }
+```
 
 ### notablescan
 Default: false
