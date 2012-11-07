@@ -22,6 +22,8 @@ Marunouchi.mongo 20121106
   * 第5回は？
 * 懇親会へ
 
+![mm20121106.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20121106.jpg)
+
 # 会場で出た質問
 
 
