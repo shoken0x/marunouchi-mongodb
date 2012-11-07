@@ -343,6 +343,35 @@ Wed Nov  7 17:40:34 uncaught exception: { "errmsg" : "db side execution is disab
 [http://www.mongodb.org/display/DOCS/Server-side+Code+Execution](http://www.mongodb.org/display/DOCS/Server-side+Code+Execution)  
 [http://docs.mongodb.org/manual/faq/developers/#how-does-mongodb-address-sql-or-query-injection](http://docs.mongodb.org/manual/faq/developers/#how-does-mongodb-address-sql-or-query-injection)
 
+ソース見た  
+mongo/db/db.cpp
+```
+mongo/db/db.cpp
+        if (params.count("noscripting")) {
+            scriptingEnabled = false;
+        }
+....
+        if ( scriptingEnabled ) {
+            ScriptEngine::setup();
+            globalScriptEngine->setCheckInterruptCallback( jsInterruptCallback );
+            globalScriptEngine->setGetInterruptSpecCallback( jsGetInterruptSpecCallback );
+        }
+
+...
+```
+
+mongo/db/dbeval.cpp
+``` 
+bool dbEval(const string& dbName, BSONObj& cmd, BSONObjBuilder& result, string& errmsg) {
+...
+        if ( ! globalScriptEngine ) {
+            errmsg = "db side execution is disabled";
+            return false;
+        }
+...
+```
+
+
 ### notablescan
 Default: false
 
