@@ -1,9 +1,9 @@
 MongoDBでアプリをつくろう
 =================
 
-MongoDBのRESTインターフェースを使って、簡単なWEBアプリを作成します。  
-[ドキュメント:RESTインターフェース](http://www.mongodb.org/display/DOCS/Http+Interface)  
-RESTインターフェースはjsonを返すので、jQueryを使って遊んでみましょう。  
+MongoDBのJSONを返すREST APIを使って、簡単なWEBアプリを作成します。  
+ドキュメント:[http://www.mongodb.org/display/DOCS/Http+Interface](http://www.mongodb.org/display/DOCS/Http+Interface)  
+MongoDBとjQueryを使って遊んでみましょう。  
 
 ## 準備
 
