@@ -345,7 +345,7 @@ Wed Nov  7 17:40:34 uncaught exception: { "errmsg" : "db side execution is disab
 
 ソース見た  
 mongo/db/db.cpp
-```
+```cpp
 mongo/db/db.cpp
         if (params.count("noscripting")) {
             scriptingEnabled = false;
@@ -361,7 +361,7 @@ mongo/db/db.cpp
 ```
 
 mongo/db/dbeval.cpp
-``` 
+```cpp 
 bool dbEval(const string& dbName, BSONObj& cmd, BSONObjBuilder& result, string& errmsg) {
 ...
         if ( ! globalScriptEngine ) {
