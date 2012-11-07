@@ -30,7 +30,7 @@ Marunouchi.mongo 20120926
     * チューニング、configファイル解読、メモリ使用量(MySQLでいうinnodb_buffer_pool)、最大コネクション数
 * 懇親会へ
 
-![mm20120926.jpg](http://www.fedc.biz/~fujisaki/img/mm20120926.jpg)
+![mm20120926.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20120926.jpg)
 
 # 会場で出た質問
 - configサーバの冗長化はどうやってやるのか
