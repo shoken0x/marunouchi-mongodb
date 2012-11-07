@@ -14,7 +14,7 @@ git clone https://github.com/syokenz/ruby-gmail.git
 ```
 
 Gmail設定の変更  
-gmail_conf.rb
+[gmail_conf.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121106/syokenz/gmail_conf.rb)
 ```ruby
 class GConf
   LIBPATH='D:\src\git\ruby-gmail\lib'  #ruby-gmail/libへのパス
