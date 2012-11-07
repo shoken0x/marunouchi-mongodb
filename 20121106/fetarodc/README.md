@@ -333,13 +333,13 @@ Default: false
 ### noscripting
 Default: false
 
-trueにするとdb.eval()を無効にする
+db.eval()を無効にする
 ```
 > db.eval("print('test')")
 Wed Nov  7 17:40:34 uncaught exception: { "errmsg" : "db side execution is disabled", "ok" : 0 }
 ```
 
-参考:
+参考:  
 [http://www.mongodb.org/display/DOCS/Server-side+Code+Execution](http://www.mongodb.org/display/DOCS/Server-side+Code+Execution)  
 [http://docs.mongodb.org/manual/faq/developers/#how-does-mongodb-address-sql-or-query-injection](http://docs.mongodb.org/manual/faq/developers/#how-does-mongodb-address-sql-or-query-injection)
 
