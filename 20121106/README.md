@@ -31,7 +31,24 @@ Marunouchi.mongo 20121106
 
 
 # 参加者
-
+1. [@syokenz](http://twitter.com/syokenz)
+1. [@fetarodc](http://twitter.com/fetarodc)
+1. [@rinrin0108](http://twitter.com/rinrin0108)
+1. [@wadahiro](https://twitter.com/wadahiro)
+1. [@suisui](https://twitter.com/suisui)
+1. [@naru0ga](https://twitter.com/naru0ga)
+1. [@hmitr](https://twitter.com/hmitr)
+1. [@janas_8](https://twitter.com/janas_8)
+1. [@yujiosaka](https://twitter.com/yujiosaka)
+1. [@ideomix](https://twitter.com/ideomix)
+1. [@tamacho_bazooka](https://twitter.com/tamacho_bazooka)
+1. [@bamtsk](https://twitter.com/bamtsk)
+1. mittan
+1. ferrylikeboy
+1. iwaaaa
+1. yukutomi
+1. eric.sagnes
+1. さいとうゆうすけ
 
 # Blog
 
