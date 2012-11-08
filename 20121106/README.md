@@ -51,4 +51,4 @@ Marunouchi.mongo 20121106
 1. さいとうゆうすけ
 
 # Blog
-
+* [丸の内MongoDB勉強会 #4 やりました - Shoken OpenSource Society](http://shoken.hatenablog.com/entry/2012/11/07/215640)
