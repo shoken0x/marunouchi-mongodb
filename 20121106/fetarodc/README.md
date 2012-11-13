@@ -316,6 +316,7 @@ HTTPのインターフェースを通してJSONPを許可する。
 authの逆
 
 authと同時に設定されていた場合、authが優先され認証が有効になる。
+認証はデフォルトで無効にされているので、存在意義が不明な設定項目。いつ使うの？
 
 ### nohttpinterface
 Default: false
