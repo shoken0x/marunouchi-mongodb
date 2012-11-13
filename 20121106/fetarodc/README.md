@@ -395,7 +395,19 @@ bool dbEval(const string& dbName, BSONObj& cmd, BSONObjBuilder& result, string& 
 ### notablescan
 Default: false
 
-テーブルスキャンするオペレーションを禁止する（？？？）
+trueにするとindexが効かないクエリ実行時にエラーを返す。
+
+```js
+> use test
+> for(i=1;i<=20;i++)db.coll_test.insert({"stock":i})
+> db.coll_test.find({stock:10}) //stockにindex無しだとエラー
+error: { "$err" : "table scans not allowed:test.coll_test", "code" : 10111 }
+
+> db.coll_test.ensureIndex({stock:1}) //index作成
+> db.coll_test.find({stock:10}) //エラー無し
+{ "_id" : ObjectId("50a236971364ed240f7af516"), "stock" : 10 }
+
+```
 
 ### nssize
 Default: 16 (MByte)
@@ -466,10 +478,10 @@ Default: false
 
 restインターフェースを有効にする。
 
-http://192.168.1.27:28017/(DB名)/とかでアクセスできます。
+http://localhost:28017/{db_name}/{collection_name}/でGETするとJSONが返ってくる。
+検索条件も追加可能。
 
 詳しくは
-
 http://www.mongodb.org/display/DOCS/Http+Interface#HttpInterface-SimpleRESTInterface
 
 ###  repair
