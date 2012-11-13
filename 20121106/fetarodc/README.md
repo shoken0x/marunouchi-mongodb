@@ -206,17 +206,18 @@ noauthが同時に設定されていた場合でもauthが優先され認証が�
 
 認証設定例
 ```js
+mongo
 > use admin
 > db.addUser("i2bs","secret")
 > db.system.users.find()
 
 //接続時に認証情報を渡す
-> mongo  -u i2bs -p secret
+mongo  -u i2bs -p secret
 > db.coll_test.find()
 > { "_id" : ObjectId("4f7f2252dd482d417bfa7f43"), "x" : 1 }
 
 //接続時に認証情報を渡さないとクエリ時にエラー
-> mongo
+mongo
 > db.coll_test.find()
 error: {
         "$err" : "unauthorized db:test lock type:-1 client:127.0.0.1",
