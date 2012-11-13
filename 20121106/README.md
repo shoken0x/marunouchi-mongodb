@@ -5,9 +5,9 @@ Marunouchi.mongo 20121106
 みんなでMongoDBについて勉強しましょう。  
 今回のテーマは「MongoDBでWebアプリをつくろう」と「Configパラメータ解説」です。
 
-[丸の内MongoDB勉強会 #4 - ATND](http://atnd.org/events/xxxx)
+[丸の内MongoDB勉強会 #4 - ATND](http://atnd.org/events/33485)
 
-![marunouchi.mongodb logo](http://www.fedc.biz/~fujisaki/img/mongodb_logo.png)
+![marunouchi.mongodb logo](http://syokenz.github.com/marunouchi-mongodb/images/mongodb_logo.png)
 
 
 # 流れ

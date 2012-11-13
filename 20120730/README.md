@@ -6,7 +6,7 @@ Marunouchi.mongo 20120730
 
 [丸の内MongoDB勉強会 #1 - ATND](http://atnd.org/events/30595)
 
-![marunouchi.mongodb logo](http://www.fedc.biz/~fujisaki/img/mongodb_logo.png)
+![marunouchi.mongodb logo](http://syokenz.github.com/marunouchi-mongodb/images/mongodb_logo.png)
 
 
 # 流れ
