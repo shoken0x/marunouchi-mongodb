@@ -202,6 +202,7 @@ Default: false
 認証を有効にする。
 
 認証を有効にした後、adminのデータベースにユーザ情報を入れれば、ユーザ認証できる。
+noauthが同時に設定されていた場合でもauthが優先され認証が有効になる。
 
 認証する例
 ```
@@ -313,6 +314,8 @@ HTTPのインターフェースを通してJSONPを許可する。
 
 ### noauth
 authの逆
+
+authと同時に設定されていた場合、authが優先され認証が有効になる。
 
 ### nohttpinterface
 Default: false
