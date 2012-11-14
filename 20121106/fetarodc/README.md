@@ -45,8 +45,9 @@ Sun Nov  4 13:16:00 [initandlisten] options: { config: "mongodb.conf", dbpath: "
 ```
 
 ### db.runCommand
-一部のパラメータはmongo shellのコマンドからset,get可能。
-= journalCommitInterval
+一部のパラメータはmongo shellのコマンドからset,get可能。  
+
+- journalCommitInterval
 - logLevel 
 - notablescan 
 - traceExceptions
