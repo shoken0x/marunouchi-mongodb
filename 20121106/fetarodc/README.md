@@ -44,6 +44,22 @@ mongos -f /srv/mongodb/mongos.conf
 Sun Nov  4 13:16:00 [initandlisten] options: { config: "mongodb.conf", dbpath: "db/", verbose: true }
 ```
 
+### db.runCommand
+一部のパラメータはmongo shellのコマンドからset,get可能。
+= journalCommitInterval
+- logLevel 
+- notablescan 
+- traceExceptions
+- quiet
+- syncdelay 
+
+```
+> use admin
+> db.runCommand( { setParameter: 1, logLevel: 3 } )
+> db.runCommand( { getParameter: 1, logLevel: 1 } )
+```
+
+
 パラメータ解説
 -----------------
 
