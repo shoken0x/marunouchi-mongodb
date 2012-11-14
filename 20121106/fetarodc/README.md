@@ -262,6 +262,7 @@ Sat Nov  3 12:47:24 [snapshotthread] cpu: elapsed:4000  writelock: 0%
 Default: /data/db/
 
 DBファイルを格納するディレクトリのパス。
+WindowsだとデフォルトはC:\data\db。
 
 パッケージマネジメントシステムでインストールすると/etc/mongodb.confに書いてあるdbpathを使うので注意。
 
