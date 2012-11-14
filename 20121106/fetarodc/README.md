@@ -23,14 +23,17 @@ bin/mongod --dbpath /data/db/ --verbose
 
 ### 設定ファイルの場合
 ```
-verbose = true      #真偽値の場合は true|false
 dbpath = /data/db/
+verbose = true      #真偽値の場合は true|false
 ```
 
 ### 設定ファイルの読み込み
 ```
+#mongod 下の2つは同じ
 mongod --config /etc/mongodb.conf
 mongod -f /etc/mongodb.conf
+
+#mongos 下の2つは同じ
 mongos --config /srv/mongodb/mongos.conf
 mongos -f /srv/mongodb/mongos.conf
 ```
@@ -613,5 +616,5 @@ Note: 勝手にアップデートされてしまうので、普通はこのオ�
 ### traceExceptions
 Default: false
 
-diagnosticを使っているときに、例外をトレースする。一般ユーザは使わない。内部利用。
+ログにフルスタックトレースを出力する。
 
