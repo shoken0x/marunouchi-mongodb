@@ -26,6 +26,12 @@ bin/mongod --dbpath /data/db/ --verbose
 dbpath = /data/db/
 verbose = true      #真偽値の場合は true|false
 ```
+falseを設定した場合、warningが出ます。
+
+warningを無視してても問題ありませんが精神衛生上、削除もしくはコメントアウトしてください。
+
+原因は[cmdline.cpp](https://github.com/satoruk/mongo/blob/master/src/mongo/db/cmdline.cpp#L150)でfalseはwarningにしているからです。
+
 
 ### 設定ファイルの読み込み
 ```
