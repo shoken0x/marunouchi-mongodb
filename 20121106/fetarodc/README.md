@@ -539,7 +539,7 @@ Default: dbpath
 
 
 ### slowms
-Default: 100 [msrc]
+Default: 100 [msec]
 
 DBのプロファイラがクエリが"slow"と判断する閾値。
 
