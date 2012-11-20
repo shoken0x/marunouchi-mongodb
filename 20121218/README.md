@@ -15,7 +15,8 @@ Marunouchi.mongo 20121218
 * [Wiki](https://github.com/syokenz/marunouchi-mongodb/wiki)作りました！
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
 * [ソースコードリーディング入門]() [@syokenz](http://twitter.com/syokenz)
-* [性能測定的な何か]() [@fetarodc](http://twitter.com/fetarodc)
+* [MongoDBをカスタムビルドしてみよう]() [@syokenz](http://twitter.com/syokenz)
+* [運用について]() [@fetarodc](http://twitter.com/fetarodc)
 * みんなで質問とか、第6回でどんなことをやるかとか
   * 第6回は？
 * 懇親会へ
