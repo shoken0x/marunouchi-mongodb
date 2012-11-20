@@ -24,12 +24,18 @@ bin/mongod --dbpath /data/db/ --verbose
 ### 設定ファイルの場合
 ```
 dbpath = /data/db/
-verbose = true      #真偽値の場合は true|false(※)
+verbose = true      #(※)
 ```
 
-※)真偽値にfalseを設定した場合、起動時にwarningが出ます。
+※)アクティブにしたい設定のみ、trueを設定してください。    
+falseを設定した場合、コメントアウトしたものと同義でスキップされます。falseにはなりません。  
+特にデフォルトがtrueの設定値（64bitビルドのjournalなど）ではfalseを指定しても無効になりません！  
+nojournal=trueとしましょう。  
 
-warningを無視してても問題ありませんが、精神衛生上、削除もしくはコメントアウトをお勧めします。
+ちなみに起動時に以下のwarningが出ます。  
+```
+” warning: remove or comment out this line by starting it with ‘#’, skipping now : journal = false”
+```
 
 原因は[cmdline.cpp](https://github.com/satoruk/mongo/blob/master/src/mongo/db/cmdline.cpp#L150)でfalseはwarningにしているからです。
 
