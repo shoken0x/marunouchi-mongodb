@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-[丸の内MongoDB勉強会 #5 「ソースコードリーディング入門」と「MongoDBをカスタムビルドしてみよう」と「運用について」 2012/12/18（火）18:30～](http://atnd.org/events/34392)
+##### [丸の内MongoDB勉強会 #5 「ソースコードリーディング入門」と「MongoDBをカスタムビルドしてみよう」と「運用について」 2012/12/18（火）18:30～](http://atnd.org/events/34392)
 
 ----
 #### MongoDB最初の1歩
