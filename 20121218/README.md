@@ -3,9 +3,9 @@ Marunouchi.mongo 20121218
 #「ソースコードリーディング入門」と「性能測定的な何か」
 
 みんなでMongoDBについて勉強しましょう。  
-今回のテーマは「ソースコードリーディング入門」と「性能測定的な何か」です。
+今回のテーマは「ソースコードリーディング入門」と「MongoDBをカスタムビルドしてみよう」と「運用について」です。
 
-[丸の内MongoDB勉強会 #5 - ATND](http://atnd.org/events/xxxx)
+[丸の内MongoDB勉強会 #5 - ATND](http://atnd.org/events/34392)
 
 ![marunouchi.mongodb logo](http://syokenz.github.com/marunouchi-mongodb/images/mongodb_logo.png)
 
