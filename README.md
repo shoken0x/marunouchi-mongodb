@@ -9,6 +9,9 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 #### 開催予定
 ##### [丸の内MongoDB勉強会 #5 「ソースコードリーディング入門」と「MongoDBをカスタムビルドしてみよう」と「運用について」 2012/12/18（火）18:30～](http://atnd.org/events/34392)
 
+#### ニュース
+##### gihyo.jpで連載「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」はじめました！
+
 ----
 #### MongoDB最初の1歩
 [新・公式ドキュメント(日本語) マニュアル](http://jp.docs.mongodb.org/manual/)と[@doryokujinさんのスライド](http://www.slideshare.net/doryokujin/)
