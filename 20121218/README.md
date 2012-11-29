@@ -20,6 +20,8 @@ Marunouchi.mongo 20121218
 * [運用について]() [@fetarodc](http://twitter.com/fetarodc)
 * みんなで質問とか、第6回でどんなことをやるかとか
   * 第6回は？
+  * GridFS
+  * 地理インデックス
   * RESTで$nearを実装して、位置情報検索アプリを作ってみる
 * 懇親会へ
 
