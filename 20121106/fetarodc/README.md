@@ -10,6 +10,10 @@ http://docs.mongodb.org/manual/reference/configuration-options/
 * Master/Slave Replication
 * Sharding Cluster Options
 
+## スライド版を作成しました
+
+http://www.slideshare.net/syokenz/mongodb-config
+
 概要
 -----------------
 mongodとmongosの設定方法は、コマンドライン引数か、もしくは設定ファイルでできます。
