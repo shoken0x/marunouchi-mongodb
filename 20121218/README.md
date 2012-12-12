@@ -13,6 +13,7 @@ Marunouchi.mongo 20121218
 # 流れ
 * 懇親会の出席を取る
 * gihyo.jpで連載「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」はじめました！
+* Mongo in Action の[和訳本](http://www.amazon.co.jp/dp/4873115906/)が出版されました
 * [Wiki](https://github.com/syokenz/marunouchi-mongodb/wiki)作りました！
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
 * [ソースコードリーディング入門]() [@syokenz](http://twitter.com/syokenz)
