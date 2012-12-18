@@ -27,6 +27,7 @@ port install scons
 
 ## build（Linux、Mac共通）
 ```
+git clone https://github.com/mongodb/mongo
 cd mongo
 git checkout -b r2.2.0
 scons -h # オプションの確認
