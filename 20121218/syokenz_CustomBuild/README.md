@@ -98,7 +98,7 @@ Macの場合、以下のパスにビルドされています。
 
 ## RESR APIに機能を追加してみよう
 
-REST APIにremoveとupdateを実装してみよう
+REST APIにremoveを実装してみよう
 
 ### 修正するファイル
 
@@ -136,14 +136,6 @@ insert, updateなどのメソッドが定義されている。
         remove( ns, obj, flags );
     }
 ...
-    void DBClientBase::update( const string & ns , Query query , BSONObj obj , bool upsert, bool multi ) {
-        int flags = 0;
-        if ( upsert ) flags |= UpdateOption_Upsert;
-        if ( multi ) flags |= UpdateOption_Multi;
-        update( ns, query, obj, flags );
-    }
-...
-
 ```
 
 ### 確認
@@ -167,7 +159,5 @@ curl -d "{x:100}" http://localhost:28017/test/mongonouchi/
 
 # remove
 curl -X DELETE -d "{x:100}" http://localhost:28017/test/mongonouchi/
-# update
-curl -X PUT -d "{x:101}" http://localhost:28017/test/mongonouchi/
 
 ```
