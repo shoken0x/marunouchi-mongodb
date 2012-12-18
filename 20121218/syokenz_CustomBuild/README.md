@@ -161,3 +161,8 @@ curl -d "{x:100}" http://localhost:28017/test/mongonouchi/
 curl -X DELETE -d "{x:100}" http://localhost:28017/test/mongonouchi/
 
 ```
+
+### 修正済みファイル
+
+ここ  
+https://github.com/syokenz/marunouchi-mongodb/blob/master/20121218/syokenz_CustomBuild/mongo/src/mongo/db/restapi.cpp
