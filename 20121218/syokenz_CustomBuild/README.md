@@ -157,7 +157,7 @@ curl http://localhost:28017/test/mongonouchi/
 curl -d "{x:100}" http://localhost:28017/test/mongonouchi/
 ## ↑ここまではオリジナルで実装されている
 
-# remove
+# remove 今回追加した機能
 curl -X DELETE -d "{x:100}" http://localhost:28017/test/mongonouchi/
 
 ```
