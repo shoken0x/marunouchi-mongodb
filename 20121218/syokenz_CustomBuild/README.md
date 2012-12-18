@@ -57,3 +57,37 @@ Options
 --usesm    #use spider monkey for javascript
 --usev8    #use v8 for javascript
 ```
+
+
+## RESR APIに機能を追加してみよう
+
+REST APIにremoveとupdateを実装してみよう。
+
+### 今回修正するファイル
+
+[src/mongo/db/restapi.cpp](https://github.com/mongodb/mongo/blob/master/src/mongo/db/restapi.cpp)
+
+```cpp
+...
+if ( method == "GET" ) {
+  responseCode = 200;
+  html = handleRESTQuery( fullns , action , params , responseCode , ss  );
+}
+else if ( method == "POST" ) {
+  responseCode = 201;
+  handlePost( fullns , MiniWebServer::body( rq ) , params , responseCode , ss  );
+}
+else {
+  responseCode = 400;
+  headers.push_back( "X_err: bad request" );
+  ss << "don't know how to handle a [" << method << "]";
+  out() << "don't know how to handle a [" << method << "]" << endl;
+}
+...
+```
+
+### 参考にするファイル
+
+insert, updateなどのメソッドが定義されている。
+[src/mongo/client/dbclient.cpp](https://github.com/mongodb/mongo/blob/master/src/mongo/client/dbclient.cpp)
+
