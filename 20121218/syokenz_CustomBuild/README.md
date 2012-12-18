@@ -58,12 +58,49 @@ Options
 --usev8    #use v8 for javascript
 ```
 
+ビルドが成功すると、buildディレクトリ以下にバイナリが作成されます。
+
+## Version表示を変更してみよう
+
+カスタムビルドがわかるように、mongod起動時に表示されるバージョン情報を変更してみよう
+
+### 修正するファイル
+
+[src/mongo/util/version.cpp](https://github.com/mongodb/mongo/blob/master/src/mongo/util/version.cpp)
+
+```cpp
+...
+    /* Approved formats for versionString:
+     *      1.2.3
+     *      1.2.3-pre-
+     *      1.2.3-rc4 (up to rc9)
+     *      1.2.3-rc4-pre-
+     * If you really need to do something else you'll need to fix _versionArray()
+     */
+    const char versionString[] = "2.2.2-pre-";
+...
+```
+
+### ビルド
+
+```
+scons mongod
+```
+
+### 確認
+
+ビルドしたmongodを起動させます。
+Macの場合、以下のパスにビルドされています。
+
+```
+./build/darwin/normal/mongo/mongod
+```
 
 ## RESR APIに機能を追加してみよう
 
-REST APIにremoveとupdateを実装してみよう。
+REST APIにremoveとupdateを実装してみよう
 
-### 今回修正するファイル
+### 修正するファイル
 
 [src/mongo/db/restapi.cpp](https://github.com/mongodb/mongo/blob/master/src/mongo/db/restapi.cpp)
 
@@ -91,3 +128,28 @@ else {
 insert, updateなどのメソッドが定義されている。
 [src/mongo/client/dbclient.cpp](https://github.com/mongodb/mongo/blob/master/src/mongo/client/dbclient.cpp)
 
+### 確認
+
+ビルド後、restオプションをつけて起動する
+
+```
+./build/darwin/normal/mongo/mongod --rest
+```
+
+### 使うコマンド
+
+コンソールからcurlでアクセス
+
+```
+# find
+curl http://localhost:28017/test/mongonouchi/
+# insert
+curl -d "{x:100}" http://localhost:28017/test/mongonouchi/
+## ↑ここまではオリジナルで実装されている
+
+# remove
+curl -X DELETE -d "{x:100}" http://localhost:28017/test/mongonouchi/
+# update
+curl -X PUT -d "{x:101}" http://localhost:28017/test/mongonouchi/
+
+```
