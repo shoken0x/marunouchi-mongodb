@@ -125,8 +125,26 @@ else {
 
 ### 参考にするファイル
 
-insert, updateなどのメソッドが定義されている。
+insert, updateなどのメソッドが定義されている。  
 [src/mongo/client/dbclient.cpp](https://github.com/mongodb/mongo/blob/master/src/mongo/client/dbclient.cpp)
+
+```cpp
+...
+    void DBClientBase::remove( const string & ns , Query obj , bool justOne ) {
+        int flags = 0;
+        if( justOne ) flags |= RemoveOption_JustOne;
+        remove( ns, obj, flags );
+    }
+...
+    void DBClientBase::update( const string & ns , Query query , BSONObj obj , bool upsert, bool multi ) {
+        int flags = 0;
+        if ( upsert ) flags |= UpdateOption_Upsert;
+        if ( multi ) flags |= UpdateOption_Multi;
+        update( ns, query, obj, flags );
+    }
+...
+
+```
 
 ### 確認
 
