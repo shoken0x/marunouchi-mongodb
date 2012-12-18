@@ -168,10 +168,16 @@ noscriptingのデフォルトはfalse
 参考：[MongoDB全設定値解説](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106/fetarodc#noscripting)  
 デフォルトで起動した場合の挙動
 ```
+$ mongo
+> db.eval(function() { return 3+3; } )
+6
 ```
 
 `noscripting=true`で起動した場合の挙動
 ```
+$ mongo
+> db.eval(function() { return 3+3; } )
+Tue Dec 18 19:11:01 uncaught exception: { "errmsg" : "db side execution is disabled", "ok" : 0 }
 ```
 
 ### 不明な起動オプションその2：notablescan
