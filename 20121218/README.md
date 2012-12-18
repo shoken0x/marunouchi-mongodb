@@ -14,6 +14,8 @@ Marunouchi.mongo 20121218
 * 懇親会の出席を取る
 * [スライド版Confingパラメータ解説](http://www.slideshare.net/syokenz/mongodb-config)の紹介
 * gihyo.jpで連載「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」はじめました！
+* MongoDB Tokyo December 2012 が開催されました。スライドは[こちら](https://www.10gen.com/presentations/event/1469)から参照できます。
+** 藤崎のスライドは[こちら](http://www.slideshare.net/syokenz/mongodbtokyo)
 * MongoDB in Action の[和訳本](http://www.amazon.co.jp/dp/4873115906/)が出版されました
 * [Wiki](https://github.com/syokenz/marunouchi-mongodb/wiki)作りました！
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
