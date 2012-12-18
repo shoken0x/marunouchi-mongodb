@@ -100,7 +100,7 @@ git grep "検索単語"
 
 ### ソースコードから起動オプションの挙動を理解する
 
-シチュエーション
+目的
 ```
 前回の丸の内MongoDB勉強会で不明な起動オプションがいくつかあった。
 ドキュメントを読んでも理解できない部分があったので、ソースコードを読んで処理を理解する。
@@ -112,7 +112,7 @@ git grep "検索単語"
 
 ```cpp
 git grep "noscripting"
-...
+...cpp
 src/mongo/db/db.cpp:882:        if (params.count("noscripting")) {
 ...
 ```
@@ -125,7 +125,7 @@ src/mongo/db/db.cppを見てみる
             scriptingEnabled = false;
         }
 ```
-`scriptingEnabled`を検索、db.cppにあった。
+`scriptingEnabled`を検索、db.cppにあった。  
 src/mongo/db/db.cpp
 ```cpp
         if ( scriptingEnabled ) {
@@ -145,7 +145,7 @@ src/mongo/scripting/engine_v8.cpp:342:    void ScriptEngine::setup() {
 ```
 v2.2ではjsエンジンはspidermonkeyなので、engine_spidermonkey.cppを見てみる。  
 src/mongo/scripting/engine_spidermonkey.cpp
-```
+```cpp
     void ScriptEngine::setup() {
         spidermonkey::globalSMEngine = new spidermonkey::SMEngine();
         globalScriptEngine = spidermonkey::globalSMEngine;
@@ -155,7 +155,7 @@ src/mongo/scripting/engine_spidermonkey.cpp
 `TIPS`検索単語の前後にスペースを入れると、変数として使用されている箇所に引っかかる
 ```
 git grep " globalScriptEngine "  
-...
+...cpp
 src/mongo/db/dbeval.cpp:57:        if ( ! globalScriptEngine ) {
 ...
 ```
@@ -164,13 +164,13 @@ db.eval()というshellから使えるコマンドがある。これは、引数
 わかった！
 
 #### でもあわてずに実証してみる
-noscriptingのデフォルトはfalse
-[MongoDB全設定値解説](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106/fetarodc#noscripting)  
+noscriptingのデフォルトはfalse  
+参考：[MongoDB全設定値解説](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106/fetarodc#noscripting)  
 デフォルトで起動した場合の挙動
 ```
 ```
 
-noscripting=trueで起動した場合の挙動
+`noscripting=true`で起動した場合の挙動
 ```
 ```
 
