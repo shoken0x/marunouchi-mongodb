@@ -19,8 +19,8 @@ Marunouchi.mongo 20121218
 * MongoDB in Action の[和訳本](http://www.amazon.co.jp/dp/4873115906/)が出版されました
 * [Wiki](https://github.com/syokenz/marunouchi-mongodb/wiki)作りました！
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
-* [ソースコードリーディング入門]() [@syokenz](http://twitter.com/syokenz)
-* [MongoDBをカスタムビルドしてみよう]() [@syokenz](http://twitter.com/syokenz)
+* [ソースコードリーディング入門](https://github.com/syokenz/marunouchi-mongodb/blob/master/20121218/syokenz_CodeReading/) [@syokenz](http://twitter.com/syokenz)
+* [MongoDBをカスタムビルドしてみよう](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121218/syokenz_CustomBuild/) [@syokenz](http://twitter.com/syokenz)
 * [運用について]() [@fetarodc](http://twitter.com/fetarodc)
 * みんなで質問とか、第6回でどんなことをやるかとか
   * 第6回は？
