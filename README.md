@@ -7,10 +7,10 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### [丸の内MongoDB勉強会 #5 「ソースコードリーディング入門」と「MongoDBをカスタムビルドしてみよう」と「運用について」 2012/12/18（火）18:30～](http://atnd.org/events/34392)
+##### [丸の内MongoDB勉強会 #6 内容未定 2013/01/23（水）18:30～](http://atnd.org/events/XXXXX)
 
 #### ニュース
-##### gihyo.jpで連載「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」はじめました！
+##### gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中！
 
 ----
 #### MongoDB最初の1歩
@@ -47,5 +47,6 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 * [丸の内MongoDB勉強会 #2 みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828) 2012/08/28 [ATND](http://atnd.org/events/31234)
 * [丸の内MongoDB勉強会 #3 2.2の新機能&レプリケーションハンズオン](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926) 2012/09/26 [ATND](http://atnd.org/events/32249)
 * [丸の内MongoDB勉強会 #4 「MongoDBでWebアプリを作ってみよう」と「Configパラメータ解説」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106) 2012/11/06 [ATND](http://atnd.org/events/33485)
+* [丸の内MongoDB勉強会 #5 「ソースコードリーディング入門」と「MongoDBをカスタムビルドしてみよう」と「運用について」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121218) 2012/12/18 [ATND](http://atnd.org/events/34392)
 
 
