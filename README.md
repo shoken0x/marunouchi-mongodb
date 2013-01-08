@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### [丸の内MongoDB勉強会 #6 内容未定 2013/01/23（水）18:30～](http://atnd.org/events/35409)
+##### [丸の内MongoDB勉強会 #6 「GridFSハンズオン」と「mongodbの内部挙動について詳しく」 2013/01/23（水）18:30～](http://atnd.org/events/35409)
 
 #### ニュース
 ##### gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中！
