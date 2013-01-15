@@ -30,6 +30,22 @@ Marunouchi.mongo 20121218
 * 懇親会へ
 
 # 参加者
+1. [@syokenz](http://twitter.com/syokenz)
+1. [@fetarodc](http://twitter.com/fetarodc)
+1. [@imai_factory](https://twitter.com/imai_factory)
+1. [@yokoom](https://twitter.com/yokoom)
+1. [@zeds39](https://twitter.com/zeds39)
+1. [@Flast_RO](https://twitter.com/Flast_RO)
+1. [@crumbjp](https://twitter.com/crumbjp)
+1. [@hmitr](https://twitter.com/hmitr)
+1. [@kobetetsu](https://twitter.com/kobetetsu)
+1. [@viz3](https://twitter.com/viz3)
+1. [@takchiba18](https://twitter.com/takchiba18)
+1. [@kansakamoto](https://twitter.com/kansakamoto)
+1. nntsusu
+1. mittan
+
+
 
 # Blog
 
