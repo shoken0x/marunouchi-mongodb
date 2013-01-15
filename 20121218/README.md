@@ -29,16 +29,8 @@ Marunouchi.mongo 20121218
   * RESTで$nearを実装して、位置情報検索アプリを作ってみる
 * 懇親会へ
 
-
-# 会場で出た質問
-
-
-# 参考資料
-
-
 # 参加者
 
-
-# Togetter
-
 # Blog
+
+[丸の内MongoDB勉強会 #5 やりました](http://shoken.hatenablog.com/entry/2013/01/02/180106)
