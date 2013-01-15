@@ -1,7 +1,7 @@
 #「GridFSハンズオン」と「Shardingのコネクション数周りのチューニングについて」
 
 みんなでMongoDBについて勉強しましょう。  
-今回はSnapDishを開発されている清田さんと大規模にMongoDBを実運用中の@crumbjpさんの発表です。。
+今回はSnapDishを開発されている清田さんと大規模にMongoDBを実運用中の@crumbjpさんの発表です。
 
 [丸の内MongoDB勉強会 #6 - ATND](http://atnd.org/events/35409)
 
