@@ -1,7 +1,7 @@
 require 'mongo'
 
 db_name='test'
-coll_name='file_test'
+coll_name='gridtest'
 
 db = Mongo::Connection.new.db(db_name)
 coll = db.collection(coll_name)
