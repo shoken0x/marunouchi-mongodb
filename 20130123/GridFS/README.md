@@ -7,13 +7,19 @@ GridFSについて初めて触る人向けのチュートリアルです
 
 ## GridFSとは
 
+任意のサイズのファイルをMongoDBに保存するためのプロトコル。
+すべての公式ドライバとMongoDBのmongofilesツールに実装されている。
 
+インターフェイスはput, get, deleteに限定。
+更新するためには、いったんdeleteしてからputする。
 
-## なぜOSのファイルシステムではなく、データベースでファイルを管理するのか
-
+chunkと呼ばれる256KBのバイナリデータに分割し、fs.chunksへ保存する。
+ファイルのメタデータは、fs.filesへ保存される。
 
 
 ## GrindFSのメリット
+
+なぜOSのファイルシステムではなく、データベースでファイルを管理するのか
 
 MongoDBのドキュメントサイズの16MB制限
 
@@ -25,9 +31,9 @@ dd if=/dev/zero of=15MB.file bs=1M count=15
 dd if=/dev/zero of=16MB.file bs=1M count=16
 ```
 
-mongo-sizelimit.rb
+[mongo-sizelimit.rb](https://github.com/syokenz/marunouchi-mongodb/blob/master/20130123/GridFS/mongo-sizelimit.rb)
 
-エラー
+エラー（rubyのbson_c.rb）
 ```
 # ruby mongo-sizelimit.rb
 15MB.file insert to mongo ...
@@ -46,8 +52,41 @@ insert success
 
 
 
-##
+## GridFS with mongofiles
+
+```
+## MongoDBにファイルを保存
+## -v オプションで詳細出力、 -d オプションでデータベース名を指定
+$ mongofiles -v -d gridtest put 16MB.file
+
+## MongoDBからファイルを取得
+$ mongofiles -v -d gridtest get 16MB.file
+```
+
+コレクションの中身
+```
+# mongo gridtest
+MongoDB shell version: 2.2.0
+connecting to: gridtest
+> show collections
+fs.chunks
+fs.files
+system.indexes
+ 
+## fs.files にファイルのメタデータが保存されている。
+> db.fs.files.find()
+
+```
 
 
+## GrindFS with Ruby
 
-##
+```rb
+@grid = Mongo::Grid.new(@db)
+# 任意のメタデータを追加可能
+file_id = @grind.put(file, :filename => "16MB.file")
+```
+
+
+参考
+[MongoDB GridFSについて](http://rest-term.com/archives/2962/)
