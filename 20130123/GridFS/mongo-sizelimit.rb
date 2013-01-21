@@ -13,13 +13,13 @@ coll.insert({:filename => file01,
              :image => BSON::Binary.new(File.binread(file01),
                                         BSON::Binary::SUBTYPE_BYTES)
             })
-puts "insert success\n\n\n"
+puts "insert success\n\n"
 
 puts "#{file02} insert to mongo ..."
-coll.insert({:filename => file01,
+coll.insert({:filename => file02,
              :image => BSON::Binary.new(File.binread(file02),
                                         BSON::Binary::SUBTYPE_BYTES)
             })
-puts "insert success\n\n\n"
+puts "insert success\n\n"
 
 db.connection.close
