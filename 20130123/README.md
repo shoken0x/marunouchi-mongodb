@@ -1,5 +1,7 @@
 #「GridFSハンズオン」と「Shardingのコネクション数周りのチューニングについて」
 
+ハッシュタグは[#mongonouchi](https://twitter.com/search?q=%23mongonouchi&src=hash)
+
 みんなでMongoDBについて勉強しましょう。  
 今回はSnapDishを開発されている清田さんと大規模にMongoDBを実運用中の@crumbjpさんの発表です。
 
