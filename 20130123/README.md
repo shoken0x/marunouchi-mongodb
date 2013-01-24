@@ -20,7 +20,7 @@
   * [スライド](http://www.slideshare.net/FumikazuKiyota/snapdis)
   * 参考資料 : [https://gist.github.com/4591707](https://gist.github.com/4591707)
 * Shardingのコネクション数周りのチューニングについて [@crumbjp](http://twitter.com/crumbjp)
-  * [資料](http://www.slideshare.net/crumbjp/sharding-mongo)
+  * [スライド](http://www.slideshare.net/crumbjp/sharding-mongo)
 * 次回以降取り組みたいテーマ
   * 地理インデックス、事例、stale問題
 * 懇親会へ
