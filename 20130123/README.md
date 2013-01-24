@@ -14,10 +14,13 @@
 * 懇親会の出席を取る
 * gihyo.jpで連載「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」はじめました！
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
-* [GridFSハンズオン](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130123/GridFS) [@syokenz](http://twitter.com/syokenz)
-* [SnapDish 画像配信について](http://www.slideshare.net/FumikazuKiyota/snapdis)[@kiyotaman](http://twitter.com/kiyotaman)
+* GridFSハンズオン [@syokenz](http://twitter.com/syokenz)
+  * [資料](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130123/GridFS)
+* SnapDish 画像配信について [@kiyotaman](http://twitter.com/kiyotaman)
+  * [スライド](http://www.slideshare.net/FumikazuKiyota/snapdis)
   * 参考資料 : [https://gist.github.com/4591707](https://gist.github.com/4591707)
-* [Shardingのコネクション数周りのチューニングについて](http://www.slideshare.net/crumbjp/sharding-mongo) [@crumbjp](http://twitter.com/crumbjp)
+* Shardingのコネクション数周りのチューニングについて [@crumbjp](http://twitter.com/crumbjp)
+  * [資料](http://www.slideshare.net/crumbjp/sharding-mongo)
 * 次回以降取り組みたいテーマ
   * 地理インデックス、事例、stale問題
 * 懇親会へ
