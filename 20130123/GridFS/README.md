@@ -11,7 +11,7 @@ GridFSについて初めて触る人向けのチュートリアルです
 更新するためには、いったんdeleteしてからputする。  
 
 chunkと呼ばれる256KBのバイナリデータに分割し、fs.chunksへ保存する。  
-※ shardingのchunkとは別物です。
+※ shardingのchunkとは別物です。  
 ファイルのメタデータは、fs.filesへ保存される。  
 
 
