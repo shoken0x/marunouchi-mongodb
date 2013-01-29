@@ -15,9 +15,9 @@
 * gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
 * MongoDBの検証環境を作ろうハンズオン [@nntsugu](http://twitter.com/nntsugu)
-  * [スライド]()
+  * スライド
 * MongoDBでXMLデータを扱うシステム開発 Michael Nguyen (マイケル・ヌエン)
-  * [スライド]()
+  * スライド
 * 次回以降取り組みたいテーマ
   * 地理インデックス、事例紹介など
 * 懇親会へ
