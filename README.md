@@ -7,7 +7,10 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### [丸の内MongoDB勉強会 #7 「未定」 2013/02/19（火）18:30～](http://atnd.org/events/XXXXX)
+##### [2013/02/19（火）18:30～ 丸の内MongoDB勉強会 #7 「MongoDB 2.4 新機能紹介」と「MongoDBでXMLデータを扱うシステム開発」](http://atnd.org/events/36467)
+##### 2013/03/26（火）19:00～ 丸の内MongoDB勉強会 #8 in CookPad 「未定」 
+##### 2013/04/24（水）19:00～ 丸の内MongoDB勉強会 #9 in 楽天 「未定」 
+
 
 #### ニュース
 ##### gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中！
