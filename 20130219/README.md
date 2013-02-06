@@ -1,4 +1,4 @@
-#「MongoDBの検証環境を作ろうハンズオン」と「MongoDBでXMLデータを扱うシステム開発」
+#「MongoDB 2.4 新機能紹介」と「MongoDBでXMLデータを扱うシステム開発」
 
 ハッシュタグは[#mongonouchi](https://twitter.com/search?q=%23mongonouchi&src=hash)
 
@@ -14,7 +14,7 @@
 * 懇親会の出席を取る
 * gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
-* MongoDBの検証環境を作ろうハンズオン [@nntsugu](http://twitter.com/nntsugu)
+* MongoDB 2.4 新機能紹介 [@syokenz](http://twitter.com/syokenz)
   * スライド
 * MongoDBでXMLデータを扱うシステム開発 Michael Nguyen (マイケル・ヌエン)
   * スライド
