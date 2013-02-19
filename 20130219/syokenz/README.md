@@ -46,7 +46,7 @@ singer（歌手）やsinging（歌うこと）などのキーワードとマッ�
 出所: http://www.sem-seminar.com/glossary/e_stemming.html
 
 ![Full Text Search](http://blog.codecentric.de/files/2013/01/600x302xmongo_fts_2.png.pagespeed.ic.qA4D7gJtDY.png)
-
+図の出所: http://blog.codecentric.de/en/2013/01/text-search-mongodb-stemming/
 
 ### ハンズオン
 textSearchEnabledをtrueに  
