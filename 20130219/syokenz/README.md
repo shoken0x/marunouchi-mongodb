@@ -15,12 +15,12 @@ MongoDB 2.4 新機能紹介
 
 ## 全文検索機能
 
-2.4の目玉機能！ ついにインデックス付き全文検索をサポート！
+2.4の目玉機能！ ついにインデックス付き全文検索をサポート！  
 だけど、本番環境では使っちゃだめ！  とリリースノートに書いてあります。  
 ```
 Warning:  Do not enable or use text indexes on production systems.
 ```
-しかも日本語は未対応。。。  
+しかも日本語は未対応。。。    
   
 ソースを確認したところ、tokenizer.cppがEnglishしか実装されていない模様。（2013/02/19）  
 https://github.com/mongodb/mongo/blob/r2.4.0-rc0/src/mongo/db/fts/tokenizer.cpp  
@@ -32,10 +32,18 @@ https://github.com/mongodb/mongo/tree/r2.4.0-rc0/src/mongo/db/fts
 
 
 ### インデクシング処理
-大きく分けて3
-1. Tokenizerで形態素解析
-2. Stop Word Filtering で不要な単語を除去
-3. Stemming処理
+大きく分けて3つの処理  
+1. Tokenizerで形態素解析  
+2. Stop Word Filtering で不要な単語を除去  
+3. Stemming処理  
+※Stemmingとは
+```
+検索エンジンで検索語の語幹を解釈する手法。例えばsing（歌う）という検索語を入力した場合でも、
+singer（歌手）やsinging（歌うこと）などのキーワードとマッチングさせること。
+日本語ではまだ実用化されていない（と思う、多分）。
+ステム（stem）とは「木の幹、草の茎（くき）」のことで、語尾が変化しても変化しない根幹部分。
+```
+出所: http://www.sem-seminar.com/glossary/e_stemming.html
 
 ![Full Text Search](http://blog.codecentric.de/files/2013/01/600x302xmongo_fts_2.png.pagespeed.ic.qA4D7gJtDY.png)
 
@@ -67,10 +75,10 @@ textインデックス作成
 > db.txt.runCommand("text", {search: "wait"})
 ```
 
-クエリに正規表現を使用可能  
-複数のフィールドを重み付けして検索できるScore Hit方式  
-マニュアルより
-```
+クエリに正規表現を使用可能    
+複数のフィールドを重み付けして検索できるScore Hit方式    
+マニュアルより  
+```js
 db.collection.ensureIndex( { content: "text",
                              "users.profiles": "text",
                              comments: "text",
@@ -83,7 +91,7 @@ db.collection.ensureIndex( { content: "text",
                                keywords: 5,
                                about: 5 } } )
 ```
-TextIndexというインデックスを指定し、重み付けが可能  
+TextIndexというインデックスを指定し、重み付けが可能    
 - content field that has a weight of 10,
 - users.profiles that has a weight of 2,
 - comments that has a weight of 1,
@@ -91,7 +99,7 @@ TextIndexというインデックスを指定し、重み付けが可能
 - about that has a weight of 5.
 
 
-日本語も試してみましょう  
+日本語も試してみましょう    
 
 
 ## ケルベロス認証のサポート（サブスクリプション版のみ）
@@ -116,7 +124,7 @@ mongo shellからdb.serverBuildInfo()で確認できます
 ## GeoJSONを使用した球面地理空間インデックス
 2.4から球面地理空間（ Spherical Geospatial ）インデックスのindex typeが2dsphereになりました  
 ノーマルインデックスと併用可能に  
-```
+```js
 > db.collection.ensureIndex( { type: 1, geo: "2dsphere" } )
 ```
 
@@ -127,7 +135,7 @@ http://geojson.org/geojson-spec.html
 新オペレータ $geoIntersects  
 引数に{ $geometry : “GeoJSON document” }を指定  
  “GeoJSON document”と交差したオブジェクトを返す  
-```
+```js
 > db.collection.find( {
   $geoIntersects: { $geometry: { "type": "Point", "coordinates": [ 40, 5 ] }
 } } ) 
