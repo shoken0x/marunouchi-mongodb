@@ -144,6 +144,21 @@ http://geojson.org/geojson-spec.html
 ### ハンズオン
 GeoJSONオブジェクトでLineStringをいくつか保存して、交差する直線を検索してみよう
 
+```js
+db.gjson.ensureIndex( { geo: "2dsphere" } );
+
+db.gjson.insert({"name": "tate05", geo:{ "type": "LineString", "coordinates": [ [ 5, 5 ], [ 5, 0 ] ] }});
+db.gjson.insert({"name": "tate10", geo:{ "type": "LineString", "coordinates": [ [ 10, 10 ], [ 10, 0 ] ] }});
+db.gjson.insert({"name": "tate15", geo:{ "type": "LineString", "coordinates": [ [ 15, 15 ], [ 15, 0 ] ] }});
+db.gjson.insert({"name": "tate20", geo:{ "type": "LineString", "coordinates": [ [ 20, 20 ], [ 20, 0 ] ] }});
+
+
+db.gjson.find({geo:{ "$geoIntersects": { "$geometry": { "type": "LineString", "coordinates": [ [ 0, 20 ], [ 13, 20 ] ]}} }} );
+db.gjson.find({geo:{ "$geoIntersects": { "$geometry": { "type": "LineString", "coordinates": [ [ 0, 20 ], [ 20, 20 ] ]}} }} );
+
+
+
+```
 
 ## インデックス構築の自動再開（resume機能）
 インデックス構築中にmongodを停止してしまった場合でも、次回起動後に自動的に再開  
