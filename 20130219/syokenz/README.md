@@ -141,6 +141,8 @@ http://geojson.org/geojson-spec.html
 } } ) 
 ```
 
+### ハンズオン
+GeoJSONオブジェクトでLineStringをいくつか保存して、交差する直線を検索してみよう
 
 
 ## インデックス構築の自動再開（resume機能）
