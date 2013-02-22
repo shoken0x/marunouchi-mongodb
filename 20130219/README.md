@@ -20,7 +20,7 @@
 * MongoDBでXMLデータを扱うシステム開発 Michael Nguyen (マイケル・ヌエン)
   * [スライド](http://www.slideshare.net/michaelnguyen338658/mongo-db-xsdxml20130219)
 * 次回以降取り組みたいテーマ
-  * 地理インデックス、事例紹介など
+  * 地理インデックス、事例紹介、セキュリティ（クエリーインジェクション）など
 * 懇親会へ
 
 
