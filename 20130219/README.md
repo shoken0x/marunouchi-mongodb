@@ -3,7 +3,7 @@
 ハッシュタグは[#mongonouchi](https://twitter.com/search?q=%23mongonouchi&src=hash)
 
 みんなでMongoDBについて勉強しましょう。  
-今回はMongoDBを大規模に使われている@nntsuguと、MongoDBを使ったSaasを開発している Michael Nguyen (マイケル・ヌエン)さんの発表です。
+今回はMongoDB 2.4 新機能紹介（@syokenz）と、MongoDBを使ったSaasを開発している Michael Nguyen (マイケル・ヌエン)さんの発表です。
 
 [丸の内MongoDB勉強会 #7 - ATND](http://atnd.org/events/36467)
 
