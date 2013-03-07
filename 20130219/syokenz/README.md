@@ -72,7 +72,45 @@ textインデックス作成
 > db.txt.insert({txt: "I'm still waiting"})
 > db.txt.insert({txt: "I waited for hours"})
 > db.txt.insert({txt: "He waits"})
+```
+
+```
 > db.txt.runCommand("text", {search: "wait"})
+{
+        "queryDebugString" : "wait||||||",
+        "language" : "english",
+        "results" : [
+                {
+                        "score" : 1,
+                        "obj" : {
+                                "_id" : ObjectId("51234979bacbee4cbabca604"),
+                                "txt" : "He waits"
+                        }
+                },
+                {
+                        "score" : 0.75,
+                        "obj" : {
+                                "_id" : ObjectId("5123496abacbee4cbabca602"),
+                                "txt" : "I'm still waiting"
+                        }
+                },
+                {
+                        "score" : 0.75,
+                        "obj" : {
+                                "_id" : ObjectId("51234974bacbee4cbabca603"),
+                                "txt" : "I waited for hours"
+                        }
+                }
+        ],
+        "stats" : {
+                "nscanned" : 3,
+                "nscannedObjects" : 0,
+                "n" : 3,
+                "nfound" : 3,
+                "timeMicros" : 105
+        },
+        "ok" : 1
+}
 ```
 
 クエリに正規表現を使用可能    
