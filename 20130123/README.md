@@ -72,4 +72,8 @@
 
 # Togetter
 
+http://togetter.com/li/445154
+
 # Blog
+
+[丸の内MongoDB勉強会 #6 やりました](http://shoken.hatenablog.com/entry/2013/01/26/023539)
