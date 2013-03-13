@@ -7,9 +7,8 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### [2013/02/19（火）18:30～ 丸の内MongoDB勉強会 #7 「MongoDB 2.4 新機能紹介」と「MongoDBでXMLデータを扱うシステム開発」](http://atnd.org/events/36467)
-##### 2013/03/27（水）19:00～ 丸の内MongoDB勉強会 #8 in CookPad 「未定」 
-##### 2013/04/17（水）19:00～ 丸の内MongoDB勉強会 #9 in 楽天 「未定」 
+##### [2013/03/27（水）19:00～ 丸の内MongoDB勉強会 #8 in CookPad 「ghostsync and slaveDelay」、「権限によるACLのハンズオン」他](http://atnd.org/events/37869) 
+##### 2013/04/17（水）19:00～ 丸の内MongoDB勉強会 #9 in 楽天 「テーマ未定」 
 
 
 #### ニュース
