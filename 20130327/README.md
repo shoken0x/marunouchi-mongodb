@@ -1,3 +1,5 @@
+### 丸の内MongoDB勉強会 #8 in クックパッド
+
 # 「ghostsync and slaveDelay」、「権限によるACLのハンズオン」
 
 ハッシュタグは[#mongonouchi](https://twitter.com/search?q=%23mongonouchi&src=hash)
