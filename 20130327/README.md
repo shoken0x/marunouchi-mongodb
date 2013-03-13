@@ -15,7 +15,6 @@
 # 流れ
 * 懇親会の出席を取る
 * gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中
-* おすすめ書籍 [7つのデータベース 7つの世界](http://www.amazon.co.jp/dp/4274069087)
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
 * 権限によるACLのハンズオン [@syokenz](http://twitter.com/syokenz)
   * [資料]()
