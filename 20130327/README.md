@@ -1,11 +1,11 @@
 ### 丸の内MongoDB勉強会 #8 in クックパッド
 
-# 「ghostsync and slaveDelay」、「権限によるACLのハンズオン」
+# 「ghostsync and slaveDelay」、「権限によるACLのハンズオン」、「MongoDBのソースコードを楽しむ」
 
 ハッシュタグは[#mongonouchi](https://twitter.com/search?q=%23mongonouchi&src=hash)
 
 みんなでMongoDBについて勉強しましょう。  
-今回は「ghostsync and slaveDelay」、「権限によるACLのハンズオン」です。
+今回は「ghostsync and slaveDelay」、「権限によるACLのハンズオン」、「MongoDBのソースコードを楽しむ」です。
 
 [丸の内MongoDB勉強会 #8 - ATND](http://atnd.org/events/37869)
 
