@@ -5,7 +5,7 @@
 ハッシュタグは[#mongonouchi](https://twitter.com/search?q=%23mongonouchi&src=hash)
 
 みんなでMongoDBについて勉強しましょう。  
-今回は「ghostsync and slaveDelay」、「権限によるACLのハンズオン」、「MongoDBのソースコードを楽しむ」です。
+今回は「ghostsync and slaveDelay」、「脆弱性について考えてみる」、「MongoDBのソースコードを楽しむ」です。
 
 [丸の内MongoDB勉強会 #8 - ATND](http://atnd.org/events/37869)
 
@@ -16,10 +16,10 @@
 * 懇親会の出席を取る
 * gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
-* 権限によるACLのハンズオン NRI OpenStandia 藤崎祥見 [@syokenz](http://twitter.com/syokenz)
-  * [資料]()
+* 脆弱性について考えてみる NRI OpenStandia 藤崎祥見 [@syokenz](http://twitter.com/syokenz)
+  * [資料](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130327/syokenz)
 * ghostsync and slaveDelay 楽天 窪田さん [@crumbjp](http://twitter.com/crumbjp)
-  * [スライド]()
+  * [スライド](http://www.facebook.com/l.php?u=http%3A%2F%2Fwww.slideshare.net%2Fcrumbjp%2Fmongo-ghostsync-and-slavedelay-japanease&h=jAQEi5MFX)
 * MongoDBのソースコードを楽しむ [@knt5](http://twitter.com/knt5)
   * [スライド]()
 * 次回以降取り組みたいテーマ
