@@ -26,9 +26,9 @@
   * 地理インデックス、事例紹介、セキュリティ（クエリーインジェクション）など
 * 懇親会へ
 
-![mm20130327_1.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_1.jpg)
-![mm20130327_2.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_2.jpg)
-![mm20130327_3.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_3.jpg)
+![mm20130327_1.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_1.jpeg)
+![mm20130327_2.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_2.jpeg)
+![mm20130327_3.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_3.jpeg)
 
 
 
