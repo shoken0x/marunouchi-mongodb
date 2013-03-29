@@ -26,11 +26,42 @@
   * 地理インデックス、事例紹介、セキュリティ（クエリーインジェクション）など
 * 懇親会へ
 
+![mm20130327_1.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_1.jpg)
+![mm20130327_2.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_2.jpg)
+![mm20130327_3.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130327_3.jpg)
+
+
 
 # 会場で出た質問
 
 
 # 参加者
+1. [@syokenz](http://twitter.com/syokenz)
+1. [@fetarodc](http://twitter.com/fetarodc)
+1. [@rinrin0108](http://twitter.com/rinrin0108)
+1. [@crumbjp](https://twitter.com/crumbjp)
+1. wbx
+1. ken8507
+1. DANBY
+1. mharafa
+1. atnd001
+1. notti
+1. ferrylikeboy
+1. lxyuma
+1. wadahiro
+1. pottava
+1. yuga
+1. taka512
+1. Mittel
+1. gyujp
+1. Den-O
+1. knt5
+1. GinGi
+1. nkzawa
+1. ikemonn
+1. jarrot
+1. atsushi8h
+1. oki_can
 
 
 # Togetter
