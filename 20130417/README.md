@@ -1,4 +1,4 @@
-### 丸の内MongoDB勉強会 #8 in 楽天
+### 丸の内MongoDB勉強会 #9 in 楽天
 
 # 「MongoDB 2.4の注目の新機能ハンズオン」、「MongoDBの検証環境を作ろう」 
 
