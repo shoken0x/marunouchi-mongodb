@@ -10,6 +10,8 @@
 
 ![marunouchi.mongodb logo](http://syokenz.github.com/marunouchi-mongodb/images/mongodb_logo.png)
 
+# 注意
+* 会場の使用が21:00までとなっています。20:45に切り上げて、21:00には原状回復＆撤収にご協力ください。
 
 # 流れ
 * 懇親会の出席を取る
