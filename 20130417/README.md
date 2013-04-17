@@ -22,7 +22,7 @@
   * [ブログ](http://d.hatena.ne.jp/hiroppon/20130327/)
   * [補足資料 mincore()の話](http://www.slideshare.net/crumbjp/why-mincore-returns-different-value-of-stat)
 * MongoDBの検証環境を作ろう [@nntsugu](http://twitter.com/nntsugu)
-  * [スライド]()
+  * スライド
 * 次回以降取り組みたいテーマ
   * 地理インデックス、事例紹介、セキュリティ（クエリーインジェクション）など
 * 懇親会へ
