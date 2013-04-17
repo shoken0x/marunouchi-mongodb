@@ -20,6 +20,7 @@
 * MongoDB 2.4の注目の新機能ハンズオン 楽天 窪田さん [@crumbjp](http://twitter.com/crumbjp)
   * [リポジトリ](https://github.com/crumbjp/test/tree/master/study/mongo)
   * [ブログ](http://d.hatena.ne.jp/hiroppon/20130327/)
+  * [補足資料 mincore()の話](http://www.slideshare.net/crumbjp/why-mincore-returns-different-value-of-stat)
 * MongoDBの検証環境を作ろう [@nntsugu](http://twitter.com/nntsugu)
   * [スライド]()
 * 次回以降取り組みたいテーマ
