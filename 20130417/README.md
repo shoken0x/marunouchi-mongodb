@@ -18,7 +18,8 @@
 * gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中
 * [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
 * MongoDB 2.4の注目の新機能ハンズオン 楽天 窪田さん [@crumbjp](http://twitter.com/crumbjp)
-  * [スライド]()
+  * [リポジトリ](https://github.com/crumbjp/test/tree/master/study/mongo)
+  * [ブログ](http://d.hatena.ne.jp/hiroppon/20130327/)
 * MongoDBの検証環境を作ろう [@nntsugu](http://twitter.com/nntsugu)
   * [スライド]()
 * 次回以降取り組みたいテーマ
