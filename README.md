@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2013/04/17（水）19:00～ 丸の内MongoDB勉強会 #9 in 楽天 「テーマ未定」 
+##### 2013/05/22（水）19:00～ 丸の内MongoDB勉強会 #10 「はじめてのMongoDB」
 
 
 #### ニュース
@@ -50,6 +50,6 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 * [丸の内MongoDB勉強会 #4 「MongoDBでWebアプリを作ってみよう」と「Configパラメータ解説」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106) 2012/11/06 [ATND](http://atnd.org/events/33485)
 * [丸の内MongoDB勉強会 #5 「ソースコードリーディング入門」と「MongoDBをカスタムビルドしてみよう」と「運用について」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20121218) 2012/12/18 [ATND](http://atnd.org/events/34392)
 * [丸の内MongoDB勉強会 #6 「GridFSハンズオン」と「Shardingのコネクション数周りのチューニングについて」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130123) 2012/01/23 [ATND](http://atnd.org/events/35409)
-* [丸の内MongoDB勉強会 #7 「MongoDB 2.4 新機能紹介」と「MongoDBでXMLデータを扱うシステム開発」] (https://github.com/syokenz/marunouchi-mongodb/tree/master/20130219) 2013/02/19 [ATND](http://atnd.org/events/36467)
+* [丸の内MongoDB勉強会 #7 「MongoDB 2.4 新機能紹介」と「MongoDBでXMLデータを扱うシステム開発」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130219) 2013/02/19 [ATND](http://atnd.org/events/36467)
 * [丸の内MongoDB勉強会 #8 in CookPad 「ghostsync and slaveDelay」、「権限によるACLのハンズオン」他](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130327) 2013/03/27 [ATND](http://atnd.org/events/37869)
-
+* [丸の内MongoDB勉強会 #9 in 楽天 「MongoDB 2.4の注目の新機能ハンズオン」と「MongoDBの検証環境を作ろう」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130417) 2013/04/17 [ATND](http://atnd.org/events/38369)
