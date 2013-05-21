@@ -1,0 +1,32 @@
+[term1]
+rm -rf /data/db/*
+./bin/mongod --nojournal
+[term2]
+vmstat 1
+[term3]
+mongostat
+[term4]
+ruby write_rush1.rb
+ruby read_rush.rb
+
+insert  query update delete getmore command flushes mapped  vsize    res faults   locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time
+    *0     71     *0     *0       0    72|0       0  1.03g  1.28g   528m      0   test:0.0%          0       0|0     0|0     9k    71m     2   00:53:19
+    *0     70     *0     *0       0    71|0       0  1.03g  1.28g   528m      0   test:0.0%          0       0|0     0|0     9k    70m     2   00:53:20
+    *0     70     *0     *0       0    71|0       0  1.03g  1.28g   528m      0   test:0.0%          0       0|0     0|0     9k    70m     2   00:53:21
+
+ruby write_rush2.rb
+ruby read_rush.rb
+
+insert  query update delete getmore command flushes mapped  vsize    res faults  locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time
+    *0     38     *0     *0       0    39|0       0  2.03g  2.28g   665m     26  test:0.0%          0       0|0     1|0     4k    37m     2   00:49:10
+    *0     43     *0     *0       0    44|0       0  2.03g  2.28g   662m     20  test:0.0%          0       0|0     0|0     5k    44m     2   00:49:11
+    *0     33     *0     *0       0    34|0       0  2.03g  2.28g   658m     23  test:0.0%          0       0|0     0|0     4k    33m     2   00:49:12
+
+ruby write_rush3.rb
+ruby read_rush.rb
+
+insert  query update delete getmore command flushes mapped  vsize    res faults   locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time
+    *0     29     *0     *0       0    30|0       1  4.03g  4.28g   727m     42   test:0.0%          0       0|0     0|0     3k    29m     2   00:57:28
+    *0     32     *0     *0       0    33|0       0  4.03g  4.28g   735m     44   test:0.0%          0       0|0     1|0     4k    31m     2   00:57:29
+    *0     29     *0     *0       0    30|0       0  4.03g  4.28g   733m     38   test:0.0%          0       0|0     1|0     3k    29m     2   00:57:30
+
