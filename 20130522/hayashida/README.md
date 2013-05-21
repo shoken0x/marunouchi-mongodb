@@ -30,6 +30,7 @@ mongooplog
 mongoperf
 mongorestore
 mongos
+mongosniff
 mongostat
 mongotop
 </pre>
