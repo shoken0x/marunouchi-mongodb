@@ -13,7 +13,7 @@
 # 流れ
 * 懇親会の出席を取る
 * gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載中
-* [丸の内MongoDB勉強会とは](http://syokenz.github.com/slides/mongonouchi/)
+* [丸の内MongoDB勉強会とは](https://github.com/rinrin0108/slides)
 * 初心者向けMongoDB入門 野村総合研究所 [林田敦](http://www.facebook.com/atsushi.hayashida.5)
 * MongoDBの運用 野村総合研究所 渡部徹太郎 [@fetarodc](http://twitter.com/fetarodc)
 * 次回以降取り組みたいテーマ
