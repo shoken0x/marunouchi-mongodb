@@ -24,42 +24,42 @@
 ![mm20130522.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130522.jpg)
 
 # 参加者
-[syokenz](http://twitter.com/syokenz)
-[rinrin0108](http://twitter.com/rinrin0108)
-[fetarodc](http://twitter.com/fetarodc)
-mominoshin
-crumbjp
-[naruoga](http://twitter.com/naruoga)
-Takahiro HAMAGUCHI
-kooooooooohei
-koooo
-k.pleiadi
-ferrylikeboy
-seafay
-[novi](http://twitter.com/novi_)
-kubihie
-[nya3jp](http://twitter.com/nya3jp)
-sstat3
-[uchiunyo](http://twitter.com/uchiunyo)
-[71713](http://twitter.com/x71713)
-hirasmharafa
-o_Ozzzzk
-[ukiuni](http://twitter.com/ukiuni)
-KanSakamoto
-knt5
-[quanocchi](http://twitter.com/quanocchi)
-[liszt26](http://twitter.com/liszt26)
-saber_chica
-Issei2029
-migrs
-[ebikento](http://twitter.com/ebikento)
-[taise](http://twitter.com/taise_515)
-もんたさん
-hiroya14
-zeds
-[okonomi](http://twitter.com/okonomi)
-[Takahiro Mikami](http://twitter.com/bednorz35)
-hk_atnd
+* [syokenz](http://twitter.com/syokenz)
+* [rinrin0108](http://twitter.com/rinrin0108)
+* [fetarodc](http://twitter.com/fetarodc)
+* mominoshin
+* crumbjp
+* [naruoga](http://twitter.com/naruoga)
+* Takahiro HAMAGUCHI
+* kooooooooohei
+* koooo
+* k.pleiadi
+* ferrylikeboy
+* seafay
+* [novi](http://twitter.com/novi_)
+* kubihie
+* [nya3jp](http://twitter.com/nya3jp)
+* sstat3
+* [uchiunyo](http://twitter.com/uchiunyo)
+* [71713](http://twitter.com/x71713)
+* hirasmharafa
+* o_Ozzzzk
+* [ukiuni](http://twitter.com/ukiuni)
+* KanSakamoto
+* knt5
+* [quanocchi](http://twitter.com/quanocchi)
+* [liszt26](http://twitter.com/liszt26)
+* saber_chica
+* Issei2029
+* migrs
+* [ebikento](http://twitter.com/ebikento)
+* [taise](http://twitter.com/taise_515)
+* もんたさん
+* hiroya14
+* zeds
+* [okonomi](http://twitter.com/okonomi)
+* [Takahiro Mikami](http://twitter.com/bednorz35)
+* hk_atnd
 
 
 # Togetter
