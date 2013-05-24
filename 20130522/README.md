@@ -21,7 +21,7 @@
   * 地理インデックス、事例紹介、セキュリティ（クエリーインジェクション）など
 * 懇親会へ
 
-
+![mm20130522.jpg](http://syokenz.github.com/marunouchi-mongodb/images/mm20130522.jpg)
 
 # 参加者
 
