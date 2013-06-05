@@ -26,8 +26,3 @@
 # 参加者
 
 
-# Togetter
-
-http://togetter.com/li/490167
-
-# Blog
