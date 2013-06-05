@@ -22,6 +22,7 @@
   * [スライド](http://www.facebook.com/l.php?u=http%3A%2F%2Fwww.slideshare.net%2Fcrumbjp%2Fmongo-ghostsync-and-slavedelay-japanease&h=jAQEi5MFX)
 * MongoDBのソースコードを楽しむ [@knt5](http://twitter.com/knt5)
   * [スライド](http://knt5lab.appspot.com/papers/20130327_mongodb/20130327_mongodb.pdf)
+  * [超速コードビューア](https://googledrive.com/host/0B-KHjZQyeTpsb2lUSzJ5T29tOXc/index.html)
 * 次回以降取り組みたいテーマ
   * 地理インデックス、事例紹介、セキュリティ（クエリーインジェクション）など
 * 懇親会へ
