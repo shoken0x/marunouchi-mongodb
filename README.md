@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2013/06/26（水）19:00～ 丸の内MongoDB勉強会 #11 「初心者向けレプリケーションハンズオン」、「Node.js+Mongoose+MongoDBで作るWebアプリ」
+##### 2013/06/26（水）19:00～ 丸の内MongoDB勉強会 #11 「初心者向けレプリケーションハンズオン」、「MongoDBでゲームを作る」
 
 
 #### ニュース
