@@ -1,15 +1,15 @@
 MongoDB レプリケーション(Replica Sets)
 =================
 
-概要
-=================
+### 概要
 
-[公式ＨＰ](http://docs.mongodb.org/manual/core/replication-introduction/)
+[公式サイト](http://docs.mongodb.org/manual/core/replication-introduction/)
 
 レプリケーションは、多数のサーバ間でデータを同期させる仕組みです。
 MongoDBでは、プライマリ（マスタ）だけが書き込み／読み込み要求を処理します（これは一貫性を保つためです）。クライアントが許可した場合、セカンダリからの読み込みも可能です。ただしこの場合、プライマリへのクエリがまだ反映されていない結果が返ってくることがあります。（これを防ぐ「書き込み保証」という機能もあります。「書き込み保証」については次回以降の勉強会で紹介します）
 
 ![image](http://docs.mongodb.org/manual/_images/replica-set-read-write-operations-primary.png)
+
 MongoDB公式サイトより引用
 
 レプリカセットは非同期型マスタ／スレーブ構成のレプリケーションをします。また、自動的にフェールオーバとリカバリーできます。
@@ -17,45 +17,48 @@ MongoDB公式サイトより引用
 レプリカセットは自動的にプライマリノードを選出します。本質的にマスタというものは存在しません（構成的にはどれも同じ）。
 
 
-* レプリケーションの目的
+### レプリケーションの目的
 （[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb/0004)より一部引用）
 
-** 可用性の向上
+* 可用性の向上
 
 マスターノードがスレーブノードと同期していることから、マスターノードに障害が起きてもデータロストやサービス停止時間を最小限にすることが可能です。また近年ではDR（ディザスタリカバリ）対応のため、地理的に離れたデータセンターにノードを分散させる設計も多く見られます。
 
-** 保守性の向上
+* 保守性の向上
 
 レプリケーションは負荷の高い操作をスレーブノードで実行できることにより、メンテナンス性を高めてくれます。たとえばバックアップをスレーブノードで行い、不要な負荷をマスターノードにかけないようにすることは広く行われています。
 
-** 負荷分散による性能の向上
+* 負荷分散による性能の向上
 
 レプリケーションを使用すれば、読み取り（Read）の負荷をノード間で分散させることができます。負荷のほとんどがReadで占められているようなアプリケーションの場合、Readの負荷をスレーブに分散させることによりシステムをスケールさせることが可能です。MongoDBではv2.2から、Readノードの分散をドライバで実装可能となりました。データの読み取り一貫性レベルに応じて、どのノードからReadするかをアプリケーションから容易に設定することが可能です。
 
 
 
 
-* 障害復旧
+### 耐障害性
 
 レプリカセットの最小構成は以下のとおり
-
-* 2つの「full node」と1つの「arbiter」
-
-![image](http://docs.mongodb.org/manual/_images/replica-set-primary-with-secondary-and-arbiter.png)
-MongoDB公式サイトより引用
 
 * 3つの「full node」
 
 ![image](http://docs.mongodb.org/manual/_images/replica-set-primary-with-two-secondaries.png)
+
 MongoDB公式サイトより引用
 
-※）arbiterはマスターの選出だけに参加するノードで、データは保持していません。
+* 2つの「full node」と1つの「arbiter」
+
+![image](http://docs.mongodb.org/manual/_images/replica-set-primary-with-secondary-and-arbiter.png)
+
+MongoDB公式サイトより引用
+
+※）arbiterはマスターの選出だけに参加するノードで、データは保持しません。
 
 単一障害点を回避するために、これらのノードは別のコンピュータにすべきです。
-基本的には、少なくともプライマリになるれるノードを２台用意します。
+基本的には、少なくともプライマリになれるノードを２台用意します。
 
-障害発生時は、以下のように復旧します。
+プライマリでの障害発生時は、以下のように復旧します。
 
 ![image](http://docs.mongodb.org/manual/_images/replica-set-trigger-election.png)
+
 MongoDB公式サイトより引用
 
