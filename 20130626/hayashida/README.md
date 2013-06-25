@@ -62,3 +62,8 @@ MongoDB公式サイトより引用
 
 MongoDB公式サイトより引用
 
+
+### ハンズオンでレプリカセットを構築してみよう！
+
+[ハンズオン](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130626/hayashida/hands-on)へ
+
