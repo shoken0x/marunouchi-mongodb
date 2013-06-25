@@ -10,7 +10,7 @@ MongoDBでは、プライマリ（マスタ）だけが書き込み／読み込�
 
 ![image](http://docs.mongodb.org/manual/_images/replica-set-read-write-operations-primary.png)
 
-MongoDB公式サイトより引用
+（上図はMongoDB公式サイトより引用）
 
 レプリカセットは非同期型マスタ／スレーブ構成のレプリケーションをします。また、自動的にフェールオーバとリカバリーができます。
 レプリカセットは自動的にプライマリノードを選出します。本質的にマスタというものは存在しません（構成的にはどれも同じ）。
@@ -48,13 +48,13 @@ Oplogはレプリケーションに必要なデータ操作オペレーション
 
 ![image](http://docs.mongodb.org/manual/_images/replica-set-primary-with-two-secondaries.png)
 
-MongoDB公式サイトより引用
+（上図はMongoDB公式サイトより引用）
 
 * 2つの「full node」と1つの「arbiter」
 
 ![image](http://docs.mongodb.org/manual/_images/replica-set-primary-with-secondary-and-arbiter.png)
 
-MongoDB公式サイトより引用
+（上図はMongoDB公式サイトより引用）
 
 ※）arbiterはマスターの選出だけに参加するノードで、データは保持しません。
 
@@ -65,7 +65,7 @@ MongoDB公式サイトより引用
 
 ![image](http://docs.mongodb.org/manual/_images/replica-set-trigger-election.png)
 
-MongoDB公式サイトより引用
+（上図はMongoDB公式サイトより引用）
 
 
 ### ハンズオンでレプリカセットを構築してみよう！
