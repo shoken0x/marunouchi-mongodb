@@ -7,18 +7,14 @@ MongoDB レプリケーション(Replica Sets)
 [公式ＨＰ](http://docs.mongodb.org/manual/core/replication-introduction/)
 
 レプリケーションは、多数のサーバ間でデータを同期させる仕組みです。
-MongoDBでは、一つのサーバ（プライマリ/マスタ）だけが書き込み要求を処理します（これは一貫性を保つためです）。また、プライマリノードは、「eventual consistency」が保たれるときだけ、読み込み要求をセカンダリノードへ転送します。
+MongoDBでは、プライマリ（マスタ）だけが書き込み／読み込み要求を処理します（これは一貫性を保つためです）。クライアントが許可した場合、セカンダリからの読み込みも可能です。ただしこの場合、プライマリへのクエリがまだ反映されていない結果が返ってくることがあります。（これを防ぐ「書き込み保証」という機能もあります。「書き込み保証」については次回以降の勉強会で紹介します）
 
+![image](http://docs.mongodb.org/manual/_images/replica-set-read-write-operations-primary.png)
+MongoDB公式サイトより引用
 
-
-![image](http://www.infoq.com/resource/articles/mongodb-java-php-python/en/resources/replicaSetSimple.png)
-
-レプリカセットは非同期型マスタ／スレーブ構成のレプリケーションをします。また、自動的にフェールオーバとリリカバーできます。
+レプリカセットは非同期型マスタ／スレーブ構成のレプリケーションをします。また、自動的にフェールオーバとリカバリーできます。
 レプリカセットは２つ以上のコピーからなります。
-レプリカセットは自動的にプライマリノードを選出しますが。ただ、shared-nothingのアーキテクチャに基づいているため、本質的にマスターというものは存在しません（構成的にはどれも同じ）。
-ドライバ(mongosも同様)は自動的にプライマリノードが変わったことを検知し、新しいプライマリノードに更新をかけるようにします（mongos sharding プロセスも同様）。
-
-
+レプリカセットは自動的にプライマリノードを選出します。本質的にマスタというものは存在しません（構成的にはどれも同じ）。
 
 
 * レプリケーションの目的
@@ -44,11 +40,22 @@ MongoDBでは、一つのサーバ（プライマリ/マスタ）だけが書き
 レプリカセットの最小構成は以下のとおり
 
 * 2つの「full node」と1つの「arbiter」
+
+![image](http://docs.mongodb.org/manual/_images/replica-set-primary-with-secondary-and-arbiter.png)
+MongoDB公式サイトより引用
+
 * 3つの「full node」
+
+![image](http://docs.mongodb.org/manual/_images/replica-set-primary-with-two-secondaries.png)
+MongoDB公式サイトより引用
 
 ※）arbiterはマスターの選出だけに参加するノードで、データは保持していません。
 
 単一障害点を回避するために、これらのノードは別のコンピュータにすべきです。
 基本的には、少なくともプライマリになるれるノードを２台用意します。
 
+障害発生時は、以下のように復旧します。
+
+![image](http://docs.mongodb.org/manual/_images/replica-set-trigger-election.png)
+MongoDB公式サイトより引用
 
