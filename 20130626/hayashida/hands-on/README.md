@@ -11,7 +11,7 @@ $ mkdir data data\node1 data\node2 data\node3
 
 Bash
 ```
-$ mkdir -p log\node1 log\node2 log\node3
+$ mkdir -p log/node1 log/node2 log/node3
 ```
 
 mongod開始  
@@ -25,22 +25,31 @@ $ start "node3" bin\mongod.exe --replSet rs1 --port 20003 --dbpath=data\node3 --
 
 Bash
 ```
-$ bin/mongod --replSet rs1 --port 20001 --dbpath=data/node1 --rest --logpath log\node1 &
-$ bin/mongod --replSet rs1 --port 20002 --dbpath=data/node2 --rest --logpath log\node2 &
-$ bin/mongod --replSet rs1 --port 20003 --dbpath=data/node3 --rest --logpath log\node3 &
+$ bin/mongod --replSet rs1 --port 20001 --dbpath=data/node1 --rest --logpath log/node1 &
+$ bin/mongod --replSet rs1 --port 20002 --dbpath=data/node2 --rest --logpath log/node2 &
+$ bin/mongod --replSet rs1 --port 20003 --dbpath=data/node3 --rest --logpath log/node3 &
 
 ```
 ※）start "str" はコマンドを別ウインドウで立ち上げて、ウインドウ名に"str"をつけるコマンドです
 
 
-プロセス確認
+プロセス確認  
 
+Windows
 ```
 $ tasklist | findstr mongo
 mongod.exe                   10712 Console                    1     66,116 K
 mongod.exe                    8732 Console                    1     69,344 K
 mongod.exe                   11100 Console                    1     68,308 K
 ```
+
+Bash
+```
+$ ps axu | grep mongo
+
+```
+
+
 
 起動確認は以下のURLにアクセスしてもOKです
 
