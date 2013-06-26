@@ -1,25 +1,30 @@
 レプリカセットを試す
 =================
 
-(Windowsのコマンドプロンプトで実行する用のコマンドを書いています。bashな人はよしなに読み替えてください)
-
-データディレクトリ作成
-
+データディレクトリ作成  
+  
+Windows
 ```
 $ cd (mongodb install directory)
 $ mkdir data data\node1 data\node2 data\node3
-(bash)
-$ mkdir log log\node1 log\node2 log\node3
 ```
 
-mongod開始
-
+Bash
 ```
-(Windows)
+$ mkdir -p log\node1 log\node2 log\node3
+```
+
+mongod開始  
+  
+Windows  
+```
 $ start "node1" bin\mongod.exe --replSet rs1 --port 20001 --dbpath=data\node1 --rest
 $ start "node2" bin\mongod.exe --replSet rs1 --port 20002 --dbpath=data\node2 --rest
 $ start "node3" bin\mongod.exe --replSet rs1 --port 20003 --dbpath=data\node3 --rest
-(bash)
+```
+
+Bash
+```
 $ bin/mongod --replSet rs1 --port 20001 --dbpath=data/node1 --rest --logpath log\node1 &
 $ bin/mongod --replSet rs1 --port 20002 --dbpath=data/node2 --rest --logpath log\node2 &
 $ bin/mongod --replSet rs1 --port 20003 --dbpath=data/node3 --rest --logpath log\node3 &
