@@ -11,6 +11,7 @@ $ mkdir data data\node1 data\node2 data\node3
 
 Bash
 ```
+$ mkdir -p data/node1 data/node2 data/node3
 $ mkdir -p log/node1 log/node2 log/node3
 ```
 
