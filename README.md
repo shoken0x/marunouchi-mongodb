@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2013/07/28（日）16:00～ 丸の内MongoDB勉強会 #12 in 納涼もんご祭り 「Node.js+Mongoose+MongoDB で作るWebアプリ」 [ATND](http://atnd.org/events/41167)
+##### 2013/07/28（日）16:00～ 丸の内MongoDB勉強会 #12 in 納涼もんご祭り 「Node.js+Mongoose+MongoDB で作るWebアプリ」「ホスティングサービスで始めるMongoDB」 [ATND](http://atnd.org/events/41167)
 
 
 #### ニュース
