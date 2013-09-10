@@ -73,4 +73,4 @@ ChunkB [ "k", "{" )
 </pre>
 
 ----
-それでは実際にシャーディングを設定してみましょう。[step01](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz/step01)へ進んでください。
+それでは実際にシャーディングを設定してみましょう。[step01](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step01)へ進んでください。

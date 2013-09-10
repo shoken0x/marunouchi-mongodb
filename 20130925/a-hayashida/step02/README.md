@@ -69,7 +69,7 @@ mongosは、単なるルーティングプロセスでデータの管理はし�
 $ tail -f /tmp/mongodb/log/mongos.log
 </pre>
 
-* 参考：shardの１つが落ちが時のmongosのログ
+* 参考：shardの１つが落ちた時のmongosのログ
 ```
 Tue Aug 28 19:23:09 [WriteBackListener-localhost:10010] WriteBackListener exception : socket exception
 ```

@@ -14,11 +14,12 @@
 # 流れ
 * 懇親会の出席を取る
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
-* [初心者向け：みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925)  [野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
-  * [シャーディングの設定](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step01)
-  * [障害発生時の挙動](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02)
-  * [みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step03)
-* もんごで自然言語処理！第一弾  窪田博昭さん
+* 初心者向け：みんなでシャーディング
+  * [MongoDB Sharding Overview](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida)：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
+  * [Step1:シャーディングの設定](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step01)
+  * [Step2:障害発生時の挙動](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02)
+  * [Step3:みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step03)
+* もんごで自然言語処理！第一弾：窪田博昭さん
 * 懇親会へ
 
 
