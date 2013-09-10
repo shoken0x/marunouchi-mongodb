@@ -19,7 +19,7 @@
   * [Step1:シャーディングの設定](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step01)
   * [Step2:障害発生時の挙動](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02)
   * [Step3:みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step03)
-* もんごで自然言語処理！第一弾：窪田博昭さん
+* もんごで自然言語処理！第一弾：窪田博昭さん[@crumbjp](http://d.hatena.ne.jp/hiroppon/)
 * 懇親会へ
 
 
