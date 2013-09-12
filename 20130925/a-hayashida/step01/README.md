@@ -230,8 +230,13 @@ $ bin/mongo localhost:30002/logdb
 > exit
 ```
 
+### 障害発生時の挙動について
+
+障害発生時の挙動については、今回は時間の都合で割愛します。
+気になる方は、[第2回の資料](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz/step02)をご参照ください。
+
 ----
-お疲れ様でした。シャーディングの確認はできましたら、次は[step02](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02) 障害発生時の挙動についてです。
+お疲れ様でした。ローカル環境でのシャーディングの確認はできましたら、次は[step02](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02) 
 
 
 
