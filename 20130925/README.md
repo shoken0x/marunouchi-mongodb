@@ -17,8 +17,7 @@
 * 初心者向け：みんなでシャーディング：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
   * [MongoDB Sharding Overview](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida)
   * [Step1:シャーディングの設定](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step01)
-  * [Step2:障害発生時の挙動](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02)
-  * [Step3:みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step03)
+  * [Step2:みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02)
 * もんごで自然言語処理！第一弾：[窪田博昭さん](http://d.hatena.ne.jp/hiroppon/)[@crumbjp](https://twitter.com/crumbjp)
 * 懇親会へ
 

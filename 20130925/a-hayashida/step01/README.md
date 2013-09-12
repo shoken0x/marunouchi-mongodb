@@ -236,13 +236,7 @@ $ bin/mongo localhost:30002/logdb
 気になる方は、[第2回の資料](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828/syokenz/step02)をご参照ください。
 
 ----
-お疲れ様でした。ローカル環境でのシャーディングの確認はできましたら、次は[step02](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02) 
-
-
-
-
-
-
+お疲れ様でした。ローカル環境でのシャーディングの確認ができましたら、次は[Step2:みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02) です。
 
 
 
