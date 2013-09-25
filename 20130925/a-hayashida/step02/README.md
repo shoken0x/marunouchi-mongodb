@@ -26,7 +26,7 @@ either use all shards and configdbs in localhost or all in actual IPs host: loca
 $ mkdir /tmp/mongodb/shard20
 
 //port 20000でshardサーバを起動させましょう
-$ mongod --shardsvr --port 20000 --dbpath /tmp/mongodb/shard20 --logpath /tmp/mongodb/log/shard20.log --rest &
+$ mongod --shardsvr --port 20000 --bind_ip {自分のIP} --dbpath /tmp/mongodb/shard20 --logpath /tmp/mongodb/log/shard20.log --rest &
 ```
 
 ----
@@ -36,10 +36,10 @@ $ mongod --shardsvr --port 20000 --dbpath /tmp/mongodb/shard20 --logpath /tmp/mo
 //configサーバのデータを削除してきれいにしましょう
 $ rm -rf /tmp/mongodb/config/* 
 //configサーバを起動させましょう
-$ mongod --configsvr --port 10001 --dbpath /tmp/mongodb/config --logpath /tmp/mongodb/log/config.log --rest &
+$ mongod --configsvr --bind_ip {自分のIP} --port 10001 --dbpath /tmp/mongodb/config --logpath /tmp/mongodb/log/config.log --rest &
 
 //mongosサーバを起動させましょう　
-$ mongos --configdb {自分の実IP}:10001 --port 10000 --logpath /tmp/mongodb/log/mongos.log --chunkSize 1&
+$ mongos --configdb {自分の実IP}:10001 --port 10000 --bind_ip {自分のIP} --logpath /tmp/mongodb/log/mongos.log --chunkSize 1&
 //例：$ mongos --configdb 10.0.2.1:10001 --port 10000 --logpath /tmp/mongodb/log/mongos.log --chunkSize 1&
 
 //隣人のshardを追加してみましょう
