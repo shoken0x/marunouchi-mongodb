@@ -18,7 +18,7 @@
   * [MongoDB Sharding Overview](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida)
   * [Step1:シャーディングの設定](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step01)
   * [Step2:みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130925/a-hayashida/step02)
-* もんごで自然言語処理！第一弾：[窪田博昭さん](http://d.hatena.ne.jp/hiroppon/)[@crumbjp](https://twitter.com/crumbjp)
+* もんごで自然言語処理！第一弾：[窪田博昭さん](http://d.hatena.ne.jp/hiroppon/)[@crumbjp](https://twitter.com/crumbjp) => 次回以降に延期となりました
 * 懇親会へ
 
 
@@ -31,7 +31,19 @@
 
 
 # 参加者
-
-
+* [@rinrin0108](https://twitter.com/rinrin0108)
+* [@fetarodc](https://twitter.com/fetarodc)
+* noanko
+* [@m_shige1979](https://twitter.com/m_shige1979)
+* yujiosaka
+* 小田島一樹
+* つれづれ [@tudumi](https://twitter.com/tudumi)
+* イヴァ
+* nik
+* bon matzmoto
+* ham&ex
+* kitacchi
+* ferrylikeboy
+* jouko
 
 
