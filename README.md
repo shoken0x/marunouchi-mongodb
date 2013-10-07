@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2013/07/28（日）16:00～ 丸の内MongoDB勉強会 #12 in 納涼もんご祭り 「Node.js+Mongoose+MongoDB で作るWebアプリ」「ホスティングサービスで始めるMongoDB」 [ATND](http://atnd.org/events/41167)
+##### 2013/10/31（木）18:30～ 丸の内MongoDB勉強会 #14「初心者向け：レプリケーション＋シャーディングハンズオン」「もんごで自然言語処理！第一弾」 [ATND](http://atnd.org/events/)
 
 
 #### ニュース
@@ -54,4 +54,5 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 * [丸の内MongoDB勉強会 #9 in 楽天 「MongoDB 2.4の注目の新機能ハンズオン」と「MongoDBの検証環境を作ろう」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130417) 2013/04/17 [ATND](http://atnd.org/events/38369)
 * [丸の内MongoDB勉強会 #10 「初心者向けMongoDB入門」と「MongoDBの運用」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130522) 2013/05/22 [ATND](http://atnd.org/events/39093)
 * [丸の内MongoDB勉強会 #11 「初心者向けレプリケーションハンズオン」、「MongoDBでゲームを作る」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130626) 2013/06/26 [ATND](http://atnd.org/events/39988)
-
+* [丸の内MongoDB勉強会 #12 in 納涼もんご祭り 「Node.js+Mongoose+MongoDB で作るWebアプリ」、「ホスティングサービスで始めるMongoDB」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130728) 2013/07/28 [ATND](http://atnd.org/events/41167)
+* [丸の内MongoDB勉強会 #13 「初心者向け：みんなでシャーディング」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130728) 2013/09/25 [ATND](http://atnd.org/events/43358)
