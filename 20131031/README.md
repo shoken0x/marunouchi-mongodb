@@ -1,6 +1,6 @@
 ### 丸の内MongoDB勉強会 #14
 
-# 「初心者向け：みんなでシャーディング」「もんごで自然言語処理！第一弾」
+# 「初心者向け：レプリケーション＋シャーディング」「もんごで自然言語処理！第一弾」
 
 ハッシュタグは[#mongonouchi](https://twitter.com/search?q=%23mongonouchi&src=hash)
 
