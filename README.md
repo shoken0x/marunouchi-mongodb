@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2013/10/31（木）18:30～ 丸の内MongoDB勉強会 #14「初心者向け：レプリケーション＋シャーディングハンズオン」「もんごで自然言語処理！第一弾」 [ATND](http://atnd.org/events/)
+##### 2013/10/31（木）18:30～ 丸の内MongoDB勉強会 #14「初心者向け：レプリケーション＋シャーディングハンズオン」「もんごで自然言語処理！第一弾」 [ATND](http://atnd.org/events/44449)
 
 
 #### ニュース
