@@ -14,7 +14,7 @@
 # 流れ
 * 懇親会の出席を取る
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
-* 初心者向け：レプリケーション＋シャーディング：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
+* [初心者向け：レプリケーション＋シャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20131031/a-hayashida)：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
 * もんごで自然言語処理！第一弾：[窪田博昭さん](http://d.hatena.ne.jp/hiroppon/)[@crumbjp](https://twitter.com/crumbjp)
 * 懇親会へ
 

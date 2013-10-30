@@ -3,6 +3,10 @@
 
 さあ！このシステムを４人一組で組んでください！
 
+ヒントは[こちら](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120926/fetarodc/step2#%E8%A4%87%E6%95%B0shard%E3%81%A7%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%95%A3%E3%83%AC%E3%83%97%E3%83%AA%E3%82%AB)
+
+※）作業をする前に、いったんすべてのプロセスを殺して、dataフォルダを削除することをお勧めします。 ちなみに、フォルダを丸ごと消したい場合、bashでは「rm -rf data」ですが、Windowsだと「rd /s data」です。
+
 物理構成図
 -----------------
 
