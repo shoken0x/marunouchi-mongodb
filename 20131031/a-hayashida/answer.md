@@ -1,4 +1,3 @@
-
 答えの手順
 
 ```
@@ -9,6 +8,8 @@ $ mkdir data\ data\node11 data\node21 data\node31
 $ start "node11" bin\mongod.exe --replSet rs1 --port 20011 --dbpath=data/node11 --rest
 $ start "node21" bin\mongod.exe --replSet rs2 --port 20021 --dbpath=data/node21 --rest
 $ start "node31" bin\mongod.exe --replSet rs3 --port 20031 --dbpath=data/node31 --rest
+
+※）macの場合は「--bind_ip=0.0.0.0」オプションが必要な場合があります。
 
 $ bin\mongo localhost:20011
 > cfg = {
