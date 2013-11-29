@@ -180,7 +180,9 @@ mongorestore --collection attach_images --db gmail dump/gmail/
 ## viewの作成
 
 #### 実装する機能
-画像表示  
+画像表示
+ここを見て！
+https://github.com/syokenz/marunouchi-mongodb/tree/master/20121106/syokenz/html
 
 #### こんな機能があるといいかも
 条件検索  
