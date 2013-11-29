@@ -21,7 +21,7 @@
       alert('error');
     }
   });
-})();
+});
 
 
 $(function(){
@@ -31,21 +31,6 @@ $(function(){
     $('ul li').each(function(i){
       $(this).delay(i*(delaySpeed)).css({display:'block',opacity:'0'}).animate({opacity:'1'},fadeSpeed);
     });
-
-    $.ajax({
-      url: 'http://localhost:28017/gmail/attach_images/',
-      dataType: 'jsonp',
-      jsonp : 'jsonp', //callback用のパラメータを指定
-      success : function(data) {
-        for (var i=0; i < data.rows.length; i++){
-          $('#gallery').append('<li><img src="data:image/jpeg;base64,' + data.rows[i].image + '" /></li>');
-        }
-      },
-      error : function(){
-        alert('error');
-      }
-    });
-
   });
 });
 
