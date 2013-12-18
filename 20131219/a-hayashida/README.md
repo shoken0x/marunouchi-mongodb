@@ -9,6 +9,9 @@
 -----------------
 
 sshで踏み台サーバ「172.31.25.103」に接続してください。
+
+※）接続用のKeyPairは当日お渡しします。
+
 さらに踏み台サーバから各自の担当hostに接続してください。
 
 ```
@@ -34,4 +37,4 @@ $ ssh [担当hostのIP]
 * mongosへ問い合わせをしながら、どれか一台のmongodのマシンのNICを止めて落としてみましょう。
 * そのマシンを復活させてみましょう。
 
-答えの手順は[コチラ](https://github.com/syokenz/marunouchi-mongodb/blob/master/20131031/a-hayashida/answer.md)
+答えの手順は[コチラ](https://github.com/syokenz/marunouchi-mongodb/blob/master/20131218/a-hayashida/answer.md)

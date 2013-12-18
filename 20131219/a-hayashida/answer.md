@@ -4,7 +4,7 @@
 
 ■host1
 $ sudo su -
-# mkdir /data /data/node11 /data/node21 data/node31
+# mkdir /data /data/node11 /data/node21 /data/node31
 # mongod --replSet rs1 --port 20011 --dbpath /data/node11 --rest
 # mongod --replSet rs2 --port 20021 --dbpath /data/node21 --rest
 # mongod --replSet rs3 --port 20031 --dbpath /data/node31 --rest
