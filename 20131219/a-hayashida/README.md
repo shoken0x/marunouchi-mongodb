@@ -15,7 +15,7 @@ sshで踏み台サーバ「172.31.25.103」に接続してください。
 さらに踏み台サーバから各自の担当hostに接続してください。
 
 ```
-$ ssh [担当hostのIP]
+$ ssh [担当hostのPublic DNS名（○○○○.ap-northeast-1.compute.amazonaws.com）]
 ```
 
 ※）まずは、各hostのmongodに接続が可能かどうか確認しましょう。（# mongo --host [IP] --port [PORT]）

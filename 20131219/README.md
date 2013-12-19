@@ -14,8 +14,8 @@
 # 流れ
 * 懇親会の出席を取る
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
-* [初心者向け：レプリケーション＋シャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20131219/a-hayashida)：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
-* [MongoDBと私（事例紹介）]　楽天株式会社　下郡愛さん
+* [初心者向け：レプリケーション＋シャーディング（第14回のリベンジ）](https://github.com/syokenz/marunouchi-mongodb/tree/master/20131219/a-hayashida)：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
+* MongoDBと私（事例紹介）　楽天株式会社　下郡愛さん
 * 懇親会へ
 
 
