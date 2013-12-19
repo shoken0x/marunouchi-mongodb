@@ -5,9 +5,9 @@
 ■host1
 $ sudo su -
 # mkdir /data /data/node11 /data/node21 /data/node31
-# mongod --replSet rs1 --port 20011 --dbpath /data/node11 --rest
-# mongod --replSet rs2 --port 20021 --dbpath /data/node21 --rest
-# mongod --replSet rs3 --port 20031 --dbpath /data/node31 --rest
+# mongod --replSet rs1 --port 20011 --dbpath /data/node11 --rest --nojournal
+# mongod --replSet rs2 --port 20021 --dbpath /data/node21 --rest --nojournal
+# mongod --replSet rs3 --port 20031 --dbpath /data/node31 --rest --nojournal
 
 $ mongo localhost:20011
 > cfg = {
@@ -23,9 +23,9 @@ $ mongo localhost:20011
 ■host2
 $ sudo su -
 # mkdir /data /data/node12 /data/node22 /data/node32
-# mongod --replSet rs1 --port 20012 --dbpath /data/node12 --rest
-# mongod --replSet rs2 --port 20022 --dbpath /data/node22 --rest
-# mongod --replSet rs3 --port 20032 --dbpath /data/node32 --rest
+# mongod --replSet rs1 --port 20012 --dbpath /data/node12 --rest --nojournal
+# mongod --replSet rs2 --port 20022 --dbpath /data/node22 --rest --nojournal
+# mongod --replSet rs3 --port 20032 --dbpath /data/node32 --rest --nojournal
 
 $ mongo localhost:20022
 > cfg = {
@@ -40,9 +40,9 @@ $ mongo localhost:20022
 ■host3
 $ sudo su -
 # mkdir /data /data/node13 /data/node23 /data/node33
-# mongod --replSet rs1 --port 20013 --dbpath /data/node13 --rest
-# mongod --replSet rs2 --port 20023 --dbpath /data/node23 --rest
-# mongod --replSet rs3 --port 20033 --dbpath /data/node33 --rest
+# mongod --replSet rs1 --port 20013 --dbpath /data/node13 --rest --nojournal
+# mongod --replSet rs2 --port 20023 --dbpath /data/node23 --rest --nojournal
+# mongod --replSet rs3 --port 20033 --dbpath /data/node33 --rest --nojournal
 
 $ mongo localhost:20033
 > cfg = {
@@ -56,7 +56,7 @@ $ mongo localhost:20033
 
 ■host0(mongosサーバ)
 $ sudo su -
-# mkdir data\config
+# mkdir /data/config
 # mongod --configsvr --port 10001 --dbpath /data/config --rest
 # mongos --configdb %IP%:10001 --port 10000 --chunkSize 1
 
