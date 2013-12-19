@@ -9,7 +9,7 @@ $ sudo su -
 # mongod --replSet rs2 --port 20021 --dbpath /data/node21 --rest --nojournal
 # mongod --replSet rs3 --port 20031 --dbpath /data/node31 --rest --nojournal
 
-$ mongo [ホストのIP]:20011
+$ mongo localhost:20011
 > cfg = {
  _id : "rs1", 
  members : [ 
@@ -27,7 +27,7 @@ $ sudo su -
 # mongod --replSet rs2 --port 20022 --dbpath /data/node22 --rest --nojournal
 # mongod --replSet rs3 --port 20032 --dbpath /data/node32 --rest --nojournal
 
-$ mongo [ホストのIP]:20022
+$ mongo localhost:20022
 > cfg = {
  _id : "rs2", 
  members : [ 
@@ -44,7 +44,7 @@ $ sudo su -
 # mongod --replSet rs2 --port 20023 --dbpath /data/node23 --rest --nojournal
 # mongod --replSet rs3 --port 20033 --dbpath /data/node33 --rest --nojournal
 
-$ mongo [ホストのIP]:20033
+$ mongo localhost:20033
 > cfg = {
  _id : "rs3", 
  members : [ 
@@ -60,7 +60,7 @@ $ sudo su -
 # mongod --configsvr --port 10001 --dbpath /data/config --rest
 # mongos --configdb %IP%:10001 --port 10000 --chunkSize 1
 
-$ mongo [ホストのIP]:10000
+$ mongo localhost:10000
 > use admin
 > db.runCommand({addshard:"rs1/%host1-IP%:20011,%host2-IP%:20012,%host3-IP%:20013"})
 > db.runCommand({addshard:"rs2/%host1-IP%:20021,%host2-IP%:20022,%host3-IP%:20023"})
