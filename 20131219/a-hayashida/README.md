@@ -8,14 +8,12 @@
 環境への繋ぎ方
 -----------------
 
-sshで踏み台サーバ「172.31.25.103」に接続してください。
-
 ※）接続用のKeyPairは当日お渡しします。
 
-さらに踏み台サーバから各自の担当hostに接続してください。
+各自の担当hostに接続してください。
 
 ```
-$ ssh [担当hostのPublic DNS名（○○○○.ap-northeast-1.compute.amazonaws.com）]
+$ ssh [担当hostのIP]
 ```
 
 ※）まずは、各hostのmongodに接続が可能かどうか確認しましょう。（# mongo --host [IP] --port [PORT]）
