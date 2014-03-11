@@ -58,3 +58,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 * [丸の内MongoDB勉強会 #13 「初心者向け：みんなでシャーディング」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20130728) 2013/09/25 [ATND](http://atnd.org/events/43358)
 * [丸の内MongoDB勉強会 #14 「初心者向け：レプリケーション＋シャーディング」「もんごで自然言語処理！第一弾」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20131031) 2013/10/31 [ATND](http://atnd.org/events/44449)
 * [丸の内MongoDB勉強会 #15 「初心者向け：レプリケーション＋シャーディング（第14回のリベンジ）」「MongoDBと私（事例紹介）」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20131219) 2013/12/19 [ATND](http://atnd.org/events/46307)
+* [丸の内MongoDB勉強会 #16 「がっつり事例紹介」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140319) 2014/3/19 [ATND](http://atnd.org/events/48346)
+
+
+
