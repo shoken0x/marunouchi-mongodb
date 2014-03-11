@@ -7,8 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2013/10/31（木）19:00～ [丸の内MongoDB勉強会 #15「初心者向け：レプリケーション＋シャーディング（第14回のリベンジ）」「MongoDBと私（事例紹介）」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20131219) 2013/12/19 [ATND](http://atnd.org/events/46307)
-
+##### 2014/03/19 19:00（水） [丸の内MongoDB勉強会 #16 「がっつり事例紹介」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140319) 2014/3/19 [ATND](http://atnd.org/events/48346)
 
 #### ニュース
 ##### gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載終了！ありがとうございました！
