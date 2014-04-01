@@ -17,6 +17,8 @@
 * [がっつり事例紹介]：[野村総合研究所 渡部徹太郎](https://twitter.com/fetarodc)
 * 懇親会へ
 
+# 発表資料
+* [がっつりMongoDB事例紹介](http://www.slideshare.net/tetsutarowatanabe/mongodb-32964238)
 
 # 参考資料
 * [Mongo sharding @doryokujinさん - slideshare](http://www.slideshare.net/doryokujin/mongo-sharding)  
