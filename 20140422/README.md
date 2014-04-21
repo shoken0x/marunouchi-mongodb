@@ -58,7 +58,7 @@ connecting to: test
 ### Pentahoのデータのインポート
 
 * Pentahoのデータをダウンロード
- * 
+ * https://github.com/syokenz/marunouchi-mongodb/blob/master/20140422/mongodb-bin-dump-pentaho.zip
 * 適当なディレクトリに解凍
  * ここではMongoDBの解凍ディレクトリ以下に解凍します
  * 解凍する「dump」というディレクトリができます
@@ -123,7 +123,7 @@ sessions_events
 system.indexes
 ```
 
-* 中身を検索
+* 中身を検索等
 
 ```
 > db.events.count()
