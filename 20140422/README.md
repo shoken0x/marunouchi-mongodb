@@ -58,7 +58,7 @@ connecting to: test
 ### Pentahoのデータのインポート
 
 * Pentahoのデータをダウンロード
- * https://github.com/syokenz/marunouchi-mongodb/blob/master/20140422/mongodb-bin-dump-pentaho.zip
+ * https://github.com/syokenz/marunouchi-mongodb/raw/master/20140422/mongodb-bin-dump-pentaho.zip
 * 適当なディレクトリに解凍
  * ここではMongoDBの解凍ディレクトリ以下に解凍します
  * 解凍する「dump」というディレクトリができます
