@@ -1,6 +1,6 @@
 ### 丸の内MongoDB勉強会 #17
 
-# 「初心者向けMongoDBのキホン！」「初心者向けMongoDB入門」、「月間10億PVを支えるMongoDBアーキテクチャ」
+# 「初心者向けMongoDBのキホン！」、「初心者向けMongoDB入門」、「月間10億PVを支えるMongoDBアーキテクチャ」
 
 ハッシュタグは[#mongonouchi](https://twitter.com/search?q=%23mongonouchi&src=hash)
 
