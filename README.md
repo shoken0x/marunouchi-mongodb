@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2014/05/14 19:00（水） [丸の内MongoDB勉強会 #17 「初心者向けMongoDB入門」「月間10億PVを支えるMongoDBアーキテクチャ」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140514) 2014/5/14 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/10770)
+##### 2014/05/14 19:00（水） [丸の内MongoDB勉強会 #17 「初心者向けMongoDBのキホン！」「初心者向けMongoDB入門」「月間10億PVを支えるMongoDBアーキテクチャ」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140514) 2014/5/14 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/10770)
 
 #### ニュース
 ##### gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載終了！ありがとうございました！
