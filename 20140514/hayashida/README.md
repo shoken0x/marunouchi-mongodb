@@ -1,7 +1,6 @@
-# SQLと比較しながらクエリを学ぶ
+# MongoDB入門
 
-* 本資料は、第1回丸の内MongoDB勉強会の資料をバージョン2.4.3向けに修正したものです。
-* まずは、導入として[MongoDBでゆるふわDB体験「第1回 使ってみようMongoDB」の記事](http://gihyo.jp/dev/serial/01/mongodb/0001?page=1)の一部を読んでみましょう。
+* 本資料は、第1回丸の内MongoDB勉強会の資料をバージョン2.6.1（2014/5/5リリース）向けに修正したものです。
 
 ## インストールはダウンロードしたファイルを展開するだけです
 ### ここからOSにあったバイナリをダウンロードしてください
@@ -9,9 +8,9 @@
 
 ### 展開と確認(Linuxの場合)
 <pre>
-# tar zxfv mongodb-linux-x86_64-2.4.3.tgz
+# tar zxfv mongodb-linux-x86_64-2.6.1.tgz
 
-# cd mongodb-linux-x86_64-2.4.3
+# cd mongodb-linux-x86_64-2.6.1
 
 # ll
 GNU-AGPL-3.0
@@ -19,7 +18,7 @@ README
 THIRD-PARTY-NOTICES
 bin
 
-# ll bin
+# ll bin/
 bsondump
 mongo
 mongod
@@ -31,13 +30,12 @@ mongooplog
 mongoperf
 mongorestore
 mongos
-mongosniff
 mongostat
 mongotop
 </pre>
 
 ### 展開(Windowsの場合)
-* ダウンロードしたzipファイルを解凍する
+* ダウンロードしたzipファイルを解凍する(msi形式でもダウンロードできますが、ここではzip形式の場合を記載します)
 
 ## pathの確認
 ### Windows
@@ -56,10 +54,11 @@ mongotop
 
 ## mongodbの起動
 
-* mongodの起動  
+* mongodの起動
 dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
+--nojournalオプションは、
 <pre>
-> mongod --dbpath {path}  //例 mongod --dbpath C:\mongo\db
+> mongod --nojournal --dbpath {path}  //例 mongod --dbpath C:\mongo\db
 </pre>
 
 * configファイルを使用した起動(configファイルで設定したい人向け)
@@ -72,8 +71,14 @@ dbpathオプションでdataディレクトリを指定します。指定しな�
 > mongo
 // 成功例
 [root@dev bin]# mongo
-MongoDB shell version: 2.4.1
+MongoDB shell version: 2.6.1
 connecting to: test
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+        http://docs.mongodb.org/
+Questions? Try the support group
+        http://groups.google.com/group/mongodb-user
 >
 </pre>
 
@@ -82,6 +87,12 @@ connecting to: test
 * データベースを参照する // mysql> show databases
 <pre>
 > show dbs
+admin  (empty)
+local  0.078GB
+
+> show databases
+admin  (empty)
+local  0.078GB
 </pre>
 
 * データベースを選択/作成する // mysql> use {db_name}; create database {db_name}  
@@ -103,6 +114,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 > use {db_name}  
 > show collections  //コレクションが何も表示されなかったら適当にinsertする  
 > db.marunouchi.insert({"created_at":new Date()})  //現在時刻をinsert  
+WriteResult({ "nInserted" : 1 })
 > show collections //marunouchiが見えますか
 </pre>
 
@@ -115,12 +127,17 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 > show collections //確認、marunouchiは削除された  
 </pre>
 
-* コレクション内のデータを削除する // mysql> truncate table {table_name}
+* コレクション内のドキュメントを削除する // mysql> truncate table {table_name}
 <pre>
-> db.marunouchi.insert({"created_at":new Date()})  
+> db.marunouchi.insert({"created_at":new Date()})
+WriteResult({ "nInserted" : 1 })
 > show collections  
-> db.marunouchi.remove() //コレクションの中のすべてのオブジェクトを削除します  
-> show collections //確認、marunouchiはまだある  
+> db.marunouchi.remove()
+2014-05-12T02:36:44.040+0000 remove needs a query at src/mongo/shell/collection.js:299
+// removeにはクエリが必要になりました（2.6.0？～）
+> db.marunouchi.remove({}) //これで全てのドキュメントを削除できます
+WriteResult({ "nRemoved" : 1 })
+> show collections //確認、marunouchiはまだある
 </pre>
 
 * descコマンドはありません // mysql> desc {table_name}
@@ -131,8 +148,11 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 <pre>
 > use {db_name}
 > db.marunouchi.insert({"created_at":new Date()})
+WriteResult({ "nInserted" : 1 })
 > db["marunouchi"].insert({"created_at":new Date()}) //こんな書き方もできます 
+WriteResult({ "nInserted" : 1 })
 > for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i}) //for文も使えます
+WriteResult({ "nInserted" : 1 })
 </pre>
 
 
@@ -140,7 +160,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 * ハッシュであるdbのキー一覧を表示してみる
 <pre>
 > for(var k in db) print(k)
-> //versionというキーあり、呼んでみる
+//versionというキーあり、呼んでみる
 > db.version
 > db.version()
 </pre>
@@ -213,20 +233,25 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 </pre>
 
 ### UPDATE
-* mysql> update marunouchi set version = 7 where name = 'debian'
+* mysql> update marunouchi set name = "box1" where stock = 10
 <pre>
-> db.marunouchi.update({"name":"debian"},{$set:{"version":7}}) //$setがないと他のフィールドが消えてしまうので注意
+> db.marunouchi.update({"stock":10},{$set:{"name":"box1"}},{"multi":"true"})
+//$setがないと他のフィールドが消えてしまうので注意
+//{"multi":"true"}がないと複数ドキュメントに対する更新ができないので注意
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.marunouchi.find({"stock":10})
 </pre>
 
 * _idが存在すればupdate、存在しなければinsert
 <pre>
-> db.marunouchi.save({"_id":ObjectId("xxxx"),"version":7})
+> db.marunouchi.save({"_id":ObjectId("***************"),"name":"box2"})
 </pre>
 
 ### DELETE
 * mysql> delete from marunouchi where name = 'centos'
 <pre>
-> db.marunouchi.remove({"name":"centos"})
+> db.marunouchi.remove({"name":"box2"})
+WriteResult({ "nRemoved" : 1 })
 </pre>
 
 ## INDEX
