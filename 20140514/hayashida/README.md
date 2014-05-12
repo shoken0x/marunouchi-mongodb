@@ -56,7 +56,7 @@ mongotop
 
 * mongodの起動
 dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
---nojournalオプションは、
+nojournalオプションはジャーナリングを無効にするオプションです。ジャーナリングが有効の場合、3GB程度のジャーナルファイルが自動生成されます。
 <pre>
 > mongod --nojournal --dbpath {path}  //例 mongod --dbpath C:\mongo\db
 </pre>
