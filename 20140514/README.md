@@ -16,7 +16,7 @@
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
 * [初心者向けMongoDBのキホン！](http://www.slideshare.net/tetsutarowatanabe/mongo-db-32210761) 野村総合研究所 [渡部徹太郎 @fetarodc](https://twitter.com/fetarodc)
 * [初心者向けMongoDB入門](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140514/hayashida) 野村総合研究所 [林田敦](http://www.facebook.com/atsushi.hayashida.5)
-* 月間10億PVを支えるMongoDBアーキテクチャ [株式会社DoBoken](http://zenclerk.com/) [磯部有司 @yujiosaka](https://twitter.com/yujiosaka)
+* [月間10億PVを支えるMongoDBアーキテクチャ](http://www.slideshare.net/yujiosaka/10pvmongo-db) [株式会社DoBoken](http://zenclerk.com/) [磯部有司 @yujiosaka](https://twitter.com/yujiosaka)
 * 次回以降取り組みたいテーマ
 * 懇親会へ
 
