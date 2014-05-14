@@ -89,7 +89,8 @@ Questions? Try the support group
 > show dbs
 admin  (empty)
 local  0.078GB
-
+</pre>
+<pre>
 > show databases
 admin  (empty)
 local  0.078GB
