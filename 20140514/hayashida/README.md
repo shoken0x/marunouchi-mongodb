@@ -222,7 +222,7 @@ WriteResult({ "nInserted" : 1 })
 > db.marunouchi.find({ "stock": { $lte: 10 } }, { "_id": 1 })
 </pre>
 
-* JSON形式で表示
+* JSON形式で表示 //find()はIteratorが返却されるが、こうすればJSONそのものが返却される
 <pre>
 > db.marunouchi.find().forEach(printjson)  
 > db.marunouchi.find().forEach(printjsononeline)  
