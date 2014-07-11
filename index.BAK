@@ -41,7 +41,7 @@
 <hr><h4>開催予定</h4>
 
 <p>
-<a href="https://github.com/syokenz/marunouchi-mongodb/tree/master/20140514">丸の内MongoDB勉強会 #17 「初心者向けMongoDBのキホン！」、「初心者向けMongoDB入門」、「月間10億PVを支えるMongoDBアーキテクチャ」 </a> 2014/5/14（水）19:00 <a href="http://mongonouchi.doorkeeper.jp/events/10770">DoorKeeper</a>
+<a href="https://github.com/syokenz/marunouchi-mongodb/tree/master/20140717">丸の内MongoDB勉強会 #18 初心者向け：レプリケーション＋シャーディング」「MongoDB World@NewYork 報告会」「LT：MongoDB World 2014 プチ報告」 </a> 2014/7/17（木）19:00 <a href="http://mongonouchi.doorkeeper.jp/events/12813">DoorKeeper</a>
 </p>
 
 
@@ -109,6 +109,9 @@
 </li>
 <li>
 <a href="https://github.com/syokenz/marunouchi-mongodb/tree/master/20140319">丸の内MongoDB勉強会 #16 「がっつり事例紹介」 </a> 2014/3/19（水）19:00 <a href="http://atnd.org/events/48346">ATND</a>
+</li>
+<li>
+<a href="https://github.com/syokenz/marunouchi-mongodb/tree/master/20140514">丸の内MongoDB勉強会 #17 「初心者向けMongoDBのキホン！」「初心者向けMongoDB入門」「月間10億PVを支えるMongoDBアーキテクチャ」 </a> 2014/5/14（水）19:00 <a href="http://mongonouchi.doorkeeper.jp/events/10770">DoorKeeper</a>
 </li>
 
 </ul>
