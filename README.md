@@ -7,10 +7,11 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2014/05/14 19:00（水） [丸の内MongoDB勉強会 #17 「初心者向けMongoDBのキホン！」「初心者向けMongoDB入門」「月間10億PVを支えるMongoDBアーキテクチャ」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140514) 2014/5/14 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/10770)
+##### 2014/07/17 19:00（木） [丸の内MongoDB勉強会 #18 「初心者向け：レプリケーション＋シャーディング」「MongoDB World@NewYork 報告会」「LT：MongoDB World 2014 プチ報告」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140717) 2014/7/17 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/12813)
 
-#### ニュース
+#### お知らせ
 ##### gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載終了！ありがとうございました！
+##### ご発表いただいた資料はOpenStandiaのWebサイトからリンクを貼らせていただく場合があります。ご了承ください。
 
 ----
 #### MongoDB最初の1歩
@@ -58,6 +59,6 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 * [丸の内MongoDB勉強会 #14 「初心者向け：レプリケーション＋シャーディング」「もんごで自然言語処理！第一弾」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20131031) 2013/10/31 [ATND](http://atnd.org/events/44449)
 * [丸の内MongoDB勉強会 #15 「初心者向け：レプリケーション＋シャーディング（第14回のリベンジ）」「MongoDBと私（事例紹介）」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20131219) 2013/12/19 [ATND](http://atnd.org/events/46307)
 * [丸の内MongoDB勉強会 #16 「がっつり事例紹介」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140319) 2014/3/19 [ATND](http://atnd.org/events/48346)
-
+* [丸の内MongoDB勉強会 #17 「初心者向けMongoDBのキホン！」「初心者向けMongoDB入門」「月間10億PVを支えるMongoDBアーキテクチャ」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140514) 2014/5/14 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/10770)
 
 
