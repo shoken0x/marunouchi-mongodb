@@ -13,6 +13,7 @@
 
 # 流れ
 * 懇親会の出席を取る
+* [セキココへの登録](http://sekico.co/zaseki/353)
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
 * [初心者向け：レプリケーション＋シャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140717/a-hayashida)：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
 * [MongoDB World@NewYork 報告会]：[野村総合研究所 渡部徹太郎](https://twitter.com/fetarodc)
