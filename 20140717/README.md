@@ -10,6 +10,7 @@
 
 ![marunouchi.mongodb logo](http://syokenz.github.com/marunouchi-mongodb/images/mongodb_logo.png)
 
+[MongoDB World 2014に行ってきた！](http://www.slideshare.net/tetsutarowatanabe/mongodb-world-2014-37081258)
 
 # 流れ
 * 懇親会の出席を取る
