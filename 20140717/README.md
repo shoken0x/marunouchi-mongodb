@@ -17,7 +17,7 @@
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
 * [初心者向け：レプリケーション＋シャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140717/a-hayashida)：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
 * [MongoDB World@NewYork 報告会]：[野村総合研究所 渡部徹太郎](https://twitter.com/fetarodc)
-* [LT：MongoDB World 2014 プチ報告]：岩永 義弘さん
+* [LT：MongoDB World 2014 プチ報告](http://www.slideshare.net/YoshihiroIwanaga/mongodb-world-2014)：岩永 義弘さん
 * 懇親会へ
 
 
