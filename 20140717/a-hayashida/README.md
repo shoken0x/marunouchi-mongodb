@@ -35,4 +35,8 @@ $ ssh [担当hostのIP]
 * mongosへ問い合わせをしながら、どれか一台のmongodのマシンのNICを止めて落としてみましょう。
 * そのマシンを復活させてみましょう。
 
+個人的に試してみたい方へ
+-----------------
+玉川さん謹製レプリカセットお試しキットは[こちら](https://bitbucket.org/tamagawa_ryuji/mongodb_replicaset_playground_on_vagrant)
+
 答えの手順は[コチラ](https://github.com/syokenz/marunouchi-mongodb/blob/master/20140717/a-hayashida/answer.md)
