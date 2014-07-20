@@ -10,14 +10,12 @@
 
 ![marunouchi.mongodb logo](http://syokenz.github.com/marunouchi-mongodb/images/mongodb_logo.png)
 
-[MongoDB World 2014に行ってきた！](http://www.slideshare.net/tetsutarowatanabe/mongodb-world-2014-37081258)
-
 # 流れ
 * 懇親会の出席を取る
 * [セキココへの登録](http://sekico.co/zaseki/353)
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
 * [初心者向け：レプリケーション＋シャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140717/a-hayashida)：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
-* [MongoDB World@NewYork 報告会]：[野村総合研究所 渡部徹太郎](https://twitter.com/fetarodc)
+* [MongoDB World@NewYork 報告](http://www.slideshare.net/tetsutarowatanabe/mongodb-world-2014-37081258)：[野村総合研究所 渡部徹太郎](https://twitter.com/fetarodc)
 * [LT：MongoDB World 2014 プチ報告](http://www.slideshare.net/YoshihiroIwanaga/mongodb-world-2014)：岩永 義弘さん
 * 懇親会へ
 
