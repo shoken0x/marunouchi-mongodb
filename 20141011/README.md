@@ -23,5 +23,5 @@
 * [JavaScript Interface](http://docs.mongodb.org/manual/reference/javascript/)
 * [Command Reference](http://docs.mongodb.org/manual/reference/commands/)
 * [MongoDB API v2.0.6](http://api.mongodb.org/js/2.0.6/)
-* [MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb) [第3回　MongoDBのクエリを使いこなそう](http://gihyo.jp/dev/serial/01/mongodb/0003)
+* [MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)
 

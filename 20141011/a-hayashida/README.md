@@ -245,3 +245,4 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 [MongoDB公式マニュアル チュートリアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079135)  
 [MongoDB公式マニュアル 高度なクエリー](http://www.mongodb.org/pages/viewpage.action?pageId=6029357)  
 [MongoDB公式マニュアル インデックス](http://www.mongodb.org/pages/viewpage.action?pageId=5800049)
+[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb) [第3回　MongoDBのクエリを使いこなそう](http://gihyo.jp/dev/serial/01/mongodb/0003)
