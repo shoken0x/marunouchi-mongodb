@@ -53,8 +53,8 @@ mongotop
 ## mongodbの起動
 
 * mongodの起動
-** nojournalオプションでジャーナリングを無効化します（ディスク容量節約のため）。ジャーナリングについてはdoryokujinさんの[「MongoDBの新機能：ジャーナリングについて詳しく」](http://doryokujin.hatenablog.jp/entry/20110614/1308010072)に詳しく書かれています。
-** dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
+    * nojournalオプションでジャーナリングを無効化します（ディスク容量節約のため）。ジャーナリングについてはdoryokujinさんの[「MongoDBの新機能：ジャーナリングについて詳しく」](http://doryokujin.hatenablog.jp/entry/20110614/1308010072)に詳しく書かれています。
+    * dbpathオプションでdataディレクトリを指定します。指定しない場合は、/data/db または C:\data\db に作成しようとして、ディレクトリが無かった場合はエラーで起動しません。
 <pre>
 > mongod --nojournal --dbpath {path} //例 mongod --nojournal --dbpath C:\mongo\db
 </pre>
