@@ -14,7 +14,7 @@
 * 懇親会の出席を取る
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
 * [初心者向け：SQLと比較しながらクエリを学ぶ](https://github.com/syokenz/marunouchi-mongodb/tree/master/20141011/a-hayashida)：[野村総合研究所 林田敦](https://www.facebook.com/atsushi.hayashida.5)
-* MongoDBのindexについて：[野村総合研究所 渡部徹太郎](https://twitter.com/fetarodc)
+* [MongoDBのindexについて](https://github.com/syokenz/marunouchi-mongodb/blob/master/20141011/fetaro)：[野村総合研究所 渡部徹太郎](https://twitter.com/fetarodc)
 
 
 # 参考資料
