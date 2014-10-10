@@ -52,12 +52,23 @@
 
 ### 試してみよう
 
-データ百万件の挿入
+MongoDBに接続
+```
+$ mongo
+```
+
+１００万件のデータの準備
 
 ```
 ary = [] 
 for(var i = 0 ; i < 1000000; i++){ ary.push({number: i}) }
 ary.length
+=> 1000000であることを確認
+```
+
+データの挿入
+
+```
 db.col.insert(ary)
 ```
 
@@ -72,7 +83,6 @@ numberが2000のドキュメントを検索
 
 ```
 db.col.find({number:2000})
-{ "_id" : ObjectId("543696ae836e98b932c4c2b9"), "number" : 2000 }
 ```
 
 一見速いように見えるが、実は超遅い
@@ -81,6 +91,7 @@ explain()メソッドで、クエリの実行計画をみる
 
 ```
 db.col.find({number:2000}).explain()
+=>以下の出力
 {
         "cursor" : "BasicCursor",  ←Indexを使っていない
         "isMultiKey" : false,
@@ -103,12 +114,13 @@ db.col.find({number:2000}).explain()
 
 ```
 db.col.ensureIndex( { number : 1 } )
-{
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 2,
-        "ok" : 1
-}
+=>  "ok" : 1  を確認
+```
+
+インデックスを参照
+
+```
+db.col.getIndexes()
 ```
 
 再度検索
@@ -116,6 +128,7 @@ db.col.ensureIndex( { number : 1 } )
 ```
 db.col.find({number:2000})
 db.col.find({number:2000}).explain()
+=> 以下の出力
 {
         "cursor" : "BtreeCursor number_1",   ←name_1というB-Treeインデックスを使っている
         "isMultiKey" : false,
@@ -144,12 +157,61 @@ db.col.find({number:2000}).explain()
 
 速くなりました！
 
+
+### ソートを含むクエリとインデックス
+
+sort()や$orderbyオプションを含むクエリはソートするクエリです。
+この場合、ソートキーが先頭に来るような複合インデックスでなければクエリでは使われません。
+
+試してみよう
+
+データの挿入
+
+```
+db.hoge.insert({a:1, b:1, c:1})
+db.hoge.insert({a:2, b:3, c:1})
+db.hoge.insert({a:1, b:3, c:2})
+db.hoge.insert({a:2, b:1, c:3})
+db.hoge.insert({a:1, b:2, c:2})
+db.hoge.insert({a:2, b:2, c:1})
+
+db.hoge.find()
+```
+
+インデックスの有効化
+```
+db.hoge.ensureIndex({a:1,b:1,c:1})
+```
+
+このデータに対してbで絞り込んで、cで並び変える
+```
+db.hoge.find({b:2}).sort({c:1}).explain()
+{
+        "cursor" : "BasicCursor", ←インデックスを使っていない
+        ...
+        "scanAndOrder" : true,  ←外部ソートしている
+```
+
+
+このデータに対してbで絞り込んで、aで並び変える
+```
+db.hoge.find({b: {$gt:2}}).sort({a:1}).explain()
+{
+        "cursor" : "BtreeCursor a_1_b_1_c_1",  #インデックスを使っている
+        ...
+        "scanAndOrder" : false, ←外部ソートしていない
+```
+
+なぜ結果が違うのか？絵で見てみよう。
+
+[[ https://cacoo.com/diagrams/R4Y25Eg3s97bmNYx | height = 100px ]]
+
+
 ### 最後に
 
 今回は軽く触りを触れましたが、インデックスはまだまだ複雑です。
 特に以下のような状態ではインデックスはさらに複雑になります。
 
-* ソートを含むクエリと複合インデックス
 * 集計(aggregation)とインデックス
 * シャーディングとインデックス
 
