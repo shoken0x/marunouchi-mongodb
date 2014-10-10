@@ -204,7 +204,7 @@ db.hoge.find({b: {$gt:2}}).sort({a:1}).explain()
 
 なぜ結果が違うのか？絵で見てみよう。
 
-[[ https://cacoo.com/diagrams/R4Y25Eg3s97bmNYx | height = 100px ]]
+![my image](https://cacoo.com/diagrams/R4Y25Eg3s97bmNYx)
 
 
 ### 最後に
