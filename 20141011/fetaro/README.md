@@ -206,6 +206,7 @@ db.hoge.find({b: {$gt:2}}).sort({a:1}).explain()
 
 ![my image](https://cacoo.com/diagrams/R4Y25Eg3s97bmNYx-AE176.png?t=1412964193609)
 
+この外部ソートに32MByteのメモリ制限がある。16MBのドキュメントだとインデックスなしでは２つしかソートできない。
 
 ### 最後に
 
