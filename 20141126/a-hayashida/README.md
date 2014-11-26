@@ -103,7 +103,7 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 > show dbs  
 > use {db_name}  
 > show collections  
-> db.marunouchi.drop()  //コレクション全部を削除します  
+> db.marunouchi.drop({})  //コレクション全部を削除します  
 > show collections //確認、marunouchiは削除された  
 </pre>
 
@@ -206,20 +206,20 @@ MongoDBのデータベースは、選択してコレクションへ最初のド�
 </pre>
 
 ### UPDATE
-* mysql> update marunouchi set version = 7 where name = 'debian'
+* mysql> update marunouchi set stock = 11 where stock = 10
 <pre>
-> db.marunouchi.update({"name":"debian"},{$set:{"version":7}}) //$setがないと他のフィールドが消えてしまうので注意
+> db.marunouchi.update({"stock":10},{$set:{"stock":11}}) //$setがないと他のフィールドが消えてしまうので注意
 </pre>
 
 * _idが存在すればupdate、存在しなければinsert
 <pre>
-> db.marunouchi.save({"_id":ObjectId("xxxx"),"version":7})
+> db.marunouchi.save({"_id":ObjectId("xxxx"),"stock":20})
 </pre>
 
 ### DELETE
-* mysql> delete from marunouchi where name = 'centos'
+* mysql> delete from marunouchi where stock = 11
 <pre>
-> db.marunouchi.remove({"name":"centos"})
+> db.marunouchi.remove({"stock":11})
 </pre>
 
 ## INDEX
