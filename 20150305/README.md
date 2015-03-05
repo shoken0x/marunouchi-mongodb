@@ -15,7 +15,7 @@
 * [セキココへの登録](http://sekico.co/zaseki/454)
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
 * Couchbase Serverの紹介：Couchbase Japan株式会社　河村康爾
-* MongoDB の紹介とCouchbaseとの違い：野村総合研究所 OpenStandia　[渡部徹太郎](https://twitter.com/fetarodc)
+* [MongoDB の紹介とCouchbaseとの違い](https://docs.google.com/spreadsheets/d/1uGWFfLpmL9NNxgW_jUQoYb67xSCezZqNtKmNGFee10E/pubhtml)：野村総合研究所 OpenStandia　[渡部徹太郎](https://twitter.com/fetarodc)
 * 懇親会へ
 
 
