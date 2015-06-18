@@ -18,7 +18,6 @@
 * [MongoDBの基本]():野村総合研究所　渡部徹太郎
 * [MongoDBハンズオン](fetarodc/README.md):野村総合研究所　渡部徹太郎
 * [MongoDB World 2015レポート]: MongoDB,Inc認定コンサルタント　鈴木逸平
-* [MongoDB の紹介とCouchbaseとの違い](https://docs.google.com/spreadsheets/d/1uGWFfLpmL9NNxgW_jUQoYb67xSCezZqNtKmNGFee10E/pubhtml)：野村総合研究所 OpenStandia　[渡部徹太郎](https://twitter.com/fetarodc)
 * 懇親会へ
 
 
