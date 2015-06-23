@@ -72,7 +72,16 @@ connecting to: test
 > 　←これが出れば成功
 ```
 
-### CRUD
+### MongoDBのデータ構造
+
+```
+プロセス(mongod)
+└データベース
+　└コレクション
+　　└ドキュメント(JSON)
+```
+
+### 簡単なCRUD
 
 ドキュメントの挿入
 
@@ -92,61 +101,36 @@ db.col1.find()
 db.col1.update({},{$})
 ```
 
-
-
-## DBS
-* データベースを参照する // mysql> show databases
+* データベース一覧を参照する
 ```
 > show dbs
 ```
 
-* データベースを選択/作成する // mysql> use {db_name}; create database {db_name}  
-MongoDBのデータベースは、選択してコレクションへ最初のドキュメントをinsertしたタイミングで作成されます。
+* データベースを選択/作成する  
+MongoDBのデータベースは選択するだけでは作成されません。コレクションへ最初のドキュメントをinsertしたタイミングで作成されます。
 ```
-> use {db_name}
+> use mydb
 ```
 
-* データベースを削除する // mysql> drop database {db_name}
+* データベースを削除する 
 ```
-//useコマンドでデータベースを選択しておく    
+> use mydb    
 > db.dropDatabase()
 ```
 
-## COLLECTION
-* コレクションを参照/作成する // mysql> show tables; create table {table_name}(...)
+* コレクションを一覧を参照する
 ```
-> show dbs  
-> use {db_name}  
-> show collections  //コレクションが何も表示されなかったら適当にinsertする  
-> db.marunouchi.insert({"created_at":new Date()})  //現在時刻をinsert  
-> show collections //marunouchiが見えますか？
+> show collections
+もしくは
+> show tables
 ```
 
-* コレクションを削除する // mysql> drop table {table_name}
-```
-> show dbs  
-> use {db_name}  
-> show collections  
-> db.marunouchi.drop({})  //コレクション全部を削除します  
-> show collections //確認、marunouchiは削除された  
-```
-
-* コレクション内のデータを削除する // mysql> truncate table {table_name}
-```
-> db.marunouchi.insert({"created_at":new Date()})  
-> show collections  
-> db.marunouchi.remove() //コレクションの中のすべてのオブジェクトを削除します  
-> show collections //確認、marunouchiはまだある  
-```
-
-* descコマンドはありません // mysql> desc {table_name}
-
-## DOCUMENT
+## SQLと比較して覚える
 ### INSERT
 * mysql> insert into {table_name} values(...)
 ```
-> use {db_name}
-> db.marunouchi.insert({"created_at":new Date()})
+> use mydb
+> db.mycol.insert({"created_at":new Date()})
 > db["marunouchi"].insert({"created_at":new Date()}) //こんな書き方もできます 
 > for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i}) //for文も使えます
 ```
