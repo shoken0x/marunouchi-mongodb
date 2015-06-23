@@ -14,8 +14,8 @@
 * 懇親会の出席を取る
 * [セキココへの登録](http://sekico.co/zaseki/454)
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
-* [NoSQLの基本]():野村総合研究所　渡部徹太郎
-* [MongoDBの基本]():野村総合研究所　渡部徹太郎
+* [NoSQLの基本](http://openstandia.jp/pdf/150611db_tech_showcase_tokyo_e22.pdf):野村総合研究所　渡部徹太郎
+* MongoDBの基本:野村総合研究所　渡部徹太郎
 * [MongoDBハンズオン](fetarodc/README.md):野村総合研究所　渡部徹太郎
 * [MongoDB World 2015レポート]: MongoDB,Inc認定コンサルタント　鈴木逸平
 * 懇親会へ
