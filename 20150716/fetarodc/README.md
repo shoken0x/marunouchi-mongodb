@@ -1,4 +1,4 @@
-### MongoDBのダウンロード
+### MongoDB 3.0のダウンロード
 
 MongoDB公式サイトから環境に合ったMongoDB 3.0のZip用バイナリをダウンロードしておいてください。以下のリンクからも落とせます。
 
@@ -6,36 +6,38 @@ MongoDB公式サイトから環境に合ったMongoDB 3.0のZip用バイナリ�
 * [64bit MacOSX用MongoDB 3.0.4(Zip版)](https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.0.4.tgz)
 * [64bit Linux用MongoDB 3.0.4(Zip版)](https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.4.tgz)
 
-### MongoDBのインストール
+### MongoDB 3.0のインストール
 
 1. zipを解凍
 ```
-$MONGO_HOME
+(MongoDBを解凍したディレクトリ)
 └bin
- ├ mongod MongoDB本体
- ├ mongo MongoDBクライアント
+ ├ mongod #MongoDB本体
+ ├ mongo  #MongoDBクライアント
+ 
 ```
 
 2. データディレクトリの作成
 
 ```
-cd $MONGO_HOME
+cd (MongoDBを解凍したディレクトリ)
 mkdir data
 ```
 
-### MongoDBの起動
+### MongoDB 3.0の起動
+
+MongoDB 3.0を新しいストレージエンジンのWiredTigerで起動する。
+新しいストレージエンジンの方が90%近くディスク使用量を削減できるのでオススメです。
 
 Windowsの場合
 
 ```
-cd $MONGO_HOME
 bin\mongod --dbpath data --nojournal --storageEngine wiredTiger
 ```
 
 Linux, MacOSXの場合
 
 ```
-cd $MONGO_HOME
 bin/mongod --dbpath data --nojournal --storageEngine wiredTiger
 ```
 
@@ -49,27 +51,28 @@ bin/mongod --dbpath data --nojournal --storageEngine wiredTiger
 
 ### MongoDBへの接続
 
-もう一つコンソールを立ち上げる
+もう一つコンソールを立ち上げて、MongoDBに接続する。
 
 Windowsの場合
 
 ```
-cd $MONGO_HOME
+cd (MongoDBを解凍したディレクトリ)
 bin\mongo
 ```
 
 Linux, MacOSXの場合
 
 ```
-cd $MONGO_HOME
+cd (MongoDBを解凍したディレクトリ)
 bin/mongo
 ```
 
+以下のようにコマンド待ち受けになれば成功
 
 ```
 MongoDB shell version: 3.0.4
 connecting to: test
-> 　←これが出れば成功
+> 
 ```
 
 ### MongoDBのデータ構造
@@ -82,185 +85,240 @@ connecting to: test
 ```
 
 ### データ定義 DDL
-* データベース一覧を参照する
+
+データベース一覧を参照する
+
 ```
 > show dbs
 ```
 
-* データベースを選択/作成する  
+データベースを選択/作成する 
 MongoDBのデータベースは選択するだけでは作成されません。コレクションへ最初のドキュメントをinsertしたタイミングで作成されます。
+
 ```
 > use mydb
 ```
 
-* データベースを削除する 
-```
-> use mydb
-> db.dropDatabase()
-```
-
-* コレクションを一覧を参照する
+コレクションを一覧を参照する
 ```
 > show collections
 もしくは
 > show tables
 ```
 
-### データ操作 DML
+### データ操作 (DML)
+
 #### INSERT
 
-`SQL: INSERT INTO{table_name} VALUES(...)`
+データを挿入します。
+対応するSQLは `INSERT INTO mycol VALUES(...)`です。
 
 ```
 > use mydb
 > db.mycol.insert({a:1})
-> db.mycol.insert({"created_at":new Date()})
-> db["mycol"].insert({b:1}) //こんな書き方もできます 
+
+WriteResult({ "nInserted" : 1 }) //これが出れば成功。
+```
+
+```
+> db.mycol.insert({"created_at":new Date()}) //関数が使えます
 > for(var i=1; i<=20; i++) db.mycol.insert({"stock":i}) //for文も使えます
 ```
 
+豆知識：mongo shellはbashと同じキーバインドです。
 
 #### SELECT
 
-`SQL: SELECT count(*) FROM mycol`
+データの件数をカウントします。
+対応するSQLは `SELECT count(*) FROM mycol` です。
 
 ```
 > db.mycol.count()
 ```
 
-`SQL: SELECT * FROM mycol`
+データを選択します。
+対応するSQLは`SELECT * FROM mycol`です。
 
 ```
 > db.mycol.find()
 ```
 
-has more と表示されたら
-```
-> it //iterator
-```
-
-find()で20件以上表示させたい
-```
-> DBQuery.shellBatchSize = 300
-もしくは
-> db.mycol.find().toArray()
-> db.mycol.find().toArray().forEach(printjsononeline)
-```
-
-
-1件表示
-
-SQL: SELECT * FROM mycol limit 1
+`Type "it" for more`と表示されたら
 
 ```
-> db.mycol.findOne()
+> it
 ```
+とうつと、次が表示されます。
 
-厳密には、一件表示させるだけでなく、データそのものを取得している。
+表示件数の制限
 
-```
-> a = db.mycol.find() // -> DBのカーソルが返却される
-> a
-> a
-> b = db.mycol.findOne() // -> JSONが返却される
-> b
-```
-
-`SQL: SELECT * FROM mycol limit 5`
+`SELECT * FROM mycol limit 1`
 
 ```
-> db.mycol.find().limit(5)
+> db.mycol.find().limit(1)
 ```
 
-`SQL: SELECT _id FROM mycol`
+射影します。
+
+`SELECT _id FROM mycol`
 ```
 > db.mycol.find({},{"_id":1})  
 > db.mycol.find({},{"created_at":1}) //_id フィールドは常に表示される  
 > db.mycol.find({},{"_id":0,"created_at":1}) //0で非表示に  
 ```
 
-`SQL: SELECT _id FROM where stock = 10`
+条件をつけて検索します。
+`SELECT _id FROM mycol WHERE stock = 10`
 ```
 > db.mycol.find({"stock":10}, {"_id":1})
 ```
 
-`SQL: SELECT _id FROM where stock {>, <, >=, <=} 10`
+数値の範囲を条件とします
+`SELECT _id FROM mycol WHERE stock > 10`
 ```
 > db.mycol.find({ "stock": { $gt:  10 } }, { "_id": 1 })
-> db.mycol.find({ "stock": { $lt:  10 } }, { "_id": 1 })
-> db.mycol.find({ "stock": { $gte: 10 } }, { "_id": 1 })
-> db.mycol.find({ "stock": { $lte: 10 } }, { "_id": 1 })
 ```
-
-JSON形式で表示
-```
-> db.mycol.find().forEach(printjson)
-> db.mycol.find().forEach(printjsononeline)
-```
-
-
-toArray
-```
-> db.mycol.find().toArray()
-```
-
-ちょっと脱線 
-
-複雑なドキュメントを入れてみる
-
-MongoShellはjavascriptである
-
-ハッシュであるdbのキー一覧を表示してみる
-```
-> for(var k in db) print(k)
-> //versionというキーあり、呼んでみる
-> db.version
-> db.version()
-```
-
-
 
 
 ### UPDATE
 
-`SQL: update mycol set stock = 11 where stock = 10`
+`UPDATE mycol SET stock = 11 WHERE stock = 10`
 ```
 > db.mycol.update({"stock":10},{$set:{"stock":11}}) //$setがないと他のフィールドが消えてしまうので注意
 ```
 
-`_idが存在すればupdate、存在しなければinsert`
+_idが存在すればupdate、存在しなければinsert
 ```
 > db.mycol.save({"_id":ObjectId("xxxx"),"stock":20})
 ```
 
 ### DELETE
-`SQL: delete FROM mycol where stock = 11`
+
+`DELETE FROM mycol WHERE stock = 11`
 
 ```
 > db.mycol.remove({"stock":11})
 ```
 
-## INDEX
-* INDEX参照
+## Mongo Shell ならではのコマンド
+
+### findOne()
+
+ドキュメントを１件を取得
+
 ```
-> db.system.indexes.find()
+> db.mycol.findOne()
 ```
 
-* INDEX作成
+### findOne()とfind().limit(1)の違い
+
+find()はカーソルが返却され、findOne()はドキュメントそのものが返却されます
+
 ```
-> db.mycol.ensureIndex({"stock":1})
+> doc1 = db.mycol.find().limit(1) // -> DBのカーソルが返却される
+> doc1
+
+> doc2 = db.mycol.findOne() // -> JSONが返却される
+> doc2
 ```
 
-* INDEX削除
+find()メソッドの戻り値はカーソルです。
+カーソルは検索結果の位置を示すものです。
+例えば100万件あるときにfind()して100万件全件帰ってくると、性能が劣化します。
+MongoDBではデフォルトでは20件づつデータを取ってきます。
+`it`をうつとカーソルが進み、次の20件をとりに行きます。
+
+find()で20件以上取得したい場合は以下のようにします。
 ```
-> db.mycol.dropIndex({"stock":1})  
-> db.mycol.dropIndexes() //全て削除  
+> DBQuery.shellBatchSize = 300
+
 ```
 
-##参考サイト
+手っ取り早く全件表示したい場合は.toArray()をつけます。
+```
+> db.mycol.find().toArray()
+```
 
-* [SQL脳に優しいMongoDBクエリー入門](http://d.hatena.ne.jp/taka512/20110220/1298195574)  
-* [MongoDB公式マニュアル チュートリアル](http://www.mongodb.org/pages/viewpage.action?pageId=5079135)  
-* [MongoDB公式マニュアル 高度なクエリー](http://www.mongodb.org/pages/viewpage.action?pageId=6029357)  
-* [MongoDB公式マニュアル インデックス](http://www.mongodb.org/pages/viewpage.action?pageId=5800049)
-* [MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb) [第3回　MongoDBのクエリを使いこなそう](http://gihyo.jp/dev/serial/01/mongodb/0003)
+### cursol.forEach
+
+検索結果の中身を関数で処理します
+```
+> db.team.insert({ name : "watanabe", age : 32 })
+> db.team.insert({ name : "kitazawa", age : 28 })
+> db.team.insert({ name : "hayashida", age : 30 })
+> db.team.find()
+> db.team.find().forEach( function(doc) { print( "name is " + doc.name ); } );
+```
+
+### cursol.map
+
+検索結果の中身を関数で評価し、配列にして返却します
+```
+> db.team.find().map( function(doc) { return doc.age } )
+```
+
+### mongoshell はjavascript
+forやfunctionやtoArray()でピンときた人はきたでしょう。
+
+Mongo shellはjavascriptです。
+
+```
+> 1 + 1
+> var doc = {a:3}
+> db.hoge.insert(doc)
+```
+
+javascriptでは()をつけずに関数を実行すると関数そのものが観れます。
+```
+> db.mycol.find
+```
+
+## 複雑なドキュメントを入れてみる
+
+
+## 集計してみる
+
+[公式のサンプル](http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/)を利用して、集計を試してみる。
+まず、以下の元データをダウンロード。
+
+```
+wget http://media.mongodb.org/zips.json
+````
+
+mongoimportコマンドでインポートする
+
+```
+# bin/mongoimport zips.json
+2015-07-14T23:20:14.649+0900	no collection specified
+2015-07-14T23:20:14.650+0900	using filename 'zips' as collection
+2015-07-14T23:20:14.660+0900	connected to: localhost
+2015-07-14T23:20:15.735+0900	imported 29353 documents
+```
+
+```
+> db.zips.count()
+29353
+> db.zips.find()
+```
+
+```
+db.zips.aggregate( [
+   { $group: { _id: "$state", totalPop: { $sum: "$pop" } } },
+   { $match: { totalPop: { $gte: 10*1000*1000 } } }
+] )
+
+{ "_id" : "CA", "totalPop" : 29754890 }
+{ "_id" : "TX", "totalPop" : 16984601 }
+{ "_id" : "FL", "totalPop" : 12686644 }
+{ "_id" : "PA", "totalPop" : 11881643 }
+{ "_id" : "OH", "totalPop" : 10846517 }
+{ "_id" : "IL", "totalPop" : 11427576 }
+{ "_id" : "NY", "totalPop" : 17990402 }
+```
+
+```
+SELECT state, SUM(pop) AS totalPop
+FROM zipcodes
+GROUP BY state
+HAVING totalPop >= (10*1000*1000)
+```
