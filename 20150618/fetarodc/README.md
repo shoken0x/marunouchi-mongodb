@@ -81,26 +81,7 @@ connecting to: test
 　　└ドキュメント(JSON)
 ```
 
-### 簡単なCRUD
-
-ドキュメントの挿入
-
-```
-db.col1.insert({a:1})
-```
-
-ドキュメントの検索
-
-```
-db.col1.find()
-```
-
-ドキュメントの更新
-
-```
-db.col1.update({},{$})
-```
-
+### データ定義 DDL
 * データベース一覧を参照する
 ```
 > show dbs
@@ -114,7 +95,7 @@ MongoDBのデータベースは選択するだけでは作成されません。�
 
 * データベースを削除する 
 ```
-> use mydb    
+> use mydb
 > db.dropDatabase()
 ```
 
@@ -125,19 +106,111 @@ MongoDBのデータベースは選択するだけでは作成されません。�
 > show tables
 ```
 
-## SQLと比較して覚える
-### INSERT
-* mysql> insert into {table_name} values(...)
+### データ操作 DML
+#### INSERT
+
+`SQL: INSERT INTO{table_name} VALUES(...)`
+
 ```
 > use mydb
+> db.mycol.insert({a:1})
 > db.mycol.insert({"created_at":new Date()})
-> db["marunouchi"].insert({"created_at":new Date()}) //こんな書き方もできます 
-> for(var i=1; i<=20; i++) db.marunouchi.insert({"stock":i}) //for文も使えます
+> db["mycol"].insert({b:1}) //こんな書き方もできます 
+> for(var i=1; i<=20; i++) db.mycol.insert({"stock":i}) //for文も使えます
 ```
 
 
-#### ちょっと脱線 
-* ハッシュであるdbのキー一覧を表示してみる
+#### SELECT
+
+`SQL: SELECT count(*) FROM mycol`
+
+```
+> db.mycol.count()
+```
+
+`SQL: SELECT * FROM mycol`
+
+```
+> db.mycol.find()
+```
+
+has more と表示されたら
+```
+> it //iterator
+```
+
+find()で20件以上表示させたい
+```
+> DBQuery.shellBatchSize = 300
+もしくは
+> db.mycol.find().toArray()
+> db.mycol.find().toArray().forEach(printjsononeline)
+```
+
+
+1件表示
+
+SQL: SELECT * FROM mycol limit 1
+
+```
+> db.mycol.findOne()
+```
+
+厳密には、一件表示させるだけでなく、データそのものを取得している。
+
+```
+> a = db.mycol.find() // -> DBのカーソルが返却される
+> a
+> a
+> b = db.mycol.findOne() // -> JSONが返却される
+> b
+```
+
+`SQL: SELECT * FROM mycol limit 5`
+
+```
+> db.mycol.find().limit(5)
+```
+
+`SQL: SELECT _id FROM mycol`
+```
+> db.mycol.find({},{"_id":1})  
+> db.mycol.find({},{"created_at":1}) //_id フィールドは常に表示される  
+> db.mycol.find({},{"_id":0,"created_at":1}) //0で非表示に  
+```
+
+`SQL: SELECT _id FROM where stock = 10`
+```
+> db.mycol.find({"stock":10}, {"_id":1})
+```
+
+`SQL: SELECT _id FROM where stock {>, <, >=, <=} 10`
+```
+> db.mycol.find({ "stock": { $gt:  10 } }, { "_id": 1 })
+> db.mycol.find({ "stock": { $lt:  10 } }, { "_id": 1 })
+> db.mycol.find({ "stock": { $gte: 10 } }, { "_id": 1 })
+> db.mycol.find({ "stock": { $lte: 10 } }, { "_id": 1 })
+```
+
+JSON形式で表示
+```
+> db.mycol.find().forEach(printjson)
+> db.mycol.find().forEach(printjsononeline)
+```
+
+
+toArray
+```
+> db.mycol.find().toArray()
+```
+
+ちょっと脱線 
+
+複雑なドキュメントを入れてみる
+
+MongoShellはjavascriptである
+
+ハッシュであるdbのキー一覧を表示してみる
 ```
 > for(var k in db) print(k)
 > //versionというキーあり、呼んでみる
@@ -146,89 +219,25 @@ MongoDBのデータベースは選択するだけでは作成されません。�
 ```
 
 
-### SELECT
-* mysql> select count(*) from marunouchi
-```
-> db.marunouchi.count()
-```
 
-* mysql> select * from marunouchi
-```
-> db.marunouchi.find()
-```
-
-* has more と表示されたら
-```
-> it //iterator
-```
-
-* find()で20件以上表示させたい
-```
-> DBQuery.shellBatchSize = 300  
-もしくは  
-> db.marunouchi.find().toArray()  
-> db.marunouchi.find().toArray().forEach(printjsononeline)  
-```
-
-
-* とりあえず1件表示 // mysql> select * from marunouchi limit 1
-```
-> db.marunouchi.findOne()
-```
-
-* mysql> select * from marunouchi limit 5
-```
-> db.marunouchi.find().limit(5)
-```
-
-* mysql> select _id from marunouchi
-```
-> db.marunouchi.find({},{"_id":1})  
-> db.marunouchi.find({},{"created_at":1}) //_id フィールドは常に表示される  
-> db.marunouchi.find({},{"_id":0,"created_at":1}) //0で非表示に  
-```
-
-* mysql> select _id from where stock = 10
-```
-> db.marunouchi.find({"stock":10}, {"_id":1})
-```
-
-* mysql> select _id from where stock {>, <, >=, <=} 10
-```
-> db.marunouchi.find({ "stock": { $gt:  10 } }, { "_id": 1 })
-> db.marunouchi.find({ "stock": { $lt:  10 } }, { "_id": 1 })
-> db.marunouchi.find({ "stock": { $gte: 10 } }, { "_id": 1 })
-> db.marunouchi.find({ "stock": { $lte: 10 } }, { "_id": 1 })
-```
-
-* JSON形式で表示
-```
-> db.marunouchi.find().forEach(printjson)
-> db.marunouchi.find().forEach(printjsononeline)
-```
-
-
-* toArray
-```
-> db.marunouchi.find().toArray()
-```
 
 ### UPDATE
-* mysql> update marunouchi set stock = 11 where stock = 10
+
+`SQL: update mycol set stock = 11 where stock = 10`
 ```
-> db.marunouchi.update({"stock":10},{$set:{"stock":11}}) //$setがないと他のフィールドが消えてしまうので注意
+> db.mycol.update({"stock":10},{$set:{"stock":11}}) //$setがないと他のフィールドが消えてしまうので注意
 ```
 
-* _idが存在すればupdate、存在しなければinsert
+`_idが存在すればupdate、存在しなければinsert`
 ```
-> db.marunouchi.save({"_id":ObjectId("xxxx"),"stock":20})
+> db.mycol.save({"_id":ObjectId("xxxx"),"stock":20})
 ```
 
 ### DELETE
-* mysql> delete from marunouchi where stock = 11
+`SQL: delete FROM mycol where stock = 11`
 
 ```
-> db.marunouchi.remove({"stock":11})
+> db.mycol.remove({"stock":11})
 ```
 
 ## INDEX
@@ -239,13 +248,13 @@ MongoDBのデータベースは選択するだけでは作成されません。�
 
 * INDEX作成
 ```
-> db.marunouchi.ensureIndex({"stock":1})
+> db.mycol.ensureIndex({"stock":1})
 ```
 
 * INDEX削除
 ```
-> db.marunouchi.dropIndex({"stock":1})  
-> db.marunouchi.dropIndexes() //全て削除  
+> db.mycol.dropIndex({"stock":1})  
+> db.mycol.dropIndexes() //全て削除  
 ```
 
 ##参考サイト
