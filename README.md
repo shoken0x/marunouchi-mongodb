@@ -7,7 +7,7 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 
 ----
 #### 開催予定
-##### 2015/3/5（木）19:00 - 20:30 [丸の内MongoDB勉強会 #21「Couchbase Serverの紹介」「MongoDB の紹介とCouchbaseとの違い」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20150305) 2015/03/05 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/20380)
+##### 2015/7/16（木）19:00 - 20:30 [丸の内MongoDB勉強会 #22 「初心者向け：MongoDBの基礎とハンズオン(ver3対応)」と「MongoDB World 2015レポート」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20150716) 2015/7/16[DoorKeeper](https://mongonouchi.doorkeeper.jp/events/26940)
 
 #### お知らせ
 ##### gihyo.jpで「[MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)」連載終了！ありがとうございました！
@@ -35,11 +35,6 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 [MongoDBでゆるふわDB体験](http://gihyo.jp/dev/serial/01/mongodb)
 
 ----
-#### 今後取り組みたいテーマ
-* oplog
-* パフォーマンスチューニング
-
-----
 #### 開催記録
 * [丸の内MongoDB勉強会 #1 SQLと比較しながらクエリを学ぶ&RubyからMongoDBを触ってみる](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120730) 2012/07/30 [ATND](http://atnd.org/events/30595)
 * [丸の内MongoDB勉強会 #2 みんなでシャーディング](https://github.com/syokenz/marunouchi-mongodb/tree/master/20120828) 2012/08/28 [ATND](http://atnd.org/events/31234)
@@ -61,3 +56,4 @@ The guide of meetup MongoDB in Marunouchi Tokyo.
 * [丸の内MongoDB勉強会 #18 「初心者向け：レプリケーション＋シャーディング」「MongoDB World@NewYork 報告会」「LT：MongoDB World 2014 プチ報告」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20140717) 2014/7/17 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/12813)
 * [丸の内MongoDB勉強会 #19 in もんご祭り「初心者向け：SQLと比較しながらクエリを学ぶ」「MongoDBのindexについて」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20141011) 2014/10/11 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/16116)
 * [丸の内MongoDB勉強会 #20 「初心者向け：SQLと比較しながらクエリを学ぶハンズオン」「MMS、特に新機能『Automation』について」「LT:MongoDB 2.8RC0のストレージエンジンについて」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20141126) 2014/11/26 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/17213)
+* [丸の内MongoDB勉強会 #21「Couchbase Serverの紹介」「MongoDB の紹介とCouchbaseとの違い」](https://github.com/syokenz/marunouchi-mongodb/tree/master/20150305) 2015/03/05 [DoorKeeper](http://mongonouchi.doorkeeper.jp/events/20380)
