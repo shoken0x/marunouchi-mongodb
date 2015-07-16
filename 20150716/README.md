@@ -12,7 +12,7 @@
 
 # 流れ
 * 懇親会の出席を取る
-* [セキココへの登録](http://sekico.co/zaseki/454)
+* [セキココへの登録](http://sekico.co/zaseki/548)
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
 * [MongoDBのキホン](https://www.slideshare.net/tetsutarowatanabe/mongo-db-32210761):渡部徹太郎
 * [MongoDBハンズオン](fetarodc/README.md):渡部徹太郎
