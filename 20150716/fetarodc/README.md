@@ -60,7 +60,7 @@ bin/mongod --dbpath data --nojournal
 オプションの説明
 
 * --dbpath : データディレクトリの場所.指定しないと`/data/db`や`c:\data\db`を利用する。
-* --nojournal : ディスク先行書き込み(journal)を無効にする。これをしないとデータ容量を食います。
+* --nojournal : ディスク先行書き込み(journal)を無効にする。これによりディスク使用量を削減できるので入れました。
 
 #### MongoDBをWiredTigerで起動する（オプション）
 
@@ -153,6 +153,7 @@ show tables
 #### INSERT
 
 データを挿入します。
+
 `SQL: INSERT INTO mycol ('a') VALUES(1)`
 
 ```
@@ -161,19 +162,27 @@ db.mycol.insert({a:1})
 ```
 
 `WriteResult({ "nInserted" : 1 }) `が出れば成功。
+
 `db`は今選択しているDB「mydb」のオブジェクト
+
 `mycol`はコレクションの名前を指定して、コレクションオブジェクトを取得
 
+関数が使えます
+
 ```
-//関数が使えます
 db.mycol.insert({"created_at":new Date()})
-//for文も使えます
+```
+
+for文も使えます
+
+```
 for(var i=1; i<=10; i++) db.mycol.insert({"stock":i}) 
 ```
 
 #### SELECT
 
 選択
+
 `SQL: SELECT * FROM mycol`
 
 ```
@@ -181,6 +190,7 @@ db.mycol.find()
 ```
 
 ドキュメントの件数をカウント
+
 `SQL: SELECT count(*) FROM mycol` 
 
 ```
@@ -188,7 +198,9 @@ db.mycol.count()
 ```
 
 条件をつけて検索
+
 `SQL: SELECT * FROM mycol WHERE stock = 5`
+
 `SQL: SELECT * FROM mycol WHERE stock > 5`
 
 ```
@@ -220,7 +232,7 @@ db.mycol.find().sort({stock: -1}).limit(1)
 ```
 //２つ目の引数に射影するキー名を指定
 db.mycol.find({},{"_id":1})
-//_id フィールドは常に表示される
+//created_atだけを射影しても_id フィールドは常に表示される
 db.mycol.find({},{"created_at":1})
 //0で非表示に
 db.mycol.find({},{"_id":0,"created_at":1}) 
@@ -231,14 +243,18 @@ db.mycol.find({},{"_id":0,"created_at":1})
 
 ### UPDATE
 
+更新
+
 `UPDATE mycol SET stock = 11 WHERE stock = 5`
+
 ```
 db.mycol.update({"stock":5},{$set:{"stock":11}})
 ```
 
-`$set`がない場合はドキュメント全体の置き換え。つまりと他のフィールドが消えてしまうので注意
+※`$set`がない場合はドキュメント全体の置き換え。つまりと他のフィールドが消えてしまうので注意
 
 _idが存在すればupdate、存在しなければinsert
+
 ```
 db.mycol.save({"_id":ObjectId("xxxx"),"stock":20})
 ```
@@ -279,15 +295,16 @@ find()メソッドの戻り値はカーソルです。
 カーソルは検索結果の位置を示すものです。
 例えば100万件あるときにfind()して100万件全件帰ってくると、性能が劣化します。
 MongoDBではデフォルトでは20件づつドキュメントを取ってきます。
-`it`をうつとカーソルが進み、次の20件をとりに行きます。
+`it`をうつとカーソルが進み、次の20件をとりに行きます。これをgetMoreといいます。
 
-find()で20件以上取得したい場合は以下のようにします。
+カーソルの取得件数を変えたい場合は以下のようにします。
+
 ```
 DBQuery.shellBatchSize = 300
-
 ```
 
 手っ取り早く全件表示したい場合は.toArray()をつけます。
+
 ```
 db.mycol.find().toArray()
 ```
