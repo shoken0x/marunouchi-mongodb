@@ -16,7 +16,11 @@
 * [丸の内MongoDB勉強会とは](http://rinrin0108.github.io/slides/mongonouchi/#0)
 * [MongoDBのキホン](https://www.slideshare.net/tetsutarowatanabe/mongo-db-32210761):渡部徹太郎
 * [MongoDBハンズオン](fetarodc/README.md):渡部徹太郎
-* [MongoDB World 2015レポート]: MongoDB,Inc認定コンサルタント　鈴木逸平
+* MongoDB World 2015レポート: MongoDB,Inc認定コンサルタント　鈴木逸平
+ * [MongoDB World 2015 Keynote: Dev Ittycheria, Elliott Horowitz(part1)](https://www.evernote.com/l/ABVCk0Cx0O9N64dDScAklBn9jwPvFl9lOyA)
+ * [MongoDB World 2015 Keynote: Dev Ittycheria, Elliott Horowitz (part2)](https://www.evernote.com/l/ABU3ZSvOqGtPZYFkIlBrupuesFtzkzuvK50)
+ * [MongoDB World 2015 Keynote: Dev Ittycheria, Elliott Horowitz (part3)](https://www.evernote.com/l/ABXCjbA83XdKn4nYJxlm_KJmlmx8k5ifoyk)
+ 
 * 懇親会へ
 
 
